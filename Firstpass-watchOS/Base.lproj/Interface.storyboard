@@ -1,0 +1,856 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="17506" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c9J-Re-774">
+    <device id="watch42"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="17500"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--InterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="InterfaceController" backgroundImage="bg" id="AgC-eL-Hgc">
+                    <items>
+                        <group width="1" alignment="center" verticalAlignment="center" layout="overlap" id="L08-AJ-Q3T">
+                            <items>
+                                <imageView alignment="center" verticalAlignment="center" image="logo" id="N80-Iy-jZ0"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Firstpass_watchOS" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Firstpass_watchOS" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="GOS-3M-x5l">
+            <objects>
+                <controller id="XZC-EC-oDL">
+                    <items>
+                        <group alignment="center" verticalAlignment="center" layout="overlap" id="P9Z-ix-eMa">
+                            <items>
+                                <imageView alignment="center" verticalAlignment="center" image="bg-1" id="hMk-ZZ-IIh"/>
+                                <imageView alignment="center" verticalAlignment="center" image="logo" id="Sha-Pb-eh0"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="468" y="30"/>
+        </scene>
+        <!--Checkin Interface Controller-->
+        <scene sceneID="PUn-Ea-hxC">
+            <objects>
+                <controller id="Xnh-p6-a2f" customClass="CheckinInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="1" heightAdjustment="20" alignment="center" id="D73-Zg-kZg">
+                            <items>
+                                <group width="0.80000000000000004" height="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="4" id="It0-e3-yoV">
+                                    <items>
+                                        <label width="1" height="0.20000000000000001" alignment="right" text="Cardiology" id="7Sc-Kf-ZBK">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                        <group width="1" alignment="left" layout="vertical" spacing="14" id="kRT-Dp-40g">
+                                            <items>
+                                                <group width="1" alignment="center" layout="vertical" spacing="7" id="GZc-7S-hSW">
+                                                    <items>
+                                                        <group width="1" alignment="left" spacing="10" id="6V8-sK-Z0g">
+                                                            <items>
+                                                                <imageView alignment="left" image="date-1" id="nXR-gz-89b"/>
+                                                                <label alignment="left" text="12.05.2021" id="Qqr-6C-Mwv">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="left" spacing="10" id="b5a-o0-cgg">
+                                                            <items>
+                                                                <imageView alignment="left" image="time-1" id="gB0-fO-d51"/>
+                                                                <label alignment="left" text="03:00 PM" id="I3S-aQ-l4W">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="left" spacing="10" id="4AE-WJ-cg6">
+                                                            <items>
+                                                                <imageView alignment="left" image="doctor-12" id="Azy-z9-F6g"/>
+                                                                <label alignment="left" text="Alisha Sundar" id="e11-R8-Ua9">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                    </items>
+                                                </group>
+                                                <group width="1" alignment="left" layout="vertical" spacing="10" id="zmc-D5-B7z">
+                                                    <items>
+                                                        <group width="1" alignment="left" spacing="4" id="eKH-Wt-W7a">
+                                                            <items>
+                                                                <label alignment="left" text="Wait time:" id="V2U-ku-gr6">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                                <label alignment="left" text="05 mins" id="dcR-tz-tB2">
+                                                                    <color key="textColor" red="0.91399997470000005" green="0.52499997620000005" blue="0.0" alpha="0.9327859436" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="center" verticalAlignment="center" id="kG6-eu-ZUp">
+                                                            <items>
+                                                                <button width="1" height="32" alignment="center" verticalAlignment="center" title="Check in" id="uXv-sd-a50">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" red="0.91399997470000005" green="0.52499997620000005" blue="0.0" alpha="0.9327859436" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                                                </button>
+                                                            </items>
+                                                        </group>
+                                                    </items>
+                                                </group>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" name="Background"/>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="692" y="34"/>
+        </scene>
+        <!--TokenInterfaceController-->
+        <scene sceneID="mh5-xB-Hjf">
+            <objects>
+                <controller identifier="TokenInterfaceController" id="AJs-cD-1xD" customClass="TokenInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="120" alignment="left" layout="vertical" id="bgo-h8-m1D">
+                            <items>
+                                <group width="136" height="24" alignment="left" contentMode="scaleAspectFit" spacing="0.0" id="maN-uG-hkS">
+                                    <items>
+                                        <imageView width="14" height="18" alignment="center" image="logo" id="JGN-5N-dhD"/>
+                                        <label height="19" alignment="center" text="First Pass" id="7uO-kK-vtn">
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <separator height="27" alignment="left" id="jiY-7c-jA2">
+                                    <color key="color" red="0.76071679589999996" green="0.76082754139999997" blue="0.76069265600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </separator>
+                                <group width="1" height="84" alignment="left" layout="vertical" id="hJ6-nr-Reh">
+                                    <items>
+                                        <label width="1" alignment="left" text="Your token number is" textAlignment="center" id="5KC-hU-J8e">
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="center" verticalAlignment="center" text="CRD002" id="sT8-gT-9TD">
+                                            <color key="textColor" red="0.9137254901960784" green="0.52549019607843139" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="27"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" red="0.11372549019607843" green="0.11372549019607843" blue="0.11372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        </group>
+                        <button width="1" alignment="left" title="Dismiss" id="Chl-k2-fC5">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                            <connections>
+                                <action selector="DismissPressed" destination="AJs-cD-1xD" id="Kj3-wh-QFc"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="920" y="25"/>
+        </scene>
+        <!--TokenBeingCalledController-->
+        <scene sceneID="R7c-z3-FTE">
+            <objects>
+                <controller identifier="TokenBeingCalledController" id="wRu-bc-D2q" customClass="TokenBeingCalledController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="122" alignment="left" layout="vertical" id="Bas-LF-qfA">
+                            <items>
+                                <group width="136" height="24" alignment="left" contentMode="scaleAspectFit" spacing="0.0" id="aq4-aX-EZZ">
+                                    <items>
+                                        <imageView width="14" height="18" alignment="center" image="logo" id="Zme-7O-DJP"/>
+                                        <label height="19" alignment="center" text="First Pass" id="baj-i9-DJx">
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <separator height="27" alignment="left" id="iBA-xJ-aMR">
+                                    <color key="color" red="0.76071679589999996" green="0.76082754139999997" blue="0.76069265600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </separator>
+                                <group width="1" height="61" alignment="left" layout="vertical" id="mUj-An-ee6">
+                                    <items>
+                                        <label width="1" alignment="left" text="Your token number CRD002 is being called on " textAlignment="center" numberOfLines="0" id="4HE-9u-Sg9">
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="center" verticalAlignment="center" text="Counter no. 05" id="aWv-5T-aKh">
+                                            <color key="textColor" red="0.91372549020000005" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="18"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <label alignment="center" text="Please visit!" textAlignment="center" id="zA3-n6-KVv">
+                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" red="0.1137254902" green="0.1137254902" blue="0.1137254902" alpha="1" colorSpace="calibratedRGB"/>
+                        </group>
+                        <button width="1" alignment="left" title="Dismiss" id="oZP-2f-gxq">
+                            <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                            <connections>
+                                <action selector="dismisstokenbeingCalled" destination="wRu-bc-D2q" id="786-9P-t8G"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1141" y="23"/>
+        </scene>
+        <!--PhramacyActionView-->
+        <scene sceneID="Sy2-4n-JVR">
+            <objects>
+                <controller identifier="PhramacyActionView" id="9xk-i2-dqY" customClass="PhramacyActionView" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" spacing="4" id="Pe6-KC-wGb">
+                            <items>
+                                <button width="18" height="18" alignment="left" backgroundImage="back_left" id="PtA-FM-wZ8">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </button>
+                                <label width="1" alignment="left" text="You have an active pharmacy order. What would you like to do?" numberOfLines="0" id="Bei-ez-wGU">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <button width="1" height="32" alignment="left" title="Collect Now" id="ylw-vD-mvp">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.91372549020000005" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                    <connections>
+                                        <action selector="collectNowButtonPressed" destination="9xk-i2-dqY" id="CC8-yk-54w"/>
+                                    </connections>
+                                </button>
+                                <button width="1" height="32" alignment="left" title="Next day pickup" id="0ns-CD-JRQ">
+                                    <color key="backgroundColor" red="0.91372549020000005" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                    <connections>
+                                        <action selector="NextDayPickButtonPressed" destination="9xk-i2-dqY" id="DBy-th-56r"/>
+                                    </connections>
+                                </button>
+                                <button width="1" height="32" alignment="left" title="Courier" id="RLZ-jX-0gh">
+                                    <color key="backgroundColor" red="0.91372549020000005" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                    <connections>
+                                        <action selector="courierButtonPressed" destination="9xk-i2-dqY" id="YWB-Jx-WM8"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1351" y="36"/>
+        </scene>
+        <!--CourierServicesInterfaceController-->
+        <scene sceneID="Md7-Yq-Bmv">
+            <objects>
+                <controller identifier="CourierServicesInterfaceController" id="dxA-lo-3by" customClass="CourierServicesInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="0.0" alignment="left" layout="vertical" spacing="5" id="Zov-26-iXa">
+                            <items>
+                                <button width="18" height="18" alignment="left" backgroundImage="back_left" id="AzD-Lq-D7q">
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </button>
+                                <imageView width="40" height="40" alignment="center" image="completed" id="VCI-Mv-TxV"/>
+                                <group width="1" alignment="left" layout="vertical" spacing="7" id="gXJ-6V-hcs">
+                                    <items>
+                                        <label width="1" alignment="left" text="Thank you for selecting ‘Courier’ Services." textAlignment="center" numberOfLines="0" id="Lwx-Mb-mYe">
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="13"/>
+                                        </label>
+                                        <label alignment="left" text="Please login to the mobile app and fill the details for courier services." numberOfLines="0" id="QkG-kx-zAZ">
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <button width="1" height="32" alignment="left" title="OK" id="KMf-La-m24">
+                                    <color key="backgroundColor" red="0.91372549020000005" green="0.52549019610000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="pleaseLabel" destination="QkG-kx-zAZ" id="sZD-gl-ZUO"/>
+                        <outlet property="thankYouLAbel" destination="Lwx-Mb-mYe" id="lz5-BH-lBc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1562" y="34"/>
+        </scene>
+        <!--StepsInJourneyInterfaceController-->
+        <scene sceneID="usJ-9V-Oy5">
+            <objects>
+                <controller identifier="StepsInJourneyInterfaceController" id="5dS-dA-Bx1" customClass="StepsInJourneyInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="9hC-a4-wYh">
+                            <items>
+                                <button width="18" height="18" alignment="left" backgroundImage="back_left" id="gAh-4d-ZW2"/>
+                                <label width="1" alignment="left" text="New steps have been added to your journey. Which would you like to visit first?" numberOfLines="0" id="1q5-D5-kvK">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                            </items>
+                        </group>
+                        <table alignment="left" id="dfA-uA-D72">
+                            <items>
+                                <tableRow identifier="StepsRowController" id="DqD-RX-e2a" customClass="StepsRowController" customModule="Firstpass_watchOS_Extension">
+                                    <group key="rootItem" width="1" height="51" alignment="left" spacing="4" id="Hny-yr-Oiw">
+                                        <items>
+                                            <group width="1" height="51" alignment="left" layout="vertical" id="XAs-QM-dn7">
+                                                <items>
+                                                    <label alignment="left" text="Blood Test" id="Zor-5K-K1S">
+                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
+                                                    </label>
+                                                    <label alignment="left" text="Wait time: 05 mins" id="WZz-0x-bN3">
+                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="8" right="0.0" top="8" bottom="0.0"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="titleLabel" destination="Zor-5K-K1S" id="ywR-H3-cTm"/>
+                                        <outlet property="waitingTimeLabel" destination="WZz-0x-bN3" id="h53-ct-cl9"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="tableViewSteps" destination="dfA-uA-D72" id="WKs-gS-xVh"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1761.897435897436" y="34.435897435897438"/>
+        </scene>
+        <!--UpcommingAppointmentsInterfaceController-->
+        <scene sceneID="lDA-LD-Bxc">
+            <objects>
+                <controller identifier="UpcommingAppointmentsInterfaceController" id="neF-R3-w0U" customClass="UpcommingAppointmentsInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <table alignment="left" spacing="10" id="9Sm-lC-U1P">
+                            <items>
+                                <tableRow identifier="UpcommingappointmentsRowController" id="wNv-7f-Oil" customClass="UpcommingappointmentsRowController" customModule="Firstpass_watchOS_Extension">
+                                    <group key="rootItem" width="1" height="57" alignment="left" layout="overlap" spacing="0.0" id="8VA-uZ-Rhe">
+                                        <items>
+                                            <group height="41" alignment="center" verticalAlignment="center" layout="vertical" id="KdF-hQ-6Rc">
+                                                <items>
+                                                    <group width="1" alignment="left" id="EaE-nd-2Vd">
+                                                        <items>
+                                                            <label alignment="left" text="Label" baselineAdjustment="alignCenters" id="rFX-C2-FA9">
+                                                                <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
+                                                            </label>
+                                                            <button height="16" alignment="right" title="Ongoing" id="dp3-B6-FSM">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" name="Button-color"/>
+                                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                                            </button>
+                                                        </items>
+                                                    </group>
+                                                    <group alignment="center" verticalAlignment="bottom" spacing="15" id="oGA-qX-vYc">
+                                                        <items>
+                                                            <group alignment="left" verticalAlignment="bottom" spacing="2" id="mQD-n6-byr">
+                                                                <items>
+                                                                    <imageView alignment="left" verticalAlignment="bottom" image="date" id="gwh-KK-Wzr"/>
+                                                                    <label alignment="left" verticalAlignment="bottom" text="12/102/2021" id="7Mf-ZQ-hwP">
+                                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                            <group alignment="left" verticalAlignment="bottom" spacing="3" id="OQ9-b2-W1S">
+                                                                <items>
+                                                                    <imageView alignment="left" verticalAlignment="bottom" image="time" id="jE9-0D-kKa"/>
+                                                                    <label alignment="left" verticalAlignment="bottom" text="03:00 PM" id="qjB-v2-eLK">
+                                                                        <fontDescription key="font" type="system" pointSize="10"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="dateImage" destination="gwh-KK-Wzr" id="erq-ll-eUw"/>
+                                        <outlet property="dateLabel" destination="7Mf-ZQ-hwP" id="415-m9-hSi"/>
+                                        <outlet property="departmentLabel" destination="rFX-C2-FA9" id="GHw-Wu-bwS"/>
+                                        <outlet property="ongoingButton" destination="dp3-B6-FSM" id="QXz-j9-qP6"/>
+                                        <outlet property="timeImage" destination="jE9-0D-kKa" id="W30-b1-L7q"/>
+                                        <outlet property="timeLabel" destination="qjB-v2-eLK" id="zbm-gk-Oaz"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="testTable" destination="9Sm-lC-U1P" id="oiW-QU-h7T"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="30"/>
+        </scene>
+        <!--launchScreenInterfaceController-->
+        <scene sceneID="2fL-8g-Xx7">
+            <objects>
+                <controller identifier="launchScreenInterfaceController" id="c9J-Re-774" customClass="launchScreenInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" backgroundImage="bg-1" id="M5c-eU-rP3">
+                            <items>
+                                <group width="1" alignment="center" verticalAlignment="center" layout="overlap" id="8HL-Kc-GJS">
+                                    <items>
+                                        <imageView alignment="center" verticalAlignment="center" image="logo-1" id="kCB-vB-lVW"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--CheckinPreviewInterfaceController-->
+        <scene sceneID="Jgs-cD-Tbj">
+            <objects>
+                <controller identifier="CheckinPreviewInterfaceController" id="4RZ-Qr-Sbp" customClass="CheckinPreviewInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="1" heightAdjustment="20" alignment="center" id="edG-TC-tEY">
+                            <items>
+                                <group width="0.80000000000000004" height="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="4" id="sDH-B0-0jJ">
+                                    <items>
+                                        <label width="1" height="0.20000000000000001" alignment="right" text="Cardiology" id="oSg-bA-If9">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                        <group width="1" alignment="left" layout="vertical" spacing="14" id="xnE-cL-vBI">
+                                            <items>
+                                                <group width="1" alignment="center" layout="vertical" spacing="7" id="UN6-pF-Pqh">
+                                                    <items>
+                                                        <group width="1" alignment="left" spacing="10" id="Hpe-Sd-rrU">
+                                                            <items>
+                                                                <imageView alignment="left" image="date-1" id="dqu-ua-i85"/>
+                                                                <label alignment="left" text="12.05.2021" id="XS3-rJ-IoU">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="left" spacing="10" id="5jp-6Z-l7A">
+                                                            <items>
+                                                                <imageView alignment="left" image="time-1" id="Ok2-e9-Ud1"/>
+                                                                <label alignment="left" text="03:00 PM" id="Qzm-6R-BAU">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="left" spacing="10" id="iZ8-nI-jrk">
+                                                            <items>
+                                                                <imageView alignment="left" image="doctor-12" id="gGT-Ke-jMD"/>
+                                                                <label alignment="left" text="Alisha Sundar" id="W4G-CK-zwD">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                    </items>
+                                                </group>
+                                                <group width="1" alignment="left" layout="vertical" spacing="10" id="eVl-wk-vyB">
+                                                    <items>
+                                                        <group width="1" alignment="left" spacing="4" id="bT8-cQ-kUs">
+                                                            <items>
+                                                                <label alignment="left" text="Wait time:" id="P8U-rX-p5t">
+                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                </label>
+                                                                <label alignment="left" text="05 mins" id="8dq-Fo-uFv">
+                                                                    <color key="textColor" red="0.91399997470000005" green="0.52499997620000005" blue="0.0" alpha="0.9327859436" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="10"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="center" verticalAlignment="center" id="Dqd-TJ-mhz">
+                                                            <items>
+                                                                <button width="1" height="32" alignment="center" verticalAlignment="center" title="Check in" id="dtx-va-Goo">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" red="0.91399997470000005" green="0.52499997620000005" blue="0.0" alpha="0.9327859436" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                                                    <connections>
+                                                                        <action selector="checkin" destination="4RZ-Qr-Sbp" id="FuG-sk-j7A"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </items>
+                                                        </group>
+                                                    </items>
+                                                </group>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" name="Background"/>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="624" y="-358"/>
+        </scene>
+        <!--CheckinInterfaceController-->
+        <scene sceneID="Z0u-uQ-QHN">
+            <objects>
+                <controller identifier="CheckinInterfaceController" id="Ih8-BT-NP7" customClass="CheckinInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="180" alignment="center" layout="vertical" id="HoU-6L-LlV">
+                            <items>
+                                <group width="0.90000000000000002" height="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="4" id="lXy-Ql-iQU">
+                                    <items>
+                                        <label width="1" height="0.20000000000000001" alignment="right" text="Cardiology" id="doe-Tp-odi">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                        <group width="1" alignment="left" layout="vertical" spacing="8" id="skU-8l-eYY">
+                                            <items>
+                                                <group width="1" alignment="left" layout="vertical" spacing="10" id="Xub-Rv-vQb">
+                                                    <items>
+                                                        <group width="1" alignment="left" layout="vertical" spacing="14" id="Ufu-Lt-gVo">
+                                                            <items>
+                                                                <group width="1" alignment="center" layout="vertical" spacing="7" id="zhP-lt-siP">
+                                                                    <items>
+                                                                        <group width="1" alignment="left" spacing="10" id="YTx-QO-v1j">
+                                                                            <items>
+                                                                                <imageView alignment="left" image="date-1" id="Cxv-1O-tK3"/>
+                                                                                <label alignment="left" text="12.05.2021" id="jyc-bo-8w4">
+                                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                                </label>
+                                                                            </items>
+                                                                        </group>
+                                                                        <group width="1" alignment="left" spacing="10" id="V1Y-Zb-fhL">
+                                                                            <items>
+                                                                                <imageView alignment="left" image="time-1" id="53l-bE-omb"/>
+                                                                                <label alignment="left" text="03:00 PM" id="Agr-C9-UO7">
+                                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                                </label>
+                                                                            </items>
+                                                                        </group>
+                                                                        <group width="1" alignment="left" spacing="10" id="5R0-SJ-ufF">
+                                                                            <items>
+                                                                                <imageView alignment="left" image="doctor-12" id="lvI-Ce-FCV"/>
+                                                                                <label alignment="left" text="Alisha Sundar" id="JDo-iK-aNf">
+                                                                                    <fontDescription key="font" type="system" pointSize="10"/>
+                                                                                </label>
+                                                                            </items>
+                                                                        </group>
+                                                                    </items>
+                                                                </group>
+                                                                <group width="1" height="2" alignment="left" alpha="0.29999999999999999" id="4DC-cL-P1H">
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </group>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" height="17" alignment="left" spacing="0.0" id="cIf-Va-eyd">
+                                                            <items>
+                                                                <button width="103" height="33" alignment="left" title="Current step in journey" id="KYq-L6-TQg">
+                                                                    <color key="backgroundColor" name="Background"/>
+                                                                    <fontDescription key="font" type="system" pointSize="8"/>
+                                                                    <connections>
+                                                                        <action selector="currentStepPressed" destination="Ih8-BT-NP7" id="0ZM-ng-1mN"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button width="62" height="19" alignment="left" title="Journey details" id="SbM-p5-hbk">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <color key="backgroundColor" name="Background"/>
+                                                                    <fontDescription key="font" type="system" pointSize="8"/>
+                                                                    <connections>
+                                                                        <action selector="journeydetails" destination="Ih8-BT-NP7" id="zvS-0X-ZBF"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </items>
+                                                        </group>
+                                                    </items>
+                                                </group>
+                                                <group width="1" alignment="left" layout="vertical" spacing="6" id="9OM-Wp-5ix">
+                                                    <items>
+                                                        <group width="1" alignment="left" spacing="4" id="7U7-rx-leJ">
+                                                            <items>
+                                                                <imageView alignment="left" image="iconlyCurvedPaper" id="Vok-GE-0bY"/>
+                                                                <label alignment="left" text="Registration" id="ISu-tZ-KPe">
+                                                                    <fontDescription key="font" type="system" weight="semibold" pointSize="14"/>
+                                                                </label>
+                                                            </items>
+                                                        </group>
+                                                        <group width="1" alignment="left" id="MeQ-F6-oV3">
+                                                            <items>
+                                                                <group alignment="left" id="hQH-Mz-kuN">
+                                                                    <items>
+                                                                        <label alignment="left" text="Wait time:" id="njP-op-gXi">
+                                                                            <fontDescription key="font" type="system" pointSize="8"/>
+                                                                        </label>
+                                                                        <label alignment="left" text="05 mins" id="f1w-JV-vvc">
+                                                                            <color key="textColor" name="Button-color"/>
+                                                                            <fontDescription key="font" type="system" pointSize="8"/>
+                                                                        </label>
+                                                                    </items>
+                                                                </group>
+                                                                <group alignment="right" id="fup-aM-PjL">
+                                                                    <items>
+                                                                        <label alignment="left" text="Counter No.:" id="W0y-8p-neV">
+                                                                            <fontDescription key="font" type="system" pointSize="8"/>
+                                                                        </label>
+                                                                        <label alignment="left" text="11" id="JuW-uM-bjd">
+                                                                            <color key="textColor" name="Button-color"/>
+                                                                            <fontDescription key="font" type="system" pointSize="8"/>
+                                                                        </label>
+                                                                    </items>
+                                                                </group>
+                                                            </items>
+                                                        </group>
+                                                    </items>
+                                                </group>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" name="Background"/>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="831.69230769230774" y="343.92307692307696"/>
+        </scene>
+        <!--Journey Details-->
+        <scene sceneID="yx8-gK-7uU">
+            <objects>
+                <controller identifier="JourneyDetailsInterfaceController" title="Journey Details" id="4KD-7m-2z3" customClass="JourneyDetailsInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <table alignment="left" spacing="10" id="bOJ-0L-zPO">
+                            <items>
+                                <tableRow identifier="JourneyRowController" id="vSu-ea-CRV" customClass="JourneyRowController" customModule="Firstpass_watchOS_Extension">
+                                    <group key="rootItem" width="1" height="60" alignment="left" layout="overlap" spacing="0.0" id="dj3-mB-2if">
+                                        <items>
+                                            <group width="1" height="45" alignment="center" verticalAlignment="center" layout="vertical" id="Yzv-4i-BdQ">
+                                                <items>
+                                                    <group width="1" alignment="left" id="rp7-R9-km6">
+                                                        <items>
+                                                            <group alignment="left" id="uBi-FE-vCM">
+                                                                <items>
+                                                                    <imageView alignment="left" image="iconlyCurvedPaper" id="rY1-Rk-7wp"/>
+                                                                    <label alignment="left" text="Registration" baselineAdjustment="alignCenters" id="uOX-P5-LW2">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                            <button height="16" alignment="right" title="Ongoing" id="udO-Zl-iVg">
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" name="Button-color"/>
+                                                                <fontDescription key="font" type="system" pointSize="8"/>
+                                                            </button>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="center" verticalAlignment="bottom" spacing="15" id="CNE-1q-yCr">
+                                                        <items>
+                                                            <group alignment="left" verticalAlignment="bottom" layout="vertical" spacing="2" id="8si-7s-OGp">
+                                                                <items>
+                                                                    <label alignment="left" text="Wait time:" id="PVq-Cc-Uhr">
+                                                                        <color key="textColor" name="Color"/>
+                                                                        <fontDescription key="font" type="system" pointSize="8"/>
+                                                                    </label>
+                                                                    <label alignment="left" text="05 mins" id="OkZ-2d-QoJ">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="8"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                            <group alignment="right" verticalAlignment="bottom" layout="vertical" spacing="2" id="TGl-Ys-ORI">
+                                                                <items>
+                                                                    <label alignment="left" text="Serving at:" id="b10-I5-Gu6">
+                                                                        <color key="textColor" name="Color"/>
+                                                                        <fontDescription key="font" type="system" pointSize="8"/>
+                                                                    </label>
+                                                                    <label alignment="left" text="Counter No. 5" id="sQm-db-8BR">
+                                                                        <fontDescription key="font" type="system" weight="semibold" pointSize="8"/>
+                                                                    </label>
+                                                                </items>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <color key="backgroundColor" name="Background"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="dateLabel" destination="PVq-Cc-Uhr" id="ifa-v2-75h"/>
+                                        <outlet property="departmentLabel" destination="uOX-P5-LW2" id="Ras-ez-luZ"/>
+                                        <outlet property="logoImage" destination="rY1-Rk-7wp" id="eIK-sb-e8C"/>
+                                        <outlet property="ongoingButton" destination="udO-Zl-iVg" id="5ga-Ra-Acx"/>
+                                        <outlet property="servingLocationLabel" destination="sQm-db-8BR" id="HXN-aN-D9h"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="bOJ-0L-zPO" id="iTB-MZ-w6r"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="698" y="642"/>
+        </scene>
+        <!--TokenController-->
+        <scene sceneID="foU-G3-PJG">
+            <objects>
+                <controller identifier="TokenController" id="DW6-2j-kQT">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" spacing="5" id="T7X-6z-Q35">
+                            <items>
+                                <group width="145" height="143" alignment="center" layout="vertical" radius="10" spacing="0.0" id="lDl-tv-7VQ">
+                                    <items>
+                                        <group width="1" alignment="left" layout="overlap" id="oM0-9j-zhS">
+                                            <items>
+                                                <imageView width="1" height="1" alignment="left" image="bg-1" id="Mc9-OK-eny"/>
+                                                <group width="1" alignment="center" verticalAlignment="center" layout="vertical" spacing="10" id="hL4-7v-DnT">
+                                                    <items>
+                                                        <imageView width="50" height="50" alignment="center" verticalAlignment="center" image="token-watch" id="KGj-7c-oAD"/>
+                                                        <label alignment="center" verticalAlignment="bottom" text="CRD007" id="8iw-aO-ZpN">
+                                                            <fontDescription key="font" type="system" weight="semibold" pointSize="16"/>
+                                                        </label>
+                                                    </items>
+                                                </group>
+                                            </items>
+                                        </group>
+                                    </items>
+                                    <color key="backgroundColor" name="Background"/>
+                                </group>
+                                <label alignment="center" text="V1" id="OVA-d1-kT4">
+                                    <color key="textColor" name="Button-color"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="27"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1053" y="345"/>
+        </scene>
+        <!--NoAppointment-->
+        <scene sceneID="TH5-fX-cda">
+            <objects>
+                <controller identifier="NoAppointment" id="rEE-BL-loG">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="vertical" id="VTP-Xs-aFv">
+                            <items>
+                                <group width="134" height="105" alignment="center" verticalAlignment="center" layout="vertical" spacing="10" id="eeb-3H-WaE">
+                                    <items>
+                                        <imageView alignment="center" verticalAlignment="center" image="noAppointments" id="1Zw-VW-KVO"/>
+                                        <label alignment="center" verticalAlignment="bottom" text="No Upcoming Appointments" textAlignment="center" numberOfLines="2" id="sC6-oF-tZl">
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="1259" y="340"/>
+        </scene>
+        <!--CheckinSuccessInterfaceController-->
+        <scene sceneID="5Tb-a8-L8z">
+            <objects>
+                <controller identifier="CheckinSuccessInterfaceController" id="SIM-kU-fHN" customClass="CheckinSuccessInterfaceController" customModule="Firstpass_watchOS_Extension">
+                    <items>
+                        <group width="1" height="1" heightAdjustment="10" alignment="center" layout="vertical" spacing="14" id="ph6-9W-4PG">
+                            <items>
+                                <group width="1" alignment="left" layout="vertical" spacing="8" id="KbI-EV-owt">
+                                    <items>
+                                        <group width="1" alignment="left" layout="vertical" spacing="8" id="tjl-Sy-TcS">
+                                            <items>
+                                                <imageView alignment="center" image="success" id="mby-e4-QWd"/>
+                                                <label alignment="center" text="Success.!" id="xdK-sg-E6y">
+                                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <label alignment="center" text="You have been successfully checked in." textAlignment="center" numberOfLines="2" id="dg3-Pk-NmG">
+                                            <color key="textColor" red="0.82745098039999998" green="0.82745098039999998" blue="0.83137254900000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="font" type="system" pointSize="10"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <button width="1" height="32" alignment="left" title="Go to home" id="x2A-jE-Vdj">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="Button-color"/>
+                                    <connections>
+                                        <action selector="goothome" destination="SIM-kU-fHN" id="51Z-W9-TaG"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="873" y="-373"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back_left" width="18" height="18"/>
+        <image name="bg" width="184" height="224"/>
+        <image name="bg-1" width="184" height="224"/>
+        <image name="completed" width="49" height="49"/>
+        <image name="date" width="12" height="12"/>
+        <image name="date-1" width="12" height="12"/>
+        <image name="doctor-12" width="14" height="14"/>
+        <image name="iconlyCurvedPaper" width="16" height="16"/>
+        <image name="logo" width="56" height="56"/>
+        <image name="logo-1" width="56" height="56"/>
+        <image name="noAppointments" width="80" height="71"/>
+        <image name="success" width="48" height="48"/>
+        <image name="time" width="12" height="12"/>
+        <image name="time-1" width="12" height="12"/>
+        <image name="token-watch" width="78" height="78"/>
+        <namedColor name="Background">
+            <color red="0.37299999594688416" green="0.25499999523162842" blue="0.69800001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Button-color">
+            <color red="0.91399997472763062" green="0.52499997615814209" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
