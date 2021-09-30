@@ -8,13 +8,15 @@
 
 import UIKit
 
-struct CartItemsData:Decodable {
+struct CartItemsData:Decodable
+{
     let ItemName:String?
     let Price:Int?
     var Quantity:Int?
 }
 
-class FoodandBeveragesViewController: UIViewController {
+class FoodandBeveragesViewController: UIViewController
+{
     
     @IBOutlet weak var cartQuantityLabel: UILabel!
     @IBOutlet weak var cartItemQuantityView: UIView!
@@ -70,6 +72,8 @@ class FoodandBeveragesViewController: UIViewController {
 //        ItemsArray[0].Quantity = 5
 //        ItemsArray.append(CartItemsData(ItemName: "Coffee", Price: "Rs, 30", Quantity: 1))
         // Do any additional setup after loading the view.
+        
+        
     }
     @IBAction func back_Clicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)

@@ -23,6 +23,10 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     @IBOutlet weak var viewAllButton: UIButton!
     
     @IBOutlet weak var bottomMenuView: Tabbar!
+    
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var upcommingAppointmentsView: UIView!
+    @IBOutlet var bgView: UIView!
     //    @IBOutlet weak var upcommingView: MyUIView!
     
     //    @IBOutlet weak var prefilledLabel: UILabel!
@@ -66,6 +70,11 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         //        getUserDetailsFromLocal()
         bottomMenuView.delegate = self
         
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipView()
+        }
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         getUserDetailsFromLocal()
@@ -83,6 +92,15 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         //        self.fetchFamilyMembers()
         
         
+    }
+    
+    func vipView()
+    {
+        
+//        bgView.backgroundColor = UIColor.black
+ //       headerView.backgroundColor = UIColor.black
+   //     upcommingAppointmentsView.backgroundColor = UIColor.black
+     //   appointmentsCollectionView.backgroundColor = UIColor.black
     }
     func getUserDetailsFromLocal(){
         

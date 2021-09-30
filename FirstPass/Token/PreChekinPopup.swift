@@ -9,6 +9,20 @@ import UIKit
 
 class PreChekinPopup: UIViewController {
     
+    @IBOutlet weak var sectionView2: UIView!
+    @IBOutlet weak var sectionView3: UIView!
+    @IBOutlet weak var carParkingYesView: UIView!
+    @IBOutlet weak var specialAssistanceyesView: UIView!
+    @IBOutlet weak var specialAssistanceNoView: UIView!
+    @IBOutlet weak var vipserviceYesView: UIView!
+    @IBOutlet weak var concergePreferenceYesView: UIView!
+    @IBOutlet weak var concergePreferenceNoView: UIView!
+    
+    @IBOutlet weak var vipservicesNoView: UIView!
+    @IBOutlet weak var carParkingNoView: UIView!
+    
+    
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var carParkingYesLabel: UILabel!
     @IBOutlet weak var parkingNoLabel: UILabel!
@@ -86,7 +100,25 @@ class PreChekinPopup: UIViewController {
         conciergeFemale.textColor = defaultColor
         conciergeEnglish.textColor = highlightedcolor
         conciergeArabic.textColor = defaultColor
+        
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipView()
+        }
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func vipView()
+    {
+        
+        convergeLanguage.backgroundColor = UIColor.black
+        convergePreference.backgroundColor = UIColor.black
+        sectionView2.backgroundColor = UIColor.black
+        sectionView3.backgroundColor = UIColor.black
+        carparkingView.backgroundColor = UIColor.black
+        carPlate.backgroundColor = UIColor.black
     }
     @IBAction func radioButtonYes(_ sender: UIButton) {
         switch sender.tag {

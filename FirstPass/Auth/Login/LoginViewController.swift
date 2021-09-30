@@ -110,7 +110,8 @@ class LoginViewController: UIViewController {
         
         
         //For demo
-        if phone.contains("natasha@gmail.com"){
+        if phone.contains("natasha@gmail.com")
+        {
             if password == "123456"{
                 UserDefaults.standard.set(true, forKey: "isLoggedIn")
                 let storyboard = UIStoryboard(name: "phase2", bundle: .main)
@@ -121,7 +122,23 @@ class LoginViewController: UIViewController {
             }else{
                 self.showAlert("Incorrect password")
             }
-        }else{
+        }
+        else if phone.contains("vipdemo@gmail.com")
+        {
+            if password == "123456"{
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+                UserDefaults.standard.set(true, forKey: "vip")
+                let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+                let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+                self.present(vc, animated: true)
+            }else{
+                self.showAlert("Incorrect password")
+            }
+        }
+        else
+        {
             self.showAlert("Incorrect username")
         }
         
