@@ -11,33 +11,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         // Override point for customization after application launch.
         Thread.sleep(forTimeInterval: 2)
         IQKeyboardManager.shared.enable = true
-        let mainStoryboard:UIStoryboard = UIStoryboard(name: "phase2", bundle: nil)
-//        let homePage = mainStoryboard.instantiateViewController(withIdentifier: "DischargeViewController") as! DischargeViewController
-//        self.window?.rootViewController = homePage
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
+        let homePage = mainStoryboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+        self.window?.rootViewController = homePage
 
-        if UserDefaults.standard.bool(forKey: "OnboardFinished")
-        {
-            if UserDefaults.standard.bool(forKey: "isLoggedIn")
-            {
-                print("Inn")
-                let homePage = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                self.window?.rootViewController = homePage
-            }
-            else
-            {
-                let storyboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
+//        if UserDefaults.standard.bool(forKey: "OnboardFinished")
+//        {
+//            if UserDefaults.standard.bool(forKey: "isLoggedIn")
+//            {
+//                print("Inn")
+//                let homePage = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//                self.window?.rootViewController = homePage
+//            }
+//            else
+//            {
+//                let storyboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
+//
+//                let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+//                self.window?.rootViewController = loginPage
+//            }
+//        }
+//        else
+//        {
+//            let storyboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
+//            let homePage = storyboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+//            self.window?.rootViewController = homePage
 
-                let loginPage = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                self.window?.rootViewController = loginPage
-            }
-        }
-        else
-        {
-            let storyboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
-            let homePage = storyboard.instantiateViewController(withIdentifier: "OnBoardViewController") as! OnBoardViewController
-            self.window?.rootViewController = homePage
-
-        }
+       // }
         
 //        }
 //        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

@@ -28,6 +28,7 @@ class FoodandBeveragesViewController: UIViewController {
     
     var cartQuantity = 0
     
+    var addedCells = [String]()
     
     var ItemsArray = [CartItemsData]()
     
@@ -69,6 +70,9 @@ class FoodandBeveragesViewController: UIViewController {
 //        ItemsArray[0].Quantity = 5
 //        ItemsArray.append(CartItemsData(ItemName: "Coffee", Price: "Rs, 30", Quantity: 1))
         // Do any additional setup after loading the view.
+    }
+    @IBAction func back_Clicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     @IBAction func cart_Clicked(_ sender: Any)
     {
@@ -163,18 +167,39 @@ extension FoodandBeveragesViewController: UITableViewDelegate,UITableViewDataSou
         cell.itemImage.image = UIImage(named: foodImages[indexPath.section][indexPath.row])
         cell.itemImage.layer.cornerRadius = 5
         cell.container.layer.cornerRadius = 8
-        cell.quantityView.isHidden = true
         cell.quantityView.layer.borderWidth = 1
         cell.quantityView.layer.borderColor = UIColor.lightGray.cgColor
         cell.quantityView.layer.cornerRadius = 6
-        cell.addClicked = {
-            cell.addButton.isHidden = true
-            cell.quantityView.isHidden = false
-            self.cartQuantity += 1
-            self.cartItemQuantityView.isHidden = false
-            self.ItemsArray.append(CartItemsData(ItemName: self.foodItems[indexPath.section][indexPath.row], Price: self.cost[indexPath.section][indexPath.row], Quantity: 1))
+        var temp = String(indexPath.row)
+        var temp2 = String(indexPath.section)
+        cell.addButton.isHidden = false
+        cell.addClicked =
+        {
+            self.addedCells.append(temp+temp2)
+            addFunction()
         }
-        cell.increaseClicked = {
+        func addFunction()
+        {
+            
+            if addedCells.contains(temp+temp2)
+            {
+                print("Row \(indexPath.row) section: \(indexPath.section)")
+                cell.addButton.isHidden = true
+                cell.quantityView.isHidden = false
+                self.cartQuantity += 1
+                self.cartQuantityLabel.text = String(self.cartQuantity)
+                self.cartItemQuantityView.isHidden = false
+                self.ItemsArray.append(CartItemsData(ItemName: self.foodItems[indexPath.section][indexPath.row], Price: self.cost[indexPath.section][indexPath.row], Quantity: 1))
+            }
+        }
+        if (addedCells.contains(temp+temp2))
+        {
+            cell.quantityView.isHidden = false
+            cell.addButton.isHidden = true
+        }
+        cell.increaseClicked =
+            {
+                
             var quantity = Int(cell.quantityLabel.text!)
             if quantity! < 99 {
                 cell.quantityLabel.text = String(quantity!+1)
@@ -193,12 +218,15 @@ extension FoodandBeveragesViewController: UITableViewDelegate,UITableViewDataSou
             var quantity = Int(cell.quantityLabel.text!)
             if quantity! > 1
             {
-            cell.quantityLabel.text = String(quantity!-1)
-                self.cartQuantity -= 1
-                self.cartQuantityLabel.text = String(self.cartQuantity)
-                var index = self.ItemsArray.endIndex+1
-                self.ItemsArray[index].Quantity = quantity!-1
-                print(self.ItemsArray)
+                    cell.quantityLabel.text = String(quantity!-1)
+                    self.cartQuantity -= 1
+                    self.cartQuantityLabel.text = String(self.cartQuantity)
+                    self.cartQuantityLabel.text = String(self.cartQuantity)
+
+                    var index = self.ItemsArray.endIndex-1
+                print("index \(index) Array \(self.ItemsArray)" )
+                    self.ItemsArray[index].Quantity = quantity!-1
+                    print(self.ItemsArray)
             }
             else
             {
@@ -218,3 +246,4 @@ extension FoodandBeveragesViewController: UITableViewDelegate,UITableViewDataSou
         return 166
     }
 }
+

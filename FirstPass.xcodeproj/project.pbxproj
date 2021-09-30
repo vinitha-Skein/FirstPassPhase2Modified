@@ -42,7 +42,6 @@
 		22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */; };
 		22D9377B26FE229200CA95D6 /* UpcommingActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */; };
 		22E0D69D26FEE07B0061817A /* DischargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D69C26FEE07B0061817A /* DischargeViewController.swift */; };
-		22FBCB9A2702DCBE00591DA0 /* NurseandHygienePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FBCB992702DCBE00591DA0 /* NurseandHygienePopupViewController.swift */; };
 		22FBCBB42702FC5200591DA0 /* CoffeeOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FBCBB32702FC5200591DA0 /* CoffeeOfferViewController.swift */; };
 		A704C78E2674CEA80056C2A3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A704C78D2674CEA80056C2A3 /* Colors.xcassets */; };
 		A70691C026706BB9000C4129 /* PreChekinPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70691BF26706BB9000C4129 /* PreChekinPopup.swift */; };
@@ -110,6 +109,7 @@
 		A7D3593E2681B599003AC0DE /* NetBankingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D3593D2681B599003AC0DE /* NetBankingCollectionViewCell.swift */; };
 		A7D3594C2681B629003AC0DE /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D3594A2681B629003AC0DE /* CardsTableViewCell.swift */; };
 		A7D3594D2681B629003AC0DE /* CardsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D3594B2681B629003AC0DE /* CardsTableViewCell.xib */; };
+		A7D82CE727057935009892C4 /* NurseandHygienePopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D82CE627057935009892C4 /* NurseandHygienePopupViewController.swift */; };
 		A7D8FBEC2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D8FBEA2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.swift */; };
 		A7D8FBED2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7D8FBEB2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.xib */; };
 		A7D8FBF22684A9320038E6FD /* AppointmentHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D8FBF12684A9320038E6FD /* AppointmentHistoryViewController.swift */; };
@@ -303,7 +303,6 @@
 		22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientServicesCVC.swift; sourceTree = "<group>"; };
 		22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingActivitiesViewController.swift; sourceTree = "<group>"; };
 		22E0D69C26FEE07B0061817A /* DischargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeViewController.swift; sourceTree = "<group>"; };
-		22FBCB992702DCBE00591DA0 /* NurseandHygienePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NurseandHygienePopupViewController.swift; path = ../../../../../Downloads/NurseandHygienePopupViewController.swift; sourceTree = "<group>"; };
 		22FBCBB32702FC5200591DA0 /* CoffeeOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOfferViewController.swift; sourceTree = "<group>"; };
 		83C05EB8E54AB32B13684667 /* Pods-FirstPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstPass.debug.xcconfig"; path = "Target Support Files/Pods-FirstPass/Pods-FirstPass.debug.xcconfig"; sourceTree = "<group>"; };
 		A704C78D2674CEA80056C2A3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -375,6 +374,7 @@
 		A7D3593D2681B599003AC0DE /* NetBankingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetBankingCollectionViewCell.swift; sourceTree = "<group>"; };
 		A7D3594A2681B629003AC0DE /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		A7D3594B2681B629003AC0DE /* CardsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardsTableViewCell.xib; sourceTree = "<group>"; };
+		A7D82CE627057935009892C4 /* NurseandHygienePopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NurseandHygienePopupViewController.swift; sourceTree = "<group>"; };
 		A7D8FBEA2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		A7D8FBEB2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppointmentHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		A7D8FBF12684A9320038E6FD /* AppointmentHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentHistoryViewController.swift; sourceTree = "<group>"; };
@@ -744,9 +744,9 @@
 				A7E981DB26F9ED5700F8551B /* DoctorsLookupTableViewCell.xib */,
 				A718F75026FB3EA400CCFF1A /* BMICalculatorViewController.swift */,
 				A7C5675526FC4CBC005366DC /* WebviewViewController.swift */,
+				A7D82CE627057935009892C4 /* NurseandHygienePopupViewController.swift */,
 				A7C5675A26FC894D005366DC /* ContactsViewController.swift */,
 				A7C5675F26FC9BB4005366DC /* ContactsTableViewCell.swift */,
-				22FBCB992702DCBE00591DA0 /* NurseandHygienePopupViewController.swift */,
 				A7C5676026FC9BB4005366DC /* ContactsTableViewCell.xib */,
 				A7BCF9D026FDB5890087EA9C /* NurseTableViewCell.swift */,
 				A7BCF9D126FDB5890087EA9C /* NurseTableViewCell.xib */,
@@ -1504,11 +1504,11 @@
 				A8D2902125BEA8D5003605D6 /* PharmacyPopup.swift in Sources */,
 				C0672AA9251507010060FB08 /* AppointmentTableViewCell.swift in Sources */,
 				C003574E2518882500F76902 /* ReportsViewController.swift in Sources */,
+				A7D82CE727057935009892C4 /* NurseandHygienePopupViewController.swift in Sources */,
 				A7C5675626FC4CBC005366DC /* WebviewViewController.swift in Sources */,
 				C01D1DDF2562CC7000F3FF16 /* ImageManager.swift in Sources */,
 				A8033921259EE8F400FE5FB5 /* TokenTableViewCell.swift in Sources */,
 				C012B2F6255A82E8005B7E20 /* MenuModel.swift in Sources */,
-				22FBCB9A2702DCBE00591DA0 /* NurseandHygienePopupViewController.swift in Sources */,
 				C012B2F8255A82FA005B7E20 /* MenuViewModel.swift in Sources */,
 				A71AB88226709BA400D8F151 /* RegistrationModel.swift in Sources */,
 				1B5AC290266E4AAD002E7C12 /* MyButton+Extension.swift in Sources */,
