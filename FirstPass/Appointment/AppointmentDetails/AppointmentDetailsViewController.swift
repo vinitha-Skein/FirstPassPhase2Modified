@@ -10,6 +10,26 @@ import UIKit
 
 class AppointmentDetailsViewController: UIViewController {
 
+    @IBOutlet var servingLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var wholeContainer: UIView!
+    @IBOutlet weak var container: MyUIView!
+    @IBOutlet weak var qrcodeImage: UIImageView!
+    @IBOutlet weak var journeyLabel: UILabel!
+    @IBOutlet weak var patientNameLabel: UILabel!
+    @IBOutlet weak var patientNameTitleLabel: UILabel!
+    @IBOutlet weak var tokenLabel: UILabel!
+    @IBOutlet weak var timeImage: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var dateImage: UIImageView!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var doctorLabel: UILabel!
+    @IBOutlet weak var departmentLabel: UILabel!
+    
+    
     @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
@@ -45,6 +65,27 @@ class AppointmentDetailsViewController: UIViewController {
         tableView.dataSource = self
         tableView.isHidden = true
         collectionview.isHidden = false
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            bgView.backgroundColor = UIColor.black
+            wholeContainer.backgroundColor = UIColor.black
+            container.backgroundColor = UIColor.black
+            headerView.backgroundColor = UIColor.black
+            titleLabel.textColor = UIColor(named: "vip")
+            doctorLabel.textColor = UIColor(named: "vip")
+            dateLabel.textColor = UIColor(named: "vip")
+            timeLabel.textColor = UIColor(named: "vip")
+            patientNameLabel.textColor = UIColor(named: "vip")
+            patientNameTitleLabel.textColor = UIColor(named: "vip")
+            tokenLabel.textColor = UIColor(named: "vip")
+            collectionview.backgroundColor = UIColor.black
+            journeyLabel.textColor = UIColor.white
+            departmentLabel.textColor = UIColor(named: "vip")
+            qrcodeImage.layer.cornerRadius = 10
+        }
+        
+        
     }
     @IBAction func filterClicked(_ sender: Any)
     {
@@ -114,6 +155,11 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentdetailsNewTableViewCell") as! AppointmentdetailsNewTableViewCell
         
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.container.backgroundColor = UIColor(named: "vip")
+            
+        }
         if(indexPath.row == 1)
         {
             cell.iconImage.image = UIImage(named: "iconlyCurvedPaper")
@@ -191,6 +237,19 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cells = collectionView.dequeueReusableCell(withReuseIdentifier: "AppointdetailsCollectionViewCell", for: indexPath) as! AppointdetailsCollectionViewCell
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+          //  cells.Container1.backgroundColor = UIColor(named: "vip")
+            cells.ConternoheadLabel.backgroundColor = UIColor.brown
+            cells.categoryLabel.backgroundColor = UIColor.brown
+            cells.estimatedTimeLabel.backgroundColor = UIColor.brown
+            cells.nextStopLabel.backgroundColor = UIColor.brown
+            cells.nextStopnameLabel.backgroundColor = UIColor.brown
+            cells.waitingTimeLabel.backgroundColor = UIColor.brown
+            
+        }
+        
         cells.categoryLabel.text = Appointments[indexPath.row]
         cells.indexLabel.text = index[indexPath.row]
         
@@ -239,6 +298,7 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
             }
         return cells
     }
+   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 334, height: 228)
     }

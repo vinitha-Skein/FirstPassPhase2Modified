@@ -10,6 +10,8 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet var bgView: UIView!
+    @IBOutlet weak var container: UIView!
     @IBOutlet weak var bottomMenuView: Tabbar!
     @IBOutlet weak var collectionview: UICollectionView!
     var categories = ["My Profile","My Appointments","Book Appointment","Payments","Reports","Indoor Map","Contact","About Hospital","Location Search","BMI Calculator","Chat with Us","Doctor Lookup","Special Offers","Logout"]
@@ -19,6 +21,14 @@ class AccountViewController: UIViewController {
         collectionview.delegate = self
         collectionview.dataSource = self
         bottomMenuView.delegate = self
+        
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            bgView.backgroundColor = UIColor.black
+            container.backgroundColor = UIColor.black
+            collectionview.backgroundColor = UIColor.black
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -48,6 +58,15 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountCollectionViewCell", for: indexPath) as! AccountCollectionViewCell
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            print("vip entered")
+            cell.container.backgroundColor = UIColor(named: "vip")
+            cell.bgView.backgroundColor = UIColor(named: "accountsbg")
+        }
+        
+        
         cell.categoryLabel.text = categories[indexPath.row]
         cell.logoImage.image = UIImage(named: logoImages[indexPath.row])
         cell.bgView.layer.cornerRadius = 15

@@ -9,6 +9,13 @@ import UIKit
 
 class PreChekinPopup: UIViewController {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var vipImage: UIImageView!
+    @IBOutlet weak var specialAssistanceImage: UIImageView!
+    @IBOutlet weak var parkingImage: UIImageView!
+    @IBOutlet weak var HeaderView: UIView!
+    @IBOutlet weak var BGView: UIView!
+    @IBOutlet weak var carPlateLabel: UITextField!
     @IBOutlet weak var sectionView2: UIView!
     @IBOutlet weak var sectionView3: UIView!
     @IBOutlet weak var carParkingYesView: UIView!
@@ -101,6 +108,7 @@ class PreChekinPopup: UIViewController {
         conciergeEnglish.textColor = highlightedcolor
         conciergeArabic.textColor = defaultColor
         
+       
         
         if UserDefaults.standard.bool(forKey: "vip")
         {
@@ -112,45 +120,101 @@ class PreChekinPopup: UIViewController {
     
     func vipView()
     {
-        
+        titleLabel.textColor = UIColor.white
+        submitButton.backgroundColor = UIColor(named: "vip")
+        submitButton.setTitleColor(UIColor.black, for: .normal)
+        cancelButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        cancelButton.layer.borderColor = UIColor(named: "vip")?.cgColor
+        BGView.backgroundColor = UIColor.black
+        BGView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor.black
+        carPlateLabel.backgroundColor = UIColor(hex: "#34383B")
         convergeLanguage.backgroundColor = UIColor.black
         convergePreference.backgroundColor = UIColor.black
         sectionView2.backgroundColor = UIColor.black
         sectionView3.backgroundColor = UIColor.black
         carparkingView.backgroundColor = UIColor.black
         carPlate.backgroundColor = UIColor.black
+        
+        parkingYes.image = UIImage(named: "vipon")
+        parkingNo.image = UIImage(named: "vipoff")
+        specialAssistanceYes.image = UIImage(named: "vipon")
+        specialAssistanceNo.image = UIImage(named: "vipoff")
+        vipServiceYes.image = UIImage(named: "vipon")
+        vipServiceNo.image = UIImage(named: "vipoff")
+        conciergeMaleImg.image = UIImage(named: "vipon")
+        conciergeFemaleImg.image = UIImage(named: "vipoff")
+        conciergeEnglishImg.image = UIImage(named: "vipon")
+        conciergeArabicImg.image = UIImage(named: "vipoff")
     }
     @IBAction func radioButtonYes(_ sender: UIButton) {
         switch sender.tag {
         case 1:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                parkingYes.image = UIImage(named: "vipon")
+                parkingNo.image = UIImage(named: "vipoff")
+            }
+            else{
             parkingYes.image = UIImage(named: "radioSelected")
             parkingNo.image = UIImage(named: "radioDeselected")
+            }
             carPlate.isHidden=false;
             caarparking.constant=200;
             carParkingYesLabel.textColor = highlightedcolor
             parkingNoLabel.textColor = defaultColor
             
         case 2:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                specialAssistanceYes.image = UIImage(named: "vipon")
+                specialAssistanceNo.image = UIImage(named: "vipoff")
+            }
+            else
+            {
             specialAssistanceYes.image = UIImage(named: "radioSelected")
             specialAssistanceNo.image = UIImage(named: "radioDeselected")
+            }
             specialAssistanceYesLabel.textColor = highlightedcolor
             specialAssistanceNoLabel.textColor = defaultColor
         case 3:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                vipServiceYes.image = UIImage(named: "vipon")
+                vipServiceNo.image = UIImage(named: "vipoff")
+            }
+            else
+            {
             vipServiceYes.image = UIImage(named: "radioSelected")
             vipServiceNo.image = UIImage(named: "radioDeselected")
+            }
             vipYesLabel.textColor = highlightedcolor
             vipNoLabel.textColor = defaultColor
             convergePreference.isHidden=false;
             convergeLanguage.isHidden=false;
             vipService.constant = 270;
         case 4:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                conciergeMaleImg.image = UIImage(named: "vipon")
+                conciergeFemaleImg.image = UIImage(named: "vipoff")
+            }
+            else{
             conciergeMaleImg.image = UIImage(named: "radioSelected")
             conciergeFemaleImg.image = UIImage(named: "radioDeselected")
+            }
             conciergeMale.textColor = highlightedcolor
             conciergeFemale.textColor = defaultColor
         default:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                conciergeEnglishImg.image = UIImage(named: "vipon")
+                conciergeArabicImg.image = UIImage(named: "vipoff")
+            }
+            else{
             conciergeEnglishImg.image = UIImage(named: "radioSelected")
             conciergeArabicImg.image = UIImage(named: "radioDeselected")
+            }
             conciergeEnglish.textColor = highlightedcolor
             conciergeArabic.textColor = defaultColor
         }
@@ -158,36 +222,74 @@ class PreChekinPopup: UIViewController {
     @IBAction func cancelAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+  
+
+    
     @IBAction func radioButtonNo(_ sender: UIButton) {
         switch sender.tag {
         case 1:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                parkingYes.image = UIImage(named: "vipoff")
+                parkingNo.image = UIImage(named: "vipon")
+            }
+            else{
             parkingYes.image = UIImage(named: "radioDeselected")
             parkingNo.image = UIImage(named: "radioSelected")
+            }
              carPlate.isHidden=true;
              caarparking.constant=110;
             carParkingYesLabel.textColor = defaultColor
             parkingNoLabel.textColor = highlightedcolor
         case 2:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                specialAssistanceYes.image = UIImage(named: "vipoff")
+                specialAssistanceNo.image = UIImage(named: "vipon")
+            }
+            else{
             specialAssistanceYes.image = UIImage(named: "radioDeselected")
             specialAssistanceNo.image = UIImage(named: "radioSelected")
+            }
             specialAssistanceYesLabel.textColor = defaultColor
             specialAssistanceNoLabel.textColor = highlightedcolor
         case 3:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                vipServiceYes.image = UIImage(named: "vipoff")
+                vipServiceNo.image = UIImage(named: "vipon")
+            }
+            else{
             vipServiceYes.image = UIImage(named: "radioDeselected")
             vipServiceNo.image = UIImage(named: "radioSelected")
+            }
             vipYesLabel.textColor = defaultColor
             vipNoLabel.textColor = highlightedcolor
             convergePreference.isHidden=true;
             convergeLanguage.isHidden=true;
             vipService.constant = 110;
         case 4:
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                conciergeMaleImg.image = UIImage(named: "vipoff")
+                conciergeFemaleImg.image = UIImage(named: "vipon")
+            }
+            else{
             conciergeMaleImg.image = UIImage(named: "radioDeselected")
             conciergeFemaleImg.image = UIImage(named: "radioSelected")
+            }
             conciergeMale.textColor = defaultColor
             conciergeFemale.textColor = highlightedcolor
         default :
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                conciergeEnglishImg.image = UIImage(named: "vipoff")
+                conciergeArabicImg.image = UIImage(named: "vipon")
+            }
+            else{
             conciergeEnglishImg.image = UIImage(named: "radioDeselected")
             conciergeArabicImg.image = UIImage(named: "radioSelected")
+            }
             conciergeEnglish.textColor = defaultColor
             conciergeArabic.textColor = highlightedcolor
 
