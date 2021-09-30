@@ -38,6 +38,7 @@
 		2252D3B127042CA100B60406 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3AF27042CA000B60406 /* CartTableViewCell.swift */; };
 		2252D3B227042CA100B60406 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2252D3B027042CA000B60406 /* CartTableViewCell.xib */; };
 		2252D3B727042CB000B60406 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3B627042CAF00B60406 /* CartViewController.swift */; };
+		2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */; };
 		22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */; };
 		22D9377B26FE229200CA95D6 /* UpcommingActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */; };
 		22E0D69D26FEE07B0061817A /* DischargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D69C26FEE07B0061817A /* DischargeViewController.swift */; };
@@ -298,6 +299,7 @@
 		2252D3AF27042CA000B60406 /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		2252D3B027042CA000B60406 /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		2252D3B627042CAF00B60406 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeMedicalTableViewCell.swift; sourceTree = "<group>"; };
 		22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientServicesCVC.swift; sourceTree = "<group>"; };
 		22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingActivitiesViewController.swift; sourceTree = "<group>"; };
 		22E0D69C26FEE07B0061817A /* DischargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeViewController.swift; sourceTree = "<group>"; };
@@ -580,6 +582,7 @@
 			isa = PBXGroup;
 			children = (
 				22E0D69C26FEE07B0061817A /* DischargeViewController.swift */,
+				2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */,
 			);
 			path = Discharge;
 			sourceTree = "<group>";
@@ -1423,6 +1426,7 @@
 				C0088BE1251B604B00777786 /* FeedbackCollectionViewCell.swift in Sources */,
 				C01D45F3255C3EDE006A24D8 /* ImagePicker.swift in Sources */,
 				A71AB87826709A9300D8F151 /* Constants.swift in Sources */,
+				2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */,
 				C094C3882513306B00F039E4 /* OnBoardViewController.swift in Sources */,
 				C012B2FA255A9C4F005B7E20 /* ReportModel.swift in Sources */,
 				C026C99825792EFC00249C91 /* FeedbackNotificationViewController.swift in Sources */,

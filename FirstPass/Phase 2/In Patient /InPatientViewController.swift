@@ -61,7 +61,7 @@ class InPatientViewController: UIViewController {
         ProgressView.details = details
         ProgressView.direction = .topToBottom
         ProgressView.currentStep = 0
-        ProgressView.circleColor = #colorLiteral(red: 0.6342966557, green: 0.6435546279, blue: 0.817643702, alpha: 1)
+        ProgressView.circleColor = #colorLiteral(red: 0.6352941176, green: 0.6431372549, blue: 0.8156862745, alpha: 1)
         ProgressView.circleTintColor = #colorLiteral(red: 0.1752281785, green: 0.1031386331, blue: 0.5185605288, alpha: 1)
         ProgressView.currentTextColor = ProgressView.circleTintColor
         ProgressView.circleStrokeWidth = 1.0
