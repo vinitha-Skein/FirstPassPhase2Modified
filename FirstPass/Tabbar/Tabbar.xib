@@ -144,11 +144,11 @@
                                 <constraint firstAttribute="height" constant="60" id="EZw-L0-ddd"/>
                             </constraints>
                         </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-eB-utQ">
-                            <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-eB-utQ">
+                            <rect key="frame" x="20" y="15" width="20" height="20"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="ATi-3e-rUm"/>
-                                <constraint firstAttribute="height" constant="40" id="vZB-mb-xNv"/>
+                                <constraint firstAttribute="width" constant="20" id="ATi-3e-rUm"/>
+                                <constraint firstAttribute="height" constant="20" id="vZB-mb-xNv"/>
                             </constraints>
                         </imageView>
                         <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lh5-j6-Vm2">
@@ -167,7 +167,7 @@
                         <constraint firstItem="Lh5-j6-Vm2" firstAttribute="centerX" secondItem="q8P-d1-XS1" secondAttribute="centerX" id="aJG-9p-flD"/>
                         <constraint firstItem="Lh5-j6-Vm2" firstAttribute="centerY" secondItem="q8P-d1-XS1" secondAttribute="centerY" id="aRn-CB-ZfX"/>
                         <constraint firstItem="TQ2-eB-utQ" firstAttribute="centerX" secondItem="q8P-d1-XS1" secondAttribute="centerX" id="eEv-6L-aV9"/>
-                        <constraint firstItem="TQ2-eB-utQ" firstAttribute="centerY" secondItem="q8P-d1-XS1" secondAttribute="centerY" id="jtl-a6-dGO"/>
+                        <constraint firstItem="TQ2-eB-utQ" firstAttribute="centerY" secondItem="q8P-d1-XS1" secondAttribute="centerY" constant="-5" id="jtl-a6-dGO"/>
                         <constraint firstItem="Lh5-j6-Vm2" firstAttribute="height" secondItem="q8P-d1-XS1" secondAttribute="height" multiplier="0.5" id="rUU-Lc-MFY"/>
                         <constraint firstAttribute="height" constant="60" id="yaC-HR-yUF"/>
                     </constraints>
@@ -196,8 +196,8 @@
     <resources>
         <image name="account" width="24.5" height="24"/>
         <image name="appointment" width="24.5" height="24"/>
-        <image name="call" width="43" height="43"/>
         <image name="center_tab" width="66" height="66"/>
+        <image name="video" width="18" height="13"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

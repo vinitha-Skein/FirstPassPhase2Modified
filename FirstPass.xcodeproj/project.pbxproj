@@ -39,6 +39,9 @@
 		2252D3B227042CA100B60406 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2252D3B027042CA000B60406 /* CartTableViewCell.xib */; };
 		2252D3B727042CB000B60406 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3B627042CAF00B60406 /* CartViewController.swift */; };
 		2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */; };
+		22D024092705C14D0006BE2D /* CardsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */; };
+		22D024132706AA1F0006BE2D /* SJCenterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */; };
+		22D02507270860E90006BE2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22D02506270860E90006BE2D /* GoogleService-Info.plist */; };
 		22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */; };
 		22D9377B26FE229200CA95D6 /* UpcommingActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */; };
 		22E0D69D26FEE07B0061817A /* DischargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D69C26FEE07B0061817A /* DischargeViewController.swift */; };
@@ -300,6 +303,11 @@
 		2252D3B027042CA000B60406 /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		2252D3B627042CAF00B60406 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeMedicalTableViewCell.swift; sourceTree = "<group>"; };
+		22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewLayout.swift; sourceTree = "<group>"; };
+		22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJCenterFlowLayout.swift; sourceTree = "<group>"; };
+		22D024E427085EE50006BE2D /* Firstpass-watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Firstpass-watchOS Extension.entitlements"; sourceTree = "<group>"; };
+		22D024E527085F0B0006BE2D /* firstpass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = firstpass.entitlements; sourceTree = "<group>"; };
+		22D02506270860E90006BE2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientServicesCVC.swift; sourceTree = "<group>"; };
 		22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingActivitiesViewController.swift; sourceTree = "<group>"; };
 		22E0D69C26FEE07B0061817A /* DischargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeViewController.swift; sourceTree = "<group>"; };
@@ -695,6 +703,7 @@
 		A7A49EDB265B7FE000AB1A57 /* Firstpass-watchOS Extension */ = {
 			isa = PBXGroup;
 			children = (
+				22D024E427085EE50006BE2D /* Firstpass-watchOS Extension.entitlements */,
 				A7A49EDC265B7FE100AB1A57 /* InterfaceController.swift */,
 				A7A49EDE265B7FE100AB1A57 /* ExtensionDelegate.swift */,
 				A7A49EE0265B7FE100AB1A57 /* NotificationController.swift */,
@@ -858,6 +867,7 @@
 		C05980832506211800C92021 /* FirstPass */ = {
 			isa = PBXGroup;
 			children = (
+				22D024E527085F0B0006BE2D /* firstpass.entitlements */,
 				A7E981CC26F9E4D100F8551B /* Phase 2 Modified */,
 				1B5AC2B4266E6419002E7C12 /* Phase 2 */,
 				1B5AC280266E1D6A002E7C12 /* font */,
@@ -880,6 +890,7 @@
 				C0B208142519F1FF00F048F2 /* groupCopy2_2020-09-22 */,
 				C059808A2506211800C92021 /* Main.storyboard */,
 				1B5AC2AE266E62EE002E7C12 /* Modified.storyboard */,
+				22D02506270860E90006BE2D /* GoogleService-Info.plist */,
 				C059808D2506211900C92021 /* Assets.xcassets */,
 				C059808F2506211900C92021 /* LaunchScreen.storyboard */,
 				C05980922506211900C92021 /* Info.plist */,
@@ -982,6 +993,8 @@
 				C09123902555980B00CFBC89 /* HomeModel.swift */,
 				C091238E255597FE00CFBC89 /* HomeViewModel.swift */,
 				C0672AA5251500E80060FB08 /* HomeViewController.swift */,
+				22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */,
+				22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */,
 				1BF2232D266FB69B00759E13 /* AppointmentCollectionViewCell.swift */,
 				C0672AA7251507010060FB08 /* AppointmentTableViewCell.swift */,
 				C0672AA8251507010060FB08 /* AppointmentTableViewCell.xib */,
@@ -1302,6 +1315,7 @@
 				1B5AC29C266E5441002E7C12 /* SF-Pro-Display-Regular.otf in Resources */,
 				C0376A862518ECEF00A3933D /* MemberTableViewCell.xib in Resources */,
 				A7D8FBED2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.xib in Resources */,
+				22D02507270860E90006BE2D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1454,6 +1468,7 @@
 				C0B207F32519CEE900F048F2 /* TokenViewController.swift in Sources */,
 				1B5AC28F266E4AAD002E7C12 /* MyImageView+Extension.swift in Sources */,
 				A70691C026706BB9000C4129 /* PreChekinPopup.swift in Sources */,
+				22D024092705C14D0006BE2D /* CardsCollectionViewLayout.swift in Sources */,
 				A7D3594C2681B629003AC0DE /* CardsTableViewCell.swift in Sources */,
 				A803391C259EE8F400FE5FB5 /* SwapTestPopup.swift in Sources */,
 				22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */,
@@ -1470,6 +1485,7 @@
 				A8D2901F25BE9F6F003605D6 /* SwapPopup.swift in Sources */,
 				C094C38525132EF500F039E4 /* Extension.swift in Sources */,
 				A71AB87026709A3300D8F151 /* APIClient.swift in Sources */,
+				22D024132706AA1F0006BE2D /* SJCenterFlowLayout.swift in Sources */,
 				A718F75126FB3EA400CCFF1A /* BMICalculatorViewController.swift in Sources */,
 				A7BCF9D826FDB7860087EA9C /* NurseCallViewController.swift in Sources */,
 				C091239B25559DDD00CFBC89 /* MyAppointmentsViewModel.swift in Sources */,
@@ -1633,6 +1649,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = "Firstpass-watchOS Extension/Firstpass-watchOS Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
@@ -1658,6 +1675,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = "Firstpass-watchOS Extension/Firstpass-watchOS Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
@@ -1797,18 +1815,19 @@
 			baseConfigurationReference = 83C05EB8E54AB32B13684667 /* Pods-FirstPass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = FirstPass/firstpass.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				INFOPLIST_FILE = FirstPass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassphasetwo;
 				PRODUCT_NAME = firstpass;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "first pass phase 2";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1819,18 +1838,19 @@
 			baseConfigurationReference = 15DED582FB98D2ECA00FAC3D /* Pods-FirstPass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = FirstPass/firstpass.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				INFOPLIST_FILE = FirstPass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassphasetwo;
 				PRODUCT_NAME = firstpass;
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "first pass phase 2";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

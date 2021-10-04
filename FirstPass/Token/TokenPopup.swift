@@ -13,7 +13,11 @@ class TokenPopup: UIViewController {
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var tokenLabel: UILabel!
     @IBOutlet weak var tokenNumber: UILabel!
-    var token = String()
+    
+    @IBOutlet weak var CounterLabel: UILabel!
+    var token = ""
+    var counter = ""
+    
     //var delegate:TokenClosedDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,10 @@ class TokenPopup: UIViewController {
 //        tokenLabel.attributedText = attributedString
 //        tokenNumber.attributedText = attributedString1
 //        // Do any additional setup after loading the view.
+        tokenNumber.text = token
+        CounterLabel.text = counter
+        
+        
     }
     @IBAction func okAction(_ sender: Any) {
        // delegate?.tokenClosed()

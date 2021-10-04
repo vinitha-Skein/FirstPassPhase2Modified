@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import Alamofire
 import AlamofireImage
+import FirebaseDatabase
 
 class HomeViewController: UIViewController,ScanFinishedDelegate {
     
@@ -56,16 +57,26 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     var dummyAppointments = [ActiveAppointmentData]()
     
-    var titleMenu = ["Medicine Collections","Cardiology","Cardiology"]
+    var titleMenu = ["Medicine Collections","Cardiology","Cardiology","In Patient"]
+//    var titleColor = [#colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1),#colorLiteral(red: 0.427859962, green: 0.3798725903, blue: 0.5662087798, alpha: 1),#colorLiteral(red: 0.7609769702, green: 0.7396642566, blue: 0.8182614446, alpha: 1)]
     var checkinSelected = -1
     var appointmentBooked = -1
     var preArrivalfilled = [Int]()
+    let layout = SJCenterFlowLayout()
+    var itisInitialLoad = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        layout.itemSize = CGSize(width: appointmentsCollectionView.frame.size.width-70, height:  appointmentsCollectionView.frame.size.height-40)
+        layout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
+        layout.scrollDirection =  .horizontal
+        appointmentsCollectionView.collectionViewLayout = layout
+//        appointmentsCollectionView.collectionViewLayout = CardsCollectionViewLayout()
+//        appointmentsCollectionView.isPagingEnabled = true
+//        appointmentsCollectionView.showsHorizontalScrollIndicator = false
         appointmentsCollectionView.dataSource = self
         appointmentsCollectionView.delegate = self
+        
         setupUI()
         //        getUserDetailsFromLocal()
         bottomMenuView.delegate = self
@@ -75,6 +86,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
             vipView()
         }
         
+        firebaseObserver()
     }
     override func viewWillAppear(_ animated: Bool) {
         getUserDetailsFromLocal()
@@ -94,6 +106,32 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         
     }
     
+    func firebaseObserver(){
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        
+        ref.child("TokenCalled").observe(.value, with: { snapshot in
+          // Get user value
+          let value = snapshot.value as? NSDictionary
+          let username = value?["Token Id"] as? String ?? ""
+            let Counter = value?["Counter"] as? String ?? ""
+         print(username)
+            print(Counter)
+           
+            if !self.itisInitialLoad {
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
+                vc.modalPresentationStyle = .fullScreen
+                vc.counter = Counter
+                vc.token = username
+                self.present(vc, animated: true, completion: nil)
+            } else {
+                self.itisInitialLoad = false
+            }
+        }) { error in
+          print(error.localizedDescription)
+        }
+    }
     func vipView()
     {
         
@@ -218,13 +256,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     @IBAction func checkinButtonPressed(_ sender: Any) {
     }
-    
-    
-    
-    
-    
-    
-    
+
     func setupUI(){
         
         //For demo purpose
@@ -278,6 +310,11 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppointmentCollectionViewCell", for: indexPath) as! AppointmentCollectionViewCell
         cell.titleLabel.text = titleMenu[indexPath.row]
+        if titleMenu[indexPath.row] == "In Patient"{
+            cell.InPatientView.isHidden = false
+        } else {
+            cell.InPatientView.isHidden = true
+        }
         if preArrivalfilled.contains(indexPath.row)
         {
             cell.prearrivalButtonHeight.constant = 0
@@ -304,10 +341,17 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         
         if appointmentBooked == indexPath.row
         {
-            cell.DetailsView.isHidden = false
+            let flipDirection:UIView.AnimationOptions =  .transitionFlipFromRight
+            let options: UIView.AnimationOptions = [flipDirection, .showHideTransitionViews]
+            UIView.transition(from: cell.appointmentsView, to: cell.DetailsView, duration: 0.6, options: options) {
+                       finished in
+                cell.DetailsView.isHidden = false
+                   }
+//            cell.DetailsView.isHidden = false
         }
         else
         {
+            cell.appointmentsView.isHidden = false
             cell.DetailsView.isHidden = true
         }
         
@@ -320,16 +364,21 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         cell.prearrivalButton.addTarget(self, action: #selector(prearrivalButtonPressed(sender:)), for: .touchUpInside)
         cell.indoorMapButton.addTarget(self, action: #selector(indoorMapButtonPressed(sender:)), for: .touchUpInside)
         cell.indoorMapDetails.addTarget(self, action: #selector(indoorMapButtonPressed(sender:)), for: .touchUpInside)
-        
+        cell.viewDetailsInPatientButton.addTarget(self, action: #selector(ViewDetailsInPatientPressed(sender:)), for: .touchUpInside)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       if let cIndexPath = layout.currentCenteredIndexPath,
+          cIndexPath != indexPath {
+        layout.scrollToPage(atIndex: indexPath.row)
+      }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 538)
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? AppointmentCollectionViewCell else { return }
+        cell.appointmentsView.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
     }
     
     @objc func CheckinButtonPressed(sender : UIButton)
@@ -373,7 +422,13 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 //        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
 //        self.present(vc, animated: true)
     }
-    
+    @objc func ViewDetailsInPatientPressed(sender : UIButton)    {
+        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "InPatientViewController") as! InPatientViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+        self.present(vc, animated: true)
+    }
     
 }
 
@@ -520,6 +575,9 @@ extension HomeViewController:BottomViewDelegate
         present(vc, animated: true)
     }
     func AppointmentsClicked() {
+        
+    }
+    func VideCallClicked() {
         
     }
     

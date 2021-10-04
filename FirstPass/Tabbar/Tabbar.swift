@@ -13,6 +13,7 @@ protocol BottomViewDelegate
 {
     func AccountsClicked()
     func AppointmentsClicked()
+    func VideCallClicked()
 }
 
 class Tabbar: UIView {
@@ -61,6 +62,8 @@ class Tabbar: UIView {
         else if (sender.tag == 0)
         {
             self.delegate?.AppointmentsClicked()
+        } else if (sender.tag == 1) {
+            self.delegate?.VideCallClicked()
         }
     }
     

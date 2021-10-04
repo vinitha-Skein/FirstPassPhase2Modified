@@ -231,5 +231,8 @@ extension AccountViewController:BottomViewDelegate
         present(vc, animated: true, completion: nil)
     }
     
+    func VideCallClicked() {
+        
+    }
     
 }

@@ -2124,8 +2124,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CounterLabel" destination="ZR8-3u-vVl" id="OxC-bl-Tpc"/>
                         <outlet property="container" destination="6q4-DX-bIq" id="VF9-5u-hdL"/>
                         <outlet property="okButton" destination="Or5-UT-Gsz" id="cdu-Rl-txe"/>
+                        <outlet property="tokenNumber" destination="lhw-el-91S" id="ngp-of-KAf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcr-jK-qCB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -7009,6 +7011,9 @@ EFBheW1lbnQgTWV0aG9kA
                                     <constraint firstAttribute="height" constant="35" id="cdb-Co-Tfs"/>
                                 </constraints>
                                 <state key="normal" image="iconly-light-arrow-left-square"/>
+                                <connections>
+                                    <action selector="back_Clicked:" destination="2Ot-di-yrN" eventType="touchUpInside" id="GlZ-Wd-od2"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQI-gJ-09g">
                                 <rect key="frame" x="20" y="99" width="374" height="719"/>
@@ -7399,7 +7404,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="checkBox" width="17" height="17"/>
         <image name="checkboxSelected" width="24" height="24"/>
         <image name="closeicon" width="24" height="24"/>
-        <image name="date" width="12" height="12"/>
+        <image name="date" width="24" height="24"/>
         <image name="doctorgrey" width="16" height="16"/>
         <image name="doctors" width="24" height="24"/>
         <image name="edit" width="24" height="24"/>
@@ -7420,7 +7425,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="specialAssistance" width="38" height="38"/>
         <image name="tab2" width="22" height="22"/>
         <image name="tab3" width="20" height="20"/>
-        <image name="time" width="24" height="24"/>
+        <image name="time" width="12" height="12"/>
         <image name="tokenBg-1" width="146" height="143.5"/>
         <image name="tokennew" width="183" height="172"/>
         <image name="view" width="24" height="24"/>

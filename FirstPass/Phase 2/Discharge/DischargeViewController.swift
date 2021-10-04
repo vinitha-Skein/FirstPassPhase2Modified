@@ -74,6 +74,7 @@ class DischargeViewController: UIViewController {
     
 
     @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func nextProgressPressed(_ sender: UIButton) {

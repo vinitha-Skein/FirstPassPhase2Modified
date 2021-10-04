@@ -132,6 +132,35 @@ class InPatientViewController: UIViewController {
             let myStringafd = formatter.string(from: yourDate!)
             return (myStringafd)
         }
+    func gotoNurseCall(){
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+               let vc = storyboard.instantiateViewController(withIdentifier: "NurseCallViewController") as! NurseCallViewController
+               vc.modalPresentationStyle = .fullScreen
+               self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+               self.present(vc, animated: true)
+           }
+    func gotoHygeneCall(){
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+               let vc = storyboard.instantiateViewController(withIdentifier: "HygieneViewController") as! HygieneViewController
+               vc.modalPresentationStyle = .fullScreen
+               self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+               self.present(vc, animated: true)
+           }
+    func gotoFoodBeverages(){
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+               let vc = storyboard.instantiateViewController(withIdentifier: "FoodandBeveragesViewController") as! FoodandBeveragesViewController
+               vc.modalPresentationStyle = .fullScreen
+               self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+               self.present(vc, animated: true)
+           }
+    func gotodischargeViewController(){
+        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+               let vc = storyboard.instantiateViewController(withIdentifier: "DischargeViewController") as! DischargeViewController
+               vc.modalPresentationStyle = .fullScreen
+               self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+               self.present(vc, animated: true)
+           }
+
 
 
 }
@@ -152,6 +181,17 @@ extension InPatientViewController : UICollectionViewDelegate,UICollectionViewDat
             let width = servicesCollectionView.frame.width/2-4
             return CGSize(width: width, height: 180)
 
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+          gotoNurseCall()
+        } else if indexPath.row == 1{
+            gotoHygeneCall()
+        } else if indexPath.row == 2{
+            gotoFoodBeverages()
+        } else if indexPath.row == 3 {
+            gotodischargeViewController()
+        }
     }
 
 }

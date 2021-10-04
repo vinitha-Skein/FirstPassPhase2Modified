@@ -29,4 +29,10 @@ class AppointmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var indoorMapDetails: UIButton!
     
     @IBOutlet weak var viewDetailsButton: Mybutton!
+    
+    @IBOutlet weak var appointmentsView: MyUIView!
+    
+    @IBOutlet weak var InPatientView: MyUIView!
+    
+    @IBOutlet weak var viewDetailsInPatientButton: Mybutton!
 }
