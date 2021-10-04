@@ -11,9 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="Tabbar" customModule="firstpass" customModuleProvider="target">
             <connections>
+                <outlet property="Container" destination="iN0-l3-epB" id="qgo-GQ-DGW"/>
+                <outlet property="accountLabel" destination="Ktg-JE-4FH" id="fUF-c3-9hc"/>
+                <outlet property="appointmentLabel" destination="Q6z-o1-5W3" id="H7A-Bl-ImS"/>
                 <outlet property="appointmentView" destination="FKT-ee-V0d" id="NJX-mP-yfx"/>
                 <outlet property="bottomView" destination="VuL-jb-2Gs" id="Ppg-RB-5Qe"/>
                 <outlet property="centerView" destination="q8P-d1-XS1" id="ozg-lS-GJ6"/>
+                <outlet property="videoCallView" destination="q8P-d1-XS1" id="BDV-3X-Auu"/>
                 <outletCollection property="tabbarImages" destination="net-qn-8vt" collectionClass="NSMutableArray" id="32i-RX-xPO"/>
                 <outletCollection property="tabbarImages" destination="EnW-ta-MY7" collectionClass="NSMutableArray" id="3dx-ec-SGa"/>
                 <outletCollection property="tabbartitleLabels" destination="Q6z-o1-5W3" collectionClass="NSMutableArray" id="W5f-7j-twL"/>
@@ -179,7 +183,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="q8P-d1-XS1" firstAttribute="top" secondItem="VuL-jb-2Gs" secondAttribute="top" constant="-30" id="86Y-Pt-0u1"/>
                 <constraint firstItem="q8P-d1-XS1" firstAttribute="leading" secondItem="FKT-ee-V0d" secondAttribute="trailing" constant="30" id="FJ5-K9-Udd"/>

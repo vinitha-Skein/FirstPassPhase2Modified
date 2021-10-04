@@ -14,17 +14,13 @@ class AppointdetailsCollectionViewCell: UICollectionViewCell
     var indoorMapButtonPressed : (() -> ()) = {}
     var statusButtonPressed : (() -> ()) = {}
 
-    @IBOutlet var Container1: MyUIView!
-    @IBOutlet var estimatedTimeLabel: UILabel!
-    @IBOutlet var ConternoheadLabel: UILabel!
-    @IBOutlet var waitingTimeLabel: UILabel!
-    @IBOutlet var nextStopnameLabel: UILabel!
-    @IBOutlet var nextStopLabel: UILabel!
-    
-    @IBOutlet var container: MyUIView!
+    @IBOutlet weak var nextStopDepartmentLabel: UILabel!
+    @IBOutlet weak var NextStopLabel: UILabel!
+    @IBOutlet weak var WaitTimeLabel: UILabel!
+    @IBOutlet weak var indexLabel: UILabel!
+    @IBOutlet weak var Container: MyUIView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var statusButton: Mybutton!
-    @IBOutlet weak var indexLabel: UILabel!
     @IBAction func indoorMapClicked(_ sender: Any)
     {
         indoorMapButtonPressed()

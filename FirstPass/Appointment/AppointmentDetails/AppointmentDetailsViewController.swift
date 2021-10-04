@@ -10,7 +10,6 @@ import UIKit
 
 class AppointmentDetailsViewController: UIViewController {
 
-    @IBOutlet var servingLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet var bgView: UIView!
     @IBOutlet weak var headerView: UIView!
@@ -68,11 +67,12 @@ class AppointmentDetailsViewController: UIViewController {
         
         if UserDefaults.standard.bool(forKey: "vip")
         {
-            bgView.backgroundColor = UIColor.black
-            wholeContainer.backgroundColor = UIColor.black
-            container.backgroundColor = UIColor.black
-            headerView.backgroundColor = UIColor.black
-            titleLabel.textColor = UIColor(named: "vip")
+            tableView.backgroundColor = UIColor(hex: "#222629")
+            bgView.backgroundColor = UIColor(hex: "#14181A")
+            wholeContainer.backgroundColor = UIColor(hex: "#14181A")
+            container.backgroundColor = UIColor(hex: "#222629")
+            headerView.backgroundColor = UIColor(hex: "#14181A")
+            titleLabel.textColor = UIColor.white
             doctorLabel.textColor = UIColor(named: "vip")
             dateLabel.textColor = UIColor(named: "vip")
             timeLabel.textColor = UIColor(named: "vip")
@@ -94,8 +94,16 @@ class AppointmentDetailsViewController: UIViewController {
             filterCollectionView = false
             collectionview.isHidden = true
             tableView.isHidden = false
-            tableViewHeight.constant = 750
+            tableViewHeight.constant = 700
             filterButton.setImage(UIImage(named: "grid"), for: .normal)
+            titleLabel.textColor = UIColor.white
+            doctorLabel.textColor = UIColor.white
+            dateLabel.textColor = UIColor.white
+            timeLabel.textColor = UIColor.white
+            patientNameLabel.textColor = UIColor.white
+            patientNameTitleLabel.textColor = UIColor.white
+            tokenLabel.textColor = UIColor(named: "vip")
+            departmentLabel.textColor = UIColor.white
           
         }
         else
@@ -105,6 +113,12 @@ class AppointmentDetailsViewController: UIViewController {
             tableViewHeight.constant = 250
             tableView.isHidden = true
             filterButton.setImage(UIImage(named: "filters"), for: .normal)
+            doctorLabel.textColor = UIColor(named: "vip")
+            dateLabel.textColor = UIColor(named: "vip")
+            timeLabel.textColor = UIColor(named: "vip")
+            patientNameLabel.textColor = UIColor(named: "vip")
+            patientNameTitleLabel.textColor = UIColor(named: "vip")
+            departmentLabel.textColor = UIColor(named: "vip")
         }
 
     }
@@ -154,11 +168,16 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentdetailsNewTableViewCell") as! AppointmentdetailsNewTableViewCell
-        
+        cell.statusButton.layer.cornerRadius = 5
         if UserDefaults.standard.bool(forKey: "vip")
         {
-            cell.container.backgroundColor = UIColor(named: "vip")
-            
+            cell.Container.backgroundColor = UIColor(hex: "#34383B")
+            cell.categoryLabel.textColor = UIColor(named: "vip")
+            cell.estimatedWaitTimeLabel.textColor = UIColor.white
+            cell.waitTimesMinsLabel.textColor = UIColor.white
+            cell.ServingCounterLabel.textColor = UIColor.white
+            cell.ServingLabel.textColor = UIColor.white
+            cell.WholeContainer.backgroundColor = UIColor(hex: "#222629")
         }
         if(indexPath.row == 1)
         {
@@ -168,14 +187,27 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
             cell.statusButton.setTitleColor(UIColor.white, for: .normal)
             cell.statusButton.setTitle("Ongoing", for: .normal)
             cell.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0/255, alpha: 1)
-            cell.servingCounterLabel.textColor = UIColor.white
-            cell.estimatedWaittimeLabel.textColor = UIColor.white
-            cell.timeHeadLabel.textColor = UIColor.white
-            cell.servingLabel.textColor = UIColor.white
-            cell.container.backgroundColor = UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1)
+            cell.ServingCounterLabel.textColor = UIColor.white
+            cell.estimatedWaitTimeLabel.textColor = UIColor.white
+            cell.waitTimesMinsLabel.textColor = UIColor.white
+            cell.ServingLabel.textColor = UIColor.white
             cell.indoorMapicon.setImage( UIImage(named: "indoor"), for: .normal)
-            cell.container.layer.cornerRadius = 10
+            cell.Container.layer.cornerRadius = 10
             cell.statusButton.layer.cornerRadius = 5
+            
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.Container.backgroundColor = UIColor(named: "accountsbg")
+                cell.statusButton.backgroundColor = UIColor.white
+                cell.statusButton.setTitleColor(UIColor.brown, for: .normal)
+                cell.categoryLabel.textColor = UIColor.brown
+                cell.estimatedWaitTimeLabel.textColor = UIColor.brown
+                cell.waitTimesMinsLabel.textColor = UIColor.brown
+                cell.ServingCounterLabel.textColor = UIColor.brown
+                cell.ServingLabel.textColor = UIColor.brown
+
+            }
+            
         }
         else if(indexPath.row == 2)
         {
@@ -184,15 +216,21 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
             let bg = UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1)
             cell.statusButton.setTitleColor(bg, for: .normal)
             cell.categoryLabel.text = Appointments[indexPath.row]
-            cell.container.layer.cornerRadius = 10
+            cell.Container.layer.cornerRadius = 10
             cell.statusButton.layer.cornerRadius = 5
             cell.statusButton.isHidden = false
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.statusButton.backgroundColor = UIColor(hex: "#14181A")
+                cell.statusButton.setTitleColor(UIColor.white, for: .normal)
+
+            }
 
         }
         else
         {
             cell.categoryLabel.text = Appointments[indexPath.row]
-            cell.container.layer.cornerRadius = 10
+            cell.Container.layer.cornerRadius = 10
             if(indexPath.row == 0)
             {
                 cell.statusButton.isHidden = false
@@ -240,13 +278,12 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
         
         if UserDefaults.standard.bool(forKey: "vip")
         {
-          //  cells.Container1.backgroundColor = UIColor(named: "vip")
-            cells.ConternoheadLabel.backgroundColor = UIColor.brown
-            cells.categoryLabel.backgroundColor = UIColor.brown
-            cells.estimatedTimeLabel.backgroundColor = UIColor.brown
-            cells.nextStopLabel.backgroundColor = UIColor.brown
-            cells.nextStopnameLabel.backgroundColor = UIColor.brown
-            cells.waitingTimeLabel.backgroundColor = UIColor.brown
+            cells.Container.backgroundColor = UIColor(named: "vip")
+            cells.nextStopDepartmentLabel.textColor = UIColor.brown
+            cells.categoryLabel.textColor = UIColor.brown
+            cells.WaitTimeLabel.textColor = UIColor.brown
+            cells.NextStopLabel.textColor = UIColor.brown
+            cells.nextStopDepartmentLabel.textColor = UIColor.brown
             
         }
         

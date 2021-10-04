@@ -12,7 +12,16 @@ import Alamofire
 import AlamofireImage
 import FirebaseDatabase
 
+
+
 class HomeViewController: UIViewController,ScanFinishedDelegate {
+    
+   
+    
+    @IBOutlet weak var upcommingAppointmentsView: UIView!
+    @IBOutlet weak var headerView: UIView!
+    
+    @IBOutlet var bgView: UIView!
     
     @IBOutlet weak var notificationButton: UIButton!
     
@@ -25,9 +34,6 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     @IBOutlet weak var bottomMenuView: Tabbar!
     
-    @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var upcommingAppointmentsView: UIView!
-    @IBOutlet var bgView: UIView!
     //    @IBOutlet weak var upcommingView: MyUIView!
     
     //    @IBOutlet weak var prefilledLabel: UILabel!
@@ -105,7 +111,16 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         
         
     }
-    
+    func vipView()
+        {
+            
+        upcommingAppointmentsLabel.textColor = UIColor.white
+        viewAllButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        bgView.backgroundColor = UIColor.black
+            headerView.backgroundColor = UIColor.black
+           upcommingAppointmentsView.backgroundColor = UIColor.black
+            appointmentsCollectionView.backgroundColor = UIColor.black
+        }
     func firebaseObserver(){
         var ref: DatabaseReference!
         ref = Database.database().reference()
@@ -132,14 +147,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
           print(error.localizedDescription)
         }
     }
-    func vipView()
-    {
-        
-//        bgView.backgroundColor = UIColor.black
- //       headerView.backgroundColor = UIColor.black
-   //     upcommingAppointmentsView.backgroundColor = UIColor.black
-     //   appointmentsCollectionView.backgroundColor = UIColor.black
-    }
+    
     func getUserDetailsFromLocal(){
         
     }
