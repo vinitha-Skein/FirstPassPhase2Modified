@@ -62,85 +62,85 @@ class LoginViewController: UIViewController {
     }
     
     func loginUser(){
-        guard let phone = mobileTextfield.text,let password = passwordTextfield.text else {
+        guard let email = mobileTextfield.text,let password = passwordTextfield.text else {
             return
         }
         
-//        let isValidatePhone = self.validation.validaPhoneNumber(phoneNumber: phone)
-//        if (isValidatePhone == false) {
-//            self.showAlert("Incorrect Mobile number")
-//            return
-//        }
-//
-//        let isValidatePassword = self.validation.validatePassword(password: password)
-//        if (isValidatePassword == false) {
-//            self.showAlert("Password have Minimum 8 characters at least 1 Alphabet and 1 Number")
-//            return
-//        }
+        let isValidatePhone = self.validation.validateEmailId(emailID: email)
+        if (isValidatePhone == false) {
+            self.showAlert("Incorrect Mobile number")
+            return
+        }
+
+       // let isValidatePassword = self.validation.validatePassword(password: password)
+        if (password == "") {
+            self.showAlert("Password have Minimum 8 characters at least 1 Alphabet and 1 Number")
+            return
+        }
         
 
-        //uncomment below
         
-//        self.activityIndicator(self.view, startAnimate: true)
-//        let params = [
-//          "mobileNo": phone,
-//          "password": password]
-//        viewModel.loginUser(params: params)
-//        viewModel.loginSuccess = {
-//            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-//            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "TabViewController") as! TabViewController
-//            vc.modalPresentationStyle = .fullScreen
-//            self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-//            self.present(vc, animated: true)
-//        }
-//
-//        viewModel.loadingStatus = {
-//            if self.viewModel.isLoading{
-//                self.activityIndicator(self.view, startAnimate: true)
-//            }else{
-//                self.activityIndicator(self.view, startAnimate: false)
-//                UIApplication.shared.endIgnoringInteractionEvents()
-//            }
-//        }
-//
-//        viewModel.errorMessageAlert = {
-//            self.showAlert(self.viewModel.errorMessage ?? "Error")
-//        }
+        self.activityIndicator(self.view, startAnimate: true)
+        let params = [
+          "username": email,
+          "password": password]
+        viewModel.loginUser(params: params)
+        viewModel.loginSuccess = {
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+            self.present(vc, animated: true)
+        }
+
+        viewModel.loadingStatus = {
+            if self.viewModel.isLoading{
+                self.activityIndicator(self.view, startAnimate: true)
+            }else{
+                self.activityIndicator(self.view, startAnimate: false)
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+        }
+
+        viewModel.errorMessageAlert =
+            {
+            self.showAlert(self.viewModel.errorMessage ?? "Error")
+        }
         
         
         //For demo
-        if phone.contains("natasha@gmail.com")
-        {
-            if password == "123456"{
-                UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                let storyboard = UIStoryboard(name: "phase2", bundle: .main)
-                let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                vc.modalPresentationStyle = .fullScreen
-                self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-                self.present(vc, animated: true)
-            }else{
-                self.showAlert("Incorrect password")
-            }
-        }
-        else if phone.contains("vipdemo@gmail.com")
-        {
-            if password == "123456"{
-                UserDefaults.standard.set(true, forKey: "isLoggedIn")
-                UserDefaults.standard.set(true, forKey: "vip")
-                let storyboard = UIStoryboard(name: "phase2", bundle: .main)
-                let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                vc.modalPresentationStyle = .fullScreen
-                self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-                self.present(vc, animated: true)
-            }else{
-                self.showAlert("Incorrect password")
-            }
-        }
-        else
-        {
-            self.showAlert("Incorrect username")
-        }
+//        if phone.contains("natasha@gmail.com")
+//        {
+//            if password == "123456"{
+//                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+//                let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//                vc.modalPresentationStyle = .fullScreen
+//                self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+//                self.present(vc, animated: true)
+//            }else{
+//                self.showAlert("Incorrect password")
+//            }
+//        }
+//        else if phone.contains("vipdemo@gmail.com")
+//        {
+//            if password == "123456"{
+//                UserDefaults.standard.set(true, forKey: "isLoggedIn")
+//                UserDefaults.standard.set(true, forKey: "vip")
+//                let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//                vc.modalPresentationStyle = .fullScreen
+//                self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+//                self.present(vc, animated: true)
+//            }else{
+//                self.showAlert("Incorrect password")
+//            }
+//        }
+//        else
+//        {
+//            self.showAlert("Incorrect username")
+//        }
         
 
     }

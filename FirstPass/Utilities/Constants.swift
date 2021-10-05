@@ -3,7 +3,7 @@
 import Foundation
 struct DataService {
     static let productionBaseURL = ""
-    static let developmentBaseURL = "https://demo.emeetify.com:81/first-pass/"
+    static let developmentBaseURL = "http://noc.me.synapselive.com/fpmobile/api/v1/"
     static var authToken = ""
 }
 struct UserLoginData{

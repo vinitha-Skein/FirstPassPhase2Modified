@@ -11,7 +11,7 @@ import RealmSwift
 import Alamofire
 class LoginViewModel {
     //Properties
-    private var loginUserData:LoginUserData?{
+    private var loginUserData:String?{
         didSet{
             self.loginSuccess?()
         }
@@ -38,41 +38,42 @@ class LoginViewModel {
             switch result {
             case .success(let responseData):
                 self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
+                if responseData.status != nil
+                {
                         if responseData.status{
-                            if responseData.data != nil{
-                                let jsonData = try! JSONEncoder().encode(responseData.data)
-                                let decoder = JSONDecoder()
+                            if responseData.access_token != nil
+                            {
+                                    self.loginUserData = responseData.access_token
+
                                 
-                                do {
-                                    let userData = try decoder.decode(LoginUserDataRealm.self, from: jsonData)
-                                    let realm = try Realm()
-                                    try realm.write {
-                                        realm.add(userData)
-                                        print(realm.objects(LoginUserDataRealm.self))
-                                        self.loginUserData = responseData.data
-                                        
-                                    }
-                                } catch {
-                                    print(error.localizedDescription)
-                                }
-                            }else{
-                                self.errorMessage = responseData.messages
+//                                let jsonData = try! JSONEncoder().encode(responseData.data)
+//                                let decoder = JSONDecoder()
+//
+//                                do {
+//                                    let userData = try decoder.decode(LoginUserDataRealm.self, from: jsonData)
+//                                    let realm = try Realm()
+//                                    try realm.write {
+//                                        realm.add(userData)
+//                                        print(realm.objects(LoginUserDataRealm.self))
+//
+//                                    }
+//                                }
+//                                catch {
+//                                    print(error.localizedDescription)
+//                                }
+                            }
+                            else
+                            {
+                                self.errorMessage = responseData.message
                                 self.errorMessageAlert?()
                             }
                         }else{
-                            self.errorMessage = responseData.messages
+                            self.errorMessage = responseData.message
                             self.errorMessageAlert?()
                         }
-                    case 400..<500:
-                        self.errorMessage = responseData.messages
-                        self.errorMessageAlert?()
-                    default:
-                        print("Unknown Error")
+                    
                     }
-                }else{
+                else{
                     
                 }
             case .failure(let error):

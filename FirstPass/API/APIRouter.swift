@@ -71,7 +71,7 @@ enum APIRouter : URLRequestConvertible {
         case .registerUser:
             return "user"
         case .loginUser:
-            return "auth/login"
+            return "login"
         case .verifyRegistrationOTP:
             return "auth/otp/verify"
         case .setPassword:
@@ -209,7 +209,7 @@ enum APIRouter : URLRequestConvertible {
         switch path {
         case "auth/register":
         break//"No auth token needed
-        case "auth/login":
+        case "login":
         break//"No auth token needed
         case "auth/otp/verify":
         break//"No auth token needed
