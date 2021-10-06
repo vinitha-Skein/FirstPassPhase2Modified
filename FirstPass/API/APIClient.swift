@@ -122,13 +122,5 @@ class APIClient {
     static func deleteInsurance(memberId:Int,completion:@escaping(AFResult<InsuranceDelete>)->Void){
         performRequest(route: APIRouter.deleteInsurance(memberId: memberId),completion: completion)
     }
-    
-    
-    
-    //    static func getArticles(completion:@escaping (AFResult<[Article]>)->Void) {
-    //        let jsonDecoder = JSONDecoder()
-    //        jsonDecoder.dateDecodingStrategy = .formatted(.articleDateFormatter)
-    //        performRequest(route: APIRouter.articles, decoder: jsonDecoder, completion: completion)
-    //    } UpdatePollingStatus
 }
 

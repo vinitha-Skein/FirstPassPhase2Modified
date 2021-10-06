@@ -11,7 +11,7 @@ import RealmSwift
 import Alamofire
 import AlamofireImage
 import FirebaseDatabase
-
+import JitsiMeet
 
 
 class HomeViewController: UIViewController,ScanFinishedDelegate {
@@ -70,16 +70,22 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     var preArrivalfilled = [Int]()
     let layout = SJCenterFlowLayout()
     var itisInitialLoad = true
+    
+    
+    fileprivate var pipViewCoordinator: PiPViewCoordinator?
+    fileprivate var jitsiMeetView: JitsiMeetView?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        layout.itemSize = CGSize(width: appointmentsCollectionView.frame.size.width-70, height:  appointmentsCollectionView.frame.size.height-40)
-        layout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
-        layout.scrollDirection =  .horizontal
-        appointmentsCollectionView.collectionViewLayout = layout
-//        appointmentsCollectionView.collectionViewLayout = CardsCollectionViewLayout()
-//        appointmentsCollectionView.isPagingEnabled = true
-//        appointmentsCollectionView.showsHorizontalScrollIndicator = false
+//        layout.itemSize = CGSize(width: appointmentsCollectionView.frame.size.width-70, height:  appointmentsCollectionView.frame.size.height-40)
+//        layout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
+//        layout.scrollDirection =  .horizontal
+//        appointmentsCollectionView.collectionViewLayout = layout
+        appointmentsCollectionView.collectionViewLayout = CardsCollectionViewLayout()
+        appointmentsCollectionView.isPagingEnabled = true
+        appointmentsCollectionView.showsHorizontalScrollIndicator = false
         appointmentsCollectionView.dataSource = self
         appointmentsCollectionView.delegate = self
         
@@ -586,8 +592,38 @@ extension HomeViewController:BottomViewDelegate
         
     }
     func VideCallClicked() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        ref.child("VideoCallForNurse").setValue(["Token Id": "Nurse0002"])
+        
+        self.cleanUp()
+        let jitsiMeetView = JitsiMeetView()
+        jitsiMeetView.delegate = self
+        self.jitsiMeetView = jitsiMeetView
+        let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
+            builder.welcomePageEnabled = false
+            builder.room = "Nurse0002"
+        }
+        jitsiMeetView.join(options)
+
+        // Enable jitsimeet view to be a view that can be displayed
+        // on top of all the things, and let the coordinator to manage
+        // the view state and interactions
+        self.pipViewCoordinator = PiPViewCoordinator(withView: jitsiMeetView)
+        self.pipViewCoordinator?.configureAsStickyView(withParentView: self.view)
+
+        // animate in
+        jitsiMeetView.alpha = 0
+        self.pipViewCoordinator?.show()
         
     }
+    
+    fileprivate func cleanUp() {
+        jitsiMeetView?.removeFromSuperview()
+        jitsiMeetView = nil
+        pipViewCoordinator = nil
+    }
+    
     
 }
 protocol CheckInDelegate{
@@ -596,4 +632,21 @@ protocol CheckInDelegate{
     func appointmentPreCheckIn(appointmentIndex:Int)
     func appointmentArrived(appointmentIndex:Int)
     func appointmentParking(appointmentIndex:Int)
+}
+
+
+extension HomeViewController: JitsiMeetViewDelegate {
+    func conferenceTerminated(_ data: [AnyHashable : Any]!) {
+        DispatchQueue.main.async {
+            self.pipViewCoordinator?.hide() { _ in
+                self.cleanUp()
+            }
+        }
+    }
+
+    func enterPicture(inPicture data: [AnyHashable : Any]!) {
+        DispatchQueue.main.async {
+            self.pipViewCoordinator?.enterPictureInPicture()
+        }
+    }
 }

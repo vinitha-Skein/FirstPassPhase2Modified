@@ -17,5 +17,6 @@ pod 'Firebase/Messaging'
 pod 'FirebaseAuth'
 pod 'Firebase/Crashlytics'
 pod 'Firebase/Database'
+  pod 'JitsiMeetSDK', '~> 2.11'
 
 end

@@ -41,6 +41,8 @@
 	<string>1a85eba7039de46eb9c44523cfcd824c</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Firstpass need camera access for scanning QR codes</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The microphone is needed for making calls</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Firstpass need to access your Location</string>
 	<key>NSPhotoLibraryUsageDescription</key>

@@ -26,13 +26,13 @@ open class CardsCollectionViewLayout: UICollectionViewLayout {
 //    }
 //  }
 
-  public var spacing: CGFloat = 30.0 {
+  public var spacing: CGFloat = 20.0 {
     didSet{
       invalidateLayout()
     }
   }
 
-  public var maximumVisibleItems: Int = 5 {
+  public var maximumVisibleItems: Int = 4 {
     didSet{
       invalidateLayout()
     }
