@@ -10,14 +10,14 @@ import Foundation
 class RegisterUserViewModel
 {
     //Properties
-    var registeredData:RegisteredUserData?{
-        didSet{
-            self.registerSuccess?()
-        }
-    }
+//    var registeredData:RegisterNewUser?{
+//        didSet{
+//            self.registerSuccess?()
+//        }
+//    }
     var registerNewUser:RegisterNewUser?{
         didSet{
-            self.registereply?()
+            self.registerSuccess?()
         }
     }
     var error:Error?{
@@ -46,28 +46,13 @@ class RegisterUserViewModel
             switch result {
             case .success(let responseData):
                 self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
                         if responseData.status{
-                            self.otp = responseData.OTP!
-                            print(responseData.OTP!)
-                            print(self.otpvalue)
                             self.registerNewUser = responseData
-                            self.registeredData = responseData.data
                         }else{
                             //self.errorMessage = responseData.message
                             self.errorMessageAlert?()
                         }
-                    case 400..<500:
-                        //self.errorMessage = responseData.message
-                        self.errorMessageAlert?()
-                    default:
-                        print("Unknown Error")
-                    }
-                }else{
                     
-                }
             case .failure(let error):
                 print(error.localizedDescription)
                 self.errorMessage = error.localizedDescription

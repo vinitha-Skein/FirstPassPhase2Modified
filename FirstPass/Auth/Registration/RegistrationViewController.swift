@@ -9,6 +9,8 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
+    
+    @IBOutlet weak var mrnIDTextFeild: UITextField!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var firstName: UITextField!
@@ -23,6 +25,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -39,8 +42,11 @@ class RegistrationViewController: UIViewController {
         }
     }
     
-    func registerUser(){
-        guard let firstName = firstName.text, let email = email.text,let phone = mobileNumber.text, let emiratesID = emiratesID.text else
+    func registerUser()
+    {
+        guard let firstName = firstName.text, let email = email.text,let phone = mobileNumber.text,
+              let emiratesID = emiratesID.text,
+              let mrnID = mrnIDTextFeild.text else
         {
             return
         }
@@ -68,27 +74,38 @@ class RegistrationViewController: UIViewController {
             self.showAlert("Enter Emirites ID")
             return
         }
+        if (mrnID == "")
+        {
+            self.showAlert("Enter Emirites ID")
+            return
+        }
         
         
 //        let params = [
-//            "Emirates_id": emiratesID,
-//            "full_name": firstName,
-//            "email": email,
-//            "phone_no": phone]
-//        //self.activityIndicator(self.view, startAnimate: true)
+//                "full_name":"John madson",
+//                "mobile_no":"919788561889",
+//                "mail_address":"sam1@gmail12.com",
+//                "national_id":"87826677667766",
+//                "mrn":"12395868",
+//                "password":"123456",
+//                "device_id":"6adafafdsa6ffffffffffffffffffffffafdsfsa",
+//                "device_type":"android"]
+        //self.activityIndicator(self.view, startAnimate: true)
 //        viewModel.registerUser(params: params)
 //        viewModel.registerSuccess =
 //        {
 //
 //        }
+        UserDefaults.standard.setValue(firstName, forKey: "firstName")
+        UserDefaults.standard.setValue(phone, forKey: "phone")
+        UserDefaults.standard.setValue(email, forKey: "email")
+        UserDefaults.standard.setValue(emiratesID, forKey: "emiratesID")
+        UserDefaults.standard.setValue(mrnID, forKey: "mrnID")
+
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "OTPViewController") as! OTPViewController
         vc.modalPresentationStyle = .fullScreen
-        vc.userId = self.viewModel.registerNewUser?.user_id ?? 0
-        vc.otpfromSource = self.viewModel.registerNewUser?.OTP ?? 0
         
-        print(self.viewModel.registerNewUser?.OTP ?? 0)
-        print(self.viewModel.registerNewUser?.user_id ?? 0)
         self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
         self.present(vc, animated: true)
 //        viewModel.loadingStatus =

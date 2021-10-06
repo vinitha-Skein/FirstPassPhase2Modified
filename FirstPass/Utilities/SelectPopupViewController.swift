@@ -97,7 +97,7 @@ extension SelectPopupViewController:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberTableViewCell", for: indexPath) as! MemberTableViewCell
         switch popUpFor {
         case .FamilyMember:
-            cell.name.text = familyMembers[indexPath.row].name
+            cell.name.text = familyMembers[indexPath.row].full_name
         case .Location:
             cell.name.text = locations[indexPath.row].locationNameEn
         case .Department:

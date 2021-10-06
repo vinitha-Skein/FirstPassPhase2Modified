@@ -53,13 +53,21 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
         //dummy data
         
         
-        let myself = FamilyMembersList(name: "Mrs. Natasha", dob: "04-03-1960", memberId: 0, pId: 0, releation: "Self", title: "Mrs", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "456878563", profile_pic: "")
-        let member1 = FamilyMembersList(name: "Mr. Mr. Johnsmith", dob: "18-08-1956", memberId: 0, pId: 0, releation: "Husband", title: "Mrs", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "")
-        let member2 = FamilyMembersList(name: "Mr. Johnathan", dob: "07-11-1985", memberId: 0, pId: 0, releation: "Son", title: "Mr", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "")
+//        let myself = FamilyMembersList(name: "Mrs. Natasha", dob: "04-03-1960", memberId: 0, pId: 0, releation: "Self", title: "Mrs", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "456878563", profile_pic: "")
+//
+//        let member1 = FamilyMembersList(name: "Mr. Mr. Johnsmith", dob: "18-08-1956", memberId: 0, pId: 0, releation: "Husband", title: "Mrs", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "")
+//
+//        let member2 = FamilyMembersList(name: "Mr. Johnathan", dob: "07-11-1985", memberId: 0, pId: 0, releation: "Son", title: "Mr", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "")
+
+        
+        let myself = FamilyMembersList(full_name: "Johnsmith", relation: "Husband", dob: "18-08-1956", mrn: "99884556", national_id: "5566225", id: "1")
+        let member1 = FamilyMembersList(full_name: "Mrs. Natasha", relation: "Husband", dob: "18-08-1956", mrn: "99884556", national_id: "5566225", id: "1")
+        let member2 = FamilyMembersList(full_name: "Mr. Johnathan", relation: "Husband", dob: "18-08-1956", mrn: "99884556", national_id: "5566225", id: "1")
+        
         familyMemberData = [myself,member1,member2]
     }
     func fetchFamilyMembers(){
-        viewModel.fetchFamilyMember(userId: userId)
+        //viewModel.fetchFamilyMember()
         viewModel.fetchFamilySuccess = {
             self.familyMemberData = self.viewModel.familyMemberData ?? []
             DispatchQueue.main.async {

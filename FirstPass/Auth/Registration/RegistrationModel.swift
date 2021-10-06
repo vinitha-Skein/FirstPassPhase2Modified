@@ -11,19 +11,19 @@ import Foundation
 struct RegisterNewUser:Decodable {
     let message: String?
     let status: Bool
-    let statusCode: Int?
-    let error:String?
-    let data:RegisteredUserData?
-    let OTP: Int?
-    let user_id:Int?
+//    let statusCode: Int?
+//    let error:String?
+//    let data:RegisteredUserData?
+//    let OTP: Int?
+//    let user_id:Int?
 }
 
-struct RegisteredUserData:Decodable
-{
-    let firstName: String?
-    let lastName: String?
-    let mailAddress: String?
-    let phone_no: String?
-    let user_id:Int?
-}
+//struct RegisteredUserData:Decodable
+//{
+//    let firstName: String?
+//    let lastName: String?
+//    let mailAddress: String?
+//    let phone_no: String?
+//    let user_id:Int?
+//}
 

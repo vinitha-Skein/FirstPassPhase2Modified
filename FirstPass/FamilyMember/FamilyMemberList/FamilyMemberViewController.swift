@@ -25,12 +25,12 @@ class FamilyMemberViewController: UIViewController {
         viewModel.getUserDetails()
     }
     override func viewWillAppear(_ animated: Bool) {
-//        fetchFamilyMembers()
-        let myself = FamilyMembersList(name: "Mrs. Kiara Parker", dob: "Mar 03,1972", memberId: 0, pId: 0, releation: "Mother", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "456878563", profile_pic: "person")
-        let member1 = FamilyMembersList(name: "Ms. Julie Parker", dob: "Aug 29,1996", memberId: 0, pId: 0, releation: "Sister", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "person1")
-        let member2 = FamilyMembersList(name: "Mr. John Parker", dob: "Jun 29, 1993", memberId: 0, pId: 0, releation: "Brother", title: "Mr", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "person2")
-        let member3 = FamilyMembersList(name: "Ms. Julie Parker", dob: "Aug 29,1996", memberId: 0, pId: 0, releation: "Sister", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "person3", insuranceno: "", insurancevalidity: "Emirates ID", insurancecardimage: "", mrnNo: "998878563", profile_pic: "")
-        familyMemberData = [myself,member1,member2,member3]
+        fetchFamilyMembers()
+//        let myself = FamilyMembersList(name: "Mrs. Kiara Parker", dob: "Mar 03,1972", memberId: 0, pId: 0, releation: "Mother", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "456878563", profile_pic: "person")
+//        let member1 = FamilyMembersList(name: "Ms. Julie Parker", dob: "Aug 29,1996", memberId: 0, pId: 0, releation: "Sister", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "person1")
+//        let member2 = FamilyMembersList(name: "Mr. John Parker", dob: "Jun 29, 1993", memberId: 0, pId: 0, releation: "Brother", title: "Mr", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "person2")
+//        let member3 = FamilyMembersList(name: "Ms. Julie Parker", dob: "Aug 29,1996", memberId: 0, pId: 0, releation: "Sister", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "person3", insuranceno: "", insurancevalidity: "Emirates ID", insurancecardimage: "", mrnNo: "998878563", profile_pic: "")
+//        familyMemberData = [myself,member1,member2,member3]
     }
 
     @IBAction func backAction(_ sender: Any) {
@@ -60,7 +60,7 @@ class FamilyMemberViewController: UIViewController {
     
     func fetchFamilyMembers(){
         self.activityIndicator(self.view, startAnimate: true)
-        viewModel.fetchFamilyMember(userId: viewModel.userId ?? 0)
+        viewModel.fetchFamilyMember()
         viewModel.dataFetchSuccess = {
             self.familyMemberData = self.viewModel.familyMemberData ?? []
             DispatchQueue.main.async {
@@ -99,8 +99,8 @@ extension FamilyMemberViewController:UITableViewDelegate,UITableViewDataSource,E
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyMemberTableViewCell", for: indexPath) as! FamilyMemberTableViewCell
-//        cell.updateData(data: viewModel.familyMemberData![indexPath.row])
-        cell.updateData(data: familyMemberData[indexPath.row])
+        cell.updateData(data: viewModel.familyMemberData![indexPath.row])
+        //cell.updateData(data: familyMemberData[indexPath.row])
         //cell.editButton.tag = indexPath.row
         cell.delegate = self
 //        cell.imageUrl = viewModel.familyMemberData![indexPath.row].profile_pic

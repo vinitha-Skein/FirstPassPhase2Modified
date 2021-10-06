@@ -71,9 +71,9 @@ class FamilyMemberTableViewCell: UITableViewCell {
     
     
     func updateData(data:FamilyMembersList){
-        name.text = data.name ?? ""
+        name.text = data.full_name ?? ""
         mrn.text = data.dob ?? ""
-        type.text = data.releation ?? ""
+        type.text = data.relation ?? ""
     }
     
     @IBAction func editAction(_ sender: UIButton) {

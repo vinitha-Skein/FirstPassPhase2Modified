@@ -120,8 +120,10 @@ class BookAppointmentViewController: UIViewController {
         doctors = [doc1,doc2]
         
 
-        let member1 = FamilyMembersList(name: "Mr. Johnsmith", dob: "18-08-1956", memberId: 0, pId: 0, releation: "Husband", title: "Mrs", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "")
-        let member2 = FamilyMembersList(name: "Mr. Johnathan", dob: "07-11-1985", memberId: 0, pId: 0, releation: "Son", title: "Mr", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "")
+//        let member1 = FamilyMembersList(name: "Mr. Johnsmith", dob: "18-08-1956", memberId: 0, pId: 0, releation: "Husband", title: "Mrs", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "")
+//        let member2 = FamilyMembersList(name: "Mr. Johnathan", dob: "07-11-1985", memberId: 0, pId: 0, releation: "Son", title: "Mr", nationalId: "", id_proof: "", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "")
+        let member1 = FamilyMembersList(full_name: "Johnsmith", relation: "Husband", dob: "18-08-1956", mrn: "99884556", national_id: "5566225", id: "1")
+        let member2 = FamilyMembersList(full_name: "Johnathan", relation: "wife", dob: "18-04-1946", mrn: "99884556", national_id: "5566225", id: "1")
         familyMemberData = [member1,member2]
         //        let ser1 = ServiceData(branchId: 0, serviceId: 0, serviceNameAr: 0, serviceNameEn: "")
         

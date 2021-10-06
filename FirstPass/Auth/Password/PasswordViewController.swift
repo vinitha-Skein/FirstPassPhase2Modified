@@ -17,7 +17,7 @@ class PasswordViewController: UIViewController {
     @IBOutlet weak var passwordiconButton: UIButton!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var confirmPasswordView: UIView!
-    let viewModel = PasswordViewModel()
+    let viewModel = RegisterUserViewModel()
     var userId = Int()
     var otp = Int()
     var passwordiconclick = true
@@ -94,12 +94,36 @@ class PasswordViewController: UIViewController {
     }
     
     func setPassword(password:String){
-        let params = [
-            "password": password,
-            "user_id": userId,
-            "OTP": otp] as [String : Any]
-        print(otp)
-        print(userId)
+        
+        var name =  UserDefaults.standard.string(forKey: "firstName")
+        var mobile = UserDefaults.standard.string(forKey: "phone")
+        var email =  UserDefaults.standard.string(forKey: "email")
+        var nationalID = UserDefaults.standard.string(forKey: "emiratesID")
+        var mrnID = UserDefaults.standard.string(forKey: "mrnID")
+       var deviceID =  UserDefaults.standard.string(forKey: "FCM_REGITERED_TOKEN")
+
+        let params = [  "full_name":name,
+                        "mobile_no":mobile,
+                        "mail_address":email,
+                        "national_id":nationalID,
+                        "mrn":mrnID,
+                        "password":password,
+                        "device_id":deviceID,
+                        "device_type":"iOS"]
+        
+        print(params)
+                self.activityIndicator(self.view, startAnimate: true)
+                viewModel.registerUser(params: params)
+                viewModel.registerSuccess =
+                {
+                    let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                    vc.modalPresentationStyle = .fullScreen
+                    //        view.window!.layer.add(, forKey: kCATransition)
+                    self.present(vc, animated: true)
+                }
+                
+        
 //        self.activityIndicator(self.view, startAnimate: true)
 //        viewModel.setPassword(params: params)
 //        viewModel.passwordSetSuccess =
@@ -112,24 +136,19 @@ class PasswordViewController: UIViewController {
 //            //self.showAlert("Congratulations! Account Created Successfully.")
 //
 //        }
-        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
-        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        vc.modalPresentationStyle = .fullScreen
-        //        view.window!.layer.add(, forKey: kCATransition)
-        self.present(vc, animated: true)
         //self.showAlert("Congratulations! Account Created Successfully.")
-//        viewModel.loadingStatus = {
-//            if self.viewModel.isLoading{
-//                self.activityIndicator(self.view, startAnimate: true)
-//            }else{
-//                self.activityIndicator(self.view, startAnimate: false)
-//                UIApplication.shared.endIgnoringInteractionEvents()
-//            }
-//        }
+        viewModel.loadingStatus = {
+            if self.viewModel.isLoading{
+                self.activityIndicator(self.view, startAnimate: true)
+            }else{
+                self.activityIndicator(self.view, startAnimate: false)
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+        }
         
-//        viewModel.errorMessageAlert = {
-//            self.showAlert(self.viewModel.errorMessage ?? "Error")
-//        }
+        viewModel.errorMessageAlert = {
+            self.showAlert(self.viewModel.errorMessage ?? "Error")
+        }
     }
     
 }

@@ -71,39 +71,39 @@ class ProfileViewModel
     }
     
     //get all family members
-    func fetchFamilyMember(userId:Int)
-    {
-        isLoading = true
-        APIClient.getFamilyMembers(userId: userId){ result in
-            switch result {
-            case .success(let responseData):
-                self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
-                        if responseData.status
-                        {
-                            self.familyMemberData = responseData.familyMembers
-                        }
-                    case 400..<500:
-                        self.errorMessage = responseData.message
-                    default:
-                        print("Unknown Error")
-                    }
-                }
-                else
-                {
-                    self.errorMessage = responseData.message
-                    self.errorMessageAlert?()
-                }
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.error = error
-                self.isLoading = false
-                self.errorMessage = error.localizedDescription
-            }
-        }
-    }
+//    func fetchFamilyMember(userId:Int)
+//    {
+//        isLoading = true
+//        APIClient.getFamilyMembers(userId: userId){ result in
+//            switch result {
+//            case .success(let responseData):
+//                self.isLoading = false
+//                if responseData.error ?? "" == ""{
+//                    switch responseData.statusCode!{
+//                    case 200..<300:
+//                        if responseData.status
+//                        {
+//                            self.familyMemberData = responseData.familyMembers
+//                        }
+//                    case 400..<500:
+//                        self.errorMessage = responseData.message
+//                    default:
+//                        print("Unknown Error")
+//                    }
+//                }
+//                else
+//                {
+//                    self.errorMessage = responseData.message
+//                    self.errorMessageAlert?()
+//                }
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//                self.error = error
+//                self.isLoading = false
+//                self.errorMessage = error.localizedDescription
+//            }
+//        }
+//    }
     //get all family members
     func updateProfile(params:[String:Any]){
         isLoading = true

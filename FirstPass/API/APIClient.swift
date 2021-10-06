@@ -37,8 +37,8 @@ class APIClient {
     }
     
     //Family Member
-    static func getFamilyMembers(userId:Int,completion:@escaping(AFResult<FamilyMember>)->Void){
-        performRequest(route: APIRouter.getFamilyMembers(userId: userId),completion: completion)
+    static func getFamilyMembers(completion:@escaping(AFResult<FamilyMember>)->Void){
+        performRequest(route: APIRouter.getFamilyMembers,completion: completion)
     }
     static func addFamilyMember(userId:Int,params:[String:Any],completion:@escaping(AFResult<AddFamilyMember>)->Void){
         performRequest(route: APIRouter.addFamilyMember(userId: userId, params: params),completion: completion)
@@ -46,9 +46,9 @@ class APIClient {
     static func editFamilyMember(userId:Int,params:[String:Any],completion:@escaping(AFResult<UpdateMember>)->Void){
         performRequest(route: APIRouter.editFamilyMember(userId: userId, params: params),completion: completion)
     }
-    static func deleteFamilyMember(userId:Int,memberId:Int,completion:@escaping(AFResult<DeleteFamilyMember>)->Void){
-        performRequest(route: APIRouter.deleteFamilyMember(userId: userId, memberId: memberId),completion: completion)
-    }
+//    static func deleteFamilyMember(userId:Int,memberId:Int,completion:@escaping(AFResult<DeleteFamilyMember>)->Void){
+//        performRequest(route: APIRouter.deleteFamilyMember(userId: userId, memberId: memberId),completion: completion)
+//    }
     
     //Profile
     static func updateProfile(params:[String:Any],completion:@escaping(AFResult<ProfileUpdate>)->Void){

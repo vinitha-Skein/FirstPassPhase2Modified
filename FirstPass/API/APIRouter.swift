@@ -16,7 +16,7 @@ enum APIRouter : URLRequestConvertible {
     case verifyRegistrationOTP(params:[String:Any])
     case setPassword(params:[String:Any])
     //Family Member
-    case getFamilyMembers(userId:Int)
+    case getFamilyMembers
     case addFamilyMember(userId:Int,params:[String:Any])
     case editFamilyMember(userId:Int,params:[String:Any])
     case deleteFamilyMember(userId:Int,memberId:Int)
@@ -69,15 +69,15 @@ enum APIRouter : URLRequestConvertible {
     private var path: String {
         switch self {
         case .registerUser:
-            return "user"
+            return "register"
         case .loginUser:
             return "login"
         case .verifyRegistrationOTP:
             return "auth/otp/verify"
         case .setPassword:
             return "user"
-        case .getFamilyMembers(let userId):
-            return "familymember/\(userId)/all"
+        case .getFamilyMembers:
+            return "family"
         case .addFamilyMember(let userId,_):
             return "familymember/create/\(userId)"
         case .editFamilyMember(let userId,_):
@@ -207,7 +207,7 @@ enum APIRouter : URLRequestConvertible {
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.acceptType.rawValue)
         urlRequest.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
         switch path {
-        case "auth/register":
+        case "register":
         break//"No auth token needed
         case "login":
         break//"No auth token needed
@@ -216,8 +216,10 @@ enum APIRouter : URLRequestConvertible {
         case "auth/password/save":
         break//"No auth token needed
         default:
+            
             urlRequest.setValue(UserDefaults.standard.string(forKey: "Authorization"), forHTTPHeaderField: "Authorization")
-
+            print("Access Token\(UserDefaults.standard.string(forKey: "Authorization"))")
+            print("URL \(urlRequest)")
 //            if let authData = KeyChain.load(key: "Authorization") {
 //                let authToken = authData.to(type: String.self)
 //            }

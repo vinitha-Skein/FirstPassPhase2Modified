@@ -40,22 +40,19 @@ class FamilyMemberViewModel{
             }
         }
     //get all family members
-    func fetchFamilyMember(userId:Int){
+    func fetchFamilyMember(){
         isLoading = true
-        APIClient.getFamilyMembers(userId: userId){ result in
+        APIClient.getFamilyMembers(){ result in
             switch result {
             case .success(let responseData):
                 self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
-                    self.familyMemberData = responseData.familyMembers
-                    case 400..<500:
-                        self.errorMessage = responseData.message
-                    default:
-                        print("Unknown Error")
-                    }
-                }else{
+                if responseData.status ?? false
+                {
+                    
+                    self.familyMemberData = responseData.members
+                }
+                else
+                {
                     self.errorMessage = responseData.message
                     self.errorMessageAlert?()
                 }
@@ -69,24 +66,24 @@ class FamilyMemberViewModel{
     }
     
         //Remove family member
-    func removeFamilyMember(userId:Int,memberId:Int){
-            isLoading = true
-            APIClient.deleteFamilyMember(userId: userId, memberId: memberId){ result in
-                switch result {
-                case .success(let responseData):
-                    self.isLoading = false
-                    if responseData.status ?? false{
-                        self.deleteSuccess?()
-                    }else{
-                        self.errorMessage = responseData.messages
-                        self.errorMessageAlert?()
-                    }
-                case .failure(let error):
-                    self.errorMessage = error.localizedDescription
-                    print(error.localizedDescription)
-                    self.error = error
-                    self.isLoading = false
-                }
-            }
-        }
+//    func removeFamilyMember(userId:Int,memberId:Int){
+//            isLoading = true
+//            APIClient.deleteFamilyMember(userId: userId, memberId: memberId){ result in
+//                switch result {
+//                case .success(let responseData):
+//                    self.isLoading = false
+//                    if responseData.status ?? false{
+//                        self.deleteSuccess?()
+//                    }else{
+//                        self.errorMessage = responseData.messages
+//                        self.errorMessageAlert?()
+//                    }
+//                case .failure(let error):
+//                    self.errorMessage = error.localizedDescription
+//                    print(error.localizedDescription)
+//                    self.error = error
+//                    self.isLoading = false
+//                }
+//            }
+//        }
 }

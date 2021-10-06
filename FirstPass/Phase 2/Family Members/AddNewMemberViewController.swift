@@ -51,23 +51,23 @@ class AddNewMemberViewController: UIViewController {
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         if isEdit{
             headingLabel.text = "Edit"
-            fullNameTextfield.text = familyMember?.name
+            fullNameTextfield.text = familyMember?.full_name
             dobTextfield.text = familyMember?.dob
-            relationTextfield.text = familyMember?.releation
-            mrnTextfield.text = familyMember?.mrnNo
-            idProofTextfield.text = familyMember?.id_proof
+            relationTextfield.text = familyMember?.relation
+            mrnTextfield.text = familyMember?.mrn
+            //idProofTextfield.text = familyMember?.id_proof
             //paymentMethodTextfield.text = familyMember?.paymentmethod
-            idProofTextfield.text = familyMember?.nationalId
+            idProofTextfield.text = familyMember?.national_id
 //            if paymentMethodTextfield.text == "Insurance"
 //            {
 //                insuranceProviderTextfield.text = familyMember?.insurancename
 //                insurancePolicyNumTextfield.text = familyMember?.insuranceno
 //            }
-            if familyMember?.profile_pic != ""{
-                base64String = familyMember?.profile_pic ?? ""
-                memberImage.image = UIImage(named: familyMember?.profile_pic ?? "")
-            }
-            memberTitle(title: familyMember?.title ?? "")
+//            if familyMember?.profile_pic != ""{
+//                base64String = familyMember?.profile_pic ?? ""
+//                memberImage.image = UIImage(named: familyMember?.profile_pic ?? "")
+//            }
+            memberTitle(title: familyMember?.full_name ?? "")
             addButton.setTitle("Update Member", for: .normal)
           //  clearButton.isHidden = true
         }

@@ -11,7 +11,7 @@ import RealmSwift
 import Alamofire
 class LoginViewModel {
     //Properties
-    private var loginUserData:String?{
+    var loginUserData:String?{
         didSet{
             self.loginSuccess?()
         }

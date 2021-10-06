@@ -63,7 +63,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="692.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0bs-jB-iAz">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="637"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="735"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVA-Bz-G6x" userLabel="signUPView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="103"/>
@@ -224,8 +224,40 @@
                                                                     <constraint firstAttribute="trailing" secondItem="ksG-pD-xAX" secondAttribute="trailing" constant="24" id="oRd-77-n5q"/>
                                                                 </constraints>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yo3-E6-W42">
+                                                                <rect key="frame" x="0.0" y="503" width="374" height="90"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Enter MRN ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-QO-HFI">
+                                                                        <rect key="frame" x="24" y="44" width="326" height="46"/>
+                                                                        <color key="backgroundColor" name="textfeildBG"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="46" id="0Bl-hZ-Knw"/>
+                                                                        </constraints>
+                                                                        <color key="textColor" systemColor="darkTextColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MRN ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61K-Uw-0R6">
+                                                                        <rect key="frame" x="24" y="14" width="49.5" height="20"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="20" id="F6F-Wi-yeQ"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                                        <color key="textColor" name="text fade"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="bottom" secondItem="R2f-QO-HFI" secondAttribute="bottom" id="7Fv-ID-8Ht"/>
+                                                                    <constraint firstItem="61K-Uw-0R6" firstAttribute="leading" secondItem="yo3-E6-W42" secondAttribute="leading" constant="24" id="8co-t2-eO5"/>
+                                                                    <constraint firstItem="R2f-QO-HFI" firstAttribute="top" secondItem="61K-Uw-0R6" secondAttribute="bottom" constant="10" id="WRj-xH-etF"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="R2f-QO-HFI" secondAttribute="trailing" constant="24" id="izI-qz-ca7"/>
+                                                                    <constraint firstItem="R2f-QO-HFI" firstAttribute="leading" secondItem="yo3-E6-W42" secondAttribute="leading" constant="24" id="mHw-Qv-9qA"/>
+                                                                    <constraint firstItem="61K-Uw-0R6" firstAttribute="top" secondItem="yo3-E6-W42" secondAttribute="top" constant="14" id="qBl-4h-Sk3"/>
+                                                                </constraints>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ret-2W-5e4">
-                                                                <rect key="frame" x="0.0" y="503" width="374" height="134"/>
+                                                                <rect key="frame" x="0.0" y="601" width="374" height="134"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGq-s8-wqc">
                                                                         <rect key="frame" x="30" y="0.0" width="30" height="30"/>
@@ -338,6 +370,7 @@
                         <outlet property="firstName" destination="gSG-cX-kVO" id="Szb-pV-gcu"/>
                         <outlet property="generateButton" destination="PCT-KK-xNX" id="j11-uB-gtH"/>
                         <outlet property="mobileNumber" destination="wSu-bj-jpV" id="t7C-Wb-cRc"/>
+                        <outlet property="mrnIDTextFeild" destination="R2f-QO-HFI" id="J4n-aH-9qu"/>
                         <outlet property="scrollView" destination="zbm-g1-0pX" id="gUI-PN-X1Q"/>
                     </connections>
                 </viewController>
@@ -406,10 +439,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCQ-1b-gqP">
-                                                        <rect key="frame" x="66.5" y="0.0" width="47.5" height="46"/>
+                                                        <rect key="frame" x="53" y="0.0" width="47" height="46"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jz2-PB-5rW">
-                                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="44"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
@@ -423,7 +456,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhu-Jj-lcH">
-                                                        <rect key="frame" x="133.5" y="0.0" width="47" height="46"/>
+                                                        <rect key="frame" x="105.5" y="0.0" width="47" height="46"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fzj-Jv-WeN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="47" height="44"/>
@@ -440,10 +473,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUo-Jg-VST">
-                                                        <rect key="frame" x="200" y="0.0" width="47.5" height="46"/>
+                                                        <rect key="frame" x="158.5" y="0.0" width="47" height="46"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mh4-54-GiP">
-                                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="44"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
@@ -457,10 +490,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obx-DA-YeG">
-                                                        <rect key="frame" x="267" y="0.0" width="47" height="46"/>
+                                                        <rect key="frame" x="211" y="0.0" width="47.5" height="46"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qR8-6k-1IG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="47" height="44"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="47.5" height="44"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                             </textField>
@@ -471,6 +504,23 @@
                                                             <constraint firstItem="qR8-6k-1IG" firstAttribute="top" secondItem="obx-DA-YeG" secondAttribute="top" id="SGa-v6-T9G"/>
                                                             <constraint firstAttribute="bottom" secondItem="qR8-6k-1IG" secondAttribute="bottom" constant="2" id="VKp-c4-Bqo"/>
                                                             <constraint firstAttribute="trailing" secondItem="qR8-6k-1IG" secondAttribute="trailing" id="vig-Sn-bNc"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cuv-bJ-mX8">
+                                                        <rect key="frame" x="264" y="0.0" width="50" height="46"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rf2-Tn-Bgx">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="44"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                            </textField>
+                                                        </subviews>
+                                                        <color key="backgroundColor" name="textfeildBG"/>
+                                                        <constraints>
+                                                            <constraint firstItem="rf2-Tn-Bgx" firstAttribute="leading" secondItem="cuv-bJ-mX8" secondAttribute="leading" id="O8x-IC-2Cs"/>
+                                                            <constraint firstAttribute="bottom" secondItem="rf2-Tn-Bgx" secondAttribute="bottom" constant="2" id="g7c-6I-cDK"/>
+                                                            <constraint firstItem="rf2-Tn-Bgx" firstAttribute="top" secondItem="cuv-bJ-mX8" secondAttribute="top" id="r8g-rA-Gyt"/>
+                                                            <constraint firstAttribute="trailing" secondItem="rf2-Tn-Bgx" secondAttribute="trailing" id="xlN-Mi-bni"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -581,11 +631,13 @@
                     </view>
                     <connections>
                         <outlet property="container" destination="FWV-cf-ckJ" id="1cd-sB-bJ0"/>
+                        <outlet property="mobileNumberLabel" destination="IMd-hJ-vlD" id="syC-RF-kEF"/>
                         <outlet property="otp1" destination="M2h-Uq-bnZ" id="4LV-0W-d1k"/>
                         <outlet property="otp2" destination="Jz2-PB-5rW" id="e56-wj-3sL"/>
                         <outlet property="otp3" destination="Fzj-Jv-WeN" id="nBt-F3-f1S"/>
                         <outlet property="otp4" destination="Mh4-54-GiP" id="UQV-I5-FhV"/>
                         <outlet property="otp5" destination="qR8-6k-1IG" id="4UZ-O8-HPb"/>
+                        <outlet property="otp6" destination="rf2-Tn-Bgx" id="SA4-F1-rVB"/>
                         <outlet property="verifyButton" destination="3Qh-G1-PNH" id="6IL-Aa-T70"/>
                     </connections>
                 </viewController>
@@ -1608,7 +1660,7 @@
                                                                                 <rect key="frame" x="90" y="0.0" width="110" height="45"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radioDeselected" translatesAutoresizingMaskIntoConstraints="NO" id="odb-EW-fW6">
-                                                                                        <rect key="frame" x="0.0" y="11.5" width="24" height="22.5"/>
+                                                                                        <rect key="frame" x="0.0" y="11.5" width="37.5" height="22.5"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="4" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-N6-nbX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
@@ -1618,7 +1670,7 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-7R-2bW">
-                                                                                        <rect key="frame" x="44" y="0.0" width="66" height="45"/>
+                                                                                        <rect key="frame" x="57.5" y="0.0" width="52.5" height="45"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <color key="textColor" white="0.29635528430000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -7404,7 +7456,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="checkBox" width="17" height="17"/>
         <image name="checkboxSelected" width="24" height="24"/>
         <image name="closeicon" width="24" height="24"/>
-        <image name="date" width="12" height="12"/>
+        <image name="date" width="24" height="24"/>
         <image name="doctorgrey" width="16" height="16"/>
         <image name="doctors" width="24" height="24"/>
         <image name="edit" width="24" height="24"/>
@@ -7463,6 +7515,9 @@ EFBheW1lbnQgTWV0aG9kA
         <namedColor name="textfeildBG">
             <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97600001096725464" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
 
-class OTPViewController: UIViewController,UITextFieldDelegate {
+class OTPViewController: UIViewController,UITextFieldDelegate
+{
+   
+    
+    
+    
+    @IBOutlet weak var mobileNumberLabel: UILabel!
+    @IBOutlet weak var otp6: UITextField!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var otp1: UITextField!
     @IBOutlet weak var otp2: UITextField!
@@ -25,12 +33,12 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var verifyButton: UIButton!
     let viewModel = OTPViewModel()
     var userId = Int()
-    var otpfromSource = Int()
+    var otpfromSource = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        print(otpfromSource)
-        // Do any additional setup after loading the view.
+        
+        FirebaseCall()// Do any additional setup after loading the view.
     }
     @IBAction func back_clicked(_ sender: Any)
     {
@@ -55,12 +63,14 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
         container.layer.shadowOpacity = 0.2
 
         verifyButton.createBorderForButton(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
+        mobileNumberLabel.text = "+91" + UserDefaults.standard.string(forKey: "phone")!
         
         otp1.delegate = self
         otp2.delegate = self
         otp3.delegate = self
         otp4.delegate = self
         otp5.delegate = self
+        otp6.delegate = self
         
         
         otp1.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
@@ -68,8 +78,48 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
         otp3.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         otp4.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         otp5.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        otp6.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
         
         
+    }
+    func FirebaseCall()
+        {
+                            
+                            activityIndicator(self.view, startAnimate: true)
+                            
+                             // indicatorText.text = "Please Wait While we are Sending OTP"
+                            
+                            var phoneNumber = "+91" + UserDefaults.standard.string(forKey: "phone")!
+                              Auth.auth().settings?.isAppVerificationDisabledForTesting = false
+                              PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil)
+          
+                              { (verificationID, error) in
+                              if let error = error
+                                  {
+                                      print(error.localizedDescription)
+                                      return
+                                  }
+                                  else
+                                  {
+                                    self.activityIndicator(self.view, startAnimate: false)
+                                    self.otpfromSource = verificationID!
+                                  }
+                              }
+        }
+    func verify(otpEntered: String)
+    {
+        if otpEntered == otpfromSource
+        {
+                self.activityIndicator(self.view, startAnimate: true)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+        }
+        else
+        {
+            showAlert("Invalid OTP")
+        }
     }
     @objc func textFieldDidChange(textField: UITextField){
         
@@ -87,6 +137,8 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
                 otp5.becomeFirstResponder()
             case otp5:
                 otp5.becomeFirstResponder()
+            case otp6:
+                otp6.becomeFirstResponder()
             default:
                 break
             }
@@ -97,8 +149,10 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func verifyAction(_ sender: Any) {
         //let otp = "\(otp1.text)  \(otp2.text)  \(otp3.text)  \(otp4.text)  \(otp5.text)"
-        let otp = otp1.text! + otp2.text! + otp3.text! + otp4.text! + otp5.text!
-        if otp.count == 5{
+        var otptemp1 = otp1.text! + otp2.text! + otp3.text!
+        var otptemp2 = otp4.text! + otp5.text! + otp6.text!
+        var otp = otptemp1 + otptemp2
+        if otp.count == 6{
             //verifyOTP(otp: otp)
             let intOTP = Int(otp) ?? 0
             print(intOTP)
@@ -110,6 +164,8 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
         let intOTP = Int(otp) ?? 0
         print(intOTP)
         print(otp)
+        verify(otpEntered: otp)
+        
     }
     func tempOTPvalidation(otpfunc:Int)
     {
@@ -137,37 +193,37 @@ class OTPViewController: UIViewController,UITextFieldDelegate {
         vc.modalPresentationStyle = .fullScreen
         self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
         vc.userId = self.userId
-        vc.otp = otpfromSource
         self.present(vc, animated: true)
     }
-    func verifyOTP(otp:String){
-        let params = [
-            "otp": otp,
-            "userId": userId] as [String : Any]
-        self.activityIndicator(self.view, startAnimate: true)
-        viewModel.verifyOTP(params: params)
-        viewModel.otpVerifySuccess = {
-            let storyboard = UIStoryboard(name: "Main", bundle: .main)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
-            vc.modalPresentationStyle = .fullScreen
-            self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-            vc.userId = self.userId
-            self.present(vc, animated: true)
-        }
-        
-        viewModel.loadingStatus = {
-            if self.viewModel.isLoading{
-                self.activityIndicator(self.view, startAnimate: true)
-            }else{
-                self.activityIndicator(self.view, startAnimate: false)
-                UIApplication.shared.endIgnoringInteractionEvents()
-            }
-        }
-        
-        viewModel.errorMessageAlert = {
-            self.showAlert(self.viewModel.errorMessage ?? "Error")
-        }
-    }
+//    func verifyOTP(otp:String)
+//    {
+//        let params = [
+//            "otp": otp,
+//            "userId": userId] as [String : Any]
+//        self.activityIndicator(self.view, startAnimate: true)
+//        viewModel.verifyOTP(params: params)
+//        viewModel.otpVerifySuccess = {
+//            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
+//            vc.modalPresentationStyle = .fullScreen
+//            self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+//            vc.userId = self.userId
+//            self.present(vc, animated: true)
+//        }
+//
+//        viewModel.loadingStatus = {
+//            if self.viewModel.isLoading{
+//                self.activityIndicator(self.view, startAnimate: true)
+//            }else{
+//                self.activityIndicator(self.view, startAnimate: false)
+//                UIApplication.shared.endIgnoringInteractionEvents()
+//            }
+//        }
+//
+//        viewModel.errorMessageAlert = {
+//            self.showAlert(self.viewModel.errorMessage ?? "Error")
+//        }
+//    }
     
 }
 
