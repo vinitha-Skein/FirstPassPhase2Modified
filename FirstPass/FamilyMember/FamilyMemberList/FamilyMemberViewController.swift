@@ -52,9 +52,8 @@ class FamilyMemberViewController: UIViewController {
     }
     
     func setupUI(){
-        container.createBorderForView(cornerRadius: 30, borderWidth: 0, borderColor: .clear)
+        container.createBorderForView(cornerRadius: 30, borderWidth: 1, borderColor: .lightGray)
         container.clipsToBounds = true
-        container.layer.borderColor = UIColor.lightGray.cgColor
         addButton.createBorderForButton(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
     }
     
@@ -81,7 +80,6 @@ class FamilyMemberViewController: UIViewController {
     }
 }
 
-
 extension FamilyMemberViewController:UITableViewDelegate,UITableViewDataSource,EditFamilyMemberDelegate{
     func editFamilyMember(index: Int) {
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)
@@ -100,12 +98,13 @@ extension FamilyMemberViewController:UITableViewDelegate,UITableViewDataSource,E
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyMemberTableViewCell", for: indexPath) as! FamilyMemberTableViewCell
         cell.updateData(data: viewModel.familyMemberData![indexPath.row])
+        cell.container.layer.cornerRadius = 5
         //cell.updateData(data: familyMemberData[indexPath.row])
         //cell.editButton.tag = indexPath.row
         cell.delegate = self
 //        cell.imageUrl = viewModel.familyMemberData![indexPath.row].profile_pic
         let users = ["person","person1","person2","person3"]
-        cell.pic.image = UIImage(named: users[indexPath.row])
+       // cell.pic.image = UIImage(named: users[indexPath.row])
         cell.pic.layer.cornerRadius = 18
         cell.deleteButtonPressed =
         {

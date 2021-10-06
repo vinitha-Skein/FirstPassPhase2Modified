@@ -17,7 +17,7 @@ enum APIRouter : URLRequestConvertible {
     case setPassword(params:[String:Any])
     //Family Member
     case getFamilyMembers
-    case addFamilyMember(userId:Int,params:[String:Any])
+    case addFamilyMember(params:[String:Any])
     case editFamilyMember(userId:Int,params:[String:Any])
     case deleteFamilyMember(userId:Int,memberId:Int)
     //Profile
@@ -78,8 +78,8 @@ enum APIRouter : URLRequestConvertible {
             return "user"
         case .getFamilyMembers:
             return "family"
-        case .addFamilyMember(let userId,_):
-            return "familymember/create/\(userId)"
+        case .addFamilyMember:
+            return "family"
         case .editFamilyMember(let userId,_):
             return "familymember/update/\(userId)"
         case .deleteFamilyMember(let userId, let memberId):
@@ -142,7 +142,7 @@ enum APIRouter : URLRequestConvertible {
             return params
         case .getFamilyMembers:
             return nil
-        case .addFamilyMember(_,let params):
+        case .addFamilyMember(let params):
             return params
         case .editFamilyMember(_,let params):
             return params
@@ -219,7 +219,6 @@ enum APIRouter : URLRequestConvertible {
             
             urlRequest.setValue(UserDefaults.standard.string(forKey: "Authorization"), forHTTPHeaderField: "Authorization")
             print("Access Token\(UserDefaults.standard.string(forKey: "Authorization")!)")
-            print("URL \(urlRequest)")
 //            if let authData = KeyChain.load(key: "Authorization") {
 //                let authToken = authData.to(type: String.self)
 //            }
@@ -233,6 +232,10 @@ enum APIRouter : URLRequestConvertible {
                 throw AFError.parameterEncodingFailed(reason: .jsonEncodingFailed(error: error))
             }
         }
+        print("URL \(urlRequest)")
+        print("URL \(urlRequest.httpMethod)")
+        print("URL \(urlRequest.headers)")
+
         return urlRequest
     }
 }

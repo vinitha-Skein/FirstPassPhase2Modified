@@ -34,6 +34,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate
     let viewModel = OTPViewModel()
     var userId = Int()
     var otpfromSource = String()
+    var verificationID = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -97,29 +98,62 @@ class OTPViewController: UIViewController,UITextFieldDelegate
                               if let error = error
                                   {
                                       print(error.localizedDescription)
+                                self.activityIndicator(self.view, startAnimate: false)
+                                self.showAlert(error.localizedDescription)
+
                                       return
                                   }
                                   else
                                   {
                                     self.activityIndicator(self.view, startAnimate: false)
                                     self.otpfromSource = verificationID!
+                                    print(verificationID)
+                                    self.verificationID = verificationID ?? "No Value"
+                                    print(" OTP from server\(self.verificationID)")
                                   }
                               }
         }
     func verify(otpEntered: String)
     {
-        if otpEntered == otpfromSource
-        {
-                self.activityIndicator(self.view, startAnimate: true)
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true, completion: nil)
+        
+        let verificationCode = otpEntered
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
+
+        Auth.auth().signIn(with: credential) { (authResult, error) in
+          if let error = error {
+            let authError = error as NSError
+            print(authError.description)
+            self.showAlert("Invalid OTP")
+            return
+          }
+            let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
+                    vc.modalPresentationStyle = .fullScreen
+                    self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+                    vc.userId = self.userId
+                    self.present(vc, animated: true)
+          
+            // User has signed in successfully and currentUser object is valid
+          let currentUserInstance = Auth.auth().currentUser
         }
-        else
-        {
-            showAlert("Invalid OTP")
-        }
+        
+        
+        
+        
+        
+//        print(otpfromSource)
+//        if otpEntered == otpfromSource
+//        {
+//                self.activityIndicator(self.view, startAnimate: true)
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
+//                vc.modalPresentationStyle = .fullScreen
+//                self.present(vc, animated: true, completion: nil)
+//        }
+//        else
+//        {
+//            showAlert("Invalid OTP")
+//        }
     }
     @objc func textFieldDidChange(textField: UITextField){
         
@@ -136,7 +170,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate
             case otp4:
                 otp5.becomeFirstResponder()
             case otp5:
-                otp5.becomeFirstResponder()
+                otp6.becomeFirstResponder()
             case otp6:
                 otp6.becomeFirstResponder()
             default:
@@ -152,19 +186,21 @@ class OTPViewController: UIViewController,UITextFieldDelegate
         var otptemp1 = otp1.text! + otp2.text! + otp3.text!
         var otptemp2 = otp4.text! + otp5.text! + otp6.text!
         var otp = otptemp1 + otptemp2
-        if otp.count == 6{
+        if otp.count == 6
+        {
             //verifyOTP(otp: otp)
-            let intOTP = Int(otp) ?? 0
-            print(intOTP)
-            tempOTPvalidation(otpfunc: intOTP)
-        }else{
+            print((otp))
+
+            verify(otpEntered: otp)
+
+        }
+        else
+        {
             print("NO OTP")
-            print()
+            showAlert("Please enter the OTP")
         }
         let intOTP = Int(otp) ?? 0
-        print(intOTP)
         print(otp)
-        verify(otpEntered: otp)
         
     }
     func tempOTPvalidation(otpfunc:Int)

@@ -81,6 +81,7 @@
 		A7304D6526738B3A00DA33B2 /* DeleteFamilyMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7304D6426738B3A00DA33B2 /* DeleteFamilyMemberViewController.swift */; };
 		A737D422265BB52E008B4D61 /* UpcommingAppointmentsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D421265BB52E008B4D61 /* UpcommingAppointmentsInterfaceController.swift */; };
 		A737D42E265BB624008B4D61 /* UpcommingappointmentsRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737D42D265BB624008B4D61 /* UpcommingappointmentsRowController.swift */; };
+		A73DD1FB270DD127001D34FF /* Json4Swift_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73DD1FA270DD127001D34FF /* Json4Swift_Base.swift */; };
 		A7462F8B2633EB7000ACD8E5 /* NewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7462F8A2633EB7000ACD8E5 /* NewTableViewCell.swift */; };
 		A76401A1266F729C0050E41A /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76401A0266F729C0050E41A /* AccountViewController.swift */; };
 		A76401A6266F72BF0050E41A /* AccountCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76401A5266F72BF0050E41A /* AccountCollectionViewCell.swift */; };
@@ -348,6 +349,7 @@
 		A7304D6426738B3A00DA33B2 /* DeleteFamilyMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFamilyMemberViewController.swift; sourceTree = "<group>"; };
 		A737D421265BB52E008B4D61 /* UpcommingAppointmentsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingAppointmentsInterfaceController.swift; sourceTree = "<group>"; };
 		A737D42D265BB624008B4D61 /* UpcommingappointmentsRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingappointmentsRowController.swift; sourceTree = "<group>"; };
+		A73DD1FA270DD127001D34FF /* Json4Swift_Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json4Swift_Base.swift; sourceTree = "<group>"; };
 		A7462F8A2633EB7000ACD8E5 /* NewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewCell.swift; sourceTree = "<group>"; };
 		A76401A0266F729C0050E41A /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		A76401A5266F72BF0050E41A /* AccountCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 		22E0D69826FEE05F0061817A /* Discharge */ = {
 			isa = PBXGroup;
 			children = (
+				A73DD1FA270DD127001D34FF /* Json4Swift_Base.swift */,
 				22E0D69C26FEE07B0061817A /* DischargeViewController.swift */,
 				2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */,
 			);
@@ -1541,6 +1544,7 @@
 				C0B254BA254D5A63002080D8 /* ChatViewController.swift in Sources */,
 				C091239425559CF600CFBC89 /* AddAppointmentModel.swift in Sources */,
 				C028CA22255BBAA500EA7E20 /* SelectPopupViewController.swift in Sources */,
+				A73DD1FB270DD127001D34FF /* Json4Swift_Base.swift in Sources */,
 				C0560F1C25714FBD0083CE50 /* CustomImageView.swift in Sources */,
 				C0FA0548255284E20011EF48 /* FamilyMemberViewModel.swift in Sources */,
 				C003575225188B3C00F76902 /* ReportsTableViewCell.swift in Sources */,
@@ -1819,8 +1823,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1842,8 +1847,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

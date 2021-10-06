@@ -47,31 +47,22 @@ class AddMemberViewModel{
             }
         }
     //add New family member
-    func addFamilyMember(userId:Int,params:[String:Any]){
+    func addFamilyMember(params:[String:Any]){
         isLoading = true
-        APIClient.addFamilyMember(userId: userId, params: params){ result in
+        APIClient.addFamilyMember(params: params){ result in
             switch result {
             case .success(let responseData):
                 self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    
-                }else{
-                    
-                }
-                switch responseData.statusCode! {
-                case 200..<300:
-                    if responseData.status ?? false{
+                
+                    if responseData.status ?? false
+                    {
                         self.addedMemberData = responseData
-                    }else{
-                        self.errorMessage = responseData.messages
+                    }
+                    else
+                    {
+                        self.errorMessage = responseData.message
                         self.errorMessageAlert?()
                     }
-                case 400..<500:
-                    self.errorMessage = responseData.messages
-                    self.errorMessageAlert?()
-                default:
-                    print("Unknown Error")
-                }
             case .failure(let error):
                 self.errorMessage = error.localizedDescription
                 self.error = error

@@ -116,7 +116,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="container" destination="H2p-sc-9uM" id="WTh-yJ-9FS"/>
+                <outlet property="container" destination="pxj-C0-d0e" id="Gba-M8-Kwz"/>
                 <outlet property="editButton" destination="UqR-ys-bI7" id="dp5-vz-3rC"/>
                 <outlet property="mrn" destination="BVQ-g9-fnm" id="JyT-5L-jjf"/>
                 <outlet property="name" destination="PXW-Kb-dZ7" id="bvU-yy-Wiz"/>

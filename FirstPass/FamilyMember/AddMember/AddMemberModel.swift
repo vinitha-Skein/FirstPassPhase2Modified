@@ -7,12 +7,24 @@
 //
 
 import Foundation
-struct AddFamilyMember:Decodable {
-    let message: String?
-    let messages: String?
-    let status: Bool?
-    let statusCode: Int?
-    let error:String?
+//struct AddFamilyMember:Decodable {
+//    let message: String?
+//   // let messages: String?
+//    let status: Bool?
+//  //  let statusCode: Int?
+//   // let error:String?
+//}
+
+
+struct AddFamilyMember: Codable {
+    let status : Bool?
+    let message : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case status = "status"
+        case message = "message"
+    }
 }
 struct AddedMember:Decodable {
     let name: String?

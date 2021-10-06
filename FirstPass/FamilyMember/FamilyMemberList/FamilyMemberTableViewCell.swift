@@ -9,12 +9,13 @@
 import UIKit
 
 class FamilyMemberTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var container: UIView!
     @IBOutlet weak var pic: CustomImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var type: UILabel!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var mrn: UILabel!
-    @IBOutlet weak var container: UIView!
     var delegate:EditFamilyMemberDelegate?
     
     

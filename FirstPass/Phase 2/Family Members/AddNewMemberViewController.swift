@@ -240,20 +240,29 @@ class AddNewMemberViewController: UIViewController {
         }
         
 //        var params = [
-//            "dob": dob,
-//            "id_proof": emiratesId,
-//            "mrnNo": mrn,
-//            "name": name,
-//            "paymentmethod": paymentMethod,
-//            "releation": relation,
-//            "title": memberTitle,
+//            "full_name":name,
+//            "mrn":mrn,
+//            "dob":dob,
+//            "relation":relation,
+//            "national_id":"122237"
 //            ] as [String : Any]
-////        if paymentMethod == "Insurance"{
+        
+        var params = [
+            "full_name":"Tony1",
+            "mrn":"13401278",
+            "dob":"2010-01-20",
+            "relation":"son",
+            "national_id":"122237"]
+        
+        
+        
+        addFamilyMembers(params: params)
+//        if paymentMethod == "Insurance"{
 //            params["insurancename"] = insuranceName
 //            params["insuranceno"] = insuranceNumber
 //            params["insurancevalidity"] = ""
 //            params["insurancecardimage"] = ""
-////        }
+//        }
         
 //        if base64String != ""{
 //            params["profilepic"] = base64String
@@ -269,8 +278,10 @@ class AddNewMemberViewController: UIViewController {
     }
     
     func addFamilyMembers(params:[String:Any]){
+        print(params)
+        
         self.activityIndicator(self.view, startAnimate: true)
-        viewModel.addFamilyMember(userId: viewModel.userId ?? 0, params: params)
+        viewModel.addFamilyMember(params: params)
         viewModel.addMemberSuccess = {
             self.dismiss(animated: true, completion: nil)
             self.clearAllFields()

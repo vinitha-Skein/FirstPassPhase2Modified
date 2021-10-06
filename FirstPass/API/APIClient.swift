@@ -40,8 +40,8 @@ class APIClient {
     static func getFamilyMembers(completion:@escaping(AFResult<FamilyMember>)->Void){
         performRequest(route: APIRouter.getFamilyMembers,completion: completion)
     }
-    static func addFamilyMember(userId:Int,params:[String:Any],completion:@escaping(AFResult<AddFamilyMember>)->Void){
-        performRequest(route: APIRouter.addFamilyMember(userId: userId, params: params),completion: completion)
+    static func addFamilyMember(params:[String:Any],completion:@escaping(AFResult<AddFamilyMember>)->Void){
+        performRequest(route: APIRouter.addFamilyMember(params: params),completion: completion)
     }
     static func editFamilyMember(userId:Int,params:[String:Any],completion:@escaping(AFResult<UpdateMember>)->Void){
         performRequest(route: APIRouter.editFamilyMember(userId: userId, params: params),completion: completion)

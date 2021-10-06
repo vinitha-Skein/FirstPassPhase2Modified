@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class PasswordViewController: UIViewController {
     @IBOutlet weak var container: UIView!
@@ -92,7 +93,10 @@ class PasswordViewController: UIViewController {
         confirmPasswordView.layer.cornerRadius = 10
         
     }
-    
+    @objc func eventWith()
+    {
+            
+    }
     func setPassword(password:String){
         
         var name =  UserDefaults.standard.string(forKey: "firstName")
@@ -116,11 +120,20 @@ class PasswordViewController: UIViewController {
                 viewModel.registerUser(params: params)
                 viewModel.registerSuccess =
                 {
-                    let storyboard = UIStoryboard(name: "Modified", bundle: .main)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-                    vc.modalPresentationStyle = .fullScreen
-                    //        view.window!.layer.add(, forKey: kCATransition)
-                    self.present(vc, animated: true)
+                        self.view.makeToast("User Created Successfully. Plaese Login!")
+
+                        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
+                        
+                        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                        vc.modalPresentationStyle = .fullScreen
+                        //        view.window!.layer.add(, forKey: kCATransition)
+                        self.present(vc, animated: true)
+                    }
+                    
+                    
+                    
+                    
                 }
                 
         
