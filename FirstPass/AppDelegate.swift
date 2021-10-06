@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         else
         {
             let storyboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
-            let homePage = storyboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
+            let homePage = storyboard.instantiateViewController(withIdentifier: "OnBoardViewController") as! OnBoardViewController
             self.window?.rootViewController = homePage
 
         }

@@ -92,7 +92,8 @@ class LoginViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
             self.present(vc, animated: true)
-            UserDefaults.standard.set("Bearer \(self.viewModel.loginUserData)", forKey: "Authorization")
+            UserDefaults.standard.set("Bearer \(self.viewModel.loginUserData!)", forKey: "Authorization")
+            print(UserDefaults.standard.string(forKey: "Authorization"))
         }
 
         viewModel.loadingStatus = {

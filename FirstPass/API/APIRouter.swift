@@ -218,7 +218,7 @@ enum APIRouter : URLRequestConvertible {
         default:
             
             urlRequest.setValue(UserDefaults.standard.string(forKey: "Authorization"), forHTTPHeaderField: "Authorization")
-            print("Access Token\(UserDefaults.standard.string(forKey: "Authorization"))")
+            print("Access Token\(UserDefaults.standard.string(forKey: "Authorization")!)")
             print("URL \(urlRequest)")
 //            if let authData = KeyChain.load(key: "Authorization") {
 //                let authToken = authData.to(type: String.self)
