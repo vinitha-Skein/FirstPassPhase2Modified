@@ -150,6 +150,7 @@ class RegistrationViewController: UIViewController {
         email.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         mobileNumber.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         emiratesID.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
+        mrnIDTextFeild.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         generateButton.createBorderForButton(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         let attributedString = NSMutableAttributedString(string: "I Agree to the Terms & Conditions", attributes: [
             .font: UIFont.systemFont(ofSize: 14.0, weight: .bold),
@@ -166,11 +167,14 @@ class RegistrationViewController: UIViewController {
         email.layer.cornerRadius = 5
         mobileNumber.layer.cornerRadius = 5
         emiratesID.layer.cornerRadius = 5
+        mrnIDTextFeild.layer.cornerRadius = 5
 
 
     }
     
 }
+
+
 
 
 extension UITextField{

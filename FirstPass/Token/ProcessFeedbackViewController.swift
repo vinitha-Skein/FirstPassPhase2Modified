@@ -9,6 +9,8 @@
 import UIKit
 
 class ProcessFeedbackViewController: UIViewController {
+    @IBOutlet weak var collectionViewQuestion2: UICollectionView!
+    @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var container: UIView!
     
@@ -17,6 +19,8 @@ class ProcessFeedbackViewController: UIViewController {
     
     var  fblist = ["How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?"]
 
+    var selectedfeedback1 = 11
+    var selectedfeedback2 = 11
     var feedbackList = [ProcessFeedback]()
     var delegate:FeedbackClosedDelegate?
     var index = Int()
@@ -25,6 +29,10 @@ class ProcessFeedbackViewController: UIViewController {
         NSLog("index from new token ----------> %d", self.index);
         view.backgroundColor = UIColor.clear
         view.isOpaque = false
+        collectionview.delegate = self
+        collectionview.dataSource = self
+        collectionViewQuestion2.delegate = self
+        collectionViewQuestion2.dataSource = self
         container.layer.cornerRadius = 25
         submitButton.layer.cornerRadius = 8
         //cancelButton.createBorderForButton(cornerRadius: 8, borderWidth: 1, borderColor: .black)
@@ -124,8 +132,49 @@ extension ProcessFeedbackViewController:UITableViewDelegate,UITableViewDataSourc
     
     
 }
+extension ProcessFeedbackViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
+{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "numberRatingCollectionViewCell", for: indexPath) as! numberRatingCollectionViewCell
+        cell.ratingLabel.text = String(indexPath.row+1)
+        cell.bgView.layer.borderWidth = 0.5
+        cell.bgView.layer.borderColor = UIColor.gray.cgColor
+        cell.bgView.backgroundColor = UIColor.white
+        cell.ratingLabel.textColor = UIColor.black
+        if collectionView == collectionview
+        {
+            if indexPath.row == selectedfeedback1
+            {
+            print(self.selectedfeedback1)
+            cell.bgView.backgroundColor = UIColor.orange
+            cell.ratingLabel.textColor = UIColor.white
+            }
+        }
+        else
+        {
+            if indexPath.row == selectedfeedback2
+            {
+            print(self.selectedfeedback2)
+            cell.bgView.backgroundColor = UIColor.orange
+            cell.ratingLabel.textColor = UIColor.white
+            }
 
-
+        }
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 25, height: 25)
+        }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedfeedback1 = indexPath.row
+        print(self.selectedfeedback1)
+        collectionview.reloadData()
+    }
+}
 struct ProcessFeedback {
     var feedbackQuestion:String
     var feedbackRating:Int

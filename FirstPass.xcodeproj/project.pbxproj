@@ -41,7 +41,6 @@
 		2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */; };
 		22D024092705C14D0006BE2D /* CardsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */; };
 		22D024132706AA1F0006BE2D /* SJCenterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */; };
-		22D02507270860E90006BE2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22D02506270860E90006BE2D /* GoogleService-Info.plist */; };
 		22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */; };
 		22D9377B26FE229200CA95D6 /* UpcommingActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */; };
 		22E0D69D26FEE07B0061817A /* DischargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E0D69C26FEE07B0061817A /* DischargeViewController.swift */; };
@@ -89,6 +88,8 @@
 		A76401DA266F93550050E41A /* AlertNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76401D9266F93550050E41A /* AlertNotificationViewController.swift */; };
 		A76401E3266F94AD0050E41A /* AlertTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76401E1266F94AC0050E41A /* AlertTableCell.swift */; };
 		A76401E4266F94AD0050E41A /* AlertTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A76401E2266F94AD0050E41A /* AlertTableCell.xib */; };
+		A771A62D271017CB004B34EF /* numberRatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A771A62C271017CB004B34EF /* numberRatingCollectionViewCell.swift */; };
+		A771A638271044BB004B34EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A771A637271044BB004B34EF /* GoogleService-Info.plist */; };
 		A786518C26342062008C99FC /* SelectAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786518B26342062008C99FC /* SelectAppointmentViewController.swift */; };
 		A786518F2634493E008C99FC /* BookingConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786518E2634493E008C99FC /* BookingConfirmationViewController.swift */; };
 		A7A49ECF265B7FD600AB1A57 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A49ECD265B7FD600AB1A57 /* Interface.storyboard */; };
@@ -308,7 +309,6 @@
 		22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJCenterFlowLayout.swift; sourceTree = "<group>"; };
 		22D024E427085EE50006BE2D /* Firstpass-watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Firstpass-watchOS Extension.entitlements"; sourceTree = "<group>"; };
 		22D024E527085F0B0006BE2D /* firstpass.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = firstpass.entitlements; sourceTree = "<group>"; };
-		22D02506270860E90006BE2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientServicesCVC.swift; sourceTree = "<group>"; };
 		22D9377A26FE229200CA95D6 /* UpcommingActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingActivitiesViewController.swift; sourceTree = "<group>"; };
 		22E0D69C26FEE07B0061817A /* DischargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +357,8 @@
 		A76401D9266F93550050E41A /* AlertNotificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertNotificationViewController.swift; sourceTree = "<group>"; };
 		A76401E1266F94AC0050E41A /* AlertTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTableCell.swift; sourceTree = "<group>"; };
 		A76401E2266F94AD0050E41A /* AlertTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertTableCell.xib; sourceTree = "<group>"; };
+		A771A62C271017CB004B34EF /* numberRatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = numberRatingCollectionViewCell.swift; sourceTree = "<group>"; };
+		A771A637271044BB004B34EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A786518B26342062008C99FC /* SelectAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppointmentViewController.swift; sourceTree = "<group>"; };
 		A786518E2634493E008C99FC /* BookingConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConfirmationViewController.swift; sourceTree = "<group>"; };
 		A7A49ECB265B7FD600AB1A57 /* Firstpass-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Firstpass-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -893,7 +895,6 @@
 				C0B208142519F1FF00F048F2 /* groupCopy2_2020-09-22 */,
 				C059808A2506211800C92021 /* Main.storyboard */,
 				1B5AC2AE266E62EE002E7C12 /* Modified.storyboard */,
-				22D02506270860E90006BE2D /* GoogleService-Info.plist */,
 				C059808D2506211900C92021 /* Assets.xcassets */,
 				C059808F2506211900C92021 /* LaunchScreen.storyboard */,
 				C05980922506211900C92021 /* Info.plist */,
@@ -1070,6 +1071,7 @@
 		C0B208142519F1FF00F048F2 /* groupCopy2_2020-09-22 */ = {
 			isa = PBXGroup;
 			children = (
+				A771A637271044BB004B34EF /* GoogleService-Info.plist */,
 				C0B208152519F1FF00F048F2 /* groupCopy2@3x.png */,
 				C0B208162519F1FF00F048F2 /* groupCopy2@2x.png */,
 				C0B208172519F1FF00F048F2 /* groupCopy2.png */,
@@ -1150,6 +1152,7 @@
 				C0088BE0251B604B00777786 /* FeedbackCollectionViewCell.xib */,
 				C01E247D255937B70096A5DB /* FeedbackModel.swift */,
 				C01E247F255937D80096A5DB /* FeedbackViewModel.swift */,
+				A771A62C271017CB004B34EF /* numberRatingCollectionViewCell.swift */,
 			);
 			path = Feedback;
 			sourceTree = "<group>";
@@ -1282,6 +1285,7 @@
 				2252D3B227042CA100B60406 /* CartTableViewCell.xib in Resources */,
 				C0B2081A2519F1FF00F048F2 /* group2.png in Resources */,
 				1B5AC27C266DE014002E7C12 /* Tabbar.xib in Resources */,
+				A771A638271044BB004B34EF /* GoogleService-Info.plist in Resources */,
 				1B5AC29D266E5444002E7C12 /* SF-Pro-Display-Semibold.otf in Resources */,
 				A7D3594D2681B629003AC0DE /* CardsTableViewCell.xib in Resources */,
 				1BF222E4266F32A300759E13 /* phase2.storyboard in Resources */,
@@ -1318,7 +1322,6 @@
 				1B5AC29C266E5441002E7C12 /* SF-Pro-Display-Regular.otf in Resources */,
 				C0376A862518ECEF00A3933D /* MemberTableViewCell.xib in Resources */,
 				A7D8FBED2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.xib in Resources */,
-				22D02507270860E90006BE2D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1489,6 +1492,7 @@
 				C094C38525132EF500F039E4 /* Extension.swift in Sources */,
 				A71AB87026709A3300D8F151 /* APIClient.swift in Sources */,
 				22D024132706AA1F0006BE2D /* SJCenterFlowLayout.swift in Sources */,
+				A771A62D271017CB004B34EF /* numberRatingCollectionViewCell.swift in Sources */,
 				A718F75126FB3EA400CCFF1A /* BMICalculatorViewController.swift in Sources */,
 				A7BCF9D826FDB7860087EA9C /* NurseCallViewController.swift in Sources */,
 				C091239B25559DDD00CFBC89 /* MyAppointmentsViewModel.swift in Sources */,

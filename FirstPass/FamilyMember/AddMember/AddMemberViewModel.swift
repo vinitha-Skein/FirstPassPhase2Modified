@@ -47,7 +47,7 @@ class AddMemberViewModel{
             }
         }
     //add New family member
-    func addFamilyMember(params:[String:Any]){
+    func addFamilyMember(params:Dictionary<String,Any>){
         isLoading = true
         APIClient.addFamilyMember(params: params){ result in
             switch result {

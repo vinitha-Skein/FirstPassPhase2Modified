@@ -239,20 +239,15 @@ class AddNewMemberViewController: UIViewController {
             }
         }
         
-//        var params = [
-//            "full_name":name,
-//            "mrn":mrn,
-//            "dob":dob,
-//            "relation":relation,
-//            "national_id":"122237"
-//            ] as [String : Any]
+        var params = [
+            "full_name":name,
+            "mrn":mrn,
+            "dob":dob,
+            "relation":relation,
+            "national_id":"122237"
+            ] as [String : Any]
         
-        let params = [
-            "full_name":"Tony1",
-            "mrn":"13401278",
-            "dob":"2010-01-20",
-            "relation":"son",
-            "national_id":"122237"]
+        
         
         
         
@@ -277,7 +272,7 @@ class AddNewMemberViewController: UIViewController {
 //        }
     }
     
-    func addFamilyMembers(params:[String:Any]){
+    func addFamilyMembers(params:Dictionary<String,Any>){
         print(params)
         
         self.activityIndicator(self.view, startAnimate: true)
@@ -322,8 +317,10 @@ class AddNewMemberViewController: UIViewController {
 
 
     
-    func setupUI(){
+    func setupUI()
+    {
         //container.createBorderForView(cornerRadius: 30, borderWidth: 0, borderColor: .clear)
+        paymentMethodchoosen = "Selfpay"
         memberImage.layer.cornerRadius = 30
         changeimgButtonView.layer.cornerRadius = 12
         containerforBorder.layer.cornerRadius = 30
@@ -426,7 +423,8 @@ extension AddNewMemberViewController:UITextFieldDelegate,DatePickerDelegate{
     }
 }
 
-extension AddNewMemberViewController: ImagePickerDelegate {
+extension AddNewMemberViewController: ImagePickerDelegate
+{
     func didSelect(image: String?) {
         base64String = image!
         let imgData = Data(base64Encoded: image!, options: .ignoreUnknownCharacters)

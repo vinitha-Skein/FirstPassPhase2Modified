@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.674644364086-kd9o5rve7v7aff45j8cqq2p291df1m0s</string>
+				<string>com.googleusercontent.apps.414548170854-n5d20ebksfgps380qvcas3oia0h21hbc</string>
 			</array>
 		</dict>
 	</array>
@@ -39,12 +39,27 @@
 	<true/>
 	<key>MWZApiKey</key>
 	<string>1a85eba7039de46eb9c44523cfcd824c</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>yourdomain.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Firstpass need camera access for scanning QR codes</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>The microphone is needed for making calls</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Firstpass need to access your Location</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The microphone is needed for making calls</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Need </string>
 	<key>UIAppFonts</key>
@@ -80,20 +95,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-    <key>NSAppTransportSecurity</key>
-        <dict>
-            <key>NSAllowsArbitraryLoads</key>
-            <true/>
-            <key>NSExceptionDomains</key>
-            <dict>
-                <key>yourdomain.com</key>
-                <dict>
-                    <key>NSIncludesSubdomains</key>
-                    <true/>
-                    <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                    <false/>
-                </dict>
-           </dict>
-      </dict>
 </dict>
 </plist>

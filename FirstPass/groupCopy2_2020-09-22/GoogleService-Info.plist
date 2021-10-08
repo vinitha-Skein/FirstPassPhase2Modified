@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>674644364086-kd9o5rve7v7aff45j8cqq2p291df1m0s.apps.googleusercontent.com</string>
+	<string>414548170854-n5d20ebksfgps380qvcas3oia0h21hbc.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.674644364086-kd9o5rve7v7aff45j8cqq2p291df1m0s</string>
+	<string>com.googleusercontent.apps.414548170854-n5d20ebksfgps380qvcas3oia0h21hbc</string>
 	<key>API_KEY</key>
-	<string>AIzaSyD8dIqoo5Zj-9WOvxDS2DkKLzX7CL4zSPc</string>
+	<string>AIzaSyAVlGt5b65Kw71D78P3olvGYgwKgxDT67w</string>
 	<key>GCM_SENDER_ID</key>
-	<string>674644364086</string>
+	<string>414548170854</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.vectramind.firstpassphasetwo</string>
 	<key>PROJECT_ID</key>
-	<string>firstpass-example</string>
+	<string>first-pass-f3842</string>
 	<key>STORAGE_BUCKET</key>
-	<string>firstpass-example.appspot.com</string>
+	<string>first-pass-f3842.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:674644364086:ios:27c999ea61aa46072cc197</string>
+	<string>1:414548170854:ios:a0e460d23b85e8ad9d75a7</string>
 </dict>
 </plist>
