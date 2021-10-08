@@ -38,12 +38,12 @@ class MyAppointmentsViewController: UIViewController {
         
         
         //For demo purpose
-        let appointment1 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Cardiology", serviceName: "Cardiology", appointmentTime: "2021-01-06 15:00:00", serviceBookedId: 0, status: "")
-        let appointment2 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Internal Medicine", serviceName: "Internal Medicine", appointmentTime: "2021-01-06 16:00:00", serviceBookedId: 0, status: "")
-        let appointment3 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Laboratory", serviceName: "Laboratory", appointmentTime: "2021-01-06 16:30:00", serviceBookedId: 0, status: "")
-        dummyAppointments = [appointment1,appointment2,appointment3]
-        var data = dummyAppointments
-        
+//        let appointment1 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Cardiology", serviceName: "Cardiology", appointmentTime: "2021-01-06 15:00:00", serviceBookedId: 0, status: "")
+//        let appointment2 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Internal Medicine", serviceName: "Internal Medicine", appointmentTime: "2021-01-06 16:00:00", serviceBookedId: 0, status: "")
+//        let appointment3 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Laboratory", serviceName: "Laboratory", appointmentTime: "2021-01-06 16:30:00", serviceBookedId: 0, status: "")
+//        dummyAppointments = [appointment1,appointment2,appointment3]
+//        var data = dummyAppointments
+//
         
     }
     @IBAction func backAction(_ sender: Any) {
@@ -150,7 +150,7 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
         if isActiveAppointment
         {
 //            cell.updateAppointmentDataToUI(data: (viewModel.activeAppointments?.appointmentDetails?[indexPath.row])!, indexpath: indexPath)
-        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
+//        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
             cell.waitLabel.isHidden = true
             cell.waiTimeLabel.isHidden = true
             cell.precheckinButton.isHidden = false
@@ -167,7 +167,7 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
         {
             //cell.checkinButton.isHidden = true
 //            cell.updateAppointmentDataToUI(data: (viewModel.allAppointments?.appointmentDetails?[indexPath.row])!, indexpath: indexPath)
-        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
+//        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
             cell.waitLabel.isHidden = true
             cell.waiTimeLabel.isHidden = true
             cell.precheckinButton.isHidden = true

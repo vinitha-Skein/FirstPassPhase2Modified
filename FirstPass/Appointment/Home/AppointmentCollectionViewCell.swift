@@ -35,4 +35,18 @@ class AppointmentCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var InPatientView: MyUIView!
     
     @IBOutlet weak var viewDetailsInPatientButton: Mybutton!
+    
+    @IBOutlet weak var appointmentDateCurrent: UILabel!
+    
+    @IBOutlet weak var doctorNameCurrent: UILabel!
+    
+    @IBOutlet weak var appointmentTimeCurrent: UILabel!
+    
+    @IBOutlet weak var patientNameCurrent: UILabel!
+    
+    
+    @IBOutlet weak var waitingTimeCurrent: UILabel!
+    
+    @IBOutlet weak var TokenNumberCurrent: UILabel!
+    
 }

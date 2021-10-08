@@ -86,14 +86,14 @@ class APIClient {
     static func cancelAppointment(appointmentId:Int,completion:@escaping(AFResult<SendPasswordChangeOTP>)->Void){
         performRequest(route: APIRouter.cancelAppointment(appointmentId: appointmentId),completion: completion)
     }
-    static func getActiveAppointments(userId:Int,completion:@escaping(AFResult<GetActiveAppointments>)->Void){
-        performRequest(route: APIRouter.getActiveAppointment(userId: userId),completion: completion)
+    static func getActiveAppointments(completion:@escaping(AFResult<GetActiveAppointments>)->Void){
+        performRequest(route: APIRouter.getActiveAppointment,completion: completion)
     }
     static func getAllAppointments(userId:Int,page:Int,completion:@escaping(AFResult<GetActiveAppointments>)->Void){
         performRequest(route: APIRouter.getAllAppointment(userId: userId, page: page),completion: completion)
     }
-    static func checkInAppointment(userId:Int,appointmentId:Int,completion:@escaping(AFResult<SetNewPassword>)->Void){
-        performRequest(route: APIRouter.checkInAppointment(userId: userId, bookedId: appointmentId),completion: completion)
+    static func checkInAppointment(params:[String:Any],completion:@escaping(AFResult<SetNewPassword>)->Void){
+        performRequest(route: APIRouter.checkInAppointment(params:params),completion: completion)
     }
     
     //Feedback

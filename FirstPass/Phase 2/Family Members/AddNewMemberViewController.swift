@@ -247,7 +247,7 @@ class AddNewMemberViewController: UIViewController {
 //            "national_id":"122237"
 //            ] as [String : Any]
         
-        var params = [
+        let params = [
             "full_name":"Tony1",
             "mrn":"13401278",
             "dob":"2010-01-20",

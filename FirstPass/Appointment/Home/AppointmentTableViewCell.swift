@@ -47,23 +47,6 @@ class AppointmentTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateAppointmentDataToUI(data:ActiveAppointmentData,indexpath:IndexPath){
-        appointmentName.text = data.serviceName
-        
-        let convertedDate = self.getAppointmentDateTime(date: data.appointmentTime ?? "", format: "yyyy-MM-dd HH:mm:ss", requiredFormat: "yyyy-MM-dd")
-        let convertedTime = self.getAppointmentDateTime(date: data.appointmentTime ?? "", format:"yyyy-MM-dd HH:mm:ss" , requiredFormat: "h:mm:a")
-        date.text = convertedDate
-        time.text = convertedTime
-        updateBackgroundColorUI(indexPath: indexpath)
-        checkinButton.tag = indexpath.row
-        let attributedString = NSMutableAttributedString(string: "Note : Please arrive 15 minutes early from the scheduled appointment time.", attributes: [
-            .font: UIFont.systemFont(ofSize: 12.0, weight: .regular),
-            .foregroundColor: UIColor(red: 154.0 / 255.0, green: 155.0 / 255.0, blue: 171.0 / 255.0, alpha: 1.0),
-            .kern: 0.0
-        ])
-        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 53.0 / 255.0, green: 54.0 / 255.0, blue: 91.0 / 255.0, alpha: 1.0), range: NSRange(location: 0, length: 6))
-//        noteText.attributedText = attributedString
-    }
     
     func updateBackgroundColorForIndexPath(_ indexpath: IndexPath) {
         let orange = UIColor(red: 254.0/255.0, green: 164.0/255.0, blue: 28.0/255.0, alpha: 1.0)

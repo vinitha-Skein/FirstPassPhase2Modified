@@ -13,18 +13,19 @@ struct GetActiveAppointments:Decodable{
     let status: Bool?
     let statusCode: Int?
     let messages: String?
-    let appointmentDetails:[ActiveAppointmentData]?
+    let appointments:[ActiveAppointmentData]?
     let taotalPages:Int?
 }
 
 struct ActiveAppointmentData:Decodable {
-    let pId: Int?
-    let mrnNo: String?
-    let patientName:String?
-    let doctorName: String?
-    let departmentName: String?
-    let serviceName:String?
-    let appointmentTime:String?
-    let serviceBookedId: Int?
-    let status:String?
+    let doctor_name : String?
+    let appt_status : String?
+    let trans_id : String?
+    let appointment_time : String?
+    let patient_name : String?
+    let service : String?
+    let department : String?
+    let token_no : String?
+    let token_status : String?
+    let room : String?
 }

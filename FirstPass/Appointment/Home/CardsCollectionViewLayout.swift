@@ -128,7 +128,7 @@ fileprivate extension CardsCollectionViewLayout {
     let visibleIndex = indexPath.row - minVisibleIndex
     attributes.size = itemSize
     let midY = self.collectionView.bounds.midY
-    attributes.center = CGPoint(x: contentCenterX + spacing * CGFloat(visibleIndex),
+    attributes.center = CGPoint(x: contentCenterX + (spacing+5) * CGFloat(visibleIndex),
                                 y: midY + spacing * CGFloat(visibleIndex))
     attributes.zIndex = maximumVisibleItems - visibleIndex
 

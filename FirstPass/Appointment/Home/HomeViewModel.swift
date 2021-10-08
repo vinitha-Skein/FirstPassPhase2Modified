@@ -38,6 +38,7 @@ class HomeViewModel {
     var fetchFamilySuccess:(() -> ())?
     var loadingStatus:(() -> ())?
     var errorMessageAlert:(() -> ())?
+
     
     func getUserDetails(){
         let realm = try! Realm()
@@ -50,27 +51,20 @@ class HomeViewModel {
         }
     }
     //Login user
-    func fetchUpcomingAppointments(userId:Int){
+    func fetchUpcomingAppointments(){
         isLoading = true
-        APIClient.getActiveAppointments(userId: userId){ result in
+        APIClient.getActiveAppointments(){ result in
             switch result {
             case .success(let responseData):
                 self.isLoading = false
                 if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
-                        if responseData.status ?? false{
-                            self.appointmentData = responseData
-                        }else{
-                            self.errorMessage = responseData.messages
-                            self.errorMessageAlert?()
-                        }
-                    case 400..<500:
+                    if responseData.status ?? false{
+                        self.appointmentData = responseData
+                    }else{
                         self.errorMessage = responseData.messages
                         self.errorMessageAlert?()
-                    default:
-                        print("Unknown Error")
                     }
+                    
                 }else{
                     self.errorMessage = responseData.message
                     self.errorMessageAlert?()
@@ -83,6 +77,35 @@ class HomeViewModel {
             }
         }
     }
+    
+    func createCheckin(params:Dictionary<String,Any>){
+        isLoading = true
+        
+        APIClient.checkInAppointment(params:params){ result in
+            switch result {
+            case .success(let responseData):
+                self.isLoading = false
+                if responseData.error ?? "" == ""{
+                    if responseData.status ?? false{
+                        self.fetchSuccess?()
+                    }else{
+                        self.errorMessage = responseData.messages
+                        self.errorMessageAlert?()
+                    }
+                    
+                }else{
+                    self.errorMessage = responseData.message
+                    self.errorMessageAlert?()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.errorMessage = error.localizedDescription
+                self.error = error
+                self.isLoading = false
+            }
+        }
+    }
+    
     
         //get all family members
 //        func fetchFamilyMember(userId:Int)

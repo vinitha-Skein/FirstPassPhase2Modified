@@ -40,7 +40,7 @@ class MyAppointmentsViewModel {
     //Fetch Active Appointments
     func fetchUpcomingAppointments(userId:Int){
         isLoading = true
-        APIClient.getActiveAppointments(userId: userId){ result in
+        APIClient.getActiveAppointments(){ result in
             switch result {
             case .success(let responseData):
                 self.isLoading = false
