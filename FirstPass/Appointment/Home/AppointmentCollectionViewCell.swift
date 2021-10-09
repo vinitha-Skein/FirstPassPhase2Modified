@@ -49,4 +49,16 @@ class AppointmentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var TokenNumberCurrent: UILabel!
     
+    @IBOutlet weak var TitleCheckedIn: UILabel!
+    
+    @IBOutlet weak var dateOngoing: UILabel!
+    
+    @IBOutlet weak var timeOngoing: UILabel!
+    
+    @IBOutlet weak var doctorName: UILabel!
+    
+    @IBOutlet weak var currentStepDetails: UILabel!
+    
+    @IBOutlet weak var counterNumber: UILabel!
+    
 }

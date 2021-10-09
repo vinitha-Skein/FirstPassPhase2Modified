@@ -69,10 +69,10 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     var checkinSelected = -1
     var appointmentBooked = -1
     var preArrivalfilled = [Int]()
-    let layout = SJCenterFlowLayout()
     var itisInitialLoad = true
     var rolledIndex = -1
     
+    @IBOutlet weak var NoAppointmentsLabel: UILabel!
     
     fileprivate var pipViewCoordinator: PiPViewCoordinator?
     fileprivate var jitsiMeetView: JitsiMeetView?
@@ -212,6 +212,10 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
                 }else{
                     self.showAlert(self.viewModel.errorMessage ?? "Error")
+                   
+                    DispatchQueue.main.async {
+                        self.appointmentsCollectionView.reloadData()
+                    }
                 }
             }
         }
@@ -274,12 +278,11 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     }
 
     func setupUI(){
-        
-        //For demo purpose
-//        let appointment1 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Cardiology", serviceName: "Cardiology", appointmentTime: "2021-01-06 15:00:00", serviceBookedId: 0, status: "")
-//        let appointment2 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Laboratory", serviceName: "Laboratory", appointmentTime: "2021-01-06 16:00:00", serviceBookedId: 0, status: "")
-//        let appointment3 = ActiveAppointmentData(pId: 0, mrnNo: "", patientName: "Patient 1", doctorName: "Doctor 1", departmentName: "Internal Medicine", serviceName: "Internal Medicine", appointmentTime: "2021-01-06 16:30:00", serviceBookedId: 0, status: "")
-//        dummyAppointments = [appointment1,appointment2,appointment3]
+       //For Demo Purpose
+        let appointment1 = ActiveAppointmentData(doctor_name: "Dr.Hussian", appt_status: "SCHEDULED", trans_id: "234567891101", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Cardiology", token_no: "", token_status: "", room: "")
+        let appointment2 = ActiveAppointmentData(doctor_name: "Dr.Suman", appt_status: "SCHEDULED", trans_id: "234567891102", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Pediatrics", token_no: "", token_status: "", room: "")
+        let appointment3 =  ActiveAppointmentData(doctor_name: "Dr.Jagan", appt_status: "SCHEDULED", trans_id: "234567891103", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Lab", token_no: "", token_status: "", room: "")
+        dummyAppointments = [appointment1,appointment2,appointment3]
         
     }
     
@@ -318,14 +321,24 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 }
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+        if self.appointments.count != 0 {
+            NoAppointmentsLabel.isHidden = true
+        } else {
+            return dummyAppointments.count
+//            NoAppointmentsLabel.isHidden = false
+        }
         return appointments.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppointmentCollectionViewCell", for: indexPath) as! AppointmentCollectionViewCell
-        let currentAppointment = self.appointments[indexPath.row]
+        let currentAppointment: ActiveAppointmentData
+        if appointments.count != 0 {
+         currentAppointment = self.appointments[indexPath.row]
+        } else {
+            currentAppointment = self.dummyAppointments[indexPath.row]
+        }
         cell.titleLabel.text = currentAppointment.department
         
         if titleMenu[indexPath.row] == "In Patient"{
@@ -376,6 +389,21 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 cell.DetailsView.isHidden = false
             }
             
+            cell.TitleCheckedIn.text = currentAppointment.department
+            cell.doctorName.text = currentAppointment.doctor_name
+            let dateString = currentAppointment.appointment_time!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM  d yyyy h:mm:ss:SSSa"
+            if let date = formatter.date(from: dateString) {
+                formatter.dateFormat = "dd-MM-yyyy"
+                let string = formatter.string(from: date)
+                print(string)
+                cell.dateOngoing.text = string
+                formatter.dateFormat = "h:mm a"
+                let stringTime = formatter.string(from: date)
+                cell.timeOngoing.text = stringTime
+            }
+            
         }
         else
         {
@@ -404,22 +432,23 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         cell.prearrivalButton.tag = indexPath.row
         cell.checkinButton.tag = indexPath.row
         cell.checkinButton.accessibilityHint = cell.checkinButton.titleLabel?.text!
+        cell.viewDetailsButton.tag = indexPath.row
         
         cell.checkinButton.addTarget(self, action: #selector(CheckinButtonPressed(sender:)), for: .touchUpInside)
         cell.prearrivalButton.addTarget(self, action: #selector(prearrivalButtonPressed(sender:)), for: .touchUpInside)
         cell.indoorMapButton.addTarget(self, action: #selector(indoorMapButtonPressed(sender:)), for: .touchUpInside)
         cell.indoorMapDetails.addTarget(self, action: #selector(indoorMapButtonPressed(sender:)), for: .touchUpInside)
         cell.viewDetailsInPatientButton.addTarget(self, action: #selector(ViewDetailsInPatientPressed(sender:)), for: .touchUpInside)
-        
+        cell.viewDetailsButton.addTarget(self, action: #selector(ViewDetailsPressed(sender:)), for: .touchUpInside)
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       if let cIndexPath = layout.currentCenteredIndexPath,
-          cIndexPath != indexPath {
-        layout.scrollToPage(atIndex: indexPath.row)
-      }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//       if let cIndexPath = layout.currentCenteredIndexPath,
+//          cIndexPath != indexPath {
+//        layout.scrollToPage(atIndex: indexPath.row)
+//      }
+//    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? AppointmentCollectionViewCell else { return }
@@ -434,7 +463,12 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         else
         {
+            if (appointments.count != 0){
             self.checkInAppointmentAction(index: sender.tag)
+            } else {
+                dummyAppointments[sender.tag].appt_status = "CHECKIN"
+                self.appointmentsCollectionView.reloadData()
+            }
 //            self.appointmentBooked = sender.tag
 //            appointmentsCollectionView.reloadData()
         }
@@ -475,7 +509,18 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
         self.present(vc, animated: true)
     }
-    
+    @objc func ViewDetailsPressed(sender : UIButton)    {
+        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailsViewController") as! AppointmentDetailsViewController
+        vc.modalPresentationStyle = .fullScreen
+        if appointments.count != 0 {
+        vc.appointmentData = self.appointments[sender.tag]
+        } else {
+            vc.appointmentData = self.dummyAppointments[sender.tag]
+        }
+        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+        self.present(vc, animated: true)
+    }
 }
 
 extension HomeViewController{

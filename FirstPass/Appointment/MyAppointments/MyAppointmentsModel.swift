@@ -19,7 +19,7 @@ struct GetActiveAppointments:Decodable{
 
 struct ActiveAppointmentData:Decodable {
     let doctor_name : String?
-    let appt_status : String?
+    var appt_status : String?
     let trans_id : String?
     let appointment_time : String?
     let patient_name : String?

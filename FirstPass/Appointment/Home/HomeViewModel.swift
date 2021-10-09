@@ -61,7 +61,7 @@ class HomeViewModel {
                     if responseData.status ?? false{
                         self.appointmentData = responseData
                     }else{
-                        self.errorMessage = responseData.messages
+                        self.errorMessage = responseData.message
                         self.errorMessageAlert?()
                     }
                     

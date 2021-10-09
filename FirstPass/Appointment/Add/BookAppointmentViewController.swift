@@ -223,8 +223,12 @@ class BookAppointmentViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentBookedViewController") as! AppointmentBookedViewController
         vc.appointmentData = CreatedAppointmentData(pId: 0, messages: "", mrnNo: "347834455", patientName: "Natasha", doctorName: doctor, departmentName: department, serviceName: "Cardiology", appointmentTime: time, serviceBookedId: 0, status: "", message: "", error: "",date:date)
+        
+//        let appointment = ActiveAppointmentData(doctor_name: doctor, appt_status: "SCHEDULED", trans_id: "23409876510", appointment_time: appointmentTime, patient_name: "John", service: serviceTextfield.text, department: departmentTextfield.text, token_no: "", token_status: "", room: "")
+//        UserDefaults.standard.setValue(appointment, forKey: "Dummy Appointments")
+//        
         vc.modalPresentationStyle = .fullScreen
-        //            self.view.window!.layer.add(self.leftToRightTransition(), forKey: kCATransition)
+       
         self.present(vc, animated: true)
 
         bookAppointment(params: params)

@@ -47,11 +47,11 @@ class AppointmentDetailsViewController: UIViewController {
     let viewModel = AppointmentDetailsViewModel()
     var appointmentData:ActiveAppointmentData?
     var filterCollectionView = true
-    var Appointments = ["Registration","Vitals","Blood Test","Cath Test","Pharmacy"]
+    var Appointments = ["Registration","Vitals","Consultation","Pharmacy"]
     var index = ["1/7","2/7","3/7","4/7","5/7","6/7","7/7"]
     
     @IBOutlet weak var appointmentCollectionView: UICollectionView!
-    
+    var trans_id = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,11 @@ class AppointmentDetailsViewController: UIViewController {
         tableView.dataSource = self
         tableView.isHidden = true
         collectionview.isHidden = false
+        collectionview.collectionViewLayout = CardsJourneyCollectionViewLayout()
+        collectionview.isPagingEnabled = true
+        collectionview.showsHorizontalScrollIndicator = false
+        collectionview.dataSource = self
+        collectionview.delegate = self
         
         if UserDefaults.standard.bool(forKey: "vip")
         {
@@ -84,11 +89,28 @@ class AppointmentDetailsViewController: UIViewController {
             departmentLabel.textColor = UIColor(named: "vip")
             qrcodeImage.layer.cornerRadius = 10
         }
-        
-        
+        if self.appointmentData != nil {
+            departmentLabel.text = self.appointmentData?.department
+            doctorLabel.text = self.appointmentData?.doctor_name
+            let dateString = self.appointmentData?.appointment_time!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM  d yyyy h:mm:ss:SSSa"
+            if let date = formatter.date(from: dateString!) {
+                formatter.dateFormat = "dd-MM-yyyy"
+                let string = formatter.string(from: date)
+                print(string)
+                dateLabel.text = string
+                formatter.dateFormat = "h:mm a"
+                let stringTime = formatter.string(from: date)
+                timeLabel.text = stringTime
+            }
+            
+        }
     }
     @IBAction func filterClicked(_ sender: Any)
     {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
         if (filterCollectionView)
         {
             filterCollectionView = false
@@ -120,7 +142,7 @@ class AppointmentDetailsViewController: UIViewController {
             patientNameTitleLabel.textColor = UIColor(named: "vip")
             departmentLabel.textColor = UIColor(named: "vip")
         }
-
+        }
     }
     @IBAction func backAction(_ sender: Any)
     {
@@ -162,7 +184,7 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        5
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
