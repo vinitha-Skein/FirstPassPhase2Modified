@@ -1,10 +1,4 @@
-//
-//  FeedbackModel.swift
-//  FirstPass
-//
-//  Created by SkeinTechnologies on 09/11/20.
-//  Copyright © 2020 SkeinTechnologies. All rights reserved.
-//
+
 
 import Foundation
 class FeedbackData:Codable{
@@ -25,8 +19,14 @@ struct Feedbacks:Codable{
 }
 
 
-struct FeedbackSubmitData:Codable {
-    let messages: String
-    let status: Bool
-    let statusCode: Int
+struct FeedbackSubmitData:Codable
+{
+    let status : Bool?
+    let message : String?
+
+    enum CodingKeys: String, CodingKey {
+
+        case status = "status"
+        case message = "message"
+    }
 }

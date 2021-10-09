@@ -44,34 +44,22 @@ class FeedbackViewModel{
 //        let params = FeedbackData(userId: userId, feedback: feedbacks)
 //    }
     
-    func submitFeedback(userId:Int){
-        let feedback = FeedbackData(userId: userId, feedback: feedbacks)
-        let jsonData = try! JSONEncoder().encode(feedback)
-        
-        let json = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any] ?? [:]
-        
-        print(json!)
-        APIClient.submitFeedback(params: json ?? [:]){ result in
+    func submitFeedback(params:Dictionary<String,Any>){
+        APIClient.submitFeedback(params: params){ result in
                switch result {
                case .success(let responseData):
                    self.isLoading = false
-                   switch responseData.statusCode {
-                   case 200..<300:
-                       if responseData.status{
+                   
+                if responseData.status!{
                         self.submitSuccess?()
                        }else{
-                           self.errorMessage = responseData.messages
+                           self.errorMessage = responseData.message
                            self.errorMessageAlert?()
                        }
-                   case 400..<500:
-                       self.errorMessage = responseData.messages
-                       self.errorMessageAlert?()
-                   default:
-                       print("Unknown Error")
-                   }
                case .failure(let error):
                    print(error.localizedDescription)
                    self.errorMessage = error.localizedDescription
+                print(self.errorMessage)
                    self.error = error
                    self.isLoading = false
                }

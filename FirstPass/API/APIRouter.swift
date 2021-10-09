@@ -103,7 +103,7 @@ enum APIRouter : URLRequestConvertible {
         case .checkInAppointment:
             return "/checkin"
         case .submitFeedback:
-            return "feedback/save-feedback"
+            return "feedback"
         case .getFeedback:
             return "feedback/save-feedback"
         case .savePaymentDetails:

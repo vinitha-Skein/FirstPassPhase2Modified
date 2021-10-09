@@ -277,10 +277,13 @@ class AddNewMemberViewController: UIViewController {
         
         self.activityIndicator(self.view, startAnimate: true)
         viewModel.addFamilyMember(params: params)
-        viewModel.addMemberSuccess = {
-            self.dismiss(animated: true, completion: nil)
-            self.clearAllFields()
-            self.showAlert("Member Added Successfully")
+        viewModel.addMemberSuccess =
+            {
+                self.view.makeToast("Family Member added Successfully.")
+                self.clearAllFields()
+                Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
+                    self.dismiss(animated: true, completion: nil)
+                }
         }
         viewModel.loadingStatus = {
             if self.viewModel.isLoading{

@@ -60,7 +60,7 @@ class FeedbackVC: UIViewController,FeedbackTypeDelegate {
             nextButton.setTitle("Submit", for: .normal)
             viewModel.updateFeedback(feedbackIndex: viewModel.feedbackIndex, rating: rating)
         }else{
-            viewModel.submitFeedback(userId: userId)
+           // viewModel.submitFeedback()
         }
         viewModel.submitSuccess = {
             self.delegate?.feedbackAddStatus(status: true, message: "Thank you your feedback submitted")

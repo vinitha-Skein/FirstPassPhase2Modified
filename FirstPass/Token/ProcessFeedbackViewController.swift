@@ -9,6 +9,14 @@
 import UIKit
 
 class ProcessFeedbackViewController: UIViewController {
+    
+    @IBOutlet var tabletoBottomView: NSLayoutConstraint!
+    @IBOutlet var tableviewHeight: NSLayoutConstraint!
+    @IBOutlet var tabletoView: NSLayoutConstraint!
+    
+    @IBOutlet weak var feedbackView4: UIView!
+    @IBOutlet weak var feedbackView3: UIView!
+    
     @IBOutlet weak var collectionViewQuestion2: UICollectionView!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var tableview: UITableView!
@@ -16,15 +24,18 @@ class ProcessFeedbackViewController: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    var viewModel = FeedbackViewModel()
     
     var  fblist = ["How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?"]
 
     var selectedfeedback1 = 11
     var selectedfeedback2 = 11
+    var feedbacks = [Int]()
     var feedbackList = [ProcessFeedback]()
     var delegate:FeedbackClosedDelegate?
-    var index = Int()
-    override func viewDidLoad() {
+    var index = 1
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         NSLog("index from new token ----------> %d", self.index);
         view.backgroundColor = UIColor.clear
@@ -35,47 +46,38 @@ class ProcessFeedbackViewController: UIViewController {
         collectionViewQuestion2.dataSource = self
         container.layer.cornerRadius = 25
         submitButton.layer.cornerRadius = 8
+        
+        
+        if index == 0
+        {
+            feedbackView4.isHidden = true
+            feedbackView3.isHidden = true
+            tabletoView.isActive = false
+            tabletoBottomView.constant = 0
+            tableviewHeight.constant = 350
+        }
         //cancelButton.createBorderForButton(cornerRadius: 8, borderWidth: 1, borderColor: .black)
         tableview.register(UINib(nibName: "FeedbackTableViewCell", bundle: .main), forCellReuseIdentifier: "FeedbackTableViewCell")
         tableview.register(UINib(nibName: "FeedbackTextTableViewCell", bundle: .main), forCellReuseIdentifier: "FeedbackTextTableViewCell")
         
-//        let feedback1 = ProcessFeedback(question: "How was you interaction with physician?", rating: 0, message: "")
-//        let feedback2 = ProcessFeedback(question: "How was you interaction with Nurse?", rating: 0, message: "")
-//        let feedback3 = ProcessFeedback(question: "Rate your care time", rating: 0, message: "")
-//        let feedback4 = ProcessFeedback(question: "Rate your waiting time experience", rating: 0, message: "")
-//        let feedback5 = ProcessFeedback(question: "Rate overall service experience", rating: 0, message: "")
-//        let feedback6 = ProcessFeedback(question: "Addional Remarks", rating: 0, message: "")
-        
-        
-        let feedback1 = ProcessFeedback(question: "Ease of registration and staff courteousness", rating: 0, message: "")
-               let feedback2 = ProcessFeedback(question: "Ambience and general cleanliness of the facility", rating: 0, message: "")
-               let feedback3 = ProcessFeedback(question: "Nurse’s courteousness and her interaction with you", rating: 0, message: "")
-               let feedback4 = ProcessFeedback(question: "Waiting experience till you were attended by Nurse", rating: 0, message: "")
-               let feedback5 = ProcessFeedback(question: "How was Welcome/Help desk service ?", rating: 0, message: "")
-         let feedback6 = ProcessFeedback(question: "How was Welcome/Help desk service ?", rating: 0, message: "")
-         let feedback7 = ProcessFeedback(question: "How was Welcome/Help desk service ?", rating: 0, message: "")
-         let feedback8 = ProcessFeedback(question: "Wait time that was experienced during your lab visit", rating: 0, message: "")
-         let feedback9 = ProcessFeedback(question: "Staff’s courteousness and efficiency in completing the lab visit", rating: 0, message: "")
-         let feedback10 = ProcessFeedback(question: "The overall care provided throughout your visit today?", rating: 0, message: "")
-             let feedback11 = ProcessFeedback(question: "The ease of navigation throughout our facility during your visit?", rating: 0, message: "")
-             let feedback12 = ProcessFeedback(question: "The wait times that were experienced during your visit?", rating: 0, message: "")
-             let feedback13 = ProcessFeedback(question: "The ability of our staff to address both your medical and non-medical concerns?", rating: 0, message: "")
-             let feedbackfinal = ProcessFeedback(question: "How was Welcome/Help desk service ?", rating: 0, message: "")
-        index = 2
-        if(self.index == 0){
-        feedbackList = [feedback1,feedback2,feedbackfinal]
-        }
-        else if(self.index == 1){
-            feedbackList = [feedback3,feedback4,feedbackfinal]
-        }else if(self.index == 2){
-            feedbackList = [feedback5,feedback6,feedback7,feedbackfinal]
-        }else if(self.index == 3){
-            feedbackList = [feedback8,feedback9,feedbackfinal]
-        }else if(self.index == 4){
-            feedbackList = [feedback10,feedback11,feedback12,feedback13,feedbackfinal]
-        }else{
-            feedbackList = [feedback10,feedback11,feedback12,feedback13,feedbackfinal]
 
+        
+        
+        let feedback1 = ProcessFeedback(question: "How do you rate Doctors efforts in listening and understanding your concerns", rating: 0, message: "")
+        let feedback2 = ProcessFeedback(question: "Rate the Doctors ability to share information about the treatment that was offered", rating: 0, message: "")
+        let feedback3 = ProcessFeedback(question: "How do you rate Nurse’s Courteousness and her interaction with you", rating: 0, message: "")
+        let feedback4 = ProcessFeedback(question: "How Was your Waiting Experience till you were attended by the Nurse", rating: 0, message: "")
+        let finalfeedback = ProcessFeedback(question: "", rating: 0, message: "")
+                
+        
+        
+        if(self.index == 1)
+        {
+            feedbackList = [feedback1,feedback2,]
+        }
+        else if(self.index == 0)
+        {
+            feedbackList = [feedback3,feedback4,finalfeedback]
         }
     }
     
@@ -83,8 +85,45 @@ class ProcessFeedbackViewController: UIViewController {
         //delegate?.feedbackWindowClosed(index: index)
         dismiss(animated: true, completion: nil)
     }
-    @IBAction func submitAction(_ sender: Any) {
-        delegate?.feedbackWindowClosed(index: index)
+    @IBAction func submitAction(_ sender: Any)
+    {
+       // delegate?.feedbackWindowClosed(index: index)
+//        let params1 = ["category":"registration",
+//                      "trans_id":"20211007083339308",
+//                      "feedback":[
+//            {
+//            "question":"Please rate your experience with your registration desk",
+//            "answer":"5"
+//        },
+//            {
+//            "question":"Please rate ease of registration procees",
+//            "answer":"5"
+//        ] as [String : Any]
+       print ("Feedback Rating: \(feedbackList[0].feedbackRating)")
+        
+        var users = [["question":feedbackList[0].feedbackQuestion,"answer":feedbackList[0].feedbackRating],["question":feedbackList[1].feedbackQuestion,"answer":feedbackList[1].feedbackRating]]
+        
+        if index == 1
+        {
+            users.append(["question":"How likely are you to recommend the Doctor to your friends and family","answer": selectedfeedback1+1])
+            users.append(["question":"How likely are you to recommend the facility to your friends and family","answer": selectedfeedback2+1])
+        }
+        
+        
+        let params = ["category":"registration",
+                      "trans_id":"20211007083339308","feedbacks":users] as! [String:Any]
+        
+        
+        viewModel.submitFeedback(params: params)
+        print(params)
+        viewModel.submitSuccess =
+        {
+            self.view.makeToast("Thank you for you Feedback!")
+            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
     
 }
@@ -96,9 +135,9 @@ extension ProcessFeedbackViewController:UITableViewDelegate,UITableViewDataSourc
         DispatchQueue.main.async {
             self.tableview.reloadData()
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.tableview.scrollToRow(at: IndexPath(row: index + 1, section: 0), at: .top, animated: true)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//            self.tableview.scrollToRow(at: IndexPath(row: index + 1, section: 0), at: .top, animated: true)
+//        }
     }
     
     
@@ -114,9 +153,30 @@ extension ProcessFeedbackViewController:UITableViewDelegate,UITableViewDataSourc
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        NSLog("index path %d --- Count  %d",indexPath.row,feedbackList.count)
-        if indexPath.row != feedbackList.count - 1{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+       // NSLog("index path %d --- Count  %d",indexPath.row,feedbackList.count)
+                
+        if (index == 0)
+        {
+            if indexPath.row != feedbackList.count - 1
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FeedbackTableViewCell", for: indexPath) as! FeedbackTableViewCell
+                cell.feedback.text =  feedbackList[indexPath.row].feedbackQuestion
+                cell.rating = feedbackList[indexPath.row].feedbackRating
+                cell.collectionview.reloadData()
+                cell.collectionview.tag = indexPath.row
+                cell.questionIndexDelegate = self
+                return cell
+            }
+            else
+            {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FeedbackTextTableViewCell", for: indexPath) as! FeedbackTextTableViewCell
+                return cell
+            }
+        }
+        else
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedbackTableViewCell", for: indexPath) as! FeedbackTableViewCell
             cell.feedback.text =  feedbackList[indexPath.row].feedbackQuestion
             cell.rating = feedbackList[indexPath.row].feedbackRating
@@ -124,10 +184,9 @@ extension ProcessFeedbackViewController:UITableViewDelegate,UITableViewDataSourc
             cell.collectionview.tag = indexPath.row
             cell.questionIndexDelegate = self
             return cell
-        }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FeedbackTextTableViewCell", for: indexPath) as! FeedbackTextTableViewCell
-            return cell
         }
+        
+
     }
     
     
@@ -141,7 +200,8 @@ extension ProcessFeedbackViewController:UICollectionViewDelegate,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "numberRatingCollectionViewCell", for: indexPath) as! numberRatingCollectionViewCell
         cell.ratingLabel.text = String(indexPath.row+1)
-        cell.bgView.layer.borderWidth = 0.5
+        cell.bgView.layer.borderWidth = 0.1
+        cell.bgView.layer.cornerRadius = 3
         cell.bgView.layer.borderColor = UIColor.gray.cgColor
         cell.bgView.backgroundColor = UIColor.white
         cell.ratingLabel.textColor = UIColor.black
@@ -167,12 +227,22 @@ extension ProcessFeedbackViewController:UICollectionViewDelegate,UICollectionVie
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 25, height: 25)
+        return CGSize(width: (view.frame.width-110)/10, height: 25)
         }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.selectedfeedback1 = indexPath.row
-        print(self.selectedfeedback1)
-        collectionview.reloadData()
+        if collectionView == collectionview
+        {
+            self.selectedfeedback1 = indexPath.row
+            print(self.selectedfeedback1)
+            collectionview.reloadData()
+        }
+        else
+        {
+            self.selectedfeedback2 = indexPath.row
+            print(self.selectedfeedback1)
+            collectionViewQuestion2.reloadData()
+        }
+        
     }
 }
 struct ProcessFeedback {
