@@ -15,7 +15,9 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var bottomMenuView: Tabbar!
     @IBOutlet weak var collectionview: UICollectionView!
     var categories = ["My Profile","My Appointments","Book Appointment","Payments","Reports","Indoor Map","Contact","About Hospital","Location Search","BMI Calculator","Chat with Us","Doctor Lookup","Special Offers","Logout"]
-    var logoImages = ["accountpic","appointments","book","payments","reports","map","appointments","appointments","appointments","appointments","chat","appointments","appointments","logout"]
+    var logoImages = ["accountpic","appointments","book","payments","reports","map","Contact","abouthospital","locationsearch","bms","chat","doctorlookup","specialofferoffer","logout"]
+    var vipImages = ["Group 6910","Group 6911","Group 6912","Group 6913","Group 6914","Group 6915","Group 6916","Group 6917","Group 6918","Group 6919","Group 6920","Group 6921","Group 6922","Group 6923","Group 6924"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionview.delegate = self
@@ -23,7 +25,7 @@ class AccountViewController: UIViewController {
         bottomMenuView.delegate = self
         
         
-        if UserDefaults.standard.bool(forKey: "vip")
+        if !UserDefaults.standard.bool(forKey: "vip")
         {
             bgView.backgroundColor = UIColor.black
             container.backgroundColor = UIColor.black
@@ -59,7 +61,7 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountCollectionViewCell", for: indexPath) as! AccountCollectionViewCell
         
-        if UserDefaults.standard.bool(forKey: "vip")
+        if !UserDefaults.standard.bool(forKey: "vip")
         {
             print("vip entered")
             cell.container.backgroundColor = UIColor(named: "vip")
@@ -68,7 +70,7 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         
         
         cell.categoryLabel.text = categories[indexPath.row]
-        cell.logoImage.image = UIImage(named: logoImages[indexPath.row])
+        cell.logoImage.image = UIImage(named: vipImages[indexPath.row])
         cell.bgView.layer.cornerRadius = 15
         cell.container.layer.cornerRadius = 20
         cell.container.layer.borderWidth = 0.2
