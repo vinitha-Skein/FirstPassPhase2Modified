@@ -244,7 +244,7 @@ class AddNewMemberViewController: UIViewController {
             "mrn":mrn,
             "dob":dob,
             "relation":relation,
-            "national_id":"122237"
+            "national_id": emiratesId
             ] as [String : Any]
         
         
@@ -353,20 +353,20 @@ class AddNewMemberViewController: UIViewController {
         
         relationTextfield.addRightView(imageName: "rightView")
         dobTextfield.addRightView(imageName: "calendar")
-        idProofTextfield.addRightView(imageName: "rightView")
+      //  idProofTextfield.addRightView(imageName: "rightView")
 //        paymentMethodTextfield.addRightView(imageName: "rightView")
        //insuranceProviderTextfield.addRightView(imageName: "rightView")
         relationTextfield.setPlaceholder(placeholderText: "Select relation")
         fullNameTextfield.setPlaceholder(placeholderText: "Enter full name")
         dobTextfield.setPlaceholder(placeholderText: "Select details")
         mrnTextfield.setPlaceholder(placeholderText: "Enter MRN ID")
-        idProofTextfield.setPlaceholder(placeholderText: "Select ID Proof")
+        idProofTextfield.setPlaceholder(placeholderText: "Enter Emirites ID")
 //        paymentMethodTextfield.setPlaceholder(placeholderText: "Payment Method")
         insuranceProviderTextfield.setPlaceholder(placeholderText: "Enter the name of the insurance provider")
         insurancePolicyNumTextfield.setPlaceholder(placeholderText: "Insurance number")
         relationTextfield.delegate = self
         dobTextfield.delegate = self
-        idProofTextfield.delegate = self
+//        idProofTextfield.delegate = self
 //        paymentMethodTextfield.delegate = self
 //
        insuranceProviderView.isHidden = true
@@ -417,9 +417,9 @@ extension AddNewMemberViewController:UITextFieldDelegate,DatePickerDelegate{
             popup.modalPresentationStyle = .overCurrentContext
             popup.delegate = self
             present(popup, animated: true, completion: nil)
-        case idProofTextfield:
-            selectedTextfield = idProofTextfield
-            createDropDownAlert(title: "ID Proof", data: ["Emirates ID","Passport"])
+//        case idProofTextfield:
+//            selectedTextfield = idProofTextfield
+//            createDropDownAlert(title: "ID Proof", data: ["Emirates ID","Passport"])
         default:
             break
         }

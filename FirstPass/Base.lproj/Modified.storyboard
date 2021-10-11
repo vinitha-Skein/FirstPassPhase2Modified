@@ -2532,27 +2532,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZS-ea-EFD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="KqZ-Px-xBA">
-                                        <rect key="frame" x="30" y="18" width="116" height="30"/>
+                                        <rect key="frame" x="30" y="58" width="116" height="30"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGR-gU-WI7">
-                                        <rect key="frame" x="366" y="24" width="24" height="24"/>
+                                        <rect key="frame" x="366" y="61" width="24" height="24"/>
                                         <state key="normal" image="notification"/>
                                         <connections>
                                             <action selector="notification_Clicked:" destination="MUG-04-sHF" eventType="touchUpInside" id="Tw1-Hh-EtH"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKv-jk-GX4">
-                                        <rect key="frame" x="326" y="24" width="24" height="24"/>
+                                        <rect key="frame" x="326" y="61" width="24" height="24"/>
                                         <state key="normal" image="ScannerIcon"/>
                                         <connections>
                                             <action selector="Scanner_Clicked:" destination="MUG-04-sHF" eventType="touchUpInside" id="1s9-Sx-Ukt"/>
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FcX-va-Cdn">
-                                        <rect key="frame" x="24" y="64" width="366" height="708"/>
+                                        <rect key="frame" x="24" y="104" width="366" height="712"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MkM-DC-KVF">
                                             <size key="itemSize" width="152" height="160"/>
@@ -2614,37 +2614,37 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7f6-r7-uvG" customClass="Tabbar" customModule="firstpass" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="772" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="816" width="414" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="0TA-X3-Yg3"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7f6-r7-uvG" secondAttribute="trailing" id="1bJ-rw-eYt"/>
                                     <constraint firstItem="7f6-r7-uvG" firstAttribute="top" secondItem="FcX-va-Cdn" secondAttribute="bottom" id="4Qq-qO-51Q"/>
                                     <constraint firstItem="KqZ-Px-xBA" firstAttribute="leading" secondItem="HZS-ea-EFD" secondAttribute="leading" constant="30" id="5Go-XC-qwT"/>
+                                    <constraint firstItem="mGR-gU-WI7" firstAttribute="centerY" secondItem="KqZ-Px-xBA" secondAttribute="centerY" id="C5c-xS-kXA"/>
                                     <constraint firstItem="FcX-va-Cdn" firstAttribute="leading" secondItem="HZS-ea-EFD" secondAttribute="leading" constant="24" id="FYQ-2x-8In"/>
                                     <constraint firstItem="mGR-gU-WI7" firstAttribute="leading" secondItem="DKv-jk-GX4" secondAttribute="trailing" constant="16" id="GgP-lu-tpO"/>
-                                    <constraint firstItem="mGR-gU-WI7" firstAttribute="top" secondItem="HZS-ea-EFD" secondAttribute="top" constant="24" id="Goi-qE-AOb"/>
-                                    <constraint firstItem="KqZ-Px-xBA" firstAttribute="top" secondItem="HZS-ea-EFD" secondAttribute="top" constant="18" id="Nht-iN-eC4"/>
+                                    <constraint firstItem="KqZ-Px-xBA" firstAttribute="top" secondItem="HZS-ea-EFD" secondAttribute="top" constant="58" id="Nht-iN-eC4"/>
+                                    <constraint firstItem="DKv-jk-GX4" firstAttribute="centerY" secondItem="KqZ-Px-xBA" secondAttribute="centerY" id="UHL-rp-2rF"/>
                                     <constraint firstAttribute="trailing" secondItem="FcX-va-Cdn" secondAttribute="trailing" constant="24" id="Uj5-cg-RPF"/>
                                     <constraint firstAttribute="bottom" secondItem="7f6-r7-uvG" secondAttribute="bottom" id="Xo0-in-721"/>
                                     <constraint firstAttribute="trailing" secondItem="mGR-gU-WI7" secondAttribute="trailing" constant="24" id="ccI-h0-UNv"/>
                                     <constraint firstItem="FcX-va-Cdn" firstAttribute="top" secondItem="KqZ-Px-xBA" secondAttribute="bottom" constant="16" id="lmH-Ee-JHp"/>
                                     <constraint firstItem="7f6-r7-uvG" firstAttribute="leading" secondItem="HZS-ea-EFD" secondAttribute="leading" id="rrt-Yh-Fuu"/>
-                                    <constraint firstItem="DKv-jk-GX4" firstAttribute="top" secondItem="HZS-ea-EFD" secondAttribute="top" constant="24" id="uJH-2r-P2n"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5Jj-pk-ogF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="HZS-ea-EFD" secondAttribute="bottom" id="4f9-LW-xYd"/>
                             <constraint firstItem="HZS-ea-EFD" firstAttribute="leading" secondItem="5Jj-pk-ogF" secondAttribute="leading" id="Hpf-N4-dlb"/>
-                            <constraint firstItem="HZS-ea-EFD" firstAttribute="top" secondItem="5Jj-pk-ogF" secondAttribute="top" id="JPT-QJ-v1z"/>
+                            <constraint firstItem="HZS-ea-EFD" firstAttribute="top" secondItem="XZT-QY-93p" secondAttribute="top" id="JPT-QJ-v1z"/>
                             <constraint firstItem="5Jj-pk-ogF" firstAttribute="trailing" secondItem="HZS-ea-EFD" secondAttribute="trailing" id="JuC-nN-Vdu"/>
                         </constraints>
                     </view>
@@ -5016,7 +5016,7 @@ U3VjY2Vzcy4QEBAhA
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H6b-La-Tlx">
                                                                 <rect key="frame" x="0.0" y="530" width="374" height="85"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID Proof" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKn-fu-Z2k">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Emirites ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKn-fu-Z2k">
                                                                         <rect key="frame" x="20" y="0.0" width="324" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="text fade"/>

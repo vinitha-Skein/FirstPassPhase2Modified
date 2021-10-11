@@ -146,6 +146,11 @@ class PreChekinPopup: UIViewController {
         conciergeFemaleImg.image = UIImage(named: "vipoff")
         conciergeEnglishImg.image = UIImage(named: "vipon")
         conciergeArabicImg.image = UIImage(named: "vipoff")
+        
+        
+        vipImage.image = UIImage(named: "004")
+        specialAssistanceImage.image = UIImage(named: "003")
+        parkingImage.image = UIImage(named: "002")
     }
     @IBAction func radioButtonYes(_ sender: UIButton) {
         switch sender.tag {

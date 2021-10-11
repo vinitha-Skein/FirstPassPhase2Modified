@@ -11,7 +11,7 @@ import UIKit
 class AccountViewController: UIViewController {
 
     @IBOutlet var bgView: UIView!
-    @IBOutlet weak var container: UIView!
+    @IBOutlet var container: UIView!
     @IBOutlet weak var bottomMenuView: Tabbar!
     @IBOutlet weak var collectionview: UICollectionView!
     var categories = ["My Profile","My Appointments","Book Appointment","Payments","Reports","Indoor Map","Contact","About Hospital","Location Search","BMI Calculator","Chat with Us","Doctor Lookup","Special Offers","Logout"]
@@ -25,7 +25,10 @@ class AccountViewController: UIViewController {
         bottomMenuView.delegate = self
         
         
-        if !UserDefaults.standard.bool(forKey: "vip")
+        
+        
+        UserDefaults.standard.setValue(false, forKey: "vip")
+        if UserDefaults.standard.bool(forKey: "vip")
         {
             bgView.backgroundColor = UIColor.black
             container.backgroundColor = UIColor.black
@@ -61,24 +64,38 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AccountCollectionViewCell", for: indexPath) as! AccountCollectionViewCell
         
-        if !UserDefaults.standard.bool(forKey: "vip")
+        if UserDefaults.standard.bool(forKey: "vip")
         {
             print("vip entered")
+            cell.categoryLabel.text = categories[indexPath.row]
+            cell.logoImage.image = UIImage(named: logoImages[indexPath.row])
+            cell.bgView.layer.cornerRadius = 15
+            cell.container.layer.cornerRadius = 20
+            cell.container.layer.borderWidth = 0.2
+            cell.container.layer.borderColor = UIColor.lightGray.cgColor
+            cell.container.layer.masksToBounds = false
+            cell.container.layer.shadowColor = UIColor.lightGray.cgColor
+            cell.container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+            cell.container.layer.shadowOpacity = 0.2
             cell.container.backgroundColor = UIColor(named: "vip")
             cell.bgView.backgroundColor = UIColor(named: "accountsbg")
         }
+        else
+        {
+            cell.categoryLabel.text = categories[indexPath.row]
+            cell.logoImage.image = UIImage(named: logoImages[indexPath.row])
+            cell.bgView.layer.cornerRadius = 15
+            cell.container.layer.cornerRadius = 20
+            cell.container.layer.borderWidth = 0.2
+            cell.container.layer.borderColor = UIColor.lightGray.cgColor
+            cell.container.layer.masksToBounds = false
+            cell.container.layer.shadowColor = UIColor.lightGray.cgColor
+            cell.container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+            cell.container.layer.shadowOpacity = 0.2
+        }
         
         
-        cell.categoryLabel.text = categories[indexPath.row]
-        cell.logoImage.image = UIImage(named: vipImages[indexPath.row])
-        cell.bgView.layer.cornerRadius = 15
-        cell.container.layer.cornerRadius = 20
-        cell.container.layer.borderWidth = 0.2
-        cell.container.layer.borderColor = UIColor.lightGray.cgColor
-        cell.container.layer.masksToBounds = false
-        cell.container.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
-        cell.container.layer.shadowOpacity = 0.2
+        
 
         return cell
     }
