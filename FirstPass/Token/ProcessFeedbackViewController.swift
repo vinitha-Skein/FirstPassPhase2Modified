@@ -34,6 +34,8 @@ class ProcessFeedbackViewController: UIViewController {
     var feedbackList = [ProcessFeedback]()
     var delegate:FeedbackClosedDelegate?
     var index = 1
+    var appointmentData:ActiveAppointmentData?
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -82,8 +84,14 @@ class ProcessFeedbackViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        //delegate?.feedbackWindowClosed(index: index)
-        dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailsViewController") as! AppointmentDetailsViewController
+        vc.modalPresentationStyle = .fullScreen
+       
+        vc.appointmentData = self.appointmentData
+      
+        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+        self.present(vc, animated: true)
     }
     @IBAction func submitAction(_ sender: Any)
     {

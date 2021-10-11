@@ -12,6 +12,7 @@ import Alamofire
 import AlamofireImage
 import FirebaseDatabase
 import JitsiMeet
+import Foundation
 
 
 class HomeViewController: UIViewController,ScanFinishedDelegate {
@@ -188,7 +189,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     //    }
         func fetchAppointments(){
             self.activityIndicator(self.view, startAnimate: true)
-            viewModel.fetchUpcomingAppointments()
+             viewModel.fetchUpcomingAppointments()
             viewModel.fetchSuccess = { [self] in
                 self.appointments = (self.viewModel.appointmentData?.appointments)!
                 DispatchQueue.main.async {
@@ -467,6 +468,16 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             self.checkInAppointmentAction(index: sender.tag)
             } else {
                 dummyAppointments[sender.tag].appt_status = "CHECKIN"
+                dummyAppointments[sender.tag].token_no = "CROO\(sender.tag)"
+               let journey = JourneyDetails(tokenNo: "CROO\(sender.tag)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration")
+                let key = "JOURNEY" + dummyAppointments[sender.tag].trans_id!
+                do {
+                    let data = try PropertyListEncoder().encode(journey)
+                    UserDefaults.standard.set(data, forKey: key)
+                } catch let error {
+                    debugPrint(error)
+                }
+                
                 self.appointmentsCollectionView.reloadData()
             }
 //            self.appointmentBooked = sender.tag

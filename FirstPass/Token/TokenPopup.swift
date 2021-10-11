@@ -17,7 +17,9 @@ class TokenPopup: UIViewController {
     @IBOutlet weak var CounterLabel: UILabel!
     var token = ""
     var counter = ""
-    
+    var appointmentData:ActiveAppointmentData?
+    var journeyDetails : JourneyDetails?
+
     //var delegate:TokenClosedDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,15 +50,87 @@ class TokenPopup: UIViewController {
         tokenNumber.text = token
         CounterLabel.text = counter
         
-        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let key =  "JOURNEY" + (self.appointmentData?.trans_id)!
+        do {
+            if let data = UserDefaults.standard.data(forKey: key) {
+                let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                self.journeyDetails = journey
+            }
+        } catch {
+            debugPrint(error)
+        }
     }
     @IBAction func okAction(_ sender: Any) {
        // delegate?.tokenClosed()
+        if self.journeyDetails != nil {
+             if self.journeyDetails?.currentJourneyUpdate == "Registration" && appointmentData?.department == "Lab" {
+                updateJourney(Status: "Lab")
+                self.dismiss(animated: true, completion: nil)
+             }
+            else if self.journeyDetails?.currentJourneyUpdate == "Registration" && appointmentData?.department != "Lab" {
+                updateJourney(Status: "Vitals")
+                self.dismiss(animated: true, completion: nil)
+            } else if self.journeyDetails?.currentJourneyUpdate == "Vitals"{
+                updateJourney(Status: "Consultation")
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+                vc.index = 0
+                vc.appointmentData = self.appointmentData
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+            } else if self.journeyDetails?.currentJourneyUpdate == "Consultation" && appointmentData?.department == "Cardiology" {
+                updateJourney(Status: "ECG")
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+                vc.index = 1
+                vc.modalPresentationStyle = .fullScreen
+                vc.appointmentData = self.appointmentData
+                present(vc, animated: true, completion: nil)
+//                self.dismiss(animated: true, completion: nil)
+            } else if self.journeyDetails?.currentJourneyUpdate == "Consultation" && appointmentData?.department != "Cardiology" {
+                updateJourney(Status: "Pharmacy")
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+                vc.index = 1
+                vc.modalPresentationStyle = .fullScreen
+                vc.appointmentData = self.appointmentData
+                present(vc, animated: true, completion: nil)
+            } else if journeyDetails?.currentJourneyUpdate == "ECG" {
+                updateJourney(Status: "X-ray")
+                self.dismiss(animated: true, completion: nil)
+            } else if journeyDetails?.currentJourneyUpdate == "X-ray"{
+                updateJourney(Status: "Pharmacy")
+                self.dismiss(animated: true, completion: nil)
+            } else if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Lab" {
+                self.view.makeToast("Thanks for the visit!")
+//                self.dismiss(animated: true, completion: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                    let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+               
+            }
+        } else {
         dismiss(animated: true, completion: nil)
+        }
     }
     @IBAction func closeAction(_ sender: Any) {
         //delegate?.tokenClosed()
         dismiss(animated: true, completion: nil)
+    }
+    func  updateJourney(Status:String){
+        let journey = JourneyDetails(tokenNo: journeyDetails?.tokenNo, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status)
+        let key = "JOURNEY" + (appointmentData?.trans_id)!
+        do {
+            let data = try PropertyListEncoder().encode(journey)
+            UserDefaults.standard.set(data, forKey: key)
+        } catch let error {
+            debugPrint(error)
+        }
     }
 }
 

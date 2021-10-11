@@ -21,6 +21,21 @@ class AppointdetailsCollectionViewCell: UICollectionViewCell
     @IBOutlet weak var Container: MyUIView!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var statusButton: Mybutton!
+    
+    @IBOutlet weak var estimatedTitleLabel: UILabel!
+    
+    @IBOutlet weak var estimatedLabel: UILabel!
+    
+    
+    @IBOutlet weak var counterTitleLabel: UILabel!
+    
+    @IBOutlet weak var counterNumberLabel: UILabel!
+  
+    
+    
+    
+    
+    
     @IBAction func indoorMapClicked(_ sender: Any)
     {
         indoorMapButtonPressed()

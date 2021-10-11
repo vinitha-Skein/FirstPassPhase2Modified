@@ -226,7 +226,8 @@ class BookAppointmentViewController: UIViewController {
         
 //        let appointment = ActiveAppointmentData(doctor_name: doctor, appt_status: "SCHEDULED", trans_id: "23409876510", appointment_time: appointmentTime, patient_name: "John", service: serviceTextfield.text, department: departmentTextfield.text, token_no: "", token_status: "", room: "")
 //        UserDefaults.standard.setValue(appointment, forKey: "Dummy Appointments")
-//        
+//
+        
         vc.modalPresentationStyle = .fullScreen
        
         self.present(vc, animated: true)

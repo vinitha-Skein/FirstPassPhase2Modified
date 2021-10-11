@@ -25,7 +25,16 @@ struct ActiveAppointmentData:Decodable {
     let patient_name : String?
     let service : String?
     let department : String?
-    let token_no : String?
+    var token_no : String?
     let token_status : String?
     let room : String?
+}
+
+
+struct JourneyDetails: Codable, Equatable {
+    let tokenNo :String?
+    var currentStatus:String?
+    var CompletedStatus :[String]?
+    var currentJourneyUpdate:String?
+    
 }
