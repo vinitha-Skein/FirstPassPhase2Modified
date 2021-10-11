@@ -47,7 +47,7 @@ class TokenPopup: UIViewController {
 //        tokenLabel.attributedText = attributedString
 //        tokenNumber.attributedText = attributedString1
 //        // Do any additional setup after loading the view.
-        tokenNumber.text = token
+        tokenNumber.text = self.appointmentData?.token_no
         CounterLabel.text = counter
         
     }
@@ -106,7 +106,7 @@ class TokenPopup: UIViewController {
             } else if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Lab" {
                 self.view.makeToast("Thanks for the visit!")
 //                self.dismiss(animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     let storyboard = UIStoryboard(name: "phase2", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                     vc.modalPresentationStyle = .fullScreen
@@ -132,6 +132,8 @@ class TokenPopup: UIViewController {
             debugPrint(error)
         }
     }
+    
+    
 }
 
 

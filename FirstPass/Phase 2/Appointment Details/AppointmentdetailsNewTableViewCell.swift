@@ -20,6 +20,16 @@ class AppointmentdetailsNewTableViewCell: UITableViewCell {
     @IBOutlet weak var indoorMapicon: UIButton!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var estimatedTitleLabel: UILabel!
+    
+    @IBOutlet weak var estimatedLabel: UILabel!
+    
+    
+    @IBOutlet weak var counterTitleLabel: UILabel!
+    
+    @IBOutlet weak var counterNumberLabel: UILabel!
+    
+    
     var indoorMapButtonPressed : (() -> ()) = {}
     var statusButtonPressed : (() -> ()) = {}
 

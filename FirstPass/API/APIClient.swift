@@ -96,6 +96,10 @@ class APIClient {
         performRequest(route: APIRouter.checkInAppointment(params:params),completion: completion)
     }
     
+    static func AppointmentJourney(appointmentId:Int,completion:@escaping(AFResult<SendPasswordChangeOTP>)->Void){
+        performRequest(route: APIRouter.appointmentJourney(appointmentId: appointmentId),completion: completion)
+    }
+    
     //Feedback
     static func submitFeedback(params:[String:Any],completion:@escaping(AFResult<FeedbackSubmitData>)->Void){
         performRequest(route: APIRouter.submitFeedback(params: params),completion: completion)

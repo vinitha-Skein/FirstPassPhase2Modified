@@ -124,6 +124,10 @@
                 <outlet property="ServingLabel" destination="ELw-EX-sOy" id="gSf-ZY-ZSs"/>
                 <outlet property="WholeContainer" destination="H2p-sc-9uM" id="GRu-te-9JR"/>
                 <outlet property="categoryLabel" destination="vDj-yp-f6t" id="A7S-0N-Oos"/>
+                <outlet property="counterNumberLabel" destination="o8U-hd-JV8" id="SgI-l6-iOO"/>
+                <outlet property="counterTitleLabel" destination="ELw-EX-sOy" id="9ZE-fD-cMR"/>
+                <outlet property="estimatedLabel" destination="JH1-75-BPX" id="eNP-vc-Ybw"/>
+                <outlet property="estimatedTitleLabel" destination="PiO-hp-syZ" id="hPI-oZ-Zzh"/>
                 <outlet property="estimatedWaitTimeLabel" destination="PiO-hp-syZ" id="q1p-Si-xjO"/>
                 <outlet property="iconImage" destination="hxA-Ug-LdF" id="hPK-lv-z7R"/>
                 <outlet property="indoorMapicon" destination="NAK-1j-qgh" id="0Pt-69-HxV"/>

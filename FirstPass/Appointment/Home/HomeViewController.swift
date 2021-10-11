@@ -114,7 +114,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
         self.userId = self.viewModel.userId ?? 0
         
-                self.fetchAppointments()
+//                self.fetchAppointments()
         //        self.fetchFamilyMembers()
         
         
@@ -458,7 +458,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     
     @objc func CheckinButtonPressed(sender : UIButton)
     {
-        if sender.accessibilityHint! == "Check-in" {
+        if sender.accessibilityHint! == "Check-in" && checkinSelected != sender.tag {
             self.checkinSelected = sender.tag
             appointmentsCollectionView.reloadData()
         }
@@ -559,6 +559,15 @@ extension HomeViewController{
             viewModel.fetchSuccess = { [self] in
                 self.rolledIndex = index
                 self.fetchAppointments()
+                let journey = JourneyDetails(tokenNo: self.appointments[index].token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration")
+                let key = "JOURNEY" + self.appointments[index].trans_id!
+                 do {
+                     let data = try PropertyListEncoder().encode(journey)
+                     UserDefaults.standard.set(data, forKey: key)
+                 } catch let error {
+                     debugPrint(error)
+                 }
+               
                
 //                DispatchQueue.main.async {
 //                    self.appointmentsCollectionView.reloadData()

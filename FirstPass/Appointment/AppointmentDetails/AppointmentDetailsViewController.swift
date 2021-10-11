@@ -146,6 +146,7 @@ class AppointmentDetailsViewController: UIViewController {
                 self.currentJourneyIndex = Appointments.count-1
             }
             self.appointmentCollectionView.reloadData()
+            self.tableView.reloadData()
         }
         
     }
@@ -214,7 +215,12 @@ class AppointmentDetailsViewController: UIViewController {
 //        transition.timingFunction = CAMediaTimingFunction(name:CAMediaTimingFunctionName.easeInEaseOut)
 //        view.window!.layer.add(transition, forKey: kCATransition)
 //        present(vc, animated: true)
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
+        
+            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
     }
     @IBAction func cancelAction(_ sender: Any)
     {
@@ -236,6 +242,9 @@ class AppointmentDetailsViewController: UIViewController {
         }
     }
     
+    
+    
+    
    
     }
 extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSource
@@ -249,81 +258,138 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentdetailsNewTableViewCell") as! AppointmentdetailsNewTableViewCell
         cell.statusButton.layer.cornerRadius = 5
-        if UserDefaults.standard.bool(forKey: "vip")
-        {
-            cell.Container.backgroundColor = UIColor(hex: "#34383B")
-            cell.categoryLabel.textColor = UIColor(named: "vip")
-            cell.estimatedWaitTimeLabel.textColor = UIColor.white
-            cell.waitTimesMinsLabel.textColor = UIColor.white
-            cell.ServingCounterLabel.textColor = UIColor.white
-            cell.ServingLabel.textColor = UIColor.white
-            cell.WholeContainer.backgroundColor = UIColor(hex: "#222629")
-//        } else if {
+//        if UserDefaults.standard.bool(forKey: "vip")
+//        {
+//            cell.Container.backgroundColor = UIColor(hex: "#34383B")
+//            cell.categoryLabel.textColor = UIColor(named: "vip")
+//            cell.estimatedWaitTimeLabel.textColor = UIColor.white
+//            cell.waitTimesMinsLabel.textColor = UIColor.white
+//            cell.ServingCounterLabel.textColor = UIColor.white
+//            cell.ServingLabel.textColor = UIColor.white
+//            cell.WholeContainer.backgroundColor = UIColor(hex: "#222629")
+////        } else if {
+////
+////        }
+//        }
+//        if(indexPath.row == 1)
+//        {
+//            cell.iconImage.image = UIImage(named: "iconlyCurvedPaper")
+//            cell.categoryLabel.text = Appointments[indexPath.row]
+//            cell.categoryLabel.textColor = UIColor.white
+//            cell.statusButton.setTitleColor(UIColor.white, for: .normal)
+//            cell.statusButton.setTitle("Ongoing", for: .normal)
+//            cell.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0/255, alpha: 1)
+//            cell.ServingCounterLabel.textColor = UIColor.white
+//            cell.estimatedWaitTimeLabel.textColor = UIColor.white
+//            cell.waitTimesMinsLabel.textColor = UIColor.white
+//            cell.ServingLabel.textColor = UIColor.white
+//            cell.indoorMapicon.setImage( UIImage(named: "indoor"), for: .normal)
+//            cell.Container.layer.cornerRadius = 10
+//            cell.statusButton.layer.cornerRadius = 5
+//
+//            if UserDefaults.standard.bool(forKey: "vip")
+//            {
+//                cell.Container.backgroundColor = UIColor(named: "accountsbg")
+//                cell.statusButton.backgroundColor = UIColor.white
+//                cell.statusButton.setTitleColor(UIColor.brown, for: .normal)
+//                cell.categoryLabel.textColor = UIColor.brown
+//                cell.estimatedWaitTimeLabel.textColor = UIColor.brown
+//                cell.waitTimesMinsLabel.textColor = UIColor.brown
+//                cell.ServingCounterLabel.textColor = UIColor.brown
+//                cell.ServingLabel.textColor = UIColor.brown
+//
+//            }
 //
 //        }
-        }
-        if(indexPath.row == 1)
-        {
-            cell.iconImage.image = UIImage(named: "iconlyCurvedPaper")
-            cell.categoryLabel.text = Appointments[indexPath.row]
-            cell.categoryLabel.textColor = UIColor.white
-            cell.statusButton.setTitleColor(UIColor.white, for: .normal)
-            cell.statusButton.setTitle("Ongoing", for: .normal)
-            cell.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0/255, alpha: 1)
-            cell.ServingCounterLabel.textColor = UIColor.white
-            cell.estimatedWaitTimeLabel.textColor = UIColor.white
-            cell.waitTimesMinsLabel.textColor = UIColor.white
-            cell.ServingLabel.textColor = UIColor.white
-            cell.indoorMapicon.setImage( UIImage(named: "indoor"), for: .normal)
-            cell.Container.layer.cornerRadius = 10
-            cell.statusButton.layer.cornerRadius = 5
-            
-            if UserDefaults.standard.bool(forKey: "vip")
-            {
-                cell.Container.backgroundColor = UIColor(named: "accountsbg")
-                cell.statusButton.backgroundColor = UIColor.white
-                cell.statusButton.setTitleColor(UIColor.brown, for: .normal)
-                cell.categoryLabel.textColor = UIColor.brown
-                cell.estimatedWaitTimeLabel.textColor = UIColor.brown
-                cell.waitTimesMinsLabel.textColor = UIColor.brown
-                cell.ServingCounterLabel.textColor = UIColor.brown
-                cell.ServingLabel.textColor = UIColor.brown
-
-            }
-            
-        }
-        else if(indexPath.row == 2)
-        {
-            cell.statusButton.backgroundColor = UIColor(red: 204/255, green: 192/255, blue: 255/255, alpha: 1)
-            cell.statusButton.setTitle("Upcomming", for: .normal)
-            let bg = UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1)
-            cell.statusButton.setTitleColor(bg, for: .normal)
+//        else if(indexPath.row == 2)
+//        {
+//            cell.statusButton.backgroundColor = UIColor(red: 204/255, green: 192/255, blue: 255/255, alpha: 1)
+//            cell.statusButton.setTitle("Upcomming", for: .normal)
+//            let bg = UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1)
+//            cell.statusButton.setTitleColor(bg, for: .normal)
+//            cell.categoryLabel.text = Appointments[indexPath.row]
+//            cell.Container.layer.cornerRadius = 10
+//            cell.statusButton.layer.cornerRadius = 5
+//            cell.statusButton.isHidden = false
+//            if UserDefaults.standard.bool(forKey: "vip")
+//            {
+//                cell.statusButton.backgroundColor = UIColor(hex: "#14181A")
+//                cell.statusButton.setTitleColor(UIColor.white, for: .normal)
+//
+//            }
+//
+//        }
+//        else
+//        {
             cell.categoryLabel.text = Appointments[indexPath.row]
             cell.Container.layer.cornerRadius = 10
-            cell.statusButton.layer.cornerRadius = 5
-            cell.statusButton.isHidden = false
-            if UserDefaults.standard.bool(forKey: "vip")
-            {
-                cell.statusButton.backgroundColor = UIColor(hex: "#14181A")
+//            if(indexPath.row == 0)
+//            {
+//                cell.statusButton.isHidden = false
+//            }
+//            else
+//            {
+//                cell.statusButton.isHidden = true
+//
+//            }
+//        }
+        
+        
+        
+            if currentJourneyIndex == indexPath.row {
+                cell.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0, alpha: 1)
+                cell.statusButton.setTitle("Ongoing", for: .normal)
                 cell.statusButton.setTitleColor(UIColor.white, for: .normal)
-
-            }
-
-        }
-        else
-        {
-            cell.categoryLabel.text = Appointments[indexPath.row]
-            cell.Container.layer.cornerRadius = 10
-            if(indexPath.row == 0)
-            {
                 cell.statusButton.isHidden = false
+                cell.Container.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
+                cell.categoryLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.estimatedTitleLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.estimatedLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.counterTitleLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.counterNumberLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//                cell.NextStopLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//                cell.nextStopDepartmentLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//                cell.WaitTimeLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+//                cell.indexLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            } else if currentJourneyIndex < indexPath.row {
+                if currentJourneyIndex+1 == indexPath.row {
+                    cell.statusButton.isHidden = false
+                    cell.statusButton.backgroundColor = UIColor(red: 204/255, green: 192/255, blue: 255/255, alpha: 1)
+                    cell.statusButton.setTitle("Upcomming", for: .normal)
+                    cell.statusButton.setTitleColor(UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1), for: .normal)
+                    cell.statusButton.isHidden = false
+                } else {
+                    cell.statusButton.isHidden = true
+                }
+                cell.Container.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.9294117647, blue: 1, alpha: 1)
+                cell.categoryLabel.textColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
+                cell.estimatedTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.estimatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.counterTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.counterNumberLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.NextStopLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.nextStopDepartmentLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.WaitTimeLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.indexLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+            } else {
+                cell.Container.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
+                cell.categoryLabel.textColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
+                cell.estimatedTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.estimatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.counterTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.counterNumberLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.NextStopLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.nextStopDepartmentLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+//                cell.WaitTimeLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.statusButton.backgroundColor = UIColor(red: 21/255, green: 181/255, blue: 48/255, alpha: 1)
+                cell.statusButton.setTitle("Completed", for: .normal)
+                cell.statusButton.setTitleColor(UIColor.white, for: .normal)
+                cell.statusButton.isHidden = false
+//                cell.indexLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                
             }
-            else
-            {
-                cell.statusButton.isHidden = true
-
-            }
-        }
+        
+        
         cell.indoorMapButtonPressed =
             {
 //                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
@@ -334,11 +400,12 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
             }
         cell.statusButtonPressed =
             {
-                if (cell.statusButton.currentTitle == "Upcomming")
+                if cell.statusButton.titleLabel?.text! == "Ongoing"
                 {
                     let storyboard = UIStoryboard(name: "Modified", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
                     vc.modalPresentationStyle = .fullScreen
+                    vc.appointmentData = self.appointmentData
                     self.present(vc, animated: true, completion: nil)
                 }
             }

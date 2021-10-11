@@ -36,6 +36,7 @@ enum APIRouter : URLRequestConvertible {
     case getActiveAppointment
     case getAllAppointment(userId:Int,page:Int)
     case checkInAppointment(params:[String:Any])
+    case appointmentJourney(appointmentId:Int)
     //Feedback
     case submitFeedback(params:[String:Any])
     case getFeedback
@@ -96,6 +97,8 @@ enum APIRouter : URLRequestConvertible {
             return "appointment/create"
         case .cancelAppointment(let appointmentId):
             return "appointment/\(appointmentId)/cancel-appointment"
+        case .appointmentJourney(let appointmentId):
+            return "journey?trans_id=\(appointmentId)"
         case .getActiveAppointment:
             return "appointments"
         case .getAllAppointment(let userId,let page):
@@ -159,6 +162,8 @@ enum APIRouter : URLRequestConvertible {
         case .createAppointment(let params):
             return params
         case .cancelAppointment:
+            return nil
+        case .appointmentJourney:
             return nil
         case .getActiveAppointment:
             return nil
