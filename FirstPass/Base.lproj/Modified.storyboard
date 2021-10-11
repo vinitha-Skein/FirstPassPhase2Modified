@@ -1119,12 +1119,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDz-Hp-Yuw">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0pE-Pb-BeM">
                                 <rect key="frame" x="0.0" y="17" width="414" height="862"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pre-arrival" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdf-1h-JyH">
                                 <rect key="frame" x="64" y="64" width="82.5" height="21"/>
@@ -2611,6 +2611,8 @@
                                                     <outlet property="bgView" destination="gIU-9Z-xYd" id="QiQ-ml-RZG"/>
                                                     <outlet property="categoryLabel" destination="Lbk-Ph-Ras" id="Uhv-1U-0kN"/>
                                                     <outlet property="container" destination="5ri-r9-Sd6" id="jju-Jb-89q"/>
+                                                    <outlet property="imageHeight" destination="30b-tA-dMS" id="ky7-Lo-z3e"/>
+                                                    <outlet property="imageWidth" destination="e4z-El-bpP" id="A8n-ji-Jjd"/>
                                                     <outlet property="logoImage" destination="ZWL-2F-fvj" id="r3b-jc-gGT"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -3851,6 +3853,9 @@
                         <outlet property="changePicButton" destination="hUl-Qf-3QV" id="6Fy-IR-0aA"/>
                         <outlet property="collectionview" destination="pON-vL-1FN" id="VN2-Ez-Sch"/>
                         <outlet property="container" destination="F8C-qo-NgW" id="cZa-1X-oeT"/>
+                        <outlet property="emailLabel" destination="foC-KA-xCI" id="siL-p5-mOX"/>
+                        <outlet property="nameLabel" destination="pFv-ad-zU7" id="OaJ-f9-WVb"/>
+                        <outlet property="phoneLabel" destination="nJg-Ot-7CP" id="9dh-jX-zv9"/>
                         <outlet property="profileImage" destination="Asr-lh-3v5" id="3r1-Fq-W5m"/>
                     </connections>
                 </viewController>
@@ -4014,6 +4019,9 @@
                                                 <state key="normal" title="Save Changes">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="changes_saved:" destination="ScG-ZR-gYF" eventType="touchUpInside" id="z3K-dE-Qty"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -4052,14 +4060,17 @@
                     <connections>
                         <outlet property="changesButton" destination="QFz-dj-0x6" id="HnP-2T-dER"/>
                         <outlet property="container" destination="dcw-hf-0l5" id="Loo-0P-DJx"/>
+                        <outlet property="emailTextFeild" destination="ETG-tO-gnX" id="s89-xz-6JL"/>
                         <outlet property="emailView" destination="0sU-WI-SfK" id="OeQ-uZ-5Eg"/>
+                        <outlet property="mobileNumberTextFeild" destination="mS4-8J-njq" id="dwf-TP-aBf"/>
+                        <outlet property="nameTextFeild" destination="tlV-eZ-1nv" id="QoP-5Y-FLS"/>
                         <outlet property="nameView" destination="szo-o4-jT9" id="4ML-Fj-Adg"/>
                         <outlet property="numberView" destination="ZZ5-ch-cwK" id="0eC-jx-rqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZq-hr-tQS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4035" y="446"/>
+            <point key="canvasLocation" x="-4036.2318840579715" y="445.98214285714283"/>
         </scene>
         <!--Pop Up View Controller-->
         <scene sceneID="HrJ-bh-ECY">
@@ -7669,7 +7680,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="specialAssistance" width="38" height="38"/>
         <image name="tab2" width="22" height="22"/>
         <image name="tab3" width="20" height="20"/>
-        <image name="time" width="12" height="12"/>
+        <image name="time" width="24" height="24"/>
         <image name="tokenBg-1" width="146" height="143.5"/>
         <image name="tokennew" width="183" height="172"/>
         <image name="view" width="24" height="24"/>

@@ -10,11 +10,16 @@ import UIKit
 
 class EditPersonalInformationViewController: UIViewController {
 
+    @IBOutlet var emailTextFeild: UITextField!
+    @IBOutlet var mobileNumberTextFeild: UITextField!
+    @IBOutlet var nameTextFeild: UILabel!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var emailView: UIView!
     @IBOutlet weak var numberView: UIView!
     @IBOutlet weak var nameView: UIView!
     @IBOutlet weak var changesButton: UIButton!
+    let viewModel = ProfileViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,17 +43,50 @@ class EditPersonalInformationViewController: UIViewController {
     }
     @IBAction func changes_saved(_ sender: Any)
     {
-        dismiss(animated: true, completion: nil)
+        
+        print("Save Changes")
+        if (nameTextFeild.text == "" || mobileNumberTextFeild.text == "" || emailTextFeild.text == "")
+        {
+            showAlert("Kindly fill all the feilds!")
+        }
+        else
+        {
+           // updateProfile()
+        }
+    
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateProfile()
+    {
+        self.activityIndicator(self.view, startAnimate: true)
+        guard let email = emailTextFeild.text,let phone = mobileNumberTextFeild.text, let name = nameTextFeild.text else {
+            return
+        }
+        let params = [
+            "full_name": name,
+            "mobile_no": phone,
+            "mail_address": email] as! [String:Any]
+        
+        viewModel.updateProfile(params: params)
+        viewModel.updateSuccess =
+        {
+            self.activityIndicator(self.view, startAnimate: false)
+            self.showAlert("Profile Details Updated Successfully.")
+        }
+        viewModel.loadingStatus = {
+            if self.viewModel.isLoading{
+                self.activityIndicator(self.view, startAnimate: true)
+            }else{
+                self.activityIndicator(self.view, startAnimate: false)
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+        }
+        
+        viewModel.errorMessageAlert = {
+            self.activityIndicator(self.view, startAnimate: false)
+            self.showAlert(self.viewModel.errorMessage ?? "Error in Loading details")
+        }
+        
     }
-    */
 
 }

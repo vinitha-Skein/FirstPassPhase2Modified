@@ -11,6 +11,9 @@ import RealmSwift
 class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     @IBOutlet weak var container: UIView!
     
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var phoneLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet weak var changePicBgView: UIView!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -30,6 +33,7 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //getProfile()
         collectionview.register(UINib(nibName: "FamilyCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "FamilyCollectionViewCell")
         collectionview.dataSource = self
         collectionview.delegate = self
@@ -42,7 +46,7 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
             DispatchQueue.main.async {
 //                self.collectionview.reloadData()
                 
-                self.userId = self.viewModel.userProfileDetails.userId
+               // self.userId = self.viewModel.userProfileDetails.userId
                
             }
             self.fetchFamilyMembers()
@@ -304,6 +308,32 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
         
         viewModel.errorMessageAlert = {
             self.showAlert(self.viewModel.errorMessage ?? "Error")
+        }
+    }
+    func getProfile(){
+        self.activityIndicator(self.view, startAnimate: true)
+        viewModel.getProfile()
+        viewModel.getProfileDetailsSuccess =
+        {
+            let name = self.viewModel.userProfiledetails?.full_name
+            let mail = self.viewModel.userProfiledetails?.mail_address
+            let phone = self.viewModel.userProfiledetails?.mobile
+            
+            self.nameLabel.text = name
+            self.emailLabel.text = mail
+            self.phoneLabel.text = phone
+        }
+        viewModel.loadingStatus = {
+            if self.viewModel.isLoading{
+                self.activityIndicator(self.view, startAnimate: true)
+            }else{
+                self.activityIndicator(self.view, startAnimate: false)
+                UIApplication.shared.endIgnoringInteractionEvents()
+            }
+        }
+        
+        viewModel.errorMessageAlert = {
+            self.showAlert(self.viewModel.errorMessage ?? "Error in Loading details")
         }
     }
     

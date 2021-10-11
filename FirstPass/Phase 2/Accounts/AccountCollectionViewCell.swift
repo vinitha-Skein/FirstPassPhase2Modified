@@ -13,5 +13,7 @@ class AccountCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var bgView: UIView!
+    @IBOutlet var imageHeight: NSLayoutConstraint!
+    @IBOutlet var imageWidth: NSLayoutConstraint!
     
 }

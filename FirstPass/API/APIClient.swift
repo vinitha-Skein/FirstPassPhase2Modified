@@ -51,8 +51,13 @@ class APIClient {
 //    }
     
     //Profile
-    static func updateProfile(params:[String:Any],completion:@escaping(AFResult<ProfileUpdate>)->Void){
+    static func
+        updateProfile(params:[String:Any],completion:@escaping(AFResult<ProfileUpdate>)->Void){
         performRequest(route: APIRouter.updateProfile(params: params),completion: completion)
+    }
+    static func
+        getProfile(completion:@escaping(AFResult<profileDetails>)->Void){
+        performRequest(route: APIRouter.getProfile,completion: completion)
     }
     static func sendOTP(params:[String:Any],completion:@escaping(AFResult<SendPasswordChangeOTP>)->Void){
         performRequest(route: APIRouter.sendOTP(params: params),completion: completion)

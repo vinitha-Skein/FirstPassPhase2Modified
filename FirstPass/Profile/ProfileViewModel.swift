@@ -4,11 +4,17 @@ import RealmSwift
 class ProfileViewModel
 {
     //Properties
-    var userProfileDetails = LoginUserDataRealm()
+    //var userProfileDetails = LoginUserDataRealm()
     
-    var userProfileData:ProfileUpdate?{
+    var userProfileUpdate:ProfileUpdate?{
         didSet{
             self.updateSuccess?()
+        }
+    }
+    var userProfiledetails:profileDetails?
+    {
+        didSet{
+            self.getProfileDetailsSuccess?()
         }
     }
     var userProfileImageData:ProfileImageUpdate?{
@@ -47,6 +53,7 @@ class ProfileViewModel
     
     //Closures for callback
     var updateSuccess:(() -> ())?
+    var getProfileDetailsSuccess:(() -> ())?
     var updateImageSuccess:(() -> ())?
     var loadingStatus:(() -> ())?
     var errorMessageAlert:(() -> ())?
@@ -57,18 +64,18 @@ class ProfileViewModel
     var fetchFamilySuccess:(() -> ())?
     
     
-    func getUserProfileData()
-    {
-        let realm = try! Realm()
-        let userData = realm.objects(LoginUserDataRealm.self)
-        for list in userData{
-            userProfileDetails = list
-        }
-        let queue = DispatchQueue(label: "queue")
-        queue.asyncAfter(deadline: .now() + 0.2) {
-            self.fetchUserProfileSuccess?()
-        }
-    }
+//    func getUserProfileData()
+//    {
+//        let realm = try! Realm()
+//        let userData = realm.objects(LoginUserDataRealm.self)
+//        for list in userData{
+//            userProfileDetails = list
+//        }
+//        let queue = DispatchQueue(label: "queue")
+//        queue.asyncAfter(deadline: .now() + 0.2) {
+//            self.fetchUserProfileSuccess?()
+//        }
+//    }
     
     //get all family members
 //    func fetchFamilyMember(userId:Int)
@@ -111,18 +118,35 @@ class ProfileViewModel
             switch result {
             case .success(let responseData):
                 self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
+                
                         if responseData.status{
-                            self.userProfileData = responseData
+                            self.userProfileUpdate = responseData
                         }
-                    case 400..<500:
-                        self.errorMessage = responseData.messages
-                    default:
-                        print("Unknown Error")
-                    }
-                }else{
+                    else
+                        {
+                    self.errorMessage = responseData.message
+                    self.errorMessageAlert?()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.error = error
+                self.isLoading = false
+                self.errorMessage = error.localizedDescription
+            }
+        }
+    }
+    func getProfile(){
+        isLoading = true
+        APIClient.getProfile{ result in
+            switch result {
+            case .success(let responseData):
+                self.isLoading = false
+                
+                        if responseData.status
+                        {
+                            self.userProfiledetails = responseData
+                        }
+                else{
                     self.errorMessage = responseData.message
                     self.errorMessageAlert?()
                 }

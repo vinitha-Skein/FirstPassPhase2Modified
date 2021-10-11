@@ -8,11 +8,11 @@
 
 import Foundation
 struct ProfileUpdate:Decodable {
-    let messages: String?
+   // let messages: String?
     let status: Bool
-    let statusCode: Int?
+   // let statusCode: Int?
     let message:String?
-    let error:String?
+  // let error:String?
 //    let data:ProfileUpdatedData?
 }
 struct ProfileImageUpdate:Decodable {
@@ -50,4 +50,8 @@ struct SetNewPassword:Decodable {
     let statusCode: Int?
     let message:String?
     let error:String?
+}
+struct profileDetails:Decodable {
+    let status: Bool
+    let message, full_name, mobile, mail_address: String
 }

@@ -16,14 +16,14 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var collectionview: UICollectionView!
     var categories = ["My Profile","My Appointments","Book Appointment","Payments","Reports","Indoor Map","Contact","About Hospital","Location Search","BMI Calculator","Chat with Us","Doctor Lookup","Special Offers","Logout"]
     var logoImages = ["accountpic","appointments","book","payments","reports","map","Contact","abouthospital","locationsearch","bms","chat","doctorlookup","specialofferoffer","logout"]
-    var vipImages = ["Group 6910","Group 6911","Group 6912","Group 6913","Group 6914","Group 6915","Group 6916","Group 6917","Group 6918","Group 6919","Group 6920","Group 6921","Group 6922","Group 6923","Group 6924"]
+    var vipImages = ["Group 6910","Group 6911","Group 6912","Group 6913","Group 6914","Group 6915","contact","about-hospital","location-search","bmi-calculater","Group 6916","doctor-lookup","special-offers","Group 6917"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionview.delegate = self
         collectionview.dataSource = self
         bottomMenuView.delegate = self
-        
+        UserDefaults.standard.setValue(false, forKey: "vip")
         
         
         if UserDefaults.standard.bool(forKey: "vip")
@@ -66,7 +66,7 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         {
             print("vip entered")
             cell.categoryLabel.text = categories[indexPath.row]
-            cell.logoImage.image = UIImage(named: logoImages[indexPath.row])
+            cell.logoImage.image = UIImage(named: vipImages[indexPath.row])
             cell.bgView.layer.cornerRadius = 15
             cell.container.layer.cornerRadius = 20
             cell.container.layer.borderWidth = 0.2
@@ -76,7 +76,9 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
             cell.container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
             cell.container.layer.shadowOpacity = 0.2
             cell.container.backgroundColor = UIColor(named: "vip")
-            cell.bgView.backgroundColor = UIColor(named: "accountsbg")
+            cell.bgView.isHidden = true
+            cell.imageHeight.constant = 48
+            cell.imageWidth.constant = 48
         }
         else
         {

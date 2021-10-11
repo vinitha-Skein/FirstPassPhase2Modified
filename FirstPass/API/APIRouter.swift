@@ -22,6 +22,7 @@ enum APIRouter : URLRequestConvertible {
     case deleteFamilyMember(userId:Int,memberId:Int)
     //Profile
     case updateProfile(params:[String:Any])
+    case getProfile
     case sendOTP(params:[String:Any])
     case verifyOTP(params:[String:Any])
     case setNewPassword(params:[String:Any])
@@ -86,7 +87,9 @@ enum APIRouter : URLRequestConvertible {
         case .deleteFamilyMember(let userId, let memberId):
             return "familymember/\(userId)/delete/\(memberId)"
         case .updateProfile:
-            return "user/update"
+            return "profile"
+        case .getProfile:
+            return "profile"
         case .sendOTP:
             return "user/send-otp"
         case .verifyOTP:
@@ -153,6 +156,8 @@ enum APIRouter : URLRequestConvertible {
             return nil
         case .updateProfile(let params):
             return params
+        case .getProfile:
+            return nil
         case .sendOTP(let params):
             return params
         case .verifyOTP(let params):
