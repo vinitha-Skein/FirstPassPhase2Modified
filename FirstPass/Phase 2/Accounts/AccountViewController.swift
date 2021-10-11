@@ -26,8 +26,6 @@ class AccountViewController: UIViewController {
         
         
         
-        
-        UserDefaults.standard.setValue(false, forKey: "vip")
         if UserDefaults.standard.bool(forKey: "vip")
         {
             bgView.backgroundColor = UIColor.black
