@@ -162,6 +162,7 @@
                 <outlet property="checkinHorizontalLayout" destination="fpj-BU-35H" id="iwo-qQ-sIe"/>
                 <outlet property="container" destination="7cS-W3-BgI" id="sCQ-Z6-b1y"/>
                 <outlet property="date" destination="p7q-1h-NU3" id="fuW-nE-LGp"/>
+                <outlet property="doctorName" destination="8hs-Jv-bwS" id="jzh-fy-lzr"/>
                 <outlet property="indoorButton" destination="lpm-V5-HeB" id="2vg-Hg-mgW"/>
                 <outlet property="precheckinButton" destination="Yvj-ZF-03h" id="4Al-Bc-taP"/>
                 <outlet property="time" destination="zWR-dc-Iej" id="dBU-lw-VOh"/>

@@ -38,7 +38,21 @@ class NewTokenViewController: UIViewController/*, swapCathLabDelegate,PharmacyDe
     
     var appointmentProcess = [AppointmentStatus]()
     
-    var Departmentsections = ["Registration","Vitals","Blood Test","Cath Test","Pharmacy"]
+    var appointment : ActiveAppointmentData?
+    
+    var Departmentsections = ["Registration","Vitals","Consultation","Pharmacy"]
+    
+    @IBOutlet weak var tokenLabel: UILabel!
+    
+    @IBOutlet weak var departmentLabel: UILabel!
+    
+    @IBOutlet weak var TimeLabel: UILabel!
+    
+    @IBOutlet weak var DateLabel: UILabel!
+    
+    @IBOutlet weak var DoctorNameLabel: UILabel!
+    
+    @IBOutlet weak var PatientNAmeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,8 +76,34 @@ class NewTokenViewController: UIViewController/*, swapCathLabDelegate,PharmacyDe
         appointmentProcess = [reg1,blood]
 //,blood,lab_blood,cathLab,radio,pharm
         }
+        if appointment != nil {
+            headLabel.text =  self.appointment?.department
+            departmentLabel.text = self.appointment?.department
+            let dateString =  self.appointment?.appointment_time!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM  d yyyy h:mm:ss:SSSa"
+            if let date = formatter.date(from: dateString!) {
+                formatter.dateFormat = "dd-MM-yyyy"
+                let string = formatter.string(from: date)
+                print(string)
+                DateLabel.text = string
+                formatter.dateFormat = "h:mm a"
+                let stringTime = formatter.string(from: date)
+                TimeLabel.text = stringTime
+            }
+            DoctorNameLabel.text = self.appointment?.doctor_name
+            PatientNAmeLabel.text = (self.appointment?.patient_name!)! + "|self|25yrs"
+            tokenLabel.text = appointment?.token_no
+            if appointment?.token_no == ""{
+                tokenLabel.text = appointment?.trans_id
+            }
+            if appointment?.department == "Cardiology" {
+                Departmentsections = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+            }
+//            tableviewHeight.constant = 400
+        }
         
-        tableviewHeight.constant = 380
+        tableviewHeight.constant = CGFloat(Departmentsections.count*100)
     }
     @IBAction func cancel_Appointment(_ sender: Any)
     {

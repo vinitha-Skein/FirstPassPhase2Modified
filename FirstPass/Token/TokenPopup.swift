@@ -47,11 +47,17 @@ class TokenPopup: UIViewController {
 //        tokenLabel.attributedText = attributedString
 //        tokenNumber.attributedText = attributedString1
 //        // Do any additional setup after loading the view.
+        if (self.appointmentData != nil){
         tokenNumber.text = self.appointmentData?.token_no
-        CounterLabel.text = counter
+        CounterLabel.text = "P1"
+        } else {
+            tokenNumber.text = token
+            CounterLabel.text = counter
+        }
         
     }
     override func viewDidAppear(_ animated: Bool) {
+        if self.appointmentData != nil {
         let key =  "JOURNEY" + (self.appointmentData?.trans_id)!
         do {
             if let data = UserDefaults.standard.data(forKey: key) {
@@ -61,49 +67,53 @@ class TokenPopup: UIViewController {
         } catch {
             debugPrint(error)
         }
+        }
     }
     @IBAction func okAction(_ sender: Any) {
        // delegate?.tokenClosed()
         if self.journeyDetails != nil {
-             if self.journeyDetails?.currentJourneyUpdate == "Registration" && appointmentData?.department == "Lab" {
-                updateJourney(Status: "Lab")
-                self.dismiss(animated: true, completion: nil)
-             }
-            else if self.journeyDetails?.currentJourneyUpdate == "Registration" && appointmentData?.department != "Lab" {
-                updateJourney(Status: "Vitals")
-                self.dismiss(animated: true, completion: nil)
-            } else if self.journeyDetails?.currentJourneyUpdate == "Vitals"{
-                updateJourney(Status: "Consultation")
-                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
-                vc.index = 0
-                vc.appointmentData = self.appointmentData
-                vc.modalPresentationStyle = .fullScreen
-                present(vc, animated: true, completion: nil)
-            } else if self.journeyDetails?.currentJourneyUpdate == "Consultation" && appointmentData?.department == "Cardiology" {
-                updateJourney(Status: "ECG")
-                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
-                vc.index = 1
-                vc.modalPresentationStyle = .fullScreen
-                vc.appointmentData = self.appointmentData
-                present(vc, animated: true, completion: nil)
+//             if self.journeyDetails?.currentJourneyUpdate == "Registration" && appointmentData?.department == "Lab" {
+//                updateJourney(Status: "Lab")
 //                self.dismiss(animated: true, completion: nil)
-            } else if self.journeyDetails?.currentJourneyUpdate == "Consultation" && appointmentData?.department != "Cardiology" {
-                updateJourney(Status: "Pharmacy")
-                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
-                vc.index = 1
-                vc.modalPresentationStyle = .fullScreen
-                vc.appointmentData = self.appointmentData
-                present(vc, animated: true, completion: nil)
-            } else if journeyDetails?.currentJourneyUpdate == "ECG" {
+//             }
+//            else if self.journeyDetails?.currentJourneyUpdate == "Registration" && appointmentData?.department != "Lab" {
+//                updateJourney(Status: "Vitals")
+//                self.dismiss(animated: true, completion: nil)
+//            } else if self.journeyDetails?.currentJourneyUpdate == "Vitals"{
+//                updateJourney(Status: "Consultation")
+//                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+//                vc.index = 0
+//                vc.appointmentData = self.appointmentData
+//                vc.modalPresentationStyle = .fullScreen
+//                present(vc, animated: true, completion: nil)
+//            } else if self.journeyDetails?.currentJourneyUpdate == "Consultation" && appointmentData?.department == "Cardiology" {
+//                updateJourney(Status: "ECG")
+//                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+//                vc.index = 1
+//                vc.modalPresentationStyle = .fullScreen
+//                vc.appointmentData = self.appointmentData
+//                present(vc, animated: true, completion: nil)
+////                self.dismiss(animated: true, completion: nil)
+//            } else if self.journeyDetails?.currentJourneyUpdate == "Consultation" && appointmentData?.department != "Cardiology" {
+//                updateJourney(Status: "Pharmacy")
+//                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+//                vc.index = 1
+//                vc.modalPresentationStyle = .fullScreen
+//                vc.appointmentData = self.appointmentData
+//                present(vc, animated: true, completion: nil)
+//            } else
+            if journeyDetails?.currentJourneyUpdate == "ECG" {
                 updateJourney(Status: "X-ray")
                 self.dismiss(animated: true, completion: nil)
             } else if journeyDetails?.currentJourneyUpdate == "X-ray"{
                 updateJourney(Status: "Pharmacy")
                 self.dismiss(animated: true, completion: nil)
-            } else if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Lab" {
+            } else
+            if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Lab" {
+                updateJourney(Status: "Finish Token")
                 self.view.makeToast("Thanks for the visit!")
 //                self.dismiss(animated: true, completion: nil)
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {

@@ -28,6 +28,7 @@ class AppointmentTableViewCell: UITableViewCell {
     var preCheckinButtonPressed : (() -> ()) = {}
     var indoorButtonPressed : (() -> ()) = {}
 
+    @IBOutlet weak var doctorName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

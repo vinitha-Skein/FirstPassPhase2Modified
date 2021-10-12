@@ -26,6 +26,8 @@ class MyAppointmentsViewController: UIViewController {
     var unselectedText = UIColor(red: 74/255, green: 79/255, blue: 87/255, alpha: 1)
     let service = ["Cardiology","Internal Medicine","Laboratory"]
     var precheckin = [Int]()
+    var appointments = [ActiveAppointmentData]()
+    var historyAppointments = [ActiveAppointmentData]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -34,7 +36,7 @@ class MyAppointmentsViewController: UIViewController {
         tableview.delegate = self
         isActiveAppointment = true
         // Do any additional setup after loading the view.
-   //     fetchActiveAppointments()
+        fetchAllAppointments()
         
         
         //For demo purpose
@@ -116,36 +118,79 @@ class MyAppointmentsViewController: UIViewController {
             self.showAlert(self.viewModel.errorMessage ?? "Error")
         }
     }
+    
     func fetchAllAppointments(){
         self.activityIndicator(self.view, startAnimate: true)
-        viewModel.fetchAllAppointments(userId: userId, page: 1)
-        viewModel.fetchAllSuccess = {
-            self.tableview.reloadData()
+         viewModel.fetchAllAppointments()
+        viewModel.fetchAllSuccess = { [self] in
+            self.appointments = (self.viewModel.allAppointments?.appointments)!
+            var tempappointments = [ActiveAppointmentData]()
+            for i in  0..<self.appointments.count {
+                var journeyDetails : JourneyDetails?
+                if self.appointments[i].appt_status == "FLOTING" {
+                    let key =  "JOURNEY" + (self.appointments[i].trans_id)!
+                    do {
+                        if let data = UserDefaults.standard.data(forKey: key) {
+                            let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                            journeyDetails = journey
+                        }
+                    } catch {
+                        debugPrint(error)
+                    }
+                    
+                    if journeyDetails != nil {
+                        if journeyDetails?.currentJourneyUpdate == "Finish Token" {
+                            self.historyAppointments.append(self.appointments[i])
+                        }else {
+                            tempappointments.append(self.appointments[i])
+                        }
+                    } else {
+                        tempappointments.append(self.appointments[i])
+                    }
+                } else {
+                    tempappointments.append(self.appointments[i])
+                }
+                
+            }
+            self.appointments = tempappointments
+            DispatchQueue.main.async {
+                self.tableview.reloadData()
+            }
         }
-        
+
         viewModel.loadingStatus = {
             if self.viewModel.isLoading{
                 self.activityIndicator(self.view, startAnimate: true)
+//                    self.appointmentActivityIndicator.isHidden = false
             }else{
                 self.activityIndicator(self.view, startAnimate: false)
                 UIApplication.shared.endIgnoringInteractionEvents()
+//                    self.appointmentActivityIndicator.isHidden = true
             }
         }
-        
+
         viewModel.errorMessageAlert = {
-            self.showAlert(self.viewModel.errorMessage ?? "Error")
+            if self.viewModel.errorMessage == ""{
+
+            }else{
+                self.showAlert(self.viewModel.errorMessage ?? "Error")
+               
+                DispatchQueue.main.async {
+                    self.tableview.reloadData()
+                }
+            }
         }
     }
 }
 
 extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if isActiveAppointment{
-//            return viewModel.activeAppointments?.appointmentDetails?.count ?? 0
-//        }else{
-//            return viewModel.allAppointments?.appointmentDetails?.count ?? 0
-//        }
-        return dummyAppointments.count
+        if isActiveAppointment{
+            return self.appointments.count
+        }else{
+            return self.historyAppointments.count
+        }
+//        return dummyAppointments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -155,11 +200,10 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
         if isActiveAppointment
         {
 //            cell.updateAppointmentDataToUI(data: (viewModel.activeAppointments?.appointmentDetails?[indexPath.row])!, indexpath: indexPath)
-        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
+//        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
+           let currentAppointment = self.appointments[indexPath.row]
             cell.waitLabel.isHidden = true
             cell.waiTimeLabel.isHidden = true
-            cell.precheckinButton.isHidden = false
-            cell.checkinButton.isHidden = false
             cell.indoorButton.isHidden = false
             cell.indoorButtonPressed =
                 {
@@ -168,16 +212,53 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
 //                    vc.modalPresentationStyle = .fullScreen
 //                    self.present(vc, animated: true)
                 }
+            cell.appointmentName.text = self.appointments[indexPath.row].department
+            let dateString = currentAppointment.appointment_time!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM  d yyyy h:mm:ss:SSSa"
+            if let date = formatter.date(from: dateString) {
+                formatter.dateFormat = "dd-MM-yyyy"
+                let string = formatter.string(from: date)
+                print(string)
+                cell.date.text = string
+                formatter.dateFormat = "h:mm a"
+                let stringTime = formatter.string(from: date)
+                cell.time.text = stringTime
+            }
+            cell.doctorName.text = currentAppointment.doctor_name
+            if currentAppointment.appt_status == "SCHEDULED" {
+                cell.precheckinButton.isHidden = false
+                cell.checkinButton.isHidden = false
+            } else {
+                cell.precheckinButton.isHidden = true
+                cell.checkinButton.isHidden = false
+                cell.checkinButton.setTitle("Ongoing", for: .normal)
+            }
         }else
         {
             //cell.checkinButton.isHidden = true
 //            cell.updateAppointmentDataToUI(data: (viewModel.allAppointments?.appointmentDetails?[indexPath.row])!, indexpath: indexPath)
 //        cell.updateAppointmentDataToUI(data: (dummyAppointments[indexPath.row]), indexpath: indexPath)
+            let currentAppointment = self.historyAppointments[indexPath.row]
             cell.waitLabel.isHidden = true
             cell.waiTimeLabel.isHidden = true
             cell.precheckinButton.isHidden = true
             cell.checkinButton.isHidden = true
             cell.indoorButton.isHidden = true
+            cell.appointmentName.text = currentAppointment.department
+            let dateString = currentAppointment.appointment_time!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM  d yyyy h:mm:ss:SSSa"
+            if let date = formatter.date(from: dateString) {
+                formatter.dateFormat = "dd-MM-yyyy"
+                let string = formatter.string(from: date)
+                print(string)
+                cell.date.text = string
+                formatter.dateFormat = "h:mm a"
+                let stringTime = formatter.string(from: date)
+                cell.time.text = stringTime
+            }
+            cell.doctorName.text = currentAppointment.doctor_name
         }
         cell.preCheckinButtonPressed =
             {
@@ -217,7 +298,7 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
         let storyboard = UIStoryboard(name: "phase2", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "NewTokenViewController") as! NewTokenViewController
         vc.modalPresentationStyle = .fullScreen
-            vc.headtext = service[indexPath.row]
+            vc.appointment = self.appointments[indexPath.row]
         view.window!.layer.add(rightToLeftTransition(), forKey: kCATransition)
         present(vc, animated: true)
         }
@@ -227,6 +308,7 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
             let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentHistoryViewController") as! AppointmentHistoryViewController
             vc.modalPresentationStyle = .fullScreen
             vc.headtext = service[indexPath.row]
+            vc.appointment = self.historyAppointments[indexPath.row]
             view.window!.layer.add(rightToLeftTransition(), forKey: kCATransition)
             present(vc, animated: true)
         }

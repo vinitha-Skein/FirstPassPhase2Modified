@@ -15,7 +15,23 @@ class AppointmentHistoryViewController: UIViewController {
     @IBOutlet var scrollViewContainer: UIScrollView!
     @IBOutlet var tableview: UITableView!
     var headtext = String()
-    var Departmentsections = ["Vitals","Cardiology","Blood Test","Pharmacy"]
+    var Departmentsections = ["Registration","Vitals","Consultation","Pharmacy"]
+    
+    var appointment : ActiveAppointmentData?
+    
+    @IBOutlet weak var tokenNumber: UILabel!
+    
+    @IBOutlet weak var tokenNumberTitleLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var departmentLabel: UILabel!
+    
+    @IBOutlet weak var TimeLabel: UILabel!
+    
+    @IBOutlet weak var doctorNameLabel: UILabel!
+    
+    @IBOutlet weak var patientNameLabel: UILabel!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -29,7 +45,35 @@ class AppointmentHistoryViewController: UIViewController {
         scrollView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         scrollView.layer.shadowOpacity = 0.2
         headLabel.text = headtext
-        // Do any additional setup after loading the view.
+        if appointment != nil {
+            headLabel.text =  self.appointment?.department
+            departmentLabel.text = self.appointment?.department
+            let dateString =  self.appointment?.appointment_time!
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM  d yyyy h:mm:ss:SSSa"
+            if let date = formatter.date(from: dateString!) {
+                formatter.dateFormat = "dd-MM-yyyy"
+                let string = formatter.string(from: date)
+                print(string)
+                dateLabel.text = string
+                formatter.dateFormat = "h:mm a"
+                let stringTime = formatter.string(from: date)
+                TimeLabel.text = stringTime
+            }
+            doctorNameLabel.text = self.appointment?.doctor_name
+            patientNameLabel.text = (self.appointment?.patient_name!)! + "|self|25yrs"
+            tokenNumber.text = appointment?.token_no
+            tokenNumberTitleLabel.text = "Token Number"
+            if appointment?.token_no == ""{
+                tokenNumber.text = appointment?.trans_id
+                tokenNumberTitleLabel.text = "Transcation Id"
+            }
+            if appointment?.department == "Cardiology" {
+                Departmentsections = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+            }
+            
+        }
+        
     }
     
 

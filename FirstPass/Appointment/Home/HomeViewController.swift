@@ -64,6 +64,8 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     var dummyAppointments = [ActiveAppointmentData]()
     var appointments = [ActiveAppointmentData]()
+    var historyAppointments = [ActiveAppointmentData]()
+    
     
     var titleMenu = ["Medicine Collections","Cardiology","Cardiology","In Patient"]
 //    var titleColor = [#colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1),#colorLiteral(red: 0.427859962, green: 0.3798725903, blue: 0.5662087798, alpha: 1),#colorLiteral(red: 0.7609769702, green: 0.7396642566, blue: 0.8182614446, alpha: 1)]
@@ -92,6 +94,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         appointmentsCollectionView.dataSource = self
         appointmentsCollectionView.delegate = self
         
+        
         setupUI()
         //        getUserDetailsFromLocal()
         bottomMenuView.delegate = self
@@ -100,10 +103,49 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         {
             vipView()
         }
-        
-        firebaseObserver()
+      
+//        firebaseObserver()
+        firebaseDatabaseForNotification()
+    }
+    @objc func methodOfReceivedNotification(notification: Notification) {
+        print(notification.userInfo)
+        if notification.userInfo?["department"] as! String == "vitals" {
+         //Show feedback after end vitals.
+            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+            vc.index = 0
+            for i in 0..<appointments.count {
+                if notification.userInfo?["Token"]  as? String == self.appointments[i].token_no {
+                    vc.appointmentData = appointments[i]
+                }
+            }
+//            vc.appointmentData = self.appointmentData
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
+        if notification.userInfo?["department"] as! String == "doctor" {
+        //show feedback after end consultation.
+            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+            vc.index = 1
+            for i in 0..<appointments.count {
+                if notification.userInfo?["Token"]  as? String == self.appointments[i].token_no {
+                    vc.appointmentData = appointments[i]
+                }
+            }
+//            vc.appointmentData = self.appointmentData
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+            
+            
+        }
+        self.fetchAppointments()
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name("HomeAppointmentRefreshNotification"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("HomeAppointmentRefreshNotification"), object: nil)
         getUserDetailsFromLocal()
         
         viewModel.fetchFamilySuccess = {
@@ -114,7 +156,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
         self.userId = self.viewModel.userId ?? 0
         
-//                self.fetchAppointments()
+                self.fetchAppointments()
         //        self.fetchFamilyMembers()
         
         
@@ -155,6 +197,55 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
           print(error.localizedDescription)
         }
     }
+    func firebaseDatabaseForNotification()
+        {
+            var ref: DatabaseReference!
+            ref = Database.database().reference()
+            
+        ref.child("NotificationText").observe(.value, with: { [self] snapshot in
+              // Get user value
+              let value = snapshot.value as? NSDictionary
+              let notificationText = value?["Notification"] as? String ?? ""
+                
+                if !self.itisInitialLoad {
+                    if notificationText.contains("is called for") {
+                        let fullNotificationString = notificationText
+                        let fullNameArr = fullNotificationString.components(separatedBy: "your token number ")
+                        debugPrint(fullNameArr[0])
+                        let tokenSeperation = fullNameArr[1].components(separatedBy: " ")
+                        debugPrint(tokenSeperation[0])
+                        let counterNumberArray = fullNotificationString.components(separatedBy: ":")
+                        debugPrint(counterNumberArray[1])
+                        self.showTokenPopup(token: tokenSeperation[0], Counter: counterNumberArray[1])
+                    } else if notificationText.contains("is ended for") {
+                        let fullNotificationString = notificationText
+                        let fullNameArr = fullNotificationString.components(separatedBy: "is ended for ")
+                        debugPrint(fullNameArr[0])
+                        let departmentSepaeration = fullNameArr[1].components(separatedBy: " ")
+                        debugPrint(departmentSepaeration[0])
+                        let fullTokenArr = fullNotificationString.components(separatedBy: "your token number ")
+                        debugPrint(fullTokenArr[0])
+                        let tokenSeperation = fullTokenArr[1].components(separatedBy: " ")
+                        debugPrint(tokenSeperation[0])
+                        NotificationCenter.default.post(name: Notification.Name("HomeAppointmentRefreshNotification"), object: nil, userInfo: ["department":"\(departmentSepaeration[0])","Token":"\(tokenSeperation[0])"])
+                    }
+                } else {
+                    self.itisInitialLoad = false
+                }
+            }) { error in
+              print(error.localizedDescription)
+            }
+        
+    }
+    
+    func showTokenPopup(token:String,Counter:String){
+        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
+        vc.modalPresentationStyle = .fullScreen
+        vc.token = token
+        vc.counter = Counter
+        self.present(vc, animated: true, completion: nil)
+    }
     
     func getUserDetailsFromLocal(){
         
@@ -192,6 +283,35 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
              viewModel.fetchUpcomingAppointments()
             viewModel.fetchSuccess = { [self] in
                 self.appointments = (self.viewModel.appointmentData?.appointments)!
+                var tempappointments = [ActiveAppointmentData]()
+                for i in  0..<self.appointments.count {
+                    var journeyDetails : JourneyDetails?
+                    if self.appointments[i].appt_status == "FLOTING" {
+                        let key =  "JOURNEY" + (self.appointments[i].trans_id)!
+                        do {
+                            if let data = UserDefaults.standard.data(forKey: key) {
+                                let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                                journeyDetails = journey
+                            }
+                        } catch {
+                            debugPrint(error)
+                        }
+                        
+                        if journeyDetails != nil {
+                            if journeyDetails?.currentJourneyUpdate == "Finish Token" {
+                                self.historyAppointments.append(self.appointments[i])
+                            }else {
+                                tempappointments.append(self.appointments[i])
+                            }
+                        } else {
+                            tempappointments.append(self.appointments[i])
+                        }
+                    } else {
+                        tempappointments.append(self.appointments[i])
+                    }
+                    
+                }
+                self.appointments = tempappointments
                 DispatchQueue.main.async {
                     self.appointmentsCollectionView.reloadData()
                 }
@@ -369,13 +489,14 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             cell.prearrivalButton.setTitle("Pre- arrival", for: .normal)
             cell.checkinButton.setTitle("Check-in", for: .normal)
             cell.noteLabel.text = "Note: Please arrive 15 mins early from the scheduled appointment time."
-        } else {
+        }
+        else {
             cell.prearrivalButton.setTitle("Pre- arrival", for: .normal)
             cell.checkinButton.setTitle("Check-in", for: .normal)
             cell.noteLabel.text = "Note: Please arrive 15 mins early from the scheduled appointment time."
         }
         
-        if currentAppointment.appt_status == "CHECKIN"
+        if currentAppointment.appt_status == "CHECKIN" || currentAppointment.appt_status == "FLOTING"
         {
             if rolledIndex == indexPath.row {
             let flipDirection:UIView.AnimationOptions =  .transitionFlipFromRight
@@ -387,6 +508,47 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                    }
             }
             else {
+                if currentAppointment.appt_status == "FLOTING" && currentAppointment.department == "Cardiology" {
+                    var journeyDetails : JourneyDetails?
+                        let key =  "JOURNEY" + (currentAppointment.trans_id)!
+                        do {
+                            if let data = UserDefaults.standard.data(forKey: key) {
+                                let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                                journeyDetails = journey
+                            }
+                        } catch {
+                            debugPrint(error)
+                        }
+                        
+                        if journeyDetails != nil {
+                            if journeyDetails?.currentJourneyUpdate == "ECG" {
+                                cell.currentStepDetails.text = "ECG"
+                            }else if  journeyDetails?.currentJourneyUpdate == "X-ray"  {
+                                cell.currentStepDetails.text = "X-ray"
+                            }
+                            else if  journeyDetails?.currentJourneyUpdate == "Pharmacy"  {
+                                cell.currentStepDetails.text = "Pharmacy"
+                            } else {
+                                cell.currentStepDetails.text = "ECG"
+                            }
+                        } else {
+                            cell.currentStepDetails.text = "ECG"
+                        }
+                } else if currentAppointment.appt_status == "FLOTING" && currentAppointment.department != "Cardiology" {
+                    cell.currentStepDetails.text = "Pharmacy"
+                    }
+                if currentAppointment.appt_status == "CHECKIN" {
+                    switch currentAppointment.token_status {
+                    case "R-WAITING" ,"R-SERVING":
+                        cell.currentStepDetails.text = "Registration"
+                    case "V-WAITING","V-SERVING":
+                        cell.currentStepDetails.text = "Vitals"
+                    case "WAITING","SERVING":
+                    cell.currentStepDetails.text = "Consultation"
+                    default:
+                        print("Registration")
+                    }
+                }
                 cell.DetailsView.isHidden = false
             }
             
@@ -512,6 +674,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 //        vc.modalPresentationStyle = .fullScreen
 //        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
 //        self.present(vc, animated: true)
+//        NotificationCenter.default.post(name: Notification.Name("HomeAppointmentRefreshNotification"), object: nil, userInfo: ["department":"doctor","Token":"CLA274"])
     }
     @objc func ViewDetailsInPatientPressed(sender : UIButton)    {
         let storyboard = UIStoryboard(name: "phase2", bundle: .main)
@@ -526,12 +689,99 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         vc.modalPresentationStyle = .fullScreen
         if appointments.count != 0 {
         vc.appointmentData = self.appointments[sender.tag]
+            switch  self.appointments[sender.tag].token_status{
+            case "R-SERVING","R-WAITING":
+                updateJourney(Status:"Registration",index:sender.tag)
+            case "V-WAITING","V-SERVING":
+                updateJourney(Status: "Vitals", index: sender.tag)
+            case "WAITING","SERVING":
+                updateJourney(Status: "Consultation", index: sender.tag)
+            case "FLOTING" :
+                if self.appointments[sender.tag].department == "Cardiology"{
+                    var journeyDetails : JourneyDetails?
+                        let key =  "JOURNEY" + (self.appointments[sender.tag].trans_id)!
+                        do {
+                            if let data = UserDefaults.standard.data(forKey: key) {
+                                let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                                journeyDetails = journey
+                            }
+                        } catch {
+                            debugPrint(error)
+                        }
+                        
+                        if journeyDetails != nil {
+                            if journeyDetails?.currentJourneyUpdate == "ECG" {
+                                updateJourney(Status:"ECG",index: sender.tag)
+                            }else if  journeyDetails?.currentJourneyUpdate == "X-ray"  {
+                                updateJourney(Status:"X-ray",index: sender.tag)
+                            }
+                            else if  journeyDetails?.currentJourneyUpdate == "Pharmacy"  {
+                                updateJourney(Status:"Pharmacy",index: sender.tag)
+                            } else {
+                                updateJourney(Status:"ECG",index: sender.tag)
+                            }
+                        } else {
+                            updateJourney(Status:"ECG",index: sender.tag)
+                        }
+                } else {
+                    updateJourney(Status:"Pharmacy",index: sender.tag)
+                }
+            default:
+                updateJourney(Status:"Registration",index:sender.tag)
+            }
+            
+//            if self.appointments[sender.tag].token_status == "R-SERVING" {
+////                let journey = JourneyDetails(tokenNo: self.appointments[sender.tag].token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration")
+////                 let key = "JOURNEY" + self.appointments[sender.tag].trans_id!
+////                 do {
+////                     let data = try PropertyListEncoder().encode(journey)
+////                     UserDefaults.standard.set(data, forKey: key)
+////                 } catch let error {
+////                     debugPrint(error)
+////                 }
+//                updateJourney(Status:"Registration",index:sender.tag)
+//            } else
+//            if self.appointments[sender.tag].token_status == "V-WAITING" {
+//                let journey = JourneyDetails(tokenNo: self.appointments[sender.tag].token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Vitals")
+//                 let key = "JOURNEY" + self.appointments[sender.tag].trans_id!
+//                 do {
+//                     let data = try PropertyListEncoder().encode(journey)
+//                     UserDefaults.standard.set(data, forKey: key)
+//                 } catch let error {
+//                     debugPrint(error)
+//                 }
+//            }
+//            else
+//            if self.appointments[sender.tag].token_status == "FLOTING" {
+//                let journey = JourneyDetails(tokenNo: self.appointments[sender.tag].token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Pharmacy")
+//                 let key = "JOURNEY" + self.appointments[sender.tag].trans_id!
+//                 do {
+//                     let data = try PropertyListEncoder().encode(journey)
+//                     UserDefaults.standard.set(data, forKey: key)
+//                 } catch let error {
+//                     debugPrint(error)
+//                 }
+//            }
+            
         } else {
             vc.appointmentData = self.dummyAppointments[sender.tag]
         }
         self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
         self.present(vc, animated: true)
     }
+    
+    func  updateJourney(Status:String,index:Int){
+        let journey = JourneyDetails(tokenNo: self.appointments[index].token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status)
+        let key = "JOURNEY" + self.appointments[index].trans_id!
+        do {
+            let data = try PropertyListEncoder().encode(journey)
+            UserDefaults.standard.set(data, forKey: key)
+        } catch let error {
+            debugPrint(error)
+        }
+    }
+    
+    
 }
 
 extension HomeViewController{

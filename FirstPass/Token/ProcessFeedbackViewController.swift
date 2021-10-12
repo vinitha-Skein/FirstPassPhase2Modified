@@ -84,14 +84,15 @@ class ProcessFeedbackViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
-        let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailsViewController") as! AppointmentDetailsViewController
-        vc.modalPresentationStyle = .fullScreen
-       
-        vc.appointmentData = self.appointmentData
-      
-        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-        self.present(vc, animated: true)
+//        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailsViewController") as! AppointmentDetailsViewController
+//        vc.modalPresentationStyle = .fullScreen
+//
+//        vc.appointmentData = self.appointmentData
+//
+//        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+//        self.present(vc, animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     @IBAction func submitAction(_ sender: Any)
     {
@@ -116,28 +117,22 @@ class ProcessFeedbackViewController: UIViewController {
             users.append(["question":"How likely are you to recommend the Doctor to your friends and family","answer": "\(selectedfeedback1+1)"])
             users.append(["question":"How likely are you to recommend the facility to your friends and family","answer": "\(selectedfeedback2+1)"])
         }
+        let category = index == 0 ? "Vitals" : "Doctor Consultation"
         
+        let params = ["category":category,
+                      "trans_id":"\(self.appointmentData?.trans_id ?? "")","feedbacks":users] as [String : Any]
         
-        let params = ["category":"registration",
-                      "trans_id":"20211007083339308","feedbacks":users] as! [String:Any]
-        
-//
-//        viewModel.submitFeedback(params: params)
-//        print(params)
-//        viewModel.submitSuccess =
-//        {
+
+        viewModel.submitFeedback(params: params)
+        print(params)
+        viewModel.submitSuccess =
+        {
             self.view.makeToast("Thank you for you Feedback!")
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
-                let storyboard = UIStoryboard(name: "phase2", bundle: .main)
-                let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailsViewController") as! AppointmentDetailsViewController
-                vc.modalPresentationStyle = .fullScreen
-                vc.appointmentData = self.appointmentData
-                self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-                self.present(vc, animated: true)
-           
+                self.dismiss(animated: true, completion: nil)
             }
-//        }
-//
+        }
+
     }
     
 }

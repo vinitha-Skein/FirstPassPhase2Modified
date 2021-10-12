@@ -116,7 +116,6 @@ class AppointmentDetailsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if self.appointmentData?.department == "Lab" {
              Appointments = ["Registration","Lab"]
-            
         }
         let key =  "JOURNEY" + (self.appointmentData?.trans_id)!
         do {
@@ -140,7 +139,11 @@ class AppointmentDetailsViewController: UIViewController {
                 Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
             } else if self.journeyDetails?.currentJourneyUpdate == "X-ray" {
                 self.currentJourneyIndex = 4
+                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
             } else if self.journeyDetails?.currentJourneyUpdate == "Pharmacy" {
+                 if self.appointmentData?.department == "Cardiology"{
+                    Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                }
                 self.currentJourneyIndex = Appointments.count-1
             } else if self.journeyDetails?.currentJourneyUpdate == "Lab"{
                 self.currentJourneyIndex = Appointments.count-1
@@ -148,6 +151,7 @@ class AppointmentDetailsViewController: UIViewController {
             self.appointmentCollectionView.reloadData()
             self.tableView.reloadData()
         }
+        
         
     }
     @IBAction func filterClicked(_ sender: Any)
@@ -323,18 +327,6 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
 //        {
             cell.categoryLabel.text = Appointments[indexPath.row]
             cell.Container.layer.cornerRadius = 10
-//            if(indexPath.row == 0)
-//            {
-//                cell.statusButton.isHidden = false
-//            }
-//            else
-//            {
-//                cell.statusButton.isHidden = true
-//
-//            }
-//        }
-        
-        
         
             if currentJourneyIndex == indexPath.row {
                 cell.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0, alpha: 1)
@@ -347,10 +339,6 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 cell.estimatedLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 cell.counterTitleLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 cell.counterNumberLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                cell.NextStopLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                cell.nextStopDepartmentLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                cell.WaitTimeLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//                cell.indexLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             } else if currentJourneyIndex < indexPath.row {
                 if currentJourneyIndex+1 == indexPath.row {
                     cell.statusButton.isHidden = false
@@ -367,10 +355,6 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 cell.estimatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.counterTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.counterNumberLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.NextStopLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.nextStopDepartmentLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.WaitTimeLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.indexLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
             } else {
                 cell.Container.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
                 cell.categoryLabel.textColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
@@ -378,15 +362,10 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 cell.estimatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.counterTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.counterNumberLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.NextStopLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.nextStopDepartmentLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-//                cell.WaitTimeLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.statusButton.backgroundColor = UIColor(red: 21/255, green: 181/255, blue: 48/255, alpha: 1)
                 cell.statusButton.setTitle("Completed", for: .normal)
                 cell.statusButton.setTitleColor(UIColor.white, for: .normal)
                 cell.statusButton.isHidden = false
-//                cell.indexLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
-                
             }
         
         
@@ -543,7 +522,15 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 334, height: 228)
     }
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("did select")
+       if self.currentJourneyIndex == Appointments.count-1 {
+        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+        }
+    }
 }
 
 

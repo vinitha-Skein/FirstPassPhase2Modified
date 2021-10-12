@@ -73,40 +73,30 @@ class MyAppointmentsViewModel {
     }
     
     //fetch All Appointments
-    func fetchAllAppointments(userId:Int,page:Int){
-        let headers: HTTPHeaders = [
-            .authorization(UserDefaults.standard.string(forKey: "Authorization") ?? ""),
-            .accept("application/json")
-        ]
-        AF.request("http://202.65.159.118:8094/firstpass-app/appointment/\(userId)/all/appointments?active=true&index=\(page)&offset=10", method: .get, headers: headers).responseDecodable {(response: DataResponse<GetActiveAppointments,AFError>) in
-            print(response)
-            switch response.result {
-            case .success(let responseData):
-                self.isLoading = false
-                if responseData.error ?? "" == ""{
-                    switch responseData.statusCode!{
-                    case 200..<300:
-                        if responseData.statusCode == 200{
-                            self.allAppointments = responseData
-                        }else{
-                            self.errorMessage = responseData.messages
-                            self.errorMessageAlert?()
-                        }
-                    case 400..<500:
-                        self.errorMessage = responseData.messages
-                        self.errorMessageAlert?()
-                    default:
-                        print("Unknown Error")
-                    }
+    func fetchAllAppointments(){
+        isLoading = true
+    APIClient.getActiveAppointments(){ result in
+        switch result {
+        case .success(let responseData):
+            self.isLoading = false
+            if responseData.error ?? "" == ""{
+                if responseData.status ?? false{
+                    self.allAppointments = responseData
                 }else{
-                    
+                    self.errorMessage = responseData.message
+                    self.errorMessageAlert?()
                 }
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.errorMessage = error.localizedDescription
-                self.error = error
-                self.isLoading = false
+                
+            }else{
+                self.errorMessage = responseData.message
+                self.errorMessageAlert?()
             }
+        case .failure(let error):
+            print(error.localizedDescription)
+            self.errorMessage = error.localizedDescription
+            self.error = error
+            self.isLoading = false
         }
     }
+}
 }

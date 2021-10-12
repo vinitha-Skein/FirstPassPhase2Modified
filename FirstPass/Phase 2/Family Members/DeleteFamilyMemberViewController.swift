@@ -44,10 +44,13 @@ deleteButton.layer.cornerRadius = 8
         }
         else
         {
+            self.view.makeToast("You can't delete this appointment Right Now.")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             let storyboard = UIStoryboard(name: "phase2", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "MyAppointmentsViewController") as! MyAppointmentsViewController
             vc.modalPresentationStyle = .overCurrentContext
             self.present(vc, animated: true, completion: nil)
+            }
         }
 
     }
