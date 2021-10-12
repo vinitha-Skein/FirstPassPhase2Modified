@@ -26,7 +26,7 @@ open class CardsCollectionViewLayout: UICollectionViewLayout {
 //    }
 //  }
 
-  public var spacing: CGFloat = 20.0 {
+  public var spacing: CGFloat = 10.0 {
     didSet{
       invalidateLayout()
     }

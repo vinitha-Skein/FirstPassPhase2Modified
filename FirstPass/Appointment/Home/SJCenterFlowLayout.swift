@@ -1,156 +1,226 @@
 //
-//  CardsCollectionViewLayout.swift
-//  CardsExample
+//  SJCenterFlowLayout.swift
+//  CenterFlowLayoutDemo
 //
-//  Created by Filipp Fediakov on 18.08.17.
-//  Copyright © 2017 filletofish. All rights reserved.
+//  Created by Yudiz Solutions on 16/01/19.
+//  Copyright © 2019 Yudiz Solutions. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-open class  CardsJourneyCollectionViewLayout: UICollectionViewLayout {
 
-  // MARK: - Layout configuration
-
-    let screenSize: CGRect = UIScreen.main.bounds
-//    let screenWidth = screenSize.width
-//    let screenHeight = screenSize.height
-    public var itemSize: CGSize = CGSize(width: UIScreen.main.bounds.width-120, height:200) {
-    didSet{
-      invalidateLayout()
-    }
-  }
-//    public var itemSize: CGSize = CGSize(width: 200, height: 300) {
-//    didSet{
-//      invalidateLayout()
-//    }
-//  }
-
-  public var spacing: CGFloat = 20.0 {
-    didSet{
-      invalidateLayout()
-    }
-  }
-
-  public var maximumVisibleItems: Int = 4 {
-    didSet{
-      invalidateLayout()
-    }
-  }
-
-  // MARK: UICollectionViewLayout
-
-  override open var collectionView: UICollectionView {
-    return super.collectionView!
-  }
-
-  override open var collectionViewContentSize: CGSize {
-    let itemsCount = CGFloat(collectionView.numberOfItems(inSection: 0))
-    return CGSize(width: collectionView.bounds.width * itemsCount,
-                  height: collectionView.bounds.height)
-  }
-
-  override open func prepare() {
-    super.prepare()
-    assert(collectionView.numberOfSections == 1, "Multiple sections aren't supported!")
-  }
-
-  override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-    let totalItemsCount = collectionView.numberOfItems(inSection: 0)
-
-    let minVisibleIndex = max(Int(collectionView.contentOffset.x) / Int(collectionView.bounds.width), 0)
-    let maxVisibleIndex = min(minVisibleIndex + maximumVisibleItems, totalItemsCount)
-
-    let contentCenterX = collectionView.contentOffset.x + (collectionView.bounds.width / 2.0)
-
-    let deltaOffset = Int(collectionView.contentOffset.x) % Int(collectionView.bounds.width)
-
-    let percentageDeltaOffset = CGFloat(deltaOffset) / collectionView.bounds.width
-
-    let visibleIndices = stride(from: minVisibleIndex, to: maxVisibleIndex, by: 1)
-
-    let attributes: [UICollectionViewLayoutAttributes] = visibleIndices.map { index in
-      let indexPath = IndexPath(item: index, section: 0)
-      return computeLayoutAttributesForItem(indexPath: indexPath,
-                                     minVisibleIndex: minVisibleIndex,
-                                     contentCenterX: contentCenterX,
-                                     deltaOffset: CGFloat(deltaOffset),
-                                     percentageDeltaOffset: percentageDeltaOffset)
-    }
-
-    return attributes
-  }
-
-  override open func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-    let contentCenterX = collectionView.contentOffset.x + (collectionView.bounds.width / 2.0)
-    let minVisibleIndex = Int(collectionView.contentOffset.x) / Int(collectionView.bounds.width)
-    let deltaOffset = Int(collectionView.contentOffset.x) % Int(collectionView.bounds.width)
-    let percentageDeltaOffset = CGFloat(deltaOffset) / collectionView.bounds.width
-    return computeLayoutAttributesForItem(indexPath: indexPath,
-                                   minVisibleIndex: minVisibleIndex,
-                                   contentCenterX: contentCenterX,
-                                   deltaOffset: CGFloat(deltaOffset),
-                                   percentageDeltaOffset: percentageDeltaOffset)
-  }
-
-  override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-    return true
-  }
+enum SJCenterFlowLayoutSpacingMode {
+    case fixed(spacing: CGFloat)
+    case overlap(visibleOffset: CGFloat)
 }
 
+enum SJCenterFlowLayoutAnimation {
+    case rotation(sideItemAngle: CGFloat, sideItemAlpha: CGFloat, sideItemShift: CGFloat)
+    case scale(sideItemScale: CGFloat, sideItemAlpha: CGFloat, sideItemShift: CGFloat)
+}
 
-// MARK: - Layout computations
-
-fileprivate extension CardsJourneyCollectionViewLayout {
-
-  private func scale(at index: Int) -> CGFloat {
-    let translatedCoefficient = CGFloat(index) - CGFloat(self.maximumVisibleItems) / 2
-    return CGFloat(pow(0.95, translatedCoefficient))
-  }
-
-  private func transform(atCurrentVisibleIndex visibleIndex: Int, percentageOffset: CGFloat) -> CGAffineTransform {
-    var rawScale = visibleIndex < maximumVisibleItems ? scale(at: visibleIndex) : 1.0
-
-    if visibleIndex != 0 {
-      let previousScale = scale(at: visibleIndex - 1)
-      let delta = (previousScale - rawScale) * percentageOffset
-      rawScale += delta
+class SJCenterFlowLayout: UICollectionViewFlowLayout {
+    
+    fileprivate struct LayoutState {
+        var size: CGSize
+        var direction: UICollectionView.ScrollDirection
+        
+        func isEqual(_ otherState: LayoutState) -> Bool {
+            return self.size.equalTo(otherState.size) && self.direction == otherState.direction
+        }
     }
-    return CGAffineTransform(scaleX: rawScale, y: rawScale)
-  }
-
-    func computeLayoutAttributesForItem(indexPath: IndexPath,
-                                       minVisibleIndex: Int,
-                                       contentCenterX: CGFloat,
-                                       deltaOffset: CGFloat,
-                                       percentageDeltaOffset: CGFloat) -> UICollectionViewLayoutAttributes {
-    let attributes = UICollectionViewLayoutAttributes(forCellWith:indexPath)
-    let visibleIndex = indexPath.row - minVisibleIndex
-    attributes.size = itemSize
-    let midY = self.collectionView.bounds.midY
-    attributes.center = CGPoint(x: contentCenterX + (spacing+5) * CGFloat(visibleIndex),
-                                y: midY + spacing * CGFloat(visibleIndex))
-    attributes.zIndex = maximumVisibleItems - visibleIndex
-
-    attributes.transform = transform(atCurrentVisibleIndex: visibleIndex,
-                                          percentageOffset: percentageDeltaOffset)
-    switch visibleIndex {
-    case 0:
-      attributes.center.x -= deltaOffset
-      break
-    case 1..<maximumVisibleItems:
-      attributes.center.x -= spacing * percentageDeltaOffset
-      attributes.center.y -= spacing * percentageDeltaOffset
-
-
-      if visibleIndex == maximumVisibleItems - 1 {
-        attributes.alpha = percentageDeltaOffset
-      }
-      break
-    default:
-      attributes.alpha = 0
-      break
+    fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
+    var spacingMode = SJCenterFlowLayoutSpacingMode.fixed(spacing: 0)
+    var animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.7, sideItemAlpha: 0.6, sideItemShift: 0.0)
+    fileprivate var pageWidth: CGFloat {
+        switch self.scrollDirection {
+        case .horizontal:
+            return self.itemSize.width + self.minimumLineSpacing
+        case .vertical:
+            return self.itemSize.height + self.minimumLineSpacing
+        }
     }
-    return attributes
-  }
+    
+    /// Calculates the current centered page.
+    var currentCenteredIndexPath: IndexPath? {
+        guard let collectionView = self.collectionView else { return nil }
+        let currentCenteredPoint = CGPoint(x: collectionView.contentOffset.x + collectionView.bounds.width/2, y: collectionView.contentOffset.y + collectionView.bounds.height/2)
+        return collectionView.indexPathForItem(at: currentCenteredPoint)
+    }
+    
+    var currentCenteredPage: Int? {
+        return currentCenteredIndexPath?.row
+    }
+    
+    override func prepare() {
+        super.prepare()
+        guard let collectionView = self.collectionView else { return }
+        let currentState = LayoutState(size: collectionView.bounds.size, direction: self.scrollDirection)
+        
+        if !self.state.isEqual(currentState) {
+            self.setupCollectionView()
+            self.updateLayout()
+            self.state = currentState
+        }
+    }
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let superAttributes = super.layoutAttributesForElements(in: rect),
+            let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
+            else { return nil }
+        return attributes.map({ self.transformLayoutAttributes($0) })
+    }
+    
+    override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        guard let collectionView = collectionView , !collectionView.isPagingEnabled,
+            let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds)
+            else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }
+        
+        let isHorizontal = (self.scrollDirection == .horizontal)
+        
+        let midSide = (isHorizontal ? collectionView.bounds.size.width : collectionView.bounds.size.height) / 2
+        let proposedCenterOffset = (isHorizontal ? proposedContentOffset.x : proposedContentOffset.y) + midSide
+        
+        var targetContentOffset: CGPoint
+        if isHorizontal {
+            
+            
+            let closest = layoutAttributes.sorted { abs($0.center.x - proposedCenterOffset) < abs($1.center.x - proposedCenterOffset) }.first ?? UICollectionViewLayoutAttributes()
+            targetContentOffset = CGPoint(x: floor(closest.center.x - midSide), y: proposedContentOffset.y)
+        }
+        else {
+            let closest = layoutAttributes.sorted { abs($0.center.y - proposedCenterOffset) < abs($1.center.y - proposedCenterOffset) }.first ?? UICollectionViewLayoutAttributes()
+            targetContentOffset = CGPoint(x: proposedContentOffset.x, y: floor(closest.center.y - midSide))
+        }
+        
+        return targetContentOffset
+    }
+    
+    /// Programmatically scrolls to a page at a specified index.
+    ///
+    /// - Parameters:
+    ///   - index: The index of the page to scroll to.
+    ///   - animated: Whether the scroll should be performed animated.
+    func scrollToPage(atIndex index: Int, animated: Bool = true) {
+        guard let collectionView = self.collectionView else { return }
+        
+        let proposedContentOffset: CGPoint
+        let shouldAnimate: Bool
+        
+        switch scrollDirection {
+        case .horizontal:
+            let pageOffset = CGFloat(index) * self.pageWidth - collectionView.contentInset.left
+            proposedContentOffset = CGPoint(x: pageOffset, y: collectionView.contentOffset.y)
+            shouldAnimate = abs(collectionView.contentOffset.x - pageOffset) > 1 ? animated : false
+            break
+        case .vertical:
+            let pageOffset = CGFloat(index) * self.pageWidth - collectionView.contentInset.top
+            proposedContentOffset = CGPoint(x: collectionView.contentOffset.x, y: pageOffset)
+            shouldAnimate = abs(collectionView.contentOffset.y - pageOffset) > 1 ? animated : false
+            break
+        }
+        collectionView.setContentOffset(proposedContentOffset, animated: shouldAnimate)
+    }
+}
+
+// MARK: - Private Methods
+private extension SJCenterFlowLayout {
+    
+    func setupCollectionView() {
+        guard let collectionView = self.collectionView else { return }
+        if collectionView.decelerationRate != UIScrollView.DecelerationRate.fast {
+            collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
+        }
+    }
+    func updateLayout() {
+        guard let collectionView = self.collectionView else { return }
+        
+        let collectionSize = collectionView.bounds.size
+        let isHorizontal = (self.scrollDirection == .horizontal)
+        
+        let yInset = (collectionSize.height - self.itemSize.height) / 2
+        let xInset = (collectionSize.width - self.itemSize.width) / 2
+        self.sectionInset = UIEdgeInsets.init(top: yInset, left: xInset, bottom: yInset, right: xInset)
+        
+        let side = isHorizontal ? self.itemSize.width : self.itemSize.height
+        var scale: CGFloat = 1.0
+        switch animationMode {
+        case .scale(let sideItemScale, _, _):
+            scale = sideItemScale
+            break
+            
+        default:
+            break
+        }
+        let scaledItemOffset =  (side - side * scale) / 2
+        
+        switch self.spacingMode {
+        case .fixed(let spacing):
+            self.minimumLineSpacing = spacing - scaledItemOffset
+        case .overlap(let visibleOffset):
+            let fullSizeSideItemOverlap = visibleOffset + scaledItemOffset
+            let inset = isHorizontal ? xInset : yInset
+            self.minimumLineSpacing = inset - fullSizeSideItemOverlap
+        }
+    }
+    func transformLayoutAttributes(_ attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        guard let collectionView = self.collectionView else { return attributes }
+        
+        let isHorizontal = (self.scrollDirection == .horizontal)
+        
+        let collectionCenter: CGFloat = isHorizontal ? collectionView.frame.size.width/2 : collectionView.frame.size.height/2
+        
+        let offset = isHorizontal ? collectionView.contentOffset.x : collectionView.contentOffset.y
+        
+        let normalizedCenter = (isHorizontal ? attributes.center.x : attributes.center.y) - offset
+        
+        let maxDistance = (isHorizontal ? self.itemSize.width : self.itemSize.height) + self.minimumLineSpacing
+        let distance = min(abs(collectionCenter - normalizedCenter), maxDistance)
+        let ratio = (maxDistance - distance)/maxDistance
+        var sideItemShift: CGFloat = 0.0
+        switch animationMode {
+        case .rotation(let sideItemAngle, let sideItemAlpha, let shift):
+            sideItemShift = shift
+            let alpha = ratio * (1 - sideItemAlpha) + sideItemAlpha
+            attributes.alpha = alpha
+            var offsetX =  (collectionCenter + offset) - (normalizedCenter + offset)
+            if offsetX < 0 {
+                offsetX *= -1
+            }
+            if offsetX > 0 {
+                let offsetPercentage = offsetX / (collectionCenter * 2)
+                let rotation = (1 - offsetPercentage) - sideItemAngle
+                attributes.transform = CGAffineTransform(rotationAngle: rotation)
+            }
+            break
+        case .scale(let sideItemScale, let sideItemAlpha, let shift):
+            sideItemShift = shift
+            
+            let alpha = ratio * (1 - sideItemAlpha) + sideItemAlpha
+            let scale = ratio * (1 - sideItemScale) + sideItemScale
+            attributes.alpha = alpha
+            attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+// If side Item alpha 1 then manage zindex based on a scale
+           if sideItemAlpha == 1 {
+                attributes.zIndex = Int(scale * 10)
+            }else {
+                attributes.zIndex = Int(alpha * 10)
+            }
+            
+            break
+        }
+        let shift = (1 - ratio) * sideItemShift
+        
+        if isHorizontal {
+            attributes.center.y = attributes.center.y + shift
+        } else {
+            attributes.center.x = attributes.center.x + shift
+        }
+        return attributes
+    }
 }

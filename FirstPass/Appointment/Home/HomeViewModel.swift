@@ -89,7 +89,35 @@ class HomeViewModel {
                     if responseData.status ?? false{
                         self.fetchSuccess?()
                     }else{
-                        self.errorMessage = responseData.messages
+                        self.errorMessage = responseData.message
+                        self.errorMessageAlert?()
+                    }
+                    
+                }else{
+                    self.errorMessage = responseData.message
+                    self.errorMessageAlert?()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.errorMessage = error.localizedDescription
+                self.error = error
+                self.isLoading = false
+            }
+        }
+    }
+    
+    func createqrCheckin(params:Dictionary<String,Any>){
+        isLoading = true
+        
+        APIClient.QRcheckInAppointment(params:params){ result in
+            switch result {
+            case .success(let responseData):
+                self.isLoading = false
+                if responseData.error ?? "" == ""{
+                    if responseData.status ?? false{
+                        self.fetchSuccess?()
+                    }else{
+                        self.errorMessage = responseData.message
                         self.errorMessageAlert?()
                     }
                     

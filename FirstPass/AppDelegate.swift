@@ -1,6 +1,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Firebase
+import AudioToolbox
 
 @available(iOS 13.0, *)
 @UIApplicationMain
@@ -15,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let mainStoryboard:UIStoryboard = UIStoryboard(name: "phase2", bundle: nil)
 //        let homePage = mainStoryboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
 //        self.window?.rootViewController = homePage
-
+        UserDefaults.standard.setValue(false, forKey: "vip")
         if UserDefaults.standard.bool(forKey: "OnboardFinished")
         {
             if UserDefaults.standard.bool(forKey: "isLoggedIn")
@@ -85,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         completionHandler([.alert,.badge,.sound])
         print(notification.request)
         debugPrint(notification.request.content.title)
+        UIDevice.vibrate()
         var ref: DatabaseReference!
         ref = Database.database().reference()
         ref.child("NotificationText").setValue(["Notification": "\(notification.request.content.body)"])

@@ -31,6 +31,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     @IBOutlet weak var upcommingAppointmentsLabel: UILabel!
     
+    @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var viewAllButton: UIButton!
     
     @IBOutlet weak var bottomMenuView: Tabbar!
@@ -79,7 +80,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     fileprivate var pipViewCoordinator: PiPViewCoordinator?
     fileprivate var jitsiMeetView: JitsiMeetView?
-
+    var codefromScan = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -105,7 +106,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
       
 //        firebaseObserver()
-        firebaseDatabaseForNotification()
+//        firebaseDatabaseForNotification()
     }
     @objc func methodOfReceivedNotification(notification: Notification) {
         print(notification.userInfo)
@@ -170,6 +171,9 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
             headerView.backgroundColor = UIColor.black
            upcommingAppointmentsView.backgroundColor = UIColor.black
             appointmentsCollectionView.backgroundColor = UIColor.black
+        scannerViewButton.setImage(UIImage(named: "vipscanner"), for: .normal)
+        notificationButton.setImage(UIImage(named: "notificationvip"), for: .normal)
+        logoImage.image = UIImage(named: "firstpass-logo")
         }
     func firebaseObserver(){
         var ref: DatabaseReference!
@@ -342,7 +346,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
     
     
-    func scanFinished() {
+    func scanFinished(code:String) {
         dismiss(animated: true, completion: nil)
         //        let storyboard = UIStoryboard(name: "Main", bundle: .main)
         //        let vc = storyboard.instantiateViewController(withIdentifier: "NewTokenViewController") as! NewTokenViewController
@@ -350,7 +354,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         //        present(vc, animated: true)
         //        checkInAppointmentAction()
         createBlurView()
-        createCheckIn(appointmentName: "Cardiology")
+        createCheckIn(appointmentName: code)
     }
     @IBAction func showProfile(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -455,6 +459,18 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppointmentCollectionViewCell", for: indexPath) as! AppointmentCollectionViewCell
         let currentAppointment: ActiveAppointmentData
+        if UserDefaults.standard.bool(forKey: "vip"){
+            cell.appointmentsView.backgroundColor = UIColor(named: "vip")
+            cell.DetailsView.backgroundColor = UIColor(named: "vip")
+            cell.titleLabel.textColor = #colorLiteral(red: 0.3137254902, green: 0.2431372549, blue: 0, alpha: 1)
+//            cell.
+        } else {
+            cell.appointmentsView.backgroundColor = #colorLiteral(red: 0.272008568, green: 0.2020958066, blue: 0.4683443308, alpha: 1)
+            cell.DetailsView.backgroundColor = #colorLiteral(red: 0.272008568, green: 0.2020958066, blue: 0.4683443308, alpha: 1)
+            cell.titleLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            
+        }
+        
         if appointments.count != 0 {
          currentAppointment = self.appointments[indexPath.row]
         } else {
@@ -844,6 +860,43 @@ extension HomeViewController{
             }
         }
         
+    @objc func checkinAppointmentQRCode() {
+            self.activityIndicator(self.view, startAnimate: true)
+        let params = [
+            "department":codefromScan]
+        viewModel.createqrCheckin(params: params as Dictionary<String, Any>)
+            viewModel.fetchSuccess = { [self] in
+//                self.rolledIndex = index
+                self.fetchAppointments()
+               
+                DispatchQueue.main.async {
+                    self.appointmentsCollectionView.reloadData()
+                }
+            }
+    
+            viewModel.loadingStatus = {
+                if self.viewModel.isLoading{
+                    self.activityIndicator(self.view, startAnimate: true)
+//                    self.appointmentActivityIndicator.isHidden = false
+                }else{
+                    self.activityIndicator(self.view, startAnimate: false)
+                    UIApplication.shared.endIgnoringInteractionEvents()
+//                    self.appointmentActivityIndicator.isHidden = true
+                }
+            }
+        blurView.removeFromSuperview()
+        checkInView.removeFromSuperview()
+        for view in checkInView.subviews{
+            view.removeFromSuperview()
+        }
+            viewModel.errorMessageAlert = {
+                if self.viewModel.errorMessage == ""{
+    
+                }else{
+                    self.showAlert(self.viewModel.errorMessage ?? "Error")
+                }
+            }
+        }
     
     @objc func cancelCheckInAction(){
         blurView.removeFromSuperview()
@@ -880,12 +933,14 @@ extension HomeViewController{
         cancelButton.bottomAnchor.constraint(equalTo: checkInView.bottomAnchor,constant: -20).isActive = true
         cancelButton.heightAnchor.constraint(equalToConstant: 46).isActive = true
         
+        codefromScan = appointmentName
+        
         let checkInButton = UIButton()
         checkInButton.setTitle("Check in", for: .normal)
         checkInButton.setTitleColor(.white, for: .normal)
         checkInButton.backgroundColor = UIColor(hexString: Colors.buttonColor)
         checkInButton.titleLabel?.font =  UIFont.systemFont(ofSize: 14, weight: .bold)
-        checkInButton.addTarget(self, action: #selector(checkInAppointmentAction), for: .touchUpInside)
+        checkInButton.addTarget(self, action: #selector(checkinAppointmentQRCode), for: .touchUpInside)
         checkInButton.layer.cornerRadius = 10
         checkInButton.translatesAutoresizingMaskIntoConstraints = false
         checkInView.addSubview(checkInButton)

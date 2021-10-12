@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        mobileTextfield.text = "natasha@gmail.com"
+        mobileTextfield.text = "john@gmail.com"
         passwordTextfield.text = "123456"
     }
     @IBAction func passwordButton(_ sender: Any)
@@ -46,6 +46,9 @@ class LoginViewController: UIViewController {
         loginUser()
     }
     
+    @IBAction func vipButtonPressed(_ sender: Any) {
+        UserDefaults.standard.setValue(true, forKey: "vip")
+    }
     @IBAction func signupAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController

@@ -165,9 +165,8 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 7)
         {
-            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "WebviewViewController") as! WebviewViewController
-            vc.Aboutus = true
+            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "AboutHospitalViewController") as! AboutHospitalViewController
             vc.modalPresentationStyle = .fullScreen
 
             present(vc, animated: true, completion: nil)
@@ -198,12 +197,13 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 10)
         {
-            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ChatwithusViewController") as! ChatwithusViewController
-            UserDefaults.standard.set(false, forKey: "isLoggedIn")
-            vc.modalPresentationStyle = .fullScreen
-
-            present(vc, animated: true, completion: nil)
+//            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "ChatwithusViewController") as! ChatwithusViewController
+//            UserDefaults.standard.set(false, forKey: "isLoggedIn")
+//            vc.modalPresentationStyle = .fullScreen
+//
+//            present(vc, animated: true, completion: nil)
+            openWhatsapp()
         }
         if (indexPath.row == 11)
         {
@@ -215,9 +215,8 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 12)
         {
-            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "WebviewViewController") as! WebviewViewController
-            vc.specialOffers = true
+            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "SpecialOffersViewController") as! SpecialOffersViewController
             vc.modalPresentationStyle = .fullScreen
 
             present(vc, animated: true, completion: nil)
@@ -276,4 +275,15 @@ extension AccountViewController:BottomViewDelegate
         
     }
     
+    func openWhatsapp(){
+        if let url = URL(string: "https://api.whatsapp.com/send/?phone=971507729048&text&app_absent=0") {
+                if UIApplication.shared.canOpenURL(url) {
+                    if #available(iOS 10.0, *) {
+                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                    } else {
+                        UIApplication.shared.openURL(url)
+                    }
+                }
+            }
+    }
 }

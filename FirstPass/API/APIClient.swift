@@ -100,7 +100,9 @@ class APIClient {
     static func checkInAppointment(params:[String:Any],completion:@escaping(AFResult<SetNewPassword>)->Void){
         performRequest(route: APIRouter.checkInAppointment(params:params),completion: completion)
     }
-    
+    static func QRcheckInAppointment(params:[String:Any],completion:@escaping(AFResult<SetNewPassword>)->Void){
+        performRequest(route: APIRouter.QRcheckInAppointment(params:params),completion: completion)
+    }
     static func AppointmentJourney(appointmentId:Int,completion:@escaping(AFResult<SendPasswordChangeOTP>)->Void){
         performRequest(route: APIRouter.appointmentJourney(appointmentId: appointmentId),completion: completion)
     }

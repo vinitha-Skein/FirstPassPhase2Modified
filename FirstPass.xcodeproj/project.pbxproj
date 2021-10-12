@@ -39,6 +39,8 @@
 		2252D3B227042CA100B60406 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2252D3B027042CA000B60406 /* CartTableViewCell.xib */; };
 		2252D3B727042CB000B60406 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3B627042CAF00B60406 /* CartViewController.swift */; };
 		2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */; };
+		229F463C2715D2F300152741 /* AboutHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F463B2715D2F300152741 /* AboutHospitalViewController.swift */; };
+		229F46412715D4EE00152741 /* SpecialOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F46402715D4EE00152741 /* SpecialOffersViewController.swift */; };
 		22D024092705C14D0006BE2D /* CardsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */; };
 		22D024132706AA1F0006BE2D /* SJCenterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */; };
 		22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */; };
@@ -304,6 +306,8 @@
 		2252D3B027042CA000B60406 /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		2252D3B627042CAF00B60406 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeMedicalTableViewCell.swift; sourceTree = "<group>"; };
+		229F463B2715D2F300152741 /* AboutHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHospitalViewController.swift; sourceTree = "<group>"; };
+		229F46402715D4EE00152741 /* SpecialOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOffersViewController.swift; sourceTree = "<group>"; };
 		22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewLayout.swift; sourceTree = "<group>"; };
 		22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJCenterFlowLayout.swift; sourceTree = "<group>"; };
 		22D024E427085EE50006BE2D /* Firstpass-watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Firstpass-watchOS Extension.entitlements"; sourceTree = "<group>"; };
@@ -574,6 +578,8 @@
 				A764019F266F727E0050E41A /* Accounts */,
 				C094C3862513304F00F039E4 /* OnBoard */,
 				1BF222E3266F32A300759E13 /* phase2.storyboard */,
+				229F463B2715D2F300152741 /* AboutHospitalViewController.swift */,
+				229F46402715D4EE00152741 /* SpecialOffersViewController.swift */,
 			);
 			path = "Phase 2";
 			sourceTree = "<group>";
@@ -1403,6 +1409,7 @@
 				2205312B26FB76E1009A9D36 /* InPatientViewController.swift in Sources */,
 				C05980A7250628D400C92021 /* LoginViewController.swift in Sources */,
 				C0560F2725715FFB0083CE50 /* AddInsuranceViewController.swift in Sources */,
+				229F463C2715D2F300152741 /* AboutHospitalViewController.swift in Sources */,
 				A717D6AA267B19F7005E7A3A /* FiltersCollectionViewCell.swift in Sources */,
 				A76401E3266F94AD0050E41A /* AlertTableCell.swift in Sources */,
 				A7D8FBF22684A9320038E6FD /* AppointmentHistoryViewController.swift in Sources */,
@@ -1430,6 +1437,7 @@
 				A722B39C26FF06ED003667DC /* FoodandBeveragesViewController.swift in Sources */,
 				C0088BDA251B5EFB00777786 /* FeedbackViewController.swift in Sources */,
 				C01ACBA52554065100CE7F59 /* ProfileModel.swift in Sources */,
+				229F46412715D4EE00152741 /* SpecialOffersViewController.swift in Sources */,
 				A71AB88426709BA400D8F151 /* RegistrationViewModel.swift in Sources */,
 				C0F496FF2570C8570066C865 /* AppointmentDetailsModel.swift in Sources */,
 				A8033920259EE8F400FE5FB5 /* TokenPopup.swift in Sources */,

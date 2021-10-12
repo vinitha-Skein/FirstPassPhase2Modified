@@ -37,6 +37,7 @@ enum APIRouter : URLRequestConvertible {
     case getActiveAppointment
     case getAllAppointment(userId:Int,page:Int)
     case checkInAppointment(params:[String:Any])
+    case QRcheckInAppointment(params:[String:Any])
     case appointmentJourney(appointmentId:Int)
     //Feedback
     case submitFeedback(params:[String:Any])
@@ -54,7 +55,7 @@ enum APIRouter : URLRequestConvertible {
     // MARK: - HTTPMethod
     private var method : HTTPMethod{
         switch self{
-        case .registerUser,.loginUser,.verifyRegistrationOTP,.updateProfile,.sendOTP,.verifyOTP,.setNewPassword,.addFamilyMember,.createAppointment,.submitFeedback,.savePaymentDetails,.updateProfileImage,.checkInAppointment,.addInsurance:
+        case .registerUser,.loginUser,.verifyRegistrationOTP,.updateProfile,.sendOTP,.verifyOTP,.setNewPassword,.addFamilyMember,.createAppointment,.submitFeedback,.savePaymentDetails,.updateProfileImage,.checkInAppointment,.addInsurance,.QRcheckInAppointment:
             return .post
         case .editFamilyMember,.editInsurance:
             return .put
@@ -108,6 +109,8 @@ enum APIRouter : URLRequestConvertible {
             return "/appointment/9/all/appointments?active=true&index=1&offset=10"
         case .checkInAppointment:
             return "/checkin"
+        case .QRcheckInAppointment:
+            return "/qrcheckin"
         case .submitFeedback:
             return "feedback"
         case .getFeedback:
@@ -175,6 +178,8 @@ enum APIRouter : URLRequestConvertible {
         case .getAllAppointment:
             return nil
         case .checkInAppointment(let params):
+            return params
+        case .QRcheckInAppointment(let params):
             return params
         case .submitFeedback(let params):
             return params

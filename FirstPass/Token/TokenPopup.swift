@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class TokenPopup: UIViewController {
     @IBOutlet weak var container: UIView!
@@ -27,26 +28,7 @@ class TokenPopup: UIViewController {
 //        view.isOpaque = false
         container.layer.cornerRadius = 25
         okButton.layer.cornerRadius = 8
-//
-//        tokenLabel.text = "\(token)"
-//        tokenNumber.text = "CRD001"
-//        NSLog("token ============> %@",token)
         
-//        let attributedString = NSMutableAttributedString(string: token, attributes: [
-//            .font: UIFont.systemFont(ofSize: 90.0, weight: .bold),
-//            .foregroundColor:UIColor(red: 59.0 / 255.0, green: 182.0 / 255.0, blue: 189.0 / 255.0, alpha: 1.0) ,
-//            .kern: 0.0
-//        ])
-////        attributedString.addAttribute(.foregroundColor, value: UIColor(red: 53.0 / 255.0, green: 56.0 / 255.0, blue: 88.0 / 255.0, alpha: 1.0) , range: NSRange(location: 0, length: 6))
-////                attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 40.0, weight: .semibold), range: NSRange(location: 0, length: 6))
-//
-//        let attributedString1 = NSMutableAttributedString(string: "CRD001", attributes: [
-//                   .font: UIFont.systemFont(ofSize: 30.0, weight: .bold),
-//                   .kern: 0.0
-//               ])
-//        tokenLabel.attributedText = attributedString
-//        tokenNumber.attributedText = attributedString1
-//        // Do any additional setup after loading the view.
         if (self.appointmentData != nil){
         tokenNumber.text = self.appointmentData?.token_no
         CounterLabel.text = "P1"
@@ -54,6 +36,7 @@ class TokenPopup: UIViewController {
             tokenNumber.text = token
             CounterLabel.text = counter
         }
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -114,14 +97,22 @@ class TokenPopup: UIViewController {
             } else
             if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Lab" {
                 updateJourney(Status: "Finish Token")
-                self.view.makeToast("Thanks for the visit!")
+                let alert = UIAlertController(title: "Firstpass", message: "Thank you for visiting our Facility today. It has been our pleasure to serve you. We wish you a speedy recovery.\nWarm regards,\nHealth care team", preferredStyle: UIAlertController.Style.alert)
+
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: { action in
+
+                        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+                        let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true, completion: nil)
+
+                }))
+                self.present(alert, animated: true, completion: nil)
+//                self.view.makeToast("Thanks for the visit!")
 //                self.dismiss(animated: true, completion: nil)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    let storyboard = UIStoryboard(name: "phase2", bundle: nil)
-                    let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+//
+//                }
                
             }
         } else {
@@ -146,8 +137,8 @@ class TokenPopup: UIViewController {
     
 }
 
-
-
-//protocol TokenClosedDelegate {
-//    func tokenClosed()
-//}
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+}

@@ -120,7 +120,7 @@ class ProcessFeedbackViewController: UIViewController {
         let category = index == 0 ? "Vitals" : "Doctor Consultation"
         
         let params = ["category":category,
-                      "trans_id":"\(self.appointmentData?.trans_id ?? "")","feedbacks":users] as [String : Any]
+                      "trans_id":"\(self.appointmentData?.trans_id ?? "")","feedback":users] as [String : Any]
         
 
         viewModel.submitFeedback(params: params)

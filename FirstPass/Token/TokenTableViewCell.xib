@@ -72,7 +72,7 @@
                 <outlet property="status" destination="VFw-li-I07" id="Yms-r4-QHG"/>
                 <outlet property="statusImage" destination="NAM-0B-3TM" id="HRz-7b-b9R"/>
             </connections>
-            <point key="canvasLocation" x="-29.710144927536234" y="119.19642857142857"/>
+            <point key="canvasLocation" x="137" y="64"/>
         </tableViewCell>
     </objects>
     <resources>

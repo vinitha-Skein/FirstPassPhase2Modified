@@ -30,7 +30,7 @@ class AppointmentDetailsViewController: UIViewController {
     
     
     @IBOutlet weak var filterButton: UIButton!
-    @IBOutlet weak var collectionview: UICollectionView!
+    //@IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     //    @IBOutlet weak var appointmentName: UILabel!
@@ -56,22 +56,29 @@ class AppointmentDetailsViewController: UIViewController {
     var journeyDetails : JourneyDetails?
     var currentJourneyIndex = 0
     
+    var centerFlowLayout: SJCenterFlowLayout?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         viewModel.getUserDetails()
         tableView.register(UINib(nibName: "AppointmentdetailsNewTableViewCell", bundle: .main), forCellReuseIdentifier: "AppointmentdetailsNewTableViewCell")
-        collectionview.delegate = self
-        collectionview.delegate = self
+        appointmentCollectionView.delegate = self
+        appointmentCollectionView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
-        collectionview.isHidden = false
-        collectionview.collectionViewLayout = CardsJourneyCollectionViewLayout()
-        collectionview.isPagingEnabled = true
-        collectionview.showsHorizontalScrollIndicator = false
-        collectionview.dataSource = self
-        collectionview.delegate = self
+        appointmentCollectionView.isHidden = false
+
+        appointmentCollectionView.dataSource = self
+        appointmentCollectionView.delegate = self
+        let centerFlowLayout = SJCenterFlowLayout()
+        centerFlowLayout.itemSize = CGSize(width: appointmentCollectionView.frame.size.width-70, height:  appointmentCollectionView.frame.size.height)
+        centerFlowLayout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
+        centerFlowLayout.scrollDirection =  .horizontal
+        centerFlowLayout.spacingMode = .fixed(spacing: 10)
+        appointmentCollectionView.collectionViewLayout = centerFlowLayout
+        
         
         if UserDefaults.standard.bool(forKey: "vip")
         {
@@ -87,7 +94,7 @@ class AppointmentDetailsViewController: UIViewController {
             patientNameLabel.textColor = UIColor(named: "vip")
             patientNameTitleLabel.textColor = UIColor(named: "vip")
             tokenLabel.textColor = UIColor(named: "vip")
-            collectionview.backgroundColor = UIColor.black
+            appointmentCollectionView.backgroundColor = UIColor.black
             journeyLabel.textColor = UIColor.white
             departmentLabel.textColor = UIColor(named: "vip")
             qrcodeImage.layer.cornerRadius = 10
@@ -112,6 +119,10 @@ class AppointmentDetailsViewController: UIViewController {
             
             
         }
+    }
+    override func viewDidLayoutSubviews() {
+
+        appointmentCollectionView.scrollToItem(at:IndexPath(item: self.currentJourneyIndex, section: 0), at: .right, animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {
         if self.appointmentData?.department == "Lab" {
@@ -148,6 +159,8 @@ class AppointmentDetailsViewController: UIViewController {
             } else if self.journeyDetails?.currentJourneyUpdate == "Lab"{
                 self.currentJourneyIndex = Appointments.count-1
             }
+//            self.currentJourneyIndex = Appointments.count-1
+            self.viewDidLayoutSubviews()
             self.appointmentCollectionView.reloadData()
             self.tableView.reloadData()
         }
@@ -161,7 +174,7 @@ class AppointmentDetailsViewController: UIViewController {
         if (filterCollectionView)
         {
             filterCollectionView = false
-            collectionview.isHidden = true
+            appointmentCollectionView.isHidden = true
             tableView.isHidden = false
             tableViewHeight.constant = 700
             filterButton.setImage(UIImage(named: "grid"), for: .normal)
@@ -178,7 +191,7 @@ class AppointmentDetailsViewController: UIViewController {
         else
         {
             filterCollectionView = true
-            collectionview.isHidden = false
+            appointmentCollectionView.isHidden = false
             tableViewHeight.constant = 250
             tableView.isHidden = true
             filterButton.setImage(UIImage(named: "filters"), for: .normal)
@@ -193,14 +206,14 @@ class AppointmentDetailsViewController: UIViewController {
             if (filterCollectionView)
             {
                 filterCollectionView = false
-                collectionview.isHidden = true
+                appointmentCollectionView.isHidden = true
                 tableView.isHidden = false
                 tableViewHeight.constant = 700
             }
             else
             {
                 filterCollectionView = true
-                collectionview.isHidden = false
+                appointmentCollectionView.isHidden = false
                 tableViewHeight.constant = 250
                 tableView.isHidden = true
             }
@@ -519,9 +532,9 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
         return cells
     }
    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 334, height: 228)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 334, height: 228)
+//    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("did select")
        if self.currentJourneyIndex == Appointments.count-1 {

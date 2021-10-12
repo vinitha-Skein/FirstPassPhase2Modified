@@ -82,6 +82,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     {
         container.isHidden = true
         bottomHiderView.isHidden = true
+//        delegate?.scanFinished(code: "Code")
     }
     @IBAction func getDetailsAction(_ sender: Any)
     {
@@ -127,8 +128,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     func found(code: String) {
         print(code)
+        
         appointmentID.text = code
-        delegate?.scanFinished()
+        delegate?.scanFinished(code: code)
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -142,5 +144,5 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
 
 protocol ScanFinishedDelegate{
-    func scanFinished()
+    func scanFinished(code:String)
 }
