@@ -110,9 +110,7 @@ class PreChekinPopup: UIViewController {
         conciergeArabic.textColor = defaultColor
         
        
-        
-        UserDefaults.standard.setValue(true, forKey: "vip")
-        // Do any additional setup after loading the view.
+                // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool)
