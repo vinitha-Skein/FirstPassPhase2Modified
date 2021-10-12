@@ -10,6 +10,8 @@ import UIKit
 
 class PaymentOptionsViewController: UIViewController {
 
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var stackView: UIStackView!
     @IBOutlet var container: UIView!
     @IBOutlet var view4: UIView!
     @IBOutlet var view3: UIView!
@@ -27,11 +29,14 @@ class PaymentOptionsViewController: UIViewController {
         cardsTableView.dataSource = self
         // Do any additional setup after loading the view.
         cardsTableView.register(UINib(nibName: "CardsTableViewCell", bundle: .main), forCellReuseIdentifier: "CardsTableViewCell")
+        stackView.layer.cornerRadius = 28
+        scrollView.layer.cornerRadius = 28
         view1.layer.cornerRadius = 10
         view2.layer.cornerRadius = 10
         view3.layer.cornerRadius = 10
         view4.layer.cornerRadius = 10
         container.layer.borderWidth = 0.2
+        
         container.layer.borderColor = UIColor.lightGray.cgColor
         container.layer.cornerRadius = 28
         container.layer.masksToBounds = false

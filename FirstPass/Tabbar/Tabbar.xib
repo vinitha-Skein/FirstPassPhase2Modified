@@ -18,10 +18,10 @@
                 <outlet property="bottomView" destination="VuL-jb-2Gs" id="Ppg-RB-5Qe"/>
                 <outlet property="centerView" destination="q8P-d1-XS1" id="ozg-lS-GJ6"/>
                 <outlet property="videoCallView" destination="q8P-d1-XS1" id="BDV-3X-Auu"/>
-                <outletCollection property="tabbarImages" destination="net-qn-8vt" collectionClass="NSMutableArray" id="32i-RX-xPO"/>
-                <outletCollection property="tabbarImages" destination="EnW-ta-MY7" collectionClass="NSMutableArray" id="3dx-ec-SGa"/>
                 <outletCollection property="tabbartitleLabels" destination="Q6z-o1-5W3" collectionClass="NSMutableArray" id="W5f-7j-twL"/>
                 <outletCollection property="tabbartitleLabels" destination="Ktg-JE-4FH" collectionClass="NSMutableArray" id="0BB-cg-kZI"/>
+                <outletCollection property="tabbarImages" destination="net-qn-8vt" collectionClass="NSMutableArray" id="9WH-UW-xwc"/>
+                <outletCollection property="tabbarImages" destination="EnW-ta-MY7" collectionClass="NSMutableArray" id="tBS-3J-fjX"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

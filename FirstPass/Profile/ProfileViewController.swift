@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getProfile()
+        getProfile()
         collectionview.register(UINib(nibName: "FamilyCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "FamilyCollectionViewCell")
         collectionview.dataSource = self
         collectionview.delegate = self

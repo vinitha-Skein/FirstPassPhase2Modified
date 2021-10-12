@@ -16,7 +16,12 @@ class ContactsTableViewCell: UITableViewCell {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var AddressLabel: UILabel!
     @IBOutlet weak var branchLabel: UILabel!
-    override func awakeFromNib() {
+    
+    
+    var MapButtonPressed : (() -> ()) = {}
+
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }
@@ -25,6 +30,9 @@ class ContactsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func Mapclicked(_ sender: Any) {
+        MapButtonPressed()
     }
     
 }

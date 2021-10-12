@@ -10,6 +10,8 @@ import UIKit
 
 class AccountViewController: UIViewController {
 
+    @IBOutlet var notificationButton: UIButton!
+    @IBOutlet var scannerButton: UIButton!
     @IBOutlet var bgView: UIView!
     @IBOutlet var container: UIView!
     @IBOutlet weak var bottomMenuView: Tabbar!
@@ -23,18 +25,21 @@ class AccountViewController: UIViewController {
         collectionview.delegate = self
         collectionview.dataSource = self
         bottomMenuView.delegate = self
-        UserDefaults.standard.setValue(false, forKey: "vip")
         
         
+        // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool)
+    {
         if UserDefaults.standard.bool(forKey: "vip")
         {
             bgView.backgroundColor = UIColor.black
             container.backgroundColor = UIColor.black
             collectionview.backgroundColor = UIColor.black
+            notificationButton.setImage(UIImage(named: "notificationvip"), for: .normal)
+            scannerButton.setImage(UIImage(named: "vipscanner"), for: .normal)
         }
-        // Do any additional setup after loading the view.
     }
-    
     @IBAction func notification_Clicked(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "Modified", bundle: nil)
@@ -169,12 +174,19 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 8)
         {
-            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+//            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
 //            UserDefaults.standard.set(false, forKey: "isLoggedIn")
 //            vc.modalPresentationStyle = .fullScreen
+//            present(vc, animated: true, completion: nil)
 
-            present(vc, animated: true, completion: nil)
+            let latitude = "25.284903"
+            let longitude = "55.321512"
+            if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+                 UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+             } else {
+                 UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+             }
         }
         if (indexPath.row == 9)
         {
@@ -212,12 +224,22 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 13)
         {
-            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-            UserDefaults.standard.set(false, forKey: "isLoggedIn")
-            vc.modalPresentationStyle = .fullScreen
+            
+            
+            let alert = UIAlertController(title: "Firstpass", message: "Are you sure to Logout?", preferredStyle: UIAlertController.Style.alert)
 
-            present(vc, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { action in
+                
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                vc.modalPresentationStyle = .fullScreen
+
+                    self.present(vc, animated: true, completion: nil)
+
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
        
        

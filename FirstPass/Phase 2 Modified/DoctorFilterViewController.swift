@@ -51,7 +51,7 @@ class DoctorFilterViewController: UIViewController
     
     @IBAction func clearAll_Clicked(_ sender: Any)
     {
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func back_Pressed(_ sender: Any)
@@ -59,7 +59,9 @@ class DoctorFilterViewController: UIViewController
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func apply_Clicked(_ sender: Any) {
+    @IBAction func apply_Clicked(_ sender: Any)
+    {
+        dismiss(animated: true, completion: nil)
     }
     
     func fetchLocations(){

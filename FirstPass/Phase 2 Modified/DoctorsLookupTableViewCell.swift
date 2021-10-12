@@ -28,7 +28,8 @@ class DoctorsLookupTableViewCell: UITableViewCell {
     
     
     
-    @IBAction func message_Clicked(_ sender: Any) {
+    @IBAction func message_Clicked(_ sender: Any)
+    {
     }
     @IBAction func call_Clicked(_ sender: Any) {
     }

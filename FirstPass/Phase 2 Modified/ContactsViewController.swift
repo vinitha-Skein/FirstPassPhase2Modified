@@ -47,26 +47,22 @@ extension ContactsViewController: UITableViewDelegate,UITableViewDataSource
         let cell = tableview.dequeueReusableCell(withIdentifier: "ContactsTableViewCell") as! ContactsTableViewCell
         cell.container.layer.cornerRadius = 10
         cell.branchLabel.text = Branches[indexPath.row]
+        cell.MapButtonPressed =
+            {
+                let latitude = "25.284903"
+                let longitude = "55.321512"
+                if UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!) {
+                     UIApplication.shared.open(URL(string:"comgooglemaps://?center=\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+                 } else {
+                     UIApplication.shared.open(URL(string: "http://maps.google.com/maps?q=loc:\(latitude),\(longitude)&zoom=14&views=traffic&q=\(latitude),\(longitude)")!, options: [:], completionHandler: nil)
+                 }
+            }
         return cell
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //for Demo
         
-        if indexPath.row == 0
-        {
-            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HygieneViewController") as! HygieneViewController
-            //vc.modalPresentationStyle = .overCurrentContext
-            self.present(vc, animated: true, completion: nil)
-        }
-        else
-        {
-            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "NurseCallViewController") as! NurseCallViewController
-            //vc.modalPresentationStyle = .overCurrentContext
-            self.present(vc, animated: true, completion: nil)
-        }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150

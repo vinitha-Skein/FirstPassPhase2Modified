@@ -9,6 +9,7 @@ import UIKit
 
 class PreChekinPopup: UIViewController {
     
+    @IBOutlet var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var vipImage: UIImageView!
     @IBOutlet weak var specialAssistanceImage: UIImageView!
@@ -110,16 +111,20 @@ class PreChekinPopup: UIViewController {
         
        
         
+        UserDefaults.standard.setValue(true, forKey: "vip")
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
         if UserDefaults.standard.bool(forKey: "vip")
         {
             vipView()
         }
-        // Do any additional setup after loading the view.
     }
-    
-    
     func vipView()
     {
+        backButton.setImage(UIImage(named: "001"), for: .normal)
         titleLabel.textColor = UIColor.white
         submitButton.backgroundColor = UIColor(named: "vip")
         submitButton.setTitleColor(UIColor.black, for: .normal)
@@ -147,7 +152,7 @@ class PreChekinPopup: UIViewController {
         conciergeEnglishImg.image = UIImage(named: "vipon")
         conciergeArabicImg.image = UIImage(named: "vipoff")
         
-        
+        HeaderView.backgroundColor = UIColor.black
         vipImage.image = UIImage(named: "004")
         specialAssistanceImage.image = UIImage(named: "003")
         parkingImage.image = UIImage(named: "002")

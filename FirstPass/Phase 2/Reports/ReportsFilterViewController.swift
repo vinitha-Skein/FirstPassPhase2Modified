@@ -52,6 +52,10 @@ class ReportsFilterViewController: UIViewController {
         clearallClicked = true
         collectionview.reloadData()
     }
+    @IBAction func applyClicked(_ sender: Any)
+    {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func byTypeClicked(_ sender: Any)
     {

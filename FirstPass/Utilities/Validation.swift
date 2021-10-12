@@ -9,7 +9,7 @@ class Validation {
       return isValidateName
    }
    public func validaPhoneNumber(phoneNumber: String) -> Bool {
-      let regularExpressionForPhone = "^((\\+)|(00))[0-9]{6,14}$"
+      let regularExpressionForPhone =  "^\\d{3}-\\d{3}-\\d{4}$"
       let testPhone = NSPredicate(format:"SELF MATCHES %@", regularExpressionForPhone)
       return testPhone.evaluate(with: phoneNumber)
    }

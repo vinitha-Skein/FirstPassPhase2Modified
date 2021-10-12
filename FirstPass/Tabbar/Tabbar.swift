@@ -62,7 +62,8 @@ class Tabbar: UIView {
             videoCallView.backgroundColor = UIColor(named: "vip")
             appointmentLabel.textColor = UIColor.white
             accountLabel.textColor = UIColor.white
-            
+            tabbarImages[0].image = UIImage(named: "appointmentvip")
+            tabbarImages[1].image = UIImage(named: "accountvip")
         }
         
         

@@ -66,28 +66,32 @@ UG8gEEJveCAxNzkyOSBKZWJlbCBBbGkgZnJlZSBab25lLA
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clarity_map-outline-alerted" translatesAutoresizingMaskIntoConstraints="NO" id="Nh3-ow-afs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcO-I9-CjI">
                                 <rect key="frame" x="307" y="48" width="27" height="27"/>
-                            </imageView>
+                                <state key="normal" image="clarity_map-outline-alerted"/>
+                                <connections>
+                                    <action selector="Mapclicked:" destination="H7J-dz-4pU" eventType="touchUpInside" id="1Yf-kC-U1w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="I7r-VA-LZz" secondAttribute="bottom" constant="20" id="1mx-RA-MF5"/>
                             <constraint firstItem="ulg-Eg-6ed" firstAttribute="top" secondItem="Rf6-vn-6GG" secondAttribute="bottom" constant="10" id="5q0-i7-AqV"/>
                             <constraint firstItem="eh7-cU-6uu" firstAttribute="leading" secondItem="ulg-Eg-6ed" secondAttribute="leading" id="8Eh-Gd-y8z"/>
+                            <constraint firstItem="AcO-I9-CjI" firstAttribute="centerY" secondItem="RIp-sd-OBt" secondAttribute="centerY" id="8db-Ad-Tl1"/>
                             <constraint firstItem="ulg-Eg-6ed" firstAttribute="leading" secondItem="Rf6-vn-6GG" secondAttribute="leading" id="Anr-oV-25i"/>
                             <constraint firstItem="Rf6-vn-6GG" firstAttribute="top" secondItem="RIp-sd-OBt" secondAttribute="top" constant="10" id="Cll-JI-IBe"/>
                             <constraint firstItem="bGm-KB-d9h" firstAttribute="leading" secondItem="1dh-1z-DuA" secondAttribute="trailing" constant="10" id="N8E-xp-zRy"/>
                             <constraint firstItem="I7r-VA-LZz" firstAttribute="leading" secondItem="eh7-cU-6uu" secondAttribute="leading" id="U6N-em-MTR"/>
+                            <constraint firstItem="bGm-KB-d9h" firstAttribute="trailing" secondItem="AcO-I9-CjI" secondAttribute="trailing" constant="-20" id="V41-cK-sdK"/>
                             <constraint firstItem="bGm-KB-d9h" firstAttribute="centerY" secondItem="1dh-1z-DuA" secondAttribute="centerY" id="W7Z-P0-XNA"/>
-                            <constraint firstAttribute="trailing" secondItem="Nh3-ow-afs" secondAttribute="trailing" constant="20" id="WLz-Qo-ysG"/>
                             <constraint firstItem="eh7-cU-6uu" firstAttribute="top" secondItem="ulg-Eg-6ed" secondAttribute="bottom" constant="5" id="dGq-fz-vwa"/>
-                            <constraint firstItem="Nh3-ow-afs" firstAttribute="centerY" secondItem="RIp-sd-OBt" secondAttribute="centerY" id="dl3-4t-pdi"/>
                             <constraint firstItem="Rf6-vn-6GG" firstAttribute="leading" secondItem="RIp-sd-OBt" secondAttribute="leading" constant="20" id="ggH-9a-aEq"/>
                             <constraint firstItem="1dh-1z-DuA" firstAttribute="centerY" secondItem="8W4-LR-79d" secondAttribute="centerY" id="lr5-Ey-reE"/>
                             <constraint firstItem="8W4-LR-79d" firstAttribute="centerY" secondItem="I7r-VA-LZz" secondAttribute="centerY" id="oMZ-SZ-WbY"/>
-                            <constraint firstItem="bGm-KB-d9h" firstAttribute="trailing" secondItem="Nh3-ow-afs" secondAttribute="trailing" constant="-20" id="tGA-Hd-vgK"/>
                             <constraint firstItem="8W4-LR-79d" firstAttribute="leading" secondItem="I7r-VA-LZz" secondAttribute="trailing" constant="6" id="uOM-qz-GS7"/>
+                            <constraint firstAttribute="trailing" secondItem="AcO-I9-CjI" secondAttribute="trailing" constant="20" id="zeN-E2-JZN"/>
                         </constraints>
                     </view>
                 </subviews>

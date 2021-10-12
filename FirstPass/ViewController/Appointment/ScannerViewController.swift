@@ -83,11 +83,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         container.isHidden = true
         bottomHiderView.isHidden = true
     }
-    @IBAction func getDetailsAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: .main)
-          let vc = storyboard.instantiateViewController(withIdentifier: "NewTokenViewController") as! NewTokenViewController
-          vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+    @IBAction func getDetailsAction(_ sender: Any)
+    {
+//        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+//          let vc = storyboard.instantiateViewController(withIdentifier: "NewTokenViewController") as! NewTokenViewController
+//          vc.modalPresentationStyle = .fullScreen
+//        self.present(vc, animated: true, completion: nil)
     }
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
