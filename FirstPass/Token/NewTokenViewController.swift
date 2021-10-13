@@ -94,9 +94,9 @@ class NewTokenViewController: UIViewController/*, swapCathLabDelegate,PharmacyDe
             DoctorNameLabel.text = self.appointment?.doctor_name
             PatientNAmeLabel.text = (self.appointment?.patient_name!)! + "|self|25yrs"
             tokenLabel.text = appointment?.token_no
-            if appointment?.token_no == ""{
-                tokenLabel.text = appointment?.trans_id
-            }
+//            if appointment?.token_no == ""{
+//                tokenLabel.text = appointment?.trans_id
+//            }
             if appointment?.department == "Cardiology" {
                 Departmentsections = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
             }
