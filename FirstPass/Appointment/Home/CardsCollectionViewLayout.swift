@@ -15,10 +15,11 @@ open class CardsCollectionViewLayout: UICollectionViewLayout {
     let screenSize: CGRect = UIScreen.main.bounds
 //    let screenWidth = screenSize.width
 //    let screenHeight = screenSize.height
-    public var itemSize: CGSize = CGSize(width: UIScreen.main.bounds.width-120, height: UIScreen.main.bounds.height-350) {
+    public var itemSize: CGSize = CGSize(width: UIScreen.main.bounds.width-100, height: UIScreen.main.bounds.height-340) {
     didSet{
       invalidateLayout()
     }
+        
   }
 //    public var itemSize: CGSize = CGSize(width: 200, height: 300) {
 //    didSet{

@@ -82,12 +82,14 @@ class LoginViewController: UIViewController {
         }
         
 
-        
+        let deviceID =  UserDefaults.standard.string(forKey: "FCM_REGITERED_TOKEN")
         self.activityIndicator(self.view, startAnimate: true)
         let params = [
-          "username": email,
-          "password": password]
-        viewModel.loginUser(params: params)
+            "username": email,
+            "password": password,
+            "device_id":deviceID,
+            "device_type":"iOS"]
+        viewModel.loginUser(params: params as Dictionary<String, Any>)
         viewModel.loginSuccess = {
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
             let storyboard = UIStoryboard(name: "phase2", bundle: .main)

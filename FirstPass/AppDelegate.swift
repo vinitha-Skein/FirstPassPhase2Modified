@@ -10,12 +10,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     //com.skein.Firstpassmodified.watchkitapp.watchkitextension
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions){ (granted, error) in
+               }
+        
+//        UIApplication.shared.registerForRemoteNotifications()
+        
+        application.registerForRemoteNotifications()
+        Messaging.messaging().isAutoInitEnabled = true
+        Messaging.messaging().delegate = self
         // Override point for customization after application launch.
+        
+      
+        
         Thread.sleep(forTimeInterval: 2)
         IQKeyboardManager.shared.enable = true
         let mainStoryboard:UIStoryboard = UIStoryboard(name: "phase2", bundle: nil)
-//        let homePage = mainStoryboard.instantiateViewController(withIdentifier: "AccountViewController") as! AccountViewController
-//        self.window?.rootViewController = homePage
         UserDefaults.standard.setValue(false, forKey: "vip")
         if UserDefaults.standard.bool(forKey: "OnboardFinished")
         {
@@ -41,29 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             self.window?.rootViewController = homePage
 
         }
-        
-        FirebaseApp.configure()
-        UNUserNotificationCenter.current().delegate = self
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions){ (granted, error) in
-               }
-        
-        UIApplication.shared.registerForRemoteNotifications()
-        
-        application.registerForRemoteNotifications()
-        Messaging.messaging().isAutoInitEnabled = true
-        Messaging.messaging().delegate = self
-    
-//        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let homePage = mainStoryboard.instantiateViewController(withIdentifier: "InsuranceViewController") as! InsuranceViewController
-//            self.window?.rootViewController = homePage
-//        let memoryCapacity = 500 * 1024 * 1024
-//        let diskCapacity = 500 * 1024 * 1024
-//        let urlCache = URLCache(memoryCapacity: memoryCapacity,
-//        diskCapacity: diskCapacity,
-//        diskPath: "myCachePath")
-//        URLCache.shared = urlCache
         return true
     }
     
@@ -79,7 +69,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let fcmToken = Messaging.messaging().fcmToken else {
             return
         }
+        
         UserDefaults.standard.setValue(fcmToken, forKey: "FCM_REGITERED_TOKEN")
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print(error.localizedDescription)
     }
     //MARK:- UNUserNotification Delegates
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

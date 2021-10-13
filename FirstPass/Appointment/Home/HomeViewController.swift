@@ -95,7 +95,6 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         appointmentsCollectionView.dataSource = self
         appointmentsCollectionView.delegate = self
         
-        
         setupUI()
         //        getUserDetailsFromLocal()
         bottomMenuView.delegate = self
@@ -157,7 +156,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
         self.userId = self.viewModel.userId ?? 0
         
-                self.fetchAppointments()
+//                self.fetchAppointments()
         //        self.fetchFamilyMembers()
         
         
@@ -404,7 +403,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
 
     func setupUI(){
        //For Demo Purpose
-        let appointment1 = ActiveAppointmentData(doctor_name: "Dr.Hussian", appt_status: "SCHEDULED", trans_id: "234567891101", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Cardiology", token_no: "", token_status: "", room: "")
+        let appointment1 = ActiveAppointmentData(doctor_name: "Dr.Hussian", appt_status: "SCHEDULED", trans_id: "234567891101", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Medical Collections", token_no: "", token_status: "", room: "")
         let appointment2 = ActiveAppointmentData(doctor_name: "Dr.Suman", appt_status: "SCHEDULED", trans_id: "234567891102", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Pediatrics", token_no: "", token_status: "", room: "")
         let appointment3 =  ActiveAppointmentData(doctor_name: "Dr.Jagan", appt_status: "SCHEDULED", trans_id: "234567891103", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Lab", token_no: "", token_status: "", room: "")
         dummyAppointments = [appointment1,appointment2,appointment3]

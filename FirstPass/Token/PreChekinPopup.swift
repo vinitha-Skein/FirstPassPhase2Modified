@@ -85,8 +85,8 @@ class PreChekinPopup: UIViewController {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
         } 
-        view.backgroundColor = UIColor.clear
-        view.isOpaque = false
+//        view.backgroundColor = UIColor.clear
+//        view.isOpaque = false
         scrollView.layer.cornerRadius = 25
         container.layer.cornerRadius = 25
         container.layer.borderWidth = 0.4
@@ -155,6 +155,8 @@ class PreChekinPopup: UIViewController {
         specialAssistanceImage.image = UIImage(named: "003")
         parkingImage.image = UIImage(named: "002")
     }
+    
+    
     @IBAction func radioButtonYes(_ sender: UIButton) {
         switch sender.tag {
         case 1:
