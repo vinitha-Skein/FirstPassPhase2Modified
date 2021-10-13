@@ -120,7 +120,7 @@ class ProcessFeedbackViewController: UIViewController {
         let category = index == 0 ? "Vitals" : "Doctor Consultation"
         
         let params = ["category":category,
-                      "trans_id":"\(self.appointmentData?.trans_id ?? "")","feedback":users] as [String : Any]
+                      "trans_id":"\(self.appointmentData?.trans_id ?? "20211007083339308")","feedback":users] as [String : Any]
         
 
         viewModel.submitFeedback(params: params)
@@ -131,6 +131,7 @@ class ProcessFeedbackViewController: UIViewController {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { (_) in
                 self.dismiss(animated: true, completion: nil)
             }
+            
         }
 
     }
@@ -253,6 +254,19 @@ extension ProcessFeedbackViewController:UICollectionViewDelegate,UICollectionVie
         }
         
     }
+    
+    
+    func  updateJourney(Status:String){
+        let journey = JourneyDetails(tokenNo: appointmentData?.token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status,appointmentStatus: "CHECKIN")
+        let key = "JOURNEY" + (appointmentData?.trans_id)!
+        do {
+            let data = try PropertyListEncoder().encode(journey)
+            UserDefaults.standard.set(data, forKey: key)
+        } catch let error {
+            debugPrint(error)
+        }
+    }
+    
 }
 struct ProcessFeedback {
     var feedbackQuestion:String

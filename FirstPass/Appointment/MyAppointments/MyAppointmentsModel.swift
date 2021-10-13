@@ -36,5 +36,6 @@ struct JourneyDetails: Codable, Equatable {
     var currentStatus:String?
     var CompletedStatus :[String]?
     var currentJourneyUpdate:String?
+    var appointmentStatus:String?
     
 }

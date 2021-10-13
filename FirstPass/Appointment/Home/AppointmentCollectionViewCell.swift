@@ -61,4 +61,7 @@ class AppointmentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var counterNumber: UILabel!
     
+    @IBOutlet weak var counterNumberLabelActive: UILabel!
+    
+    @IBOutlet weak var estimatedWaitTimeLabel: UILabel!
 }

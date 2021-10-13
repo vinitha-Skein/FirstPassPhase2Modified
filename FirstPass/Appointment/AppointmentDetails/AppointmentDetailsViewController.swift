@@ -49,7 +49,10 @@ class AppointmentDetailsViewController: UIViewController {
     var filterCollectionView = true
     var Appointments = ["Registration","Vitals","Consultation","Pharmacy"]
     var journey = ["Registration","Vitals","Consultation","Pharmacy"]
-//    var index = ["1/7","2/7","3/7","4/7","5/7","6/7","7/7"]
+    var NextStop = ["Vitals","Consultation","Pharmacy"]
+    var estimatedTime = ["05 mins","03 mins","10 mins","07 mins"]
+    var waitTime = ["03 mins","10 mins","05 mins","07 mins"]
+    var servingCounter = ["C5","C6","C7","P1"]
     
     @IBOutlet weak var appointmentCollectionView: UICollectionView!
     var trans_id = ""
@@ -125,9 +128,14 @@ class AppointmentDetailsViewController: UIViewController {
         appointmentCollectionView.scrollToItem(at:IndexPath(item: self.currentJourneyIndex, section: 0), at: .right, animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {
-        if self.appointmentData?.department == "Lab" {
-             Appointments = ["Registration","Lab"]
+        if self.appointmentData?.department == "Laboratory" {
+             Appointments = ["Registration","Laboratory"]
         }
+
+        updateJourneyStatus()
+        
+    }
+    func updateJourneyStatus()    {
         let key =  "JOURNEY" + (self.appointmentData?.trans_id)!
         do {
             if let data = UserDefaults.standard.data(forKey: key) {
@@ -148,15 +156,28 @@ class AppointmentDetailsViewController: UIViewController {
             } else if self.journeyDetails?.currentJourneyUpdate == "ECG" {
                 self.currentJourneyIndex = 3
                 Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                 NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                 estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
+                 waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
+                 servingCounter = ["C5","C6","C7","L1","L2","P1"]
+                
             } else if self.journeyDetails?.currentJourneyUpdate == "X-ray" {
                 self.currentJourneyIndex = 4
                 Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
+                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
+                servingCounter = ["C5","C6","C7","L1","L2","P1"]
             } else if self.journeyDetails?.currentJourneyUpdate == "Pharmacy" {
                  if self.appointmentData?.department == "Cardiology"{
                     Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                    NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                    estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
+                    waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
+                    servingCounter = ["C5","C6","C7","L1","L2","P1"]
                 }
                 self.currentJourneyIndex = Appointments.count-1
-            } else if self.journeyDetails?.currentJourneyUpdate == "Lab"{
+            } else if self.journeyDetails?.currentJourneyUpdate == "Laboratory"{
                 self.currentJourneyIndex = Appointments.count-1
             }
 //            self.currentJourneyIndex = Appointments.count-1
@@ -164,8 +185,6 @@ class AppointmentDetailsViewController: UIViewController {
             self.appointmentCollectionView.reloadData()
             self.tableView.reloadData()
         }
-        
-        
     }
     @IBAction func filterClicked(_ sender: Any)
     {
@@ -340,10 +359,11 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
 //        {
             cell.categoryLabel.text = Appointments[indexPath.row]
             cell.Container.layer.cornerRadius = 10
-        
+        cell.ServingCounterLabel.text = servingCounter[indexPath.row]
+        cell.estimatedLabel.text = estimatedTime[indexPath.row]
             if currentJourneyIndex == indexPath.row {
                 cell.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0, alpha: 1)
-                cell.statusButton.setTitle("Ongoing", for: .normal)
+                cell.statusButton.setTitle("Active", for: .normal)
                 cell.statusButton.setTitleColor(UIColor.white, for: .normal)
                 cell.statusButton.isHidden = false
                 cell.Container.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
@@ -392,7 +412,7 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
             }
         cell.statusButtonPressed =
             {
-                if cell.statusButton.titleLabel?.text! == "Ongoing"
+                if cell.statusButton.titleLabel?.text! == "Active"
                 {
                     let storyboard = UIStoryboard(name: "Modified", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
@@ -417,6 +437,16 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cells = collectionView.dequeueReusableCell(withReuseIdentifier: "AppointdetailsCollectionViewCell", for: indexPath) as! AppointdetailsCollectionViewCell
+        if indexPath.row == Appointments.count-1 {
+            cells.nextStopDepartmentLabel.text = " "
+            cells.NextStopLabel.text = " "
+        } else {
+            cells.nextStopDepartmentLabel.text = NextStop[indexPath.row]
+            cells.NextStopLabel.text = "Next:"
+        }
+        cells.estimatedLabel.text = estimatedTime[indexPath.row]
+        cells.WaitTimeLabel.text = "Wait Time:" + waitTime[indexPath.row]
+        cells.counterNumberLabel.text = "Counter No." + servingCounter[indexPath.row]
         
         if UserDefaults.standard.bool(forKey: "vip")
         {
@@ -430,7 +460,7 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
         } else {
             if currentJourneyIndex == indexPath.row {
                 cells.statusButton.backgroundColor = UIColor(red: 233/255, green: 134/255, blue: 0, alpha: 1)
-                cells.statusButton.setTitle("Ongoing", for: .normal)
+                cells.statusButton.setTitle("Active", for: .normal)
                 cells.statusButton.setTitleColor(UIColor.white, for: .normal)
                 cells.statusButton.isHidden = false
                 cells.Container.backgroundColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
@@ -520,30 +550,110 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
         }
         cells.statusButtonPressed =
             {
-                if cells.statusButton.titleLabel?.text! == "Ongoing"
+                if cells.statusButton.titleLabel?.text! == "Active"
                 {
                     let storyboard = UIStoryboard(name: "Modified", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
                     vc.modalPresentationStyle = .fullScreen
                     vc.appointmentData = self.appointmentData
+                    vc.counter = self.servingCounter[indexPath.row]
                     self.present(vc, animated: true, completion: nil)
                 }
             }
         return cells
     }
-   
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 334, height: 228)
-//    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("did select")
-       if self.currentJourneyIndex == Appointments.count-1 {
-        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
+        if UserDefaults.standard.bool(forKey: "Dummy appoinments"){
+            if (appointmentData?.department == "Laboratory") {
+                if self.currentJourneyIndex == 0 {
+                    updateJourney(Status:"Laboratory", Appointment: "FLOTING")
+                    updateJourneyStatus()
+                } else{
+                    if self.currentJourneyIndex == Appointments.count-1 {
+                     let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+                     let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+                     vc.modalPresentationStyle = .fullScreen
+                     self.present(vc, animated: true, completion: nil)
+                     }
+                }
+            } else {
+                        
+        if self.currentJourneyIndex == 0 {
+                updateJourney(Status:"Vitals", Appointment: "CHECKIN")
+                updateJourneyStatus()
+        }
+      else if self.currentJourneyIndex == 1 {
+            self.updateJourney(Status: "Consultation", Appointment: "CHECKIN")
+            updateJourneyStatus()
+            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+            vc.index = 0
+            vc.appointmentData = self.appointmentData
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+      } else if self.currentJourneyIndex != Appointments.count-1 {
+        if self.appointmentData?.department == "Cardiology" {
+             if self.currentJourneyIndex == 2 {
+                self.updateJourney(Status: "ECG", Appointment: "FLOTING")
+                updateJourneyStatus()
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+                vc.index = 1
+                vc.appointmentData = self.appointmentData
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+             } else if self.currentJourneyIndex == 3 {
+                self.updateJourney(Status: "X-ray", Appointment: "FLOTING")
+                updateJourneyStatus()
+             } else {
+            self.updateJourney(Status: "Pharmacy", Appointment: "FLOTING")
+            updateJourneyStatus()
+            }
+           
+        } else {
+            if self.currentJourneyIndex == 2 {
+            self.updateJourney(Status: "Pharmacy", Appointment: "FLOTING")
+            updateJourneyStatus()
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+                vc.index = 1
+                vc.appointmentData = self.appointmentData
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+            }
+        }
+      }
+      else {
+        if self.currentJourneyIndex == Appointments.count-1 {
+         let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+         let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc, animated: true, completion: nil)
+         }
+      }
+            }
+               
+        
+        }
+        else {
+            
+        }
+      
+    }
+    
+    func  updateJourney(Status:String,Appointment:String){
+        let journey = JourneyDetails(tokenNo: journeyDetails?.tokenNo, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status,appointmentStatus: Appointment)
+        let key = "JOURNEY" + (appointmentData?.trans_id)!
+        do {
+            let data = try PropertyListEncoder().encode(journey)
+            UserDefaults.standard.set(data, forKey: key)
+        } catch let error {
+            debugPrint(error)
         }
     }
+    
+    
 }
 
 

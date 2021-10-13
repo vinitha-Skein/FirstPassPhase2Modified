@@ -156,7 +156,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
         self.userId = self.viewModel.userId ?? 0
         
-//                self.fetchAppointments()
+                self.fetchAppointments()
         //        self.fetchFamilyMembers()
         
         
@@ -403,10 +403,42 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
 
     func setupUI(){
        //For Demo Purpose
-        let appointment1 = ActiveAppointmentData(doctor_name: "Dr.Hussian", appt_status: "SCHEDULED", trans_id: "234567891101", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Medical Collections", token_no: "", token_status: "", room: "")
-        let appointment2 = ActiveAppointmentData(doctor_name: "Dr.Suman", appt_status: "SCHEDULED", trans_id: "234567891102", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Pediatrics", token_no: "", token_status: "", room: "")
-        let appointment3 =  ActiveAppointmentData(doctor_name: "Dr.Jagan", appt_status: "SCHEDULED", trans_id: "234567891103", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Lab", token_no: "", token_status: "", room: "")
-        dummyAppointments = [appointment1,appointment2,appointment3]
+        let appointment1 = ActiveAppointmentData(doctor_name: "Dr.Hussian", appt_status: "SCHEDULED", trans_id: "234567891110", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Cardiology", token_no: "", token_status: "", room: "")
+        let appointment2 = ActiveAppointmentData(doctor_name: "Dr.Suman", appt_status: "SCHEDULED", trans_id: "234567891112", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Pediatrics", token_no: "", token_status: "", room: "")
+        let appointment3 =  ActiveAppointmentData(doctor_name: "Dr.Jagan", appt_status: "SCHEDULED", trans_id: "234567891113", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Anesthesiology", token_no: "", token_status: "", room: "")
+        let appointment4 =  ActiveAppointmentData(doctor_name: "Dr.albert", appt_status: "SCHEDULED", trans_id: "234567891114", appointment_time: "oct  10 2021 12:35:00:000pm", patient_name: "John", service: "Doctor", department: "Laboratory", token_no: "", token_status: "", room: "")
+                                            
+        dummyAppointments = [appointment1,appointment2,appointment3,appointment4]
+        showDummyAppointments()
+    }
+    func showDummyAppointments() {
+        var tempappointments = [ActiveAppointmentData]()
+        for i in  0..<self.dummyAppointments.count {
+            var journeyDetails : JourneyDetails?
+                let key =  "JOURNEY" + (self.dummyAppointments[i].trans_id)!
+                do {
+                    if let data = UserDefaults.standard.data(forKey: key) {
+                        let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                        journeyDetails = journey
+                    }
+                } catch {
+                    debugPrint(error)
+                }
+            if journeyDetails?.appointmentStatus == "FLOTING" {
+                if journeyDetails != nil {
+                    if journeyDetails?.currentJourneyUpdate == "Finish Token" {
+                        self.historyAppointments.append(self.dummyAppointments[i])
+                    }else {
+                        tempappointments.append(self.dummyAppointments[i])
+                    }
+                } else {
+                    tempappointments.append(self.dummyAppointments[i])
+                }
+            } else {
+                tempappointments.append(self.dummyAppointments[i])
+            }
+        }
+        dummyAppointments = tempappointments
         
     }
     
@@ -446,8 +478,10 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
 extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.appointments.count != 0 {
+            UserDefaults.standard.setValue(false, forKey: "Dummy appoinments")
             NoAppointmentsLabel.isHidden = true
         } else {
+            UserDefaults.standard.setValue(true, forKey: "Dummy appoinments")
             return dummyAppointments.count
 //            NoAppointmentsLabel.isHidden = false
         }
@@ -477,11 +511,11 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         cell.titleLabel.text = currentAppointment.department
         
-        if titleMenu[indexPath.row] == "In Patient"{
-            cell.InPatientView.isHidden = false
-        } else {
+//        if titleMenu[indexPath.row] == "In Patient"{
+//            cell.InPatientView.isHidden = false
+//        } else {
             cell.InPatientView.isHidden = true
-        }
+//        }
         if preArrivalfilled.contains(indexPath.row)
         {
             cell.prearrivalButtonHeight.constant = 0
@@ -510,8 +544,28 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             cell.checkinButton.setTitle("Check-in", for: .normal)
             cell.noteLabel.text = "Note: Please arrive 15 mins early from the scheduled appointment time."
         }
+        var currentappointmentStatus = ""
+        var journeyDetails : JourneyDetails?
+            let key =  "JOURNEY" + (currentAppointment.trans_id)!
+            do {
+                if let data = UserDefaults.standard.data(forKey: key) {
+                    let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                    journeyDetails = journey
+                }
+            } catch {
+                debugPrint(error)
+            }
+            
+           
+        if UserDefaults.standard.bool(forKey: "Dummy appoinments"){
+            if journeyDetails != nil {
+                currentappointmentStatus = (journeyDetails?.appointmentStatus)!
+            }
+        } else {
+            currentappointmentStatus = currentAppointment.appt_status!
+        }
         
-        if currentAppointment.appt_status == "CHECKIN" || currentAppointment.appt_status == "FLOTING"
+        if currentappointmentStatus == "CHECKIN" || currentappointmentStatus == "FLOTING"
         {
             if rolledIndex == indexPath.row {
             let flipDirection:UIView.AnimationOptions =  .transitionFlipFromRight
@@ -523,43 +577,73 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                    }
             }
             else {
-                if currentAppointment.appt_status == "FLOTING" && currentAppointment.department == "Cardiology" {
-                    var journeyDetails : JourneyDetails?
-                        let key =  "JOURNEY" + (currentAppointment.trans_id)!
-                        do {
-                            if let data = UserDefaults.standard.data(forKey: key) {
-                                let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
-                                journeyDetails = journey
-                            }
-                        } catch {
-                            debugPrint(error)
-                        }
+                if currentappointmentStatus == "FLOTING" && currentAppointment.department == "Cardiology" {
                         
                         if journeyDetails != nil {
                             if journeyDetails?.currentJourneyUpdate == "ECG" {
                                 cell.currentStepDetails.text = "ECG"
+                                cell.estimatedWaitTimeLabel.text = "05 mins"
+                                cell.counterNumberLabelActive.text = "Counter No L1"
                             }else if  journeyDetails?.currentJourneyUpdate == "X-ray"  {
                                 cell.currentStepDetails.text = "X-ray"
+                                cell.estimatedWaitTimeLabel.text = "07 mins"
+                                cell.counterNumberLabelActive.text = "Counter No L2"
                             }
                             else if  journeyDetails?.currentJourneyUpdate == "Pharmacy"  {
                                 cell.currentStepDetails.text = "Pharmacy"
-                            } else {
-                                cell.currentStepDetails.text = "ECG"
+                                cell.estimatedWaitTimeLabel.text = "12 mins"
+                                cell.counterNumberLabelActive.text = "Counter No P1"
+                            }
+                            else if  journeyDetails?.currentJourneyUpdate == "Laboratory"  {
+                                cell.currentStepDetails.text = "Laboratory"
+                                cell.estimatedWaitTimeLabel.text = "12 mins"
+                                cell.counterNumberLabelActive.text = "Counter No L1"
+                            }else {
+                                cell.currentStepDetails.text = "Pharmacy"
+                                cell.estimatedWaitTimeLabel.text = "12 mins"
+                                cell.counterNumberLabelActive.text = "Counter No P1"
                             }
                         } else {
-                            cell.currentStepDetails.text = "ECG"
+                            
+                            cell.currentStepDetails.text = "Pharmacy"
+                            cell.estimatedWaitTimeLabel.text = "12 mins"
+                            cell.counterNumberLabelActive.text = "Counter No P1"
                         }
-                } else if currentAppointment.appt_status == "FLOTING" && currentAppointment.department != "Cardiology" {
+                } else if currentappointmentStatus == "FLOTING" && currentAppointment.department != "Cardiology" {
+                    if  journeyDetails?.currentJourneyUpdate == "Laboratory"  {
+                    cell.currentStepDetails.text = "Laboratory"
+                    cell.estimatedWaitTimeLabel.text = "12 mins"
+                    cell.counterNumberLabelActive.text = "Counter No L1"
+                }else {
                     cell.currentStepDetails.text = "Pharmacy"
+                    cell.estimatedWaitTimeLabel.text = "05 mins"
+                    cell.counterNumberLabelActive.text = "Counter No P1"
+                }
+                   
+                }
+                var token_status = ""
+                if UserDefaults.standard.bool(forKey: "Dummy appoinments"){
+                    if journeyDetails != nil {
+                        token_status = (journeyDetails?.currentJourneyUpdate)!
+                        
                     }
-                if currentAppointment.appt_status == "CHECKIN" {
-                    switch currentAppointment.token_status {
-                    case "R-WAITING" ,"R-SERVING":
+                } else {
+                    token_status = currentAppointment.token_status!
+                }
+                if currentappointmentStatus == "CHECKIN" {
+                    switch token_status {
+                    case "R-WAITING" ,"R-SERVING","Registration":
                         cell.currentStepDetails.text = "Registration"
-                    case "V-WAITING","V-SERVING":
+                        cell.estimatedWaitTimeLabel.text = "05 mins"
+                        cell.counterNumberLabelActive.text = "Counter No 05"
+                    case "V-WAITING","V-SERVING","Vitals":
                         cell.currentStepDetails.text = "Vitals"
-                    case "WAITING","SERVING":
+                        cell.estimatedWaitTimeLabel.text = "03 mins"
+                        cell.counterNumberLabelActive.text = "Counter No 06"
+                    case "WAITING","SERVING","Consultation":
                     cell.currentStepDetails.text = "Consultation"
+                    cell.estimatedWaitTimeLabel.text = "10 mins"
+                    cell.counterNumberLabelActive.text = "Counter No 07"
                     default:
                         print("Registration")
                     }
@@ -611,6 +695,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         cell.checkinButton.tag = indexPath.row
         cell.checkinButton.accessibilityHint = cell.checkinButton.titleLabel?.text!
         cell.viewDetailsButton.tag = indexPath.row
+        cell.indoorMapButton.tag = indexPath.row
+        cell.indoorMapDetails.tag = indexPath.row
         
         cell.checkinButton.addTarget(self, action: #selector(CheckinButtonPressed(sender:)), for: .touchUpInside)
         cell.prearrivalButton.addTarget(self, action: #selector(prearrivalButtonPressed(sender:)), for: .touchUpInside)
@@ -644,9 +730,10 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
             if (appointments.count != 0){
             self.checkInAppointmentAction(index: sender.tag)
             } else {
+                self.rolledIndex = sender.tag
                 dummyAppointments[sender.tag].appt_status = "CHECKIN"
-                dummyAppointments[sender.tag].token_no = "CROO\(sender.tag)"
-               let journey = JourneyDetails(tokenNo: "CROO\(sender.tag)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration")
+                dummyAppointments[sender.tag].token_no = "CROO\(sender.tag+1)"
+                let journey = JourneyDetails(tokenNo: "CROO\(sender.tag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
                 let key = "JOURNEY" + dummyAppointments[sender.tag].trans_id!
                 do {
                     let data = try PropertyListEncoder().encode(journey)
@@ -684,12 +771,31 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     
     @objc func indoorMapButtonPressed(sender: UIButton)
     {
-//        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
-//        let vc = storyboard.instantiateViewController(withIdentifier: "IndoorMapViewController") as! IndoorMapViewController
-//        vc.modalPresentationStyle = .fullScreen
-//        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-//        self.present(vc, animated: true)
-//        NotificationCenter.default.post(name: Notification.Name("HomeAppointmentRefreshNotification"), object: nil, userInfo: ["department":"doctor","Token":"CLA274"])
+        let trans_ids = ["234567891110","234567891112","234567891113","234567891114"]
+        
+        if sender.tag == dummyAppointments.count-1 {
+            for i in  0..<trans_ids.count {
+                var journeyDetails : JourneyDetails?
+                    let key =  "JOURNEY" + trans_ids[i]
+                    do {
+                        if let data = UserDefaults.standard.data(forKey: key) {
+                            let journey  = try PropertyListDecoder().decode(JourneyDetails.self, from: data)
+                            journeyDetails = journey
+                        }
+                    } catch {
+                        debugPrint(error)
+                    }
+               
+                    if journeyDetails != nil {
+                        UserDefaults.standard.removeObject(forKey: key)
+                    }
+                
+            }
+        }
+        setupUI()
+        appointmentsCollectionView.reloadData()
+
+        
     }
     @objc func ViewDetailsInPatientPressed(sender : UIButton)    {
         let storyboard = UIStoryboard(name: "phase2", bundle: .main)
@@ -739,9 +845,11 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                             updateJourney(Status:"ECG",index: sender.tag)
                         }
                 } else {
+                    dummyAppointments[sender.tag].token_no = "CROO\(sender.tag+1)"
                     updateJourney(Status:"Pharmacy",index: sender.tag)
                 }
             default:
+                dummyAppointments[sender.tag].token_no = "CROO\(sender.tag+1)"
                 updateJourney(Status:"Registration",index:sender.tag)
             }
             
@@ -779,6 +887,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
 //            }
             
         } else {
+            dummyAppointments[sender.tag].token_no = "CROO\(sender.tag+1)"
             vc.appointmentData = self.dummyAppointments[sender.tag]
         }
         self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)

@@ -31,7 +31,7 @@ class TokenPopup: UIViewController {
         
         if (self.appointmentData != nil){
         tokenNumber.text = self.appointmentData?.token_no
-        CounterLabel.text = "P1"
+        CounterLabel.text = counter
         } else {
             tokenNumber.text = token
             CounterLabel.text = counter
@@ -95,7 +95,7 @@ class TokenPopup: UIViewController {
                 updateJourney(Status: "Pharmacy")
                 self.dismiss(animated: true, completion: nil)
             } else
-            if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Lab" {
+            if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Laboratory" {
                 updateJourney(Status: "Finish Token")
                 let alert = UIAlertController(title: "Firstpass", message: "Thank you for visiting our Facility today. It has been our pleasure to serve you. We wish you a speedy recovery.\nWarm regards,\nHealth care team", preferredStyle: UIAlertController.Style.alert)
 
@@ -114,6 +114,8 @@ class TokenPopup: UIViewController {
 //
 //                }
                
+            } else {
+                dismiss(animated: true, completion: nil)
             }
         } else {
         dismiss(animated: true, completion: nil)
@@ -124,7 +126,7 @@ class TokenPopup: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     func  updateJourney(Status:String){
-        let journey = JourneyDetails(tokenNo: journeyDetails?.tokenNo, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status)
+        let journey = JourneyDetails(tokenNo: journeyDetails?.tokenNo, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status,appointmentStatus: "FLOTING")
         let key = "JOURNEY" + (appointmentData?.trans_id)!
         do {
             let data = try PropertyListEncoder().encode(journey)
