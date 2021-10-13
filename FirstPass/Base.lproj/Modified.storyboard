@@ -131,7 +131,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T4C-YS-key">
                                                                 <rect key="frame" x="0.0" y="209" width="374" height="90"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Enter Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSu-bj-jpV">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="   Enter Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSu-bj-jpV" customClass="FPNTextField" customModule="FlagPhoneNumber">
                                                                         <rect key="frame" x="24" y="44" width="326" height="46"/>
                                                                         <color key="backgroundColor" name="textfeildBG"/>
                                                                         <constraints>
@@ -369,7 +369,7 @@
                         <outlet property="emiratesID" destination="ksG-pD-xAX" id="ypd-9T-klj"/>
                         <outlet property="firstName" destination="gSG-cX-kVO" id="Szb-pV-gcu"/>
                         <outlet property="generateButton" destination="PCT-KK-xNX" id="j11-uB-gtH"/>
-                        <outlet property="mobileNumber" destination="wSu-bj-jpV" id="t7C-Wb-cRc"/>
+                        <outlet property="mobile" destination="wSu-bj-jpV" id="S8q-xh-Yku"/>
                         <outlet property="mrnIDTextFeild" destination="R2f-QO-HFI" id="J4n-aH-9qu"/>
                         <outlet property="scrollView" destination="zbm-g1-0pX" id="gUI-PN-X1Q"/>
                     </connections>
@@ -416,6 +416,9 @@
                                                 <rect key="frame" x="30" y="166.5" width="109" height="29"/>
                                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                 <state key="normal" title="Change number?"/>
+                                                <connections>
+                                                    <action selector="changeNumber_Clicked:" destination="ebZ-ET-Lhh" eventType="touchUpInside" id="eQv-rm-LSw"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RhX-Bh-Dmw">
                                                 <rect key="frame" x="30" y="246" width="314" height="46"/>
@@ -1672,7 +1675,7 @@
                                                                                 <rect key="frame" x="90" y="0.0" width="110" height="45"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radioDeselected" translatesAutoresizingMaskIntoConstraints="NO" id="odb-EW-fW6">
-                                                                                        <rect key="frame" x="0.0" y="11.5" width="37.5" height="22.5"/>
+                                                                                        <rect key="frame" x="0.0" y="11.5" width="24" height="22.5"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="4" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-N6-nbX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
@@ -1682,7 +1685,7 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-7R-2bW">
-                                                                                        <rect key="frame" x="57.5" y="0.0" width="52.5" height="45"/>
+                                                                                        <rect key="frame" x="44" y="0.0" width="66" height="45"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <color key="textColor" white="0.29635528430000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -3566,7 +3569,7 @@
                                         <rect key="frame" x="0.0" y="60" width="374" height="639"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="CBQ-Bu-EVY">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="480"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="540"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fw-5X-2kA">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -3684,8 +3687,35 @@
                                                             <constraint firstAttribute="trailing" secondItem="foC-KA-xCI" secondAttribute="trailing" constant="30" id="p8o-jx-3GC"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdx-Iw-WwF">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlV-dz-dHd">
                                                         <rect key="frame" x="0.0" y="240" width="374" height="60"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MRN Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ht-jF-Ylk">
+                                                                <rect key="frame" x="30" y="0.0" width="314" height="17"/>
+                                                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                                                                <color key="textColor" name="text fade"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6u3-Bq-3HM">
+                                                                <rect key="frame" x="30" y="27" width="314" height="19.5"/>
+                                                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
+                                                                <color key="textColor" red="0.20784313730000001" green="0.2156862745" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="6ht-jF-Ylk" firstAttribute="top" secondItem="tlV-dz-dHd" secondAttribute="top" id="3Rh-x5-wLx"/>
+                                                            <constraint firstAttribute="height" constant="60" id="6Em-YO-RgT"/>
+                                                            <constraint firstItem="6ht-jF-Ylk" firstAttribute="leading" secondItem="tlV-dz-dHd" secondAttribute="leading" constant="30" id="HU9-Yh-rdo"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6ht-jF-Ylk" secondAttribute="trailing" constant="30" id="TXt-MC-KQB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="6u3-Bq-3HM" secondAttribute="trailing" constant="30" id="xP7-ky-UBL"/>
+                                                            <constraint firstItem="6u3-Bq-3HM" firstAttribute="top" secondItem="6ht-jF-Ylk" secondAttribute="bottom" constant="10" id="yE6-sn-4iS"/>
+                                                            <constraint firstItem="6u3-Bq-3HM" firstAttribute="leading" secondItem="tlV-dz-dHd" secondAttribute="leading" constant="30" id="yO9-cj-uTh"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdx-Iw-WwF">
+                                                        <rect key="frame" x="0.0" y="300" width="374" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRO-dl-f3s">
                                                                 <rect key="frame" x="30" y="15" width="78" height="21.5"/>
@@ -3725,7 +3755,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2e-Tl-Kk6">
-                                                        <rect key="frame" x="0.0" y="300" width="374" height="120"/>
+                                                        <rect key="frame" x="0.0" y="360" width="374" height="120"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Family Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="psn-dU-nvV">
                                                                 <rect key="frame" x="30" y="24" width="131" height="21.5"/>
@@ -3768,7 +3798,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qkq-mD-NEG">
-                                                        <rect key="frame" x="0.0" y="420" width="374" height="60"/>
+                                                        <rect key="frame" x="0.0" y="480" width="374" height="60"/>
                                                         <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="znp-3i-Fji"/>
@@ -3870,6 +3900,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="MrnLabel" destination="6u3-Bq-3HM" id="yk9-o6-OaJ"/>
                         <outlet property="changePicBgView" destination="RqN-Mz-qlq" id="G5O-1g-uec"/>
                         <outlet property="changePicButton" destination="hUl-Qf-3QV" id="6Fy-IR-0aA"/>
                         <outlet property="collectionview" destination="pON-vL-1FN" id="VN2-Ez-Sch"/>
@@ -7134,16 +7165,16 @@ EFBheW1lbnQgTWV0aG9kA
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A nurse from our team has been notified. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFn-Ib-y09">
-                                        <rect key="frame" x="32" y="127.5" width="286" height="19.5"/>
+                                        <rect key="frame" x="32" y="110" width="286" height="37.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="16"/>
                                         <color key="textColor" name="Normal heading"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bookedSuccess" translatesAutoresizingMaskIntoConstraints="NO" id="DSn-qf-KNg">
-                                        <rect key="frame" x="144" y="45.5" width="62" height="62"/>
+                                        <rect key="frame" x="144" y="28" width="62" height="62"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You will be attended to shortly." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeN-V9-zii">
-                                        <rect key="frame" x="34" y="157" width="282" height="17"/>
+                                        <rect key="frame" x="34" y="157.5" width="282" height="16.5"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                         <color key="textColor" name="loginsubhead"/>
                                         <nil key="highlightedColor"/>
@@ -7647,7 +7678,7 @@ EFBheW1lbnQgTWV0aG9kA
             <size key="intrinsicContentSize" width="40" height="30"/>
         </designable>
         <designable name="ac7-3V-ASI">
-            <size key="intrinsicContentSize" width="30" height="32"/>
+            <size key="intrinsicContentSize" width="30" height="31"/>
         </designable>
         <designable name="bU0-fE-J0S">
             <size key="intrinsicContentSize" width="45" height="30"/>
@@ -7686,7 +7717,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="checkBox" width="17" height="17"/>
         <image name="checkboxSelected" width="24" height="24"/>
         <image name="closeicon" width="24" height="24"/>
-        <image name="date" width="24" height="24"/>
+        <image name="date" width="12" height="12"/>
         <image name="doctorgrey" width="16" height="16"/>
         <image name="doctors" width="24" height="24"/>
         <image name="edit" width="24" height="24"/>

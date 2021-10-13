@@ -27,7 +27,7 @@ class ProcessFeedbackViewController: UIViewController {
     var viewModel = FeedbackViewModel()
     
     var  fblist = ["How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?"]
-
+    var feedbackBgColors = ["#DE3541","#DE3541","#F0852F","#F0852F","#FFC534","#FFC534","#78BF30","#78BF30","#15B530","#15B530"]
     var selectedfeedback1 = 11
     var selectedfeedback2 = 11
     var feedbacks = [Int]()
@@ -209,17 +209,17 @@ extension ProcessFeedbackViewController:UICollectionViewDelegate,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "numberRatingCollectionViewCell", for: indexPath) as! numberRatingCollectionViewCell
         cell.ratingLabel.text = String(indexPath.row+1)
-        cell.bgView.layer.borderWidth = 0.1
+        cell.bgView.layer.borderWidth = 0.5
         cell.bgView.layer.cornerRadius = 3
         cell.bgView.layer.borderColor = UIColor.gray.cgColor
-        cell.bgView.backgroundColor = UIColor.white
-        cell.ratingLabel.textColor = UIColor.black
+        cell.bgView.backgroundColor = UIColor(hex: feedbackBgColors[indexPath.row])
+        cell.ratingLabel.textColor = UIColor.white
         if collectionView == collectionview
         {
             if indexPath.row == selectedfeedback1
             {
             print(self.selectedfeedback1)
-            cell.bgView.backgroundColor = UIColor.orange
+            cell.bgView.backgroundColor = UIColor(named: "BG")
             cell.ratingLabel.textColor = UIColor.white
             }
         }
@@ -228,7 +228,7 @@ extension ProcessFeedbackViewController:UICollectionViewDelegate,UICollectionVie
             if indexPath.row == selectedfeedback2
             {
             print(self.selectedfeedback2)
-            cell.bgView.backgroundColor = UIColor.orange
+            cell.bgView.backgroundColor = UIColor(named: "BG")
             cell.ratingLabel.textColor = UIColor.white
             }
 

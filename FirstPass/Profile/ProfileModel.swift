@@ -53,5 +53,5 @@ struct SetNewPassword:Decodable {
 }
 struct profileDetails:Decodable {
     let status: Bool
-    let message, full_name, mobile, mail_address: String
+    let message, full_name, mobile, mrn, mail_address: String
 }

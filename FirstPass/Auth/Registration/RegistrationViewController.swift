@@ -7,25 +7,28 @@
 //
 
 import UIKit
+import FlagPhoneNumber
+
 
 class RegistrationViewController: UIViewController {
     
+    @IBOutlet var mobile: FPNTextField!
     @IBOutlet weak var mrnIDTextFeild: UITextField!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var mobileNumber: UITextField!
     @IBOutlet weak var emiratesID: UITextField!
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var checkBox: UIButton!
     var checkBoxState = Bool()
     var validation = Validation()
     var viewModel = RegisterUserViewModel()
+    var mobileNumber = String()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        mobile.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -44,13 +47,13 @@ class RegistrationViewController: UIViewController {
     
     func registerUser()
     {
-        guard let firstName = firstName.text, let email = email.text,let phone = mobileNumber.text,
+        guard let firstName = firstName.text, let email = email.text,let phone = mobile.text,
               let emiratesID = emiratesID.text,
               let mrnID = mrnIDTextFeild.text else
         {
             return
         }
-        var phoneno = "+91"+mobileNumber.text!
+        var phoneno = mobile.text!
         let isValidateFirstName = self.validation.validateName(name: firstName)
         if (isValidateFirstName == false){
             self.showAlert("First name shoulud be atleast 3 chars")
@@ -64,11 +67,14 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        let isValidatePhone = self.validation.validaPhoneNumber(phoneNumber: phoneno)
+        let isValidatePhone = self.validation.validaPhoneNumberwithcountrycode(phoneNumber: mobileNumber)
         if (isValidatePhone == false) {
+            print(mobileNumber)
             self.showAlert("Incorrect Mobile number")
             return
         }
+        
+        
         if (emiratesID == "")
         {
             self.showAlert("Enter Emirites ID")
@@ -97,7 +103,7 @@ class RegistrationViewController: UIViewController {
 //
 //        }
         UserDefaults.standard.setValue(firstName, forKey: "firstName")
-        UserDefaults.standard.setValue(phone, forKey: "phone")
+        UserDefaults.standard.setValue(mobileNumber, forKey: "phone")
         UserDefaults.standard.setValue(email, forKey: "email")
         UserDefaults.standard.setValue(emiratesID, forKey: "emiratesID")
         UserDefaults.standard.setValue(mrnID, forKey: "mrnID")
@@ -148,7 +154,7 @@ class RegistrationViewController: UIViewController {
 //        container.layer.shadowOpacity = 1
         firstName.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         email.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
-        mobileNumber.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
+       // mobile.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         emiratesID.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         mrnIDTextFeild.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
         generateButton.createBorderForButton(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
@@ -165,7 +171,7 @@ class RegistrationViewController: UIViewController {
         
         firstName.layer.cornerRadius = 5
         email.layer.cornerRadius = 5
-        mobileNumber.layer.cornerRadius = 5
+        mobile.layer.cornerRadius = 5
         emiratesID.layer.cornerRadius = 5
         mrnIDTextFeild.layer.cornerRadius = 5
 
@@ -184,3 +190,26 @@ extension UITextField{
     }
 }
     
+extension RegistrationViewController: FPNTextFieldDelegate
+{
+    func fpnDidSelectCountry(name: String, dialCode: String, code: String) {
+        
+    }
+    
+    func fpnDidValidatePhoneNumber(textField: FPNTextField, isValid: Bool) {
+        if isValid
+        {
+            self.mobileNumber = mobile.getFormattedPhoneNumber(format: .E164) ?? ""
+        }
+        else
+        {
+            print("Invalid phone number")
+        }
+    }
+    
+    func fpnDisplayCountryList() {
+        
+    }
+    
+    
+}

@@ -46,6 +46,9 @@ class OTPViewController: UIViewController,UITextFieldDelegate
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func changeNumber_Clicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func login_Clicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
@@ -64,7 +67,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate
         container.layer.shadowOpacity = 0.2
 
         verifyButton.createBorderForButton(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
-        mobileNumberLabel.text = "+91" + UserDefaults.standard.string(forKey: "phone")!
+        mobileNumberLabel.text = UserDefaults.standard.string(forKey: "phone")!
         
         otp1.delegate = self
         otp2.delegate = self
@@ -90,7 +93,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate
                             
                              // indicatorText.text = "Please Wait While we are Sending OTP"
                             
-                            var phoneNumber = "+91" + UserDefaults.standard.string(forKey: "phone")!
+                            var phoneNumber = UserDefaults.standard.string(forKey: "phone")!
                               Auth.auth().settings?.isAppVerificationDisabledForTesting = false
                               PhoneAuthProvider.provider().verifyPhoneNumber(phoneNumber, uiDelegate: nil)
           

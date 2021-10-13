@@ -9,6 +9,9 @@
 import UIKit
 import RealmSwift
 class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
+    
+    
+    @IBOutlet var MrnLabel: UILabel!
     @IBOutlet weak var container: UIView!
     
     @IBOutlet var emailLabel: UILabel!
@@ -318,10 +321,12 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
             let name = self.viewModel.userProfiledetails?.full_name
             let mail = self.viewModel.userProfiledetails?.mail_address
             let phone = self.viewModel.userProfiledetails?.mobile
+            let mrnID = self.viewModel.userProfiledetails?.mrn
             
             self.nameLabel.text = name
             self.emailLabel.text = mail
             self.phoneLabel.text = phone
+            self.MrnLabel.text = mrnID
         }
         viewModel.loadingStatus = {
             if self.viewModel.isLoading{
@@ -638,7 +643,8 @@ extension ProfileViewController:DatePickerDelegate,OTPPopUpDelegate{
 
 
 extension ProfileViewController:UICollectionViewDelegate,UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
        // return viewModel.familyMemberData?.count ?? 0
         return familyMemberData.count+2
     }
