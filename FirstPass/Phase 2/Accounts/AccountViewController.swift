@@ -157,24 +157,24 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 6)
         {
-//            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "ContactsViewController") as! ContactsViewController
-//            vc.modalPresentationStyle = .fullScreen
-//
-//            present(vc, animated: true, completion: nil)
             let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+            let vc = storyboard.instantiateViewController(withIdentifier: "ContactsViewController") as! ContactsViewController
             vc.modalPresentationStyle = .fullScreen
 
             present(vc, animated: true, completion: nil)
+            
         }
         if (indexPath.row == 7)
         {
             let storyboard = UIStoryboard(name: "phase2", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "AboutHospitalViewController") as! AboutHospitalViewController
             vc.modalPresentationStyle = .fullScreen
-
             present(vc, animated: true, completion: nil)
+//            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+//            vc.modalPresentationStyle = .fullScreen
+//
+//            present(vc, animated: true, completion: nil)
         }
         if (indexPath.row == 8)
         {
@@ -220,7 +220,7 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 12)
         {
-            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SpecialOffersViewController") as! SpecialOffersViewController
             vc.modalPresentationStyle = .fullScreen
 
