@@ -47,16 +47,16 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgk-a8-BcM">
-                                        <rect key="frame" x="60" y="51.5" width="72.5" height="21.5"/>
+                                        <rect key="frame" x="60" y="51.5" width="71.5" height="21"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <color key="textColor" name="BG"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFV-y8-4Rg">
-                                        <rect key="frame" x="20" y="93" width="374" height="763"/>
+                                        <rect key="frame" x="20" y="92.5" width="374" height="763.5"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwj-LQ-iZB">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="763"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="763.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kf7-EI-afD">
                                                         <rect key="frame" x="0.0" y="5" width="374" height="717"/>
@@ -65,13 +65,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="165"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit/Debit/ATM Cards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-wc-OZc">
-                                                                        <rect key="frame" x="16" y="16" width="119.5" height="14.5"/>
+                                                                        <rect key="frame" x="16" y="16" width="128.5" height="14"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                                         <color key="textColor" name="BG"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cja-P4-Lbj">
-                                                                        <rect key="frame" x="0.0" y="40.5" width="374" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="40" width="374" height="50"/>
                                                                         <color key="backgroundColor" name="Payment view BG"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="f2L-eR-XwW"/>
@@ -82,13 +82,13 @@
                                                                         <state key="normal" image="addnew"/>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vom-ti-Awa">
-                                                                        <rect key="frame" x="62" y="103" width="87.5" height="17"/>
+                                                                        <rect key="frame" x="62" y="103" width="92.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" systemColor="linkColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save and Pay via Cards." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krw-zw-Rn1">
-                                                                        <rect key="frame" x="62" y="125" width="119" height="14.5"/>
+                                                                        <rect key="frame" x="62" y="124.5" width="131" height="14"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                                         <color key="textColor" name="loginsubhead"/>
                                                                         <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                                                                 <rect key="frame" x="0.0" y="175" width="374" height="197"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wallets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMN-cU-avf">
-                                                                        <rect key="frame" x="16" y="16" width="37" height="11"/>
+                                                                        <rect key="frame" x="16" y="16" width="39" height="11"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                                         <color key="textColor" name="BG"/>
                                                                         <nil key="highlightedColor"/>
@@ -133,13 +133,13 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paytm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oe7-Wx-odh">
-                                                                                        <rect key="frame" x="60" y="16.5" width="38.5" height="17"/>
+                                                                                        <rect key="frame" x="60" y="17" width="40" height="16.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                                         <color key="textColor" name="Normal heading"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVz-YY-sxR">
-                                                                                        <rect key="frame" x="288" y="11.5" width="70" height="27"/>
+                                                                                        <rect key="frame" x="287" y="12" width="71" height="26"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="12"/>
                                                                                         <state key="normal" title="Link Acoount"/>
                                                                                     </button>
@@ -165,13 +165,13 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Freecharge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcH-xN-CUh">
-                                                                                        <rect key="frame" x="60" y="16.5" width="68.5" height="17"/>
+                                                                                        <rect key="frame" x="60" y="17" width="70.5" height="16.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                                         <color key="textColor" name="Normal heading"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s83-nU-ceB">
-                                                                                        <rect key="frame" x="288" y="11.5" width="70" height="27"/>
+                                                                                        <rect key="frame" x="287" y="12" width="71" height="26"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="12"/>
                                                                                         <state key="normal" title="Link Acoount"/>
                                                                                     </button>
@@ -197,13 +197,13 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PhonePe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJN-4C-QIg">
-                                                                                        <rect key="frame" x="60" y="16.5" width="53" height="17"/>
+                                                                                        <rect key="frame" x="60" y="17" width="57" height="16.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                                         <color key="textColor" name="Normal heading"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBt-ih-oXR">
-                                                                                        <rect key="frame" x="288" y="11.5" width="70" height="27"/>
+                                                                                        <rect key="frame" x="287" y="12" width="71" height="26"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="12"/>
                                                                                         <state key="normal" title="Link Acoount"/>
                                                                                     </button>
@@ -236,13 +236,13 @@
                                                                 <rect key="frame" x="0.0" y="382" width="374" height="176"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7G-cb-dyw">
-                                                                        <rect key="frame" x="16" y="16" width="18" height="14.5"/>
+                                                                        <rect key="frame" x="16" y="16" width="20" height="14"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                                         <color key="textColor" name="BG"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wFI-0T-Kkm">
-                                                                        <rect key="frame" x="16" y="35.5" width="208" height="60"/>
+                                                                        <rect key="frame" x="16" y="35" width="208" height="60"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y57-pk-ySB">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="104" height="60"/>
@@ -255,7 +255,7 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Pay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWt-QG-pWg">
-                                                                                        <rect key="frame" x="18" y="50" width="68.5" height="17"/>
+                                                                                        <rect key="frame" x="15.5" y="50" width="73" height="16.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                                         <color key="textColor" name="Normal heading"/>
                                                                                         <nil key="highlightedColor"/>
@@ -279,7 +279,7 @@
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phonepe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQu-Mt-iLe">
-                                                                                        <rect key="frame" x="25" y="50" width="54.5" height="17"/>
+                                                                                        <rect key="frame" x="24" y="50" width="56.5" height="16.5"/>
                                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                                         <color key="textColor" name="Normal heading"/>
                                                                                         <nil key="highlightedColor"/>
@@ -306,7 +306,7 @@
                                                                         <state key="normal" image="addnew"/>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New UPI ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udw-KU-KOj">
-                                                                        <rect key="frame" x="64" y="131.5" width="95.5" height="17"/>
+                                                                        <rect key="frame" x="64" y="132" width="102" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" systemColor="linkColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -330,7 +330,7 @@
                                                                 <rect key="frame" x="0.0" y="568" width="374" height="149"/>
                                                                 <subviews>
                                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UYf-NC-kA6">
-                                                                        <rect key="frame" x="16" y="40.5" width="342" height="50"/>
+                                                                        <rect key="frame" x="16" y="40" width="342" height="50"/>
                                                                         <color key="backgroundColor" name="Payment view BG"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="E0y-wb-pyC"/>
@@ -370,13 +370,13 @@
                                                                         </cells>
                                                                     </collectionView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Net Banking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQI-3I-bEn">
-                                                                        <rect key="frame" x="16" y="16" width="61.5" height="14.5"/>
+                                                                        <rect key="frame" x="16" y="16" width="66.5" height="14"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                                                         <color key="textColor" name="BG"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wmn-SX-91G">
-                                                                        <rect key="frame" x="16" y="106.5" width="72" height="29"/>
+                                                                        <rect key="frame" x="16" y="106" width="76" height="29"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <state key="normal" title="More Banks">
                                                                             <color key="titleColor" systemColor="linkColor"/>
@@ -2318,7 +2318,7 @@ Cg
                                 <color key="backgroundColor" name="Background General"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Appointments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R14-GR-JvA">
-                                <rect key="frame" x="71" y="61" width="146" height="21"/>
+                                <rect key="frame" x="71" y="61" width="142.5" height="21"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                 <color key="textColor" name="BG"/>
                                 <nil key="highlightedColor"/>
@@ -2657,7 +2657,7 @@ Cg
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-nO-yn8">
-                                        <rect key="frame" x="76" y="17" width="49" height="21.5"/>
+                                        <rect key="frame" x="76" y="17" width="48" height="21"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <color key="textColor" name="BG"/>
                                         <nil key="highlightedColor"/>
@@ -2675,7 +2675,7 @@ Cg
                                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="280"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRD001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hnk-TQ-r61">
-                                                                        <rect key="frame" x="125" y="227" width="104" height="32.5"/>
+                                                                        <rect key="frame" x="126" y="227" width="102.5" height="31.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="27"/>
                                                                         <color key="textColor" name="BG"/>
                                                                         <nil key="highlightedColor"/>
@@ -2708,13 +2708,13 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nursing Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7y-wh-h4h">
-                                                                        <rect key="frame" x="16" y="55.5" width="322" height="17"/>
+                                                                        <rect key="frame" x="16" y="56" width="322" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Common waiting Area ground / First Floor First Floor - Room no : 31" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C17-y8-sNP">
-                                                                        <rect key="frame" x="16" y="9.5" width="322" height="36"/>
+                                                                        <rect key="frame" x="16" y="11" width="322" height="35"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="15"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
@@ -2745,13 +2745,13 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nursing Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12Q-mu-KsH">
-                                                                        <rect key="frame" x="16" y="55.5" width="322" height="17"/>
+                                                                        <rect key="frame" x="16" y="56" width="322" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Common waiting Area ground / First Floor First Floor - Room no : 31" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyv-fC-7q6">
-                                                                        <rect key="frame" x="16" y="7" width="322" height="38.5"/>
+                                                                        <rect key="frame" x="16" y="8.5" width="322" height="37.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
@@ -2782,13 +2782,13 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clinic Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdk-IL-ubq">
-                                                                        <rect key="frame" x="16" y="40.5" width="322" height="17"/>
+                                                                        <rect key="frame" x="16" y="41" width="322" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sheik Khalifa Medical City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Oaz-ID-xbV">
-                                                                        <rect key="frame" x="16" y="11" width="322" height="19.5"/>
+                                                                        <rect key="frame" x="16" y="12" width="322" height="19"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
@@ -2819,13 +2819,13 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consulting Physician" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrO-wR-DUd">
-                                                                        <rect key="frame" x="16" y="41.5" width="322" height="16"/>
+                                                                        <rect key="frame" x="16" y="42" width="322" height="15.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="13"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Sumi Thomas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="QAJ-aU-IuL">
-                                                                        <rect key="frame" x="16" y="12" width="322" height="19.5"/>
+                                                                        <rect key="frame" x="16" y="13" width="322" height="19"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
@@ -2856,13 +2856,13 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ5-5N-ztW">
-                                                                        <rect key="frame" x="16" y="40.5" width="322" height="17"/>
+                                                                        <rect key="frame" x="16" y="41" width="322" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oshane Thomas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jt2-at-yan">
-                                                                        <rect key="frame" x="16" y="11" width="322" height="19.5"/>
+                                                                        <rect key="frame" x="16" y="12" width="322" height="19"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
@@ -2893,25 +2893,25 @@ Cg
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appt. Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIi-fC-ZHT">
-                                                                        <rect key="frame" x="10" y="40.5" width="162" height="17"/>
+                                                                        <rect key="frame" x="10" y="41" width="162" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:16 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4uX-8F-c7D">
-                                                                        <rect key="frame" x="16" y="11" width="151" height="19.5"/>
+                                                                        <rect key="frame" x="16" y="12" width="151" height="19"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hX-gk-9ga">
-                                                                        <rect key="frame" x="187.5" y="40.5" width="161.5" height="17"/>
+                                                                        <rect key="frame" x="187.5" y="41" width="161.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25/09/2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Ce-SR-Ned">
-                                                                        <rect key="frame" x="187.5" y="11" width="161.5" height="19.5"/>
+                                                                        <rect key="frame" x="187.5" y="12" width="161.5" height="19"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
                                                                         <color key="textColor" red="0.20784313730000001" green="0.2156862745" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -3316,7 +3316,7 @@ Cg
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ9-NN-zgr">
-                                        <rect key="frame" x="76" y="17" width="49" height="21.5"/>
+                                        <rect key="frame" x="76" y="17" width="48" height="21"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <color key="textColor" name="BG"/>
                                         <nil key="highlightedColor"/>
@@ -3341,13 +3341,13 @@ Cg
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CRD002" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pde-eD-3LD">
-                                                                        <rect key="frame" x="106" y="24" width="107" height="32.5"/>
+                                                                        <rect key="frame" x="106" y="24.5" width="102.5" height="31.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="27"/>
                                                                         <color key="textColor" name="BG"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SAf-Jw-qa9">
-                                                                        <rect key="frame" x="106" y="61.5" width="85.5" height="17"/>
+                                                                        <rect key="frame" x="106" y="61" width="91.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="loginsubhead"/>
                                                                         <nil key="highlightedColor"/>
@@ -3368,58 +3368,58 @@ Cg
                                                                 <rect key="frame" x="0.0" y="100" width="354" height="150"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="03.04.2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYu-iD-QpP">
-                                                                        <rect key="frame" x="54" y="60.5" width="72" height="17"/>
+                                                                        <rect key="frame" x="54" y="60.5" width="70.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiology" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4B7-5p-i6f">
-                                                                        <rect key="frame" x="20" y="20" width="66" height="17"/>
+                                                                        <rect key="frame" x="20" y="20" width="68" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr.Albert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qnr-Ak-g5D">
-                                                                        <rect key="frame" x="238" y="64" width="53.5" height="17"/>
+                                                                        <rect key="frame" x="232" y="64" width="54.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Ayesha Raza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="nFd-Gy-tUF">
-                                                                        <rect key="frame" x="238" y="20" width="96" height="17"/>
+                                                                        <rect key="frame" x="232" y="20" width="102" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctorgrey" translatesAutoresizingMaskIntoConstraints="NO" id="arZ-si-hjB">
-                                                                        <rect key="frame" x="204" y="16.5" width="24" height="24"/>
+                                                                        <rect key="frame" x="198" y="16.5" width="24" height="24"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="24" id="Oh2-Ya-ZKC"/>
                                                                             <constraint firstAttribute="width" constant="24" id="oJN-79-F2G"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluecalendar" translatesAutoresizingMaskIntoConstraints="NO" id="wMU-yF-cir">
-                                                                        <rect key="frame" x="20" y="57" width="24" height="24"/>
+                                                                        <rect key="frame" x="20" y="56.5" width="24" height="24"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="24" id="Obn-tB-Wbk"/>
                                                                             <constraint firstAttribute="height" constant="24" id="glO-kC-Fri"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetimeSquare" translatesAutoresizingMaskIntoConstraints="NO" id="08y-kS-Ji1">
-                                                                        <rect key="frame" x="204" y="60.5" width="24" height="24"/>
+                                                                        <rect key="frame" x="198" y="60.5" width="24" height="24"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="24" id="7aa-fp-33H"/>
                                                                             <constraint firstAttribute="width" constant="24" id="S14-W7-5pi"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IG3-kC-cbZ">
-                                                                        <rect key="frame" x="20" y="111" width="73" height="16"/>
+                                                                        <rect key="frame" x="20" y="110.5" width="79" height="15.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="13"/>
                                                                         <color key="textColor" name="loginsubhead"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Parker | Father | 65 yrs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW0-4G-YCV">
-                                                                        <rect key="frame" x="143" y="110.5" width="161" height="17"/>
+                                                                        <rect key="frame" x="149" y="110" width="175.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="Normal heading"/>
                                                                         <nil key="highlightedColor"/>
@@ -3452,7 +3452,7 @@ Cg
                                                                 <rect key="frame" x="0.0" y="250" width="354" height="400"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="beZ-Kw-1vl">
-                                                                        <rect key="frame" x="0.0" y="49" width="354" height="331"/>
+                                                                        <rect key="frame" x="0.0" y="48.5" width="354" height="331.5"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <connections>
                                                                             <outlet property="dataSource" destination="Zku-ky-GUS" id="oN6-yh-sbh"/>
@@ -3460,7 +3460,7 @@ Cg
                                                                         </connections>
                                                                     </tableView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journey" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrZ-RN-b0S">
-                                                                        <rect key="frame" x="20" y="16" width="49" height="17"/>
+                                                                        <rect key="frame" x="20" y="16" width="50.5" height="16.5"/>
                                                                         <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
                                                                         <color key="textColor" name="loginsubhead"/>
                                                                         <nil key="highlightedColor"/>

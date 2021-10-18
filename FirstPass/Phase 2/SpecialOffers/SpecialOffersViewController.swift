@@ -17,8 +17,11 @@ class SpecialOffersViewController: UIViewController
     let offerImages = ["specialoffer1","specialoffer2","specialoffer3"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionview.delegate = self
+        collectionview.collectionViewLayout = CardsCollectionViewLayout()
+        collectionview.isPagingEnabled = true
+        collectionview.showsHorizontalScrollIndicator = false
         collectionview.dataSource = self
+        collectionview.delegate = self
         // Do any additional setup after loading the view.
     }
     
