@@ -376,7 +376,7 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 if currentJourneyIndex+1 == indexPath.row {
                     cell.statusButton.isHidden = false
                     cell.statusButton.backgroundColor = UIColor(red: 204/255, green: 192/255, blue: 255/255, alpha: 1)
-                    cell.statusButton.setTitle("Upcomming", for: .normal)
+                    cell.statusButton.setTitle("Upcoming", for: .normal)
                     cell.statusButton.setTitleColor(UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1), for: .normal)
                     cell.statusButton.isHidden = false
                 } else {
@@ -477,7 +477,7 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
                 if currentJourneyIndex+1 == indexPath.row {
                     cells.statusButton.isHidden = false
                     cells.statusButton.backgroundColor = UIColor(red: 204/255, green: 192/255, blue: 255/255, alpha: 1)
-                    cells.statusButton.setTitle("Upcomming", for: .normal)
+                    cells.statusButton.setTitle("Upcoming", for: .normal)
                     cells.statusButton.setTitleColor(UIColor(red: 53/255, green: 35/255, blue: 100/255, alpha: 1), for: .normal)
                     cells.statusButton.isHidden = false
                 } else {

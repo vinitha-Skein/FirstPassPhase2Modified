@@ -120,7 +120,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     }
     
-    func  showTokenPopup(token:String,Counter:String){
+    func  showTokenPopup(token:String,Counter:String)
+    {
         let storyboard = UIStoryboard(name: "Modified", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
         vc.modalPresentationStyle = .fullScreen

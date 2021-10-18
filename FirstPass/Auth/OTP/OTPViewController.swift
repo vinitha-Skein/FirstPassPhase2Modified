@@ -126,14 +126,15 @@ class OTPViewController: UIViewController,UITextFieldDelegate
           if let error = error {
             let authError = error as NSError
             print(authError.description)
+            self.activityIndicator(self.view, startAnimate: false)
             self.showAlert("Invalid OTP")
             return
           }
+            self.activityIndicator(self.view, startAnimate: false)
             let storyboard = UIStoryboard(name: "Modified", bundle: .main)
                     let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
-                    vc.modalPresentationStyle = .fullScreen
-                    self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-                    vc.userId = self.userId
+                   vc.modalPresentationStyle = .fullScreen
+                   self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
                     self.present(vc, animated: true)
           
             // User has signed in successfully and currentUser object is valid
@@ -193,7 +194,7 @@ class OTPViewController: UIViewController,UITextFieldDelegate
         {
             //verifyOTP(otp: otp)
             print((otp))
-
+            activityIndicator(view, startAnimate: true)
             verify(otpEntered: otp)
 
         }

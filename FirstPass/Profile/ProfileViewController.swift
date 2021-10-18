@@ -10,6 +10,20 @@ import UIKit
 import RealmSwift
 class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
     
+    @IBOutlet var viewAllButton: UIButton!
+    @IBOutlet var mrnIDHeadLabel: UILabel!
+    @IBOutlet var familyMembersHeadLabel: UILabel!
+    @IBOutlet var emailHeadLabel: UILabel!
+    @IBOutlet var mobileHeadLabel: UILabel!
+    @IBOutlet var firstnameHeadLabel: UILabel!
+    @IBOutlet var personalInfoHeadLabel: UILabel!
+    @IBOutlet var passwordHeadLabel: UILabel!
+    @IBOutlet var passwordLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var bgView: UIView!
+    
     
     @IBOutlet var MrnLabel: UILabel!
     @IBOutlet weak var container: UIView!
@@ -72,6 +86,28 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
         let member2 = FamilyMembersList(full_name: "Mr. Johnathan", relation: "Husband", dob: "18-08-1956", mrn: "99884556", national_id: "5566225", id: "1")
         
         familyMemberData = [myself,member1,member2]
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        //Vipview()
+    }
+    func Vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor.black
+        headerView.backgroundColor = UIColor.black
+        titleLabel.textColor = UIColor.white
+        personalInfoHeadLabel.textColor = UIColor.white
+        emailLabel.textColor = UIColor.white
+        phoneLabel.textColor = UIColor.white
+        nameLabel.textColor = UIColor.white
+        passwordLabel.textColor = UIColor.white
+        passwordHeadLabel.textColor = UIColor(named: "vip")
+        familyMembersHeadLabel.textColor = UIColor(named: "vip")
+        viewAllButton.setTitleColor(UIColor.white, for: .normal)
+        mrnIDHeadLabel.textColor = UIColor(named: "vip")
+        firstnameHeadLabel.textColor = UIColor(named:"vip")
+        mobileHeadLabel.textColor = UIColor(named:"vip" )
+        emailHeadLabel.textColor = UIColor(named:"vip")
     }
     func fetchFamilyMembers(){
         //viewModel.fetchFamilyMember()

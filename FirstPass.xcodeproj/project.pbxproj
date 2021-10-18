@@ -1631,7 +1631,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
@@ -1655,7 +1655,7 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
@@ -1678,7 +1678,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Firstpass-watchOS Extension/Firstpass-watchOS Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				INFOPLIST_FILE = "Firstpass-watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1705,7 +1705,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Firstpass-watchOS Extension/Firstpass-watchOS Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				INFOPLIST_FILE = "Firstpass-watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1846,7 +1846,7 @@
 				CODE_SIGN_ENTITLEMENTS = FirstPass/firstpass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
@@ -1871,7 +1871,7 @@
 				CODE_SIGN_ENTITLEMENTS = FirstPass/firstpass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;

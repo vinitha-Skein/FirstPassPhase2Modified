@@ -99,12 +99,12 @@ class PasswordViewController: UIViewController {
     }
     func setPassword(password:String){
         
-        var name =  UserDefaults.standard.string(forKey: "firstName")
-        var mobile = UserDefaults.standard.string(forKey: "phone")
-        var email =  UserDefaults.standard.string(forKey: "email")
-        var nationalID = UserDefaults.standard.string(forKey: "emiratesID")
-        var mrnID = UserDefaults.standard.string(forKey: "mrnID")
-       var deviceID =  UserDefaults.standard.string(forKey: "FCM_REGITERED_TOKEN")
+        let name =  UserDefaults.standard.string(forKey: "firstName")
+        let mobile = UserDefaults.standard.string(forKey: "phone")
+        let email =  UserDefaults.standard.string(forKey: "email")
+        let nationalID = UserDefaults.standard.string(forKey: "emiratesID")
+        let mrnID = UserDefaults.standard.string(forKey: "mrnID")
+        let deviceID =  UserDefaults.standard.string(forKey: "FCM_REGITERED_TOKEN")
 
         let params = [  "full_name":name,
                         "mobile_no":mobile,

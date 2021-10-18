@@ -53,9 +53,8 @@ class RegistrationViewController: UIViewController {
         {
             return
         }
-        var phoneno = mobile.text!
-        let isValidateFirstName = self.validation.validateName(name: firstName)
-        if (isValidateFirstName == false){
+        
+        if (firstName == ""){
             self.showAlert("First name shoulud be atleast 3 chars")
             return
         }
@@ -67,8 +66,7 @@ class RegistrationViewController: UIViewController {
             return
         }
         
-        let isValidatePhone = self.validation.validaPhoneNumberwithcountrycode(phoneNumber: mobileNumber)
-        if (isValidatePhone == false) {
+        if (phone == "") {
             print(mobileNumber)
             self.showAlert("Incorrect Mobile number")
             return
@@ -82,7 +80,7 @@ class RegistrationViewController: UIViewController {
         }
         if (mrnID == "")
         {
-            self.showAlert("Enter Emirites ID")
+            self.showAlert("Enter MRN ID")
             return
         }
         
