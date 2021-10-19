@@ -9,6 +9,12 @@ import UIKit
 import AudioToolbox
 
 class TokenPopup: UIViewController {
+    
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var tokenbgImage: MyImageView!
+    @IBOutlet var starImage: UIImageView!
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var okButton: UIButton!
@@ -16,8 +22,8 @@ class TokenPopup: UIViewController {
     @IBOutlet weak var tokenNumber: UILabel!
     
     @IBOutlet weak var CounterLabel: UILabel!
-    var token = ""
-    var counter = ""
+    var token = "CRD002"
+    var counter = "V1"
     var appointmentData:ActiveAppointmentData?
     var journeyDetails : JourneyDetails?
 
@@ -51,6 +57,24 @@ class TokenPopup: UIViewController {
             debugPrint(error)
         }
         }
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor.black
+        tokenNumber.textColor = UIColor.white
+        CounterLabel.textColor = UIColor(named: "vip")
+        tokenbgImage.backgroundColor = UIColor(hex: "#222629")
+        tokenbgImage.image = UIImage(named: "")
+        okButton.backgroundColor = UIColor(named: "vip")
+        starImage.image = UIImage(named: "vipstar")
+        okButton.setTitleColor(UIColor(hex: "#222629"), for: .normal)
+        titleLabel.textColor = UIColor.white
     }
     @IBAction func okAction(_ sender: Any) {
        // delegate?.tokenClosed()

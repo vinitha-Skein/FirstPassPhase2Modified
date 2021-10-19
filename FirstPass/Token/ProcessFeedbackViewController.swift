@@ -10,6 +10,9 @@ import UIKit
 
 class ProcessFeedbackViewController: UIViewController {
     
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var bgView: UIView!
     @IBOutlet var tabletoBottomView: NSLayoutConstraint!
     @IBOutlet var tableviewHeight: NSLayoutConstraint!
     @IBOutlet var tabletoView: NSLayoutConstraint!
@@ -28,6 +31,7 @@ class ProcessFeedbackViewController: UIViewController {
     
     var  fblist = ["How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?","How was Welcome/Help desk service ?"]
     var feedbackBgColors = ["#DE3541","#DE3541","#F0852F","#F0852F","#FFC534","#FFC534","#78BF30","#78BF30","#15B530","#15B530"]
+    
     var selectedfeedback1 = 11
     var selectedfeedback2 = 11
     var feedbacks = [Int]()
@@ -48,7 +52,7 @@ class ProcessFeedbackViewController: UIViewController {
         collectionViewQuestion2.dataSource = self
         container.layer.cornerRadius = 25
         submitButton.layer.cornerRadius = 8
-        
+        UserDefaults.standard.setValue(false, forKey: "vip")
         
         if index == 0
         {
@@ -82,7 +86,25 @@ class ProcessFeedbackViewController: UIViewController {
             feedbackList = [feedback3,feedback4,finalfeedback]
         }
     }
-    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        container.backgroundColor = UIColor(hex: "#222629")
+        bgView.backgroundColor = UIColor.black
+        submitButton.backgroundColor = UIColor(named: "vip")
+        cancelButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        tableview.backgroundColor =  UIColor(hex: "#222629")
+        collectionview.backgroundColor = UIColor(hex: "#222629")
+        collectionViewQuestion2.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+
+    }
     @IBAction func closeAction(_ sender: Any) {
 //        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
 //        let vc = storyboard.instantiateViewController(withIdentifier: "AppointmentDetailsViewController") as! AppointmentDetailsViewController

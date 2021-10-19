@@ -10,6 +10,10 @@ import UIKit
 
 class AlertNotificationViewController: UIViewController {
 
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var optionsButton: UIButton!
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var tableview:UITableView!
     let indexcount = 0
@@ -31,6 +35,21 @@ class AlertNotificationViewController: UIViewController {
         container.layer.borderWidth = 0.2
         tableview.register(UINib(nibName: "AlertTableCell", bundle: .main), forCellReuseIdentifier: "AlertTableCell")
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        headerView.backgroundColor = UIColor.black
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+        
     }
     @IBAction func backAction(_ sender: Any) {
 //        let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -60,6 +79,20 @@ extension AlertNotificationViewController:UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
   
             let cell = tableView.dequeueReusableCell(withIdentifier: "AlertTableCell", for: indexPath) as! AlertTableCell
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.notificationMessage.textColor =
+                UIColor.white
+            cell.notificationTime.textColor = UIColor(named: "vip")
+            cell.selectionButton.setImage(UIImage(named: "vipcheckboxunselected"), for: .normal)
+        }
+        else
+        {
+            cell.notificationMessage.textColor =
+                UIColor.white
+        }
+        
+        
         if indexPath.row == 0
         {
         cell.notificationMessage.text = "Dear Natasha, your personal concierge is Waiting for you near the reception."
@@ -88,18 +121,39 @@ extension AlertNotificationViewController:UITableViewDelegate,UITableViewDataSou
             cell.notificationTime.text = "March 03,2021"
         }
         var index = Int()
-        cell.buttonPressed =
+        
+        if UserDefaults.standard.bool(forKey: "vip")
         {
-            
-            if (index == 1)
-                {
-                cell.selectionButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
-                index = 0
-                }
-            else
+            cell.buttonPressed =
             {
-                cell.selectionButton.setImage(UIImage(named: "checkboxSelected"), for: .normal)
-                index = 1
+                
+                if (index == 1)
+                    {
+                    cell.selectionButton.setImage(UIImage(named: "vipcheckboxunselected"), for: .normal)
+                    index = 0
+                    }
+                else
+                {
+                    cell.selectionButton.setImage(UIImage(named: "vipcheckboxselected"), for: .normal)
+                    index = 1
+                }
+            }
+        }
+        else
+        {
+            cell.buttonPressed =
+            {
+                
+                if (index == 1)
+                    {
+                    cell.selectionButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
+                    index = 0
+                    }
+                else
+                {
+                    cell.selectionButton.setImage(UIImage(named: "checkboxSelected"), for: .normal)
+                    index = 1
+                }
             }
         }
             return cell

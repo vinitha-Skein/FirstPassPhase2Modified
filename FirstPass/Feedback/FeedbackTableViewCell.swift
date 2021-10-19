@@ -9,6 +9,8 @@
 import UIKit
 
 class FeedbackTableViewCell: UITableViewCell{
+    
+    @IBOutlet var Container: UIView!
     @IBOutlet weak var collectionview: UICollectionView!
     @IBOutlet weak var feedback: UILabel!
     var rating = Int()
@@ -38,11 +40,27 @@ extension FeedbackTableViewCell:UICollectionViewDelegate,UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeedbackCollectionViewCell", for: indexPath) as! FeedbackCollectionViewCell
-        if indexPath.row < rating{
-            cell.icon.image = UIImage(named: "feedbackStarRated")
-        }else{
-            cell.icon.image = UIImage(named: "feedbackStarUnRated")
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            if indexPath.row < rating
+            {
+                cell.icon.image = UIImage(named: "vipratingstar")
+            }
+            else
+            {
+                cell.icon.image = UIImage(named: "vipunratingstar")
+            }
         }
+        else
+        {
+            if indexPath.row < rating{
+                cell.icon.image = UIImage(named: "feedbackStarRated")
+            }else{
+                cell.icon.image = UIImage(named: "feedbackStarUnRated")
+            }
+        }
+        
         return cell
     }
     

@@ -1675,7 +1675,7 @@
                                                                                 <rect key="frame" x="90" y="0.0" width="110" height="45"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radioDeselected" translatesAutoresizingMaskIntoConstraints="NO" id="odb-EW-fW6">
-                                                                                        <rect key="frame" x="0.0" y="11.5" width="37.5" height="22.5"/>
+                                                                                        <rect key="frame" x="0.0" y="11.5" width="24" height="22.5"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="4" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-N6-nbX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
@@ -1685,7 +1685,7 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-7R-2bW">
-                                                                                        <rect key="frame" x="57.5" y="0.0" width="52.5" height="45"/>
+                                                                                        <rect key="frame" x="44" y="0.0" width="66" height="45"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <color key="textColor" white="0.29635528430000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1993,7 +1993,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZo-qn-Muy">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" name="Background General"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00P-K2-kah">
                                 <rect key="frame" x="60" y="73" width="76" height="20"/>
@@ -2016,7 +2016,7 @@
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d9J-uQ-OzD">
                                                         <rect key="frame" x="0.0" y="20" width="394" height="250"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="ciZ-FL-1LC"/>
                                                             <constraint firstAttribute="height" constant="250" id="oiI-96-Nrw"/>
@@ -2030,13 +2030,13 @@
                                                         <rect key="frame" x="32" y="290" width="330" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How likely are you to recommend the Doctor to your friends and family" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="be4-Ut-XUe">
-                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="33.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="33"/>
                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                 <color key="textColor" red="0.29019607843137252" green="0.30980392156862746" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="x77-4v-AwY">
-                                                                <rect key="frame" x="0.0" y="43.5" width="330" height="25"/>
+                                                                <rect key="frame" x="0.0" y="43" width="330" height="25"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="S9r-wL-FRZ"/>
@@ -2088,7 +2088,7 @@
                                                                 </cells>
                                                             </collectionView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="be4-Ut-XUe" firstAttribute="top" secondItem="esF-NP-MuY" secondAttribute="top" id="1yY-3d-C4m"/>
                                                             <constraint firstAttribute="trailing" secondItem="x77-4v-AwY" secondAttribute="trailing" id="EVX-Ls-IWr"/>
@@ -2103,13 +2103,13 @@
                                                         <rect key="frame" x="32" y="400" width="330" height="90"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How likely are you to recommend the Doctor to your friends and family" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AaX-l1-GLc">
-                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="33.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="33"/>
                                                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
                                                                 <color key="textColor" red="0.29019607843137252" green="0.30980392156862746" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zww-CY-Dcg">
-                                                                <rect key="frame" x="0.0" y="43.5" width="330" height="25"/>
+                                                                <rect key="frame" x="0.0" y="43" width="330" height="25"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="25" id="xPi-sQ-Qra"/>
@@ -2161,7 +2161,7 @@
                                                                 </cells>
                                                             </collectionView>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="AaX-l1-GLc" firstAttribute="leading" secondItem="WXU-pi-pFL" secondAttribute="leading" id="1IT-ru-bMP"/>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="1tB-sR-Emr"/>
@@ -2174,7 +2174,7 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="esF-NP-MuY" firstAttribute="top" secondItem="d9J-uQ-OzD" secondAttribute="bottom" constant="20" id="DGV-F6-8Oo"/>
                                                     <constraint firstItem="WXU-pi-pFL" firstAttribute="leading" secondItem="fhb-an-Kxl" secondAttribute="leading" constant="32" id="En9-2T-loV"/>
@@ -2190,6 +2190,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="fhb-an-Kxl" secondAttribute="bottom" id="89P-A8-sJX"/>
                                             <constraint firstItem="fhb-an-Kxl" firstAttribute="leading" secondItem="iWu-Ye-zml" secondAttribute="leading" id="HEt-hc-VwX"/>
@@ -2259,17 +2260,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Z5y-WI-RCD" id="poj-PL-ANY"/>
+                        <outlet property="bgView" destination="EZo-qn-Muy" id="M2u-Hq-MhY"/>
                         <outlet property="cancelButton" destination="x5P-uT-6AH" id="yDi-ev-Lsj"/>
                         <outlet property="collectionViewQuestion2" destination="zww-CY-Dcg" id="ZWc-PE-S43"/>
                         <outlet property="collectionview" destination="x77-4v-AwY" id="4e5-G0-Mj1"/>
                         <outlet property="container" destination="C0f-yx-DGP" id="LXB-Ef-PdA"/>
                         <outlet property="feedbackView3" destination="esF-NP-MuY" id="gig-Sp-csq"/>
                         <outlet property="feedbackView4" destination="WXU-pi-pFL" id="Jqe-cW-dke"/>
-                        <outlet property="submitButton" destination="qW5-5j-uot" id="fSo-L6-4As"/>
+                        <outlet property="submitButton" destination="qW5-5j-uot" id="KIl-7f-fAI"/>
                         <outlet property="tabletoBottomView" destination="ddo-Hi-fIE" id="VnV-Eo-WKQ"/>
                         <outlet property="tabletoView" destination="DGV-F6-8Oo" id="QCX-Hq-6fD"/>
                         <outlet property="tableview" destination="d9J-uQ-OzD" id="Exs-7s-cLx"/>
                         <outlet property="tableviewHeight" destination="oiI-96-Nrw" id="OPa-uo-0zq"/>
+                        <outlet property="titleLabel" destination="00P-K2-kah" id="aq5-3T-Kwn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="42D-lg-w2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2286,7 +2290,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9m-Tb-gf7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" name="Background General"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Token call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7IK-bJ-Ivc">
                                 <rect key="frame" x="60" y="51.5" width="81" height="21"/>
@@ -2311,7 +2315,7 @@
                                             <constraint firstAttribute="height" constant="45" id="0JH-Hx-cFf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <state key="normal" title="Ok">
+                                        <state key="normal" title="OK">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -2347,7 +2351,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" name="Background General"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TzZ-fX-cy2" firstAttribute="width" secondItem="6q4-DX-bIq" secondAttribute="width" multiplier="0.8" id="0oJ-k7-FQl"/>
                                     <constraint firstAttribute="trailing" secondItem="ZR8-3u-vVl" secondAttribute="trailing" constant="20" id="2db-qg-i0B"/>
@@ -2390,9 +2394,14 @@
                     </view>
                     <connections>
                         <outlet property="CounterLabel" destination="ZR8-3u-vVl" id="OxC-bl-Tpc"/>
+                        <outlet property="backButton" destination="JxN-5g-7D6" id="Ahf-qm-xOt"/>
+                        <outlet property="bgView" destination="i9m-Tb-gf7" id="r3s-Rh-ZBH"/>
                         <outlet property="container" destination="6q4-DX-bIq" id="VF9-5u-hdL"/>
                         <outlet property="okButton" destination="Or5-UT-Gsz" id="cdu-Rl-txe"/>
+                        <outlet property="starImage" destination="ZwV-Jr-1WV" id="qRw-Vm-Wee"/>
+                        <outlet property="titleLabel" destination="7IK-bJ-Ivc" id="x4y-RL-5As"/>
                         <outlet property="tokenNumber" destination="lhw-el-91S" id="ngp-of-KAf"/>
+                        <outlet property="tokenbgImage" destination="TzZ-fX-cy2" id="pA8-kg-I2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcr-jK-qCB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2707,7 +2716,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RC7-my-9Bq">
-                                        <rect key="frame" x="76" y="49" width="105" height="21"/>
+                                        <rect key="frame" x="76" y="49" width="101" height="21"/>
                                         <fontDescription key="fontDescription" name="SFProDisplay-Bold" family="SF Pro Display" pointSize="18"/>
                                         <color key="textColor" name="Theme color"/>
                                         <nil key="highlightedColor"/>
@@ -2739,7 +2748,7 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PaK-qo-1p0">
                                         <rect key="frame" x="0.0" y="10" width="374" height="776"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dataSource" destination="MJl-kN-ugK" id="LIJ-lS-sKo"/>
@@ -2757,7 +2766,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K2u-UJ-4QT"/>
-                        <color key="backgroundColor" name="background"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstItem="b0V-K7-ZY5" firstAttribute="leading" secondItem="Cdy-NI-fiu" secondAttribute="leading" constant="20" id="5fB-Mc-lbn"/>
                             <constraint firstItem="XN2-Um-Qox" firstAttribute="top" secondItem="Cdy-NI-fiu" secondAttribute="top" id="YON-JI-10R"/>
@@ -2769,8 +2778,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bgView" destination="Cdy-NI-fiu" id="jSO-4Q-7YU"/>
                         <outlet property="container" destination="b0V-K7-ZY5" id="cHX-Ke-Alb"/>
+                        <outlet property="headerView" destination="XN2-Um-Qox" id="XxA-Uz-Wbu"/>
+                        <outlet property="optionsButton" destination="bTz-NF-GJf" id="L0n-hq-Wd1"/>
                         <outlet property="tableview" destination="PaK-qo-1p0" id="XLY-8H-TYM"/>
+                        <outlet property="titleLabel" destination="RC7-my-9Bq" id="94K-VF-WxV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTq-yB-eUr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -7884,7 +7897,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="specialoffer1" width="280" height="244"/>
         <image name="tab2" width="22" height="22"/>
         <image name="tab3" width="20" height="20"/>
-        <image name="time" width="12" height="12"/>
+        <image name="time" width="24" height="24"/>
         <image name="tokenBg-1" width="146" height="143.5"/>
         <image name="tokennew" width="183" height="172"/>
         <image name="view" width="24" height="24"/>
