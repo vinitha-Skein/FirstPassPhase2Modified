@@ -9,6 +9,20 @@
 import UIKit
 
 class AddNewMemberViewController: UIViewController {
+    
+    @IBOutlet var insuranceNumberLabel: UILabel!
+    @IBOutlet var insuranceProviderLabel: UILabel!
+    @IBOutlet var paymentsTitleLabel: UILabel!
+    @IBOutlet var emiritesTitleLabel: UILabel!
+    @IBOutlet var mrnTitleLabel: UILabel!
+    @IBOutlet var dobTitleLabel: UILabel!
+    @IBOutlet var relationTitleLabel: UILabel!
+    @IBOutlet var fullnameTitleLabel: UILabel!
+    @IBOutlet var surnameLabel: UILabel!
+    @IBOutlet var headerView: UIView!
+    
+    @IBOutlet var bgView: UIView!
+    
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var scrollview: UIScrollView!
     @IBOutlet weak var containerforBorder: UIView!
@@ -75,8 +89,56 @@ class AddNewMemberViewController: UIViewController {
         viewModel.getUserDetails()
         print(viewModel.userId ?? 0)
     }
-    override func viewWillAppear(_ animated: Bool) {
-            }
+   
+    override func viewDidAppear(_ animated: Bool)
+    {
+        vipview()
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        containerforBorder.backgroundColor = UIColor(hex: "#222629")
+        headerView.backgroundColor = UIColor.black
+        fullnameTitleLabel.textColor = UIColor(named: "vip")
+        fullNameTextfield.backgroundColor = UIColor(hex: "#34383B")
+        relationTitleLabel.textColor = UIColor(named: "vip")
+        relationTextfield.backgroundColor = UIColor(hex: "#34383B")
+        dobTitleLabel.textColor = UIColor(named: "vip")
+        dobTextfield.backgroundColor = UIColor(hex: "#34383B")
+        mrnTitleLabel.textColor = UIColor(named: "vip")
+        mrnTextfield.backgroundColor = UIColor(hex: "#34383B")
+        emiritesTitleLabel.textColor = UIColor(named: "vip")
+        idProofTextfield.backgroundColor = UIColor(hex: "#34383B")
+        paymentsTitleLabel.textColor = UIColor(named: "vip")
+        insuranceProviderLabel.textColor = UIColor(named: "vip")
+        insuranceProviderTextfield.backgroundColor = UIColor(hex: "#34383B")
+        insuranceNumberLabel.textColor = UIColor(named: "vip")
+        insurancePolicyNumTextfield.backgroundColor = UIColor(hex: "#34383B")
+        addButton.backgroundColor = UIColor(named: "vip")
+        addButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        addButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        headingLabel.textColor = .white
+        memberTitle(title: "Mr")
+        fullNameTextfield.attributedPlaceholder = NSAttributedString(string: "Enter Fullname", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        relationTextfield.attributedPlaceholder = NSAttributedString(string: "Enter Relation", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        dobTextfield.attributedPlaceholder = NSAttributedString(string: "Enter DOB ", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        mrnTextfield.attributedPlaceholder = NSAttributedString(string: "Enter MRN ID", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        idProofTextfield.attributedPlaceholder = NSAttributedString(string: "Enter Emirites ID", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        insuranceProviderTextfield.attributedPlaceholder = NSAttributedString(string: "Enter Insurance Provider", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        insurancePolicyNumTextfield.attributedPlaceholder = NSAttributedString(string: "Enter Insurance Number", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        
+        
+        selfpayButton.backgroundColor = UIColor(named: "vip")
+        insuranceButton.backgroundColor = UIColor.clear
+        selfpayButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        insuranceButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+        paymentMethodchoosen = "Selfpay"
+        insuranceProviderView.isHidden = true
+        insuranceNumberView.isHidden = true
+        insuranceButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+        insuranceButton.layer.borderWidth = 0.5
+        
+    }
     @IBAction func chooseImage(_ sender: UIButton) {
         self.imagePicker.present(from: sender)
     }
@@ -98,40 +160,89 @@ class AddNewMemberViewController: UIViewController {
     {
         switch title {
         case "Mr":
-            mrButton.backgroundColor = UIColor(hexString: "#352364")
-            mrsButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-            msButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-            mrButton.setTitleColor(.white, for: .normal)
-            mrsButton.setTitleColor(.black, for: .normal)
-            msButton.setTitleColor(.black, for: .normal)
-            msButton.layer.borderColor = UIColor.black.cgColor
-            mrsButton.layer.borderColor = UIColor.black.cgColor
+            
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                mrButton.backgroundColor = UIColor(named: "vip")
+                mrsButton.backgroundColor = UIColor.clear
+                msButton.backgroundColor = UIColor.clear
+                mrButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+                mrsButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+                msButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+                msButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+                mrsButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+            }
+            else
+            {
+                mrButton.backgroundColor = UIColor(hexString: "#352364")
+                mrsButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+                msButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+                mrButton.setTitleColor(.white, for: .normal)
+                mrsButton.setTitleColor(.black, for: .normal)
+                msButton.setTitleColor(.black, for: .normal)
+                msButton.layer.borderColor = UIColor.black.cgColor
+                mrsButton.layer.borderColor = UIColor.black.cgColor
+            }
+            
+            
             msButton.layer.borderWidth = 0.5
             mrsButton.layer.borderWidth = 0.5
 
-
             memberTitle = "Mr"
         case "Mrs":
-            mrsButton.backgroundColor = UIColor(hexString: "#352364")
-            mrButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-            msButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-            mrsButton.setTitleColor(.white, for: .normal)
-            mrButton.setTitleColor(.black, for: .normal)
-            msButton.setTitleColor(.black, for: .normal)
-            msButton.layer.borderColor = UIColor.black.cgColor
-            mrButton.layer.borderColor = UIColor.black.cgColor
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                mrsButton.backgroundColor = UIColor(named: "vip")
+                mrButton.backgroundColor = UIColor.clear
+                msButton.backgroundColor = UIColor.clear
+                mrsButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+                mrButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+                msButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+                msButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+                mrButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+            }
+            else
+            {
+                mrsButton.backgroundColor = UIColor(hexString: "#352364")
+                mrButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+                msButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+                mrsButton.setTitleColor(.white, for: .normal)
+                mrButton.setTitleColor(.black, for: .normal)
+                msButton.setTitleColor(.black, for: .normal)
+                msButton.layer.borderColor = UIColor.black.cgColor
+                mrButton.layer.borderColor = UIColor.black.cgColor
+           
+            }
             msButton.layer.borderWidth = 0.5
             mrButton.layer.borderWidth = 0.5
             memberTitle = "Mrs"
+           
         default:
-            msButton.backgroundColor = UIColor(hexString: "#352364")
-            mrButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-            mrsButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-            msButton.setTitleColor(.white, for: .normal)
-            mrsButton.setTitleColor(.black, for: .normal)
-            mrButton.setTitleColor(.black, for: .normal)
-            mrButton.layer.borderColor = UIColor.black.cgColor
-            mrsButton.layer.borderColor = UIColor.black.cgColor
+            
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                msButton.backgroundColor = UIColor(named: "vip")
+                mrButton.backgroundColor = UIColor.clear
+                mrsButton.backgroundColor = UIColor.clear
+                msButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+                mrButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+                mrsButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+                mrsButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+                mrButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+            }
+            else
+            {
+                msButton.backgroundColor = UIColor(hexString: "#352364")
+                mrButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+                mrsButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+                msButton.setTitleColor(.white, for: .normal)
+                mrsButton.setTitleColor(.black, for: .normal)
+                mrButton.setTitleColor(.black, for: .normal)
+                mrButton.layer.borderColor = UIColor.black.cgColor
+                mrsButton.layer.borderColor = UIColor.black.cgColor
+            }
+            
+            
             mrButton.layer.borderWidth = 0.5
             mrsButton.layer.borderWidth = 0.5
             memberTitle = "Ms"
@@ -161,27 +272,61 @@ class AddNewMemberViewController: UIViewController {
     }
     @IBAction func selfpay_clicked(_ sender: Any)
     {
-        selfpayButton.backgroundColor = UIColor(hexString: "#352364")
-        insuranceButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-        selfpayButton.setTitleColor(.white, for: .normal)
-        insuranceButton.setTitleColor(.black, for: .normal)
-        paymentMethodchoosen = "Selfpay"
-        insuranceProviderView.isHidden = true
-        insuranceNumberView.isHidden = true
-        insuranceButton.layer.borderColor = UIColor.black.cgColor
-        insuranceButton.layer.borderWidth = 0.5
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            selfpayButton.backgroundColor = UIColor(named: "vip")
+            insuranceButton.backgroundColor = UIColor.clear
+            selfpayButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            insuranceButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+            paymentMethodchoosen = "Selfpay"
+            insuranceProviderView.isHidden = true
+            insuranceNumberView.isHidden = true
+            insuranceButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+            insuranceButton.layer.borderWidth = 0.5
+        }
+        else
+        {
+            selfpayButton.backgroundColor = UIColor(hexString: "#352364")
+            insuranceButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+            selfpayButton.setTitleColor(.white, for: .normal)
+            insuranceButton.setTitleColor(.black, for: .normal)
+            paymentMethodchoosen = "Selfpay"
+            insuranceProviderView.isHidden = true
+            insuranceNumberView.isHidden = true
+            insuranceButton.layer.borderColor = UIColor(hex: "#72767C").cgColor
+            insuranceButton.layer.borderWidth = 0.5
+        }
+        
+      
     }
     @IBAction func insurance_clicked(_ sender: Any)
     {
-        selfpayButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-        insuranceButton.backgroundColor = UIColor(hexString: "#352364")
-        selfpayButton.setTitleColor(.black, for: .normal)
-        insuranceButton.setTitleColor(.white, for: .normal)
-        paymentMethodchoosen = "Insurance"
-        insuranceProviderView.isHidden = false
-        insuranceNumberView.isHidden = false
-        selfpayButton.layer.borderColor = UIColor.black.cgColor
-        selfpayButton.layer.borderWidth = 0.5
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            selfpayButton.backgroundColor = UIColor.clear
+            insuranceButton.backgroundColor = UIColor(named: "vip")
+            selfpayButton.setTitleColor(UIColor(hex: "#72767C"), for: .normal)
+            insuranceButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            paymentMethodchoosen = "Insurance"
+            insuranceProviderView.isHidden = false
+            insuranceNumberView.isHidden = false
+            selfpayButton.layer.borderColor = UIColor.white.cgColor
+            selfpayButton.layer.borderWidth = 0.5
+        }
+        else
+        {
+            selfpayButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+            insuranceButton.backgroundColor = UIColor(hexString: "#352364")
+            selfpayButton.setTitleColor(.black, for: .normal)
+            insuranceButton.setTitleColor(.white, for: .normal)
+            paymentMethodchoosen = "Insurance"
+            insuranceProviderView.isHidden = false
+            insuranceNumberView.isHidden = false
+            selfpayButton.layer.borderColor = UIColor.black.cgColor
+            selfpayButton.layer.borderWidth = 0.5
+        }
+        
+        
     }
     @IBAction func clearAction(_ sender: Any) {
         clearAllFields()

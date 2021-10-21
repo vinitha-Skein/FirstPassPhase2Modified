@@ -9,6 +9,14 @@
 import UIKit
 
 class FamilyMemberViewController: UIViewController {
+    
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var headerView: UIView!
+    
+    @IBOutlet var titleLabel: UILabel!
+    
+    
+    
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
@@ -23,6 +31,7 @@ class FamilyMemberViewController: UIViewController {
         tableview.delegate = self
         setupUI()
         viewModel.getUserDetails()
+        UserDefaults.standard.setValue(true, forKey: "vip")
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchFamilyMembers()
@@ -33,6 +42,19 @@ class FamilyMemberViewController: UIViewController {
 //        familyMemberData = [myself,member1,member2,member3]
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        vipview()
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+        addButton.backgroundColor = UIColor(named: "vip")
+        addButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        headerView.backgroundColor = UIColor.black
+        tableview.backgroundColor = UIColor(hex: "#222629")
+    }
     @IBAction func backAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
@@ -98,6 +120,13 @@ extension FamilyMemberViewController:UITableViewDelegate,UITableViewDataSource,E
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FamilyMemberTableViewCell", for: indexPath) as! FamilyMemberTableViewCell
         cell.updateData(data: viewModel.familyMemberData![indexPath.row])
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.container.backgroundColor = UIColor(hex: "#34383B")
+            cell.name.textColor = .white
+            cell.dobLabel.textColor = UIColor(named: "vip")
+            cell.relationLabel.textColor = UIColor(named: "vip")
+        }
         cell.container.layer.cornerRadius = 5
         //cell.updateData(data: familyMemberData[indexPath.row])
         //cell.editButton.tag = indexPath.row

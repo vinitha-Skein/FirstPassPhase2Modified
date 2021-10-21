@@ -55,7 +55,6 @@
                                 </state>
                                 <connections>
                                     <action selector="delete_Clicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="57J-XO-mXl"/>
-                                    <action selector="editAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZBB-9h-Zd5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVQ-g9-fnm">
@@ -106,7 +105,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="pxj-C0-d0e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="9UU-CC-XVs"/>
                     <constraint firstAttribute="trailing" secondItem="pxj-C0-d0e" secondAttribute="trailing" constant="16" id="Ljo-Yb-KJV"/>
@@ -115,13 +114,17 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="calenderImage" destination="UA6-FH-Brh" id="PCn-Kv-WRU"/>
                 <outlet property="container" destination="pxj-C0-d0e" id="Gba-M8-Kwz"/>
+                <outlet property="deleteButton" destination="rW1-AB-RWr" id="Yii-fY-c2I"/>
+                <outlet property="dobLabel" destination="BVQ-g9-fnm" id="JZw-fB-zBa"/>
                 <outlet property="editButton" destination="UqR-ys-bI7" id="dp5-vz-3rC"/>
-                <outlet property="mrn" destination="BVQ-g9-fnm" id="JyT-5L-jjf"/>
                 <outlet property="name" destination="PXW-Kb-dZ7" id="bvU-yy-Wiz"/>
                 <outlet property="pic" destination="G4F-u4-QAw" id="2rc-TM-ttY"/>
-                <outlet property="type" destination="e5F-DX-IMU" id="Ugo-p2-OkV"/>
+                <outlet property="relationImage" destination="gwm-2r-grO" id="9Pm-le-MRw"/>
+                <outlet property="relationLabel" destination="e5F-DX-IMU" id="5fM-on-3JP"/>
             </connections>
             <point key="canvasLocation" x="18.840579710144929" y="150.33482142857142"/>
         </tableViewCell>

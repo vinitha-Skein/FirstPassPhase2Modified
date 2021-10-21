@@ -29,8 +29,23 @@ deleteButton.layer.cornerRadius = 8
         headLabel.text = headText
 //         Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
 
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+
+    func vipview()
+    {
+        popup_container.backgroundColor = UIColor(named: "vip")
+        headLabel.textColor = UIColor(hex: "#503E00")
+        textLabel.textColor = UIColor(hex: "#503E00")
+        deleteButton.backgroundColor = UIColor(hex: "#503E00")
+        deleteButton.setTitleColor(UIColor.white, for: .normal)
+    }
+    
     @IBAction func back_Pressed(_ sender: Any)
     {
         dismiss(animated: true, completion: nil)

@@ -10,12 +10,15 @@ import UIKit
 
 class FamilyMemberTableViewCell: UITableViewCell {
     
+    @IBOutlet var calenderImage: UIImageView!
+    @IBOutlet var relationImage: UIImageView!
+    @IBOutlet var deleteButton: UIButton!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var pic: CustomImageView!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var type: UILabel!
+    @IBOutlet weak var relationLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var mrn: UILabel!
+    @IBOutlet weak var dobLabel: UILabel!
     var delegate:EditFamilyMemberDelegate?
     
     
@@ -73,8 +76,8 @@ class FamilyMemberTableViewCell: UITableViewCell {
     
     func updateData(data:FamilyMembersList){
         name.text = data.full_name ?? ""
-        mrn.text = data.dob ?? ""
-        type.text = data.relation ?? ""
+        dobLabel.text = data.dob ?? ""
+        relationLabel.text = data.relation ?? ""
     }
     
     @IBAction func editAction(_ sender: UIButton) {
