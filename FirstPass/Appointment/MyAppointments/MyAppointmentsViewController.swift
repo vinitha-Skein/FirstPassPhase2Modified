@@ -9,12 +9,18 @@
 import UIKit
 
 class MyAppointmentsViewController: UIViewController {
+    
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var titleLabel: UILabel!
+    
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var activeAppointments: UIButton!
     @IBOutlet weak var bookButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
+    
+    
     let viewModel = MyAppointmentsViewModel()
     var userId = Int()
     var appointmentArray = ["Orthopedic replacement","Medicine collections","Orthopedic replacement"]
@@ -53,30 +59,87 @@ class MyAppointmentsViewController: UIViewController {
 
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    
+    
+    
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+        bookButton.backgroundColor = UIColor(named: "vip")
+        bookButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        
+        historyButton.backgroundColor = .clear
+        activeAppointments.backgroundColor = UIColor(named: "vip")
+        activeAppointments.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        historyButton.setTitleColor(UIColor(hex: "#F2F2F2"), for: .normal)
+    }
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func activeAppointmentAction(_ sender: Any) {
-        activeAppointments.createBorderForButton(cornerRadius: 4, borderWidth: 1, borderColor: .lightGray)
-        historyButton.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
-        historyButton.backgroundColor = .clear
-        activeAppointments.backgroundColor = buttonBG
-        activeAppointments.setTitleColor(.white, for: .normal)
-        historyButton.setTitleColor(unselectedText, for: .normal)
-        isActiveAppointment = true
-      //  fetchActiveAppointments()
-        self.tableview.reloadData()
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            historyButton.backgroundColor = .clear
+            activeAppointments.backgroundColor = UIColor(named: "vip")
+            activeAppointments.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            historyButton.setTitleColor(UIColor(hex: "#F2F2F2"), for: .normal)
+            isActiveAppointment = true
+          //  fetchActiveAppointments()
+            self.tableview.reloadData()
+        }
+        else
+        {
+            activeAppointments.createBorderForButton(cornerRadius: 4, borderWidth: 1, borderColor: .lightGray)
+            historyButton.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
+            historyButton.backgroundColor = .clear
+            activeAppointments.backgroundColor = buttonBG
+            activeAppointments.setTitleColor(.white, for: .normal)
+            historyButton.setTitleColor(unselectedText, for: .normal)
+            isActiveAppointment = true
+            historyButton.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
+          //  fetchActiveAppointments()
+            self.tableview.reloadData()
+        }
+        
+        
     }
     @IBAction func historyAction(_ sender: Any) {
-        historyButton.createBorderForButton(cornerRadius: 4, borderWidth: 1, borderColor: .lightGray)
-        activeAppointments.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
-        activeAppointments.backgroundColor = .clear
-        historyButton.backgroundColor = buttonBG
-        historyButton.setTitleColor(.white, for: .normal)
-        activeAppointments.setTitleColor(unselectedText, for: .normal)
-        isActiveAppointment = false
-    //    fetchAllAppointments()
-        self.tableview.reloadData()
+       
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            
+            activeAppointments.backgroundColor = .clear
+            historyButton.backgroundColor = UIColor(named: "vip")
+            historyButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            activeAppointments.setTitleColor(UIColor(hex: "#F2F2F2"), for: .normal)
+            isActiveAppointment = false
+            activeAppointments.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
+        //    fetchAllAppointments()
+            self.tableview.reloadData()
+        }
+        else
+        {
+            historyButton.createBorderForButton(cornerRadius: 4, borderWidth: 1, borderColor: .lightGray)
+            activeAppointments.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
+            activeAppointments.backgroundColor = .clear
+            historyButton.backgroundColor = buttonBG
+            historyButton.setTitleColor(.white, for: .normal)
+            activeAppointments.setTitleColor(unselectedText, for: .normal)
+            isActiveAppointment = false
+        //    fetchAllAppointments()
+            self.tableview.reloadData()
+        }
     }
     @IBAction func bookAppointmentAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)
@@ -94,6 +157,7 @@ class MyAppointmentsViewController: UIViewController {
         activeAppointments.backgroundColor = buttonBG
         activeAppointments.setTitleColor(.white, for: .normal)
         historyButton.setTitleColor(unselectedText, for: .normal)
+        container.layer.cornerRadius = 20
         isActiveAppointment = true
         self.tableview.reloadData()
     }
@@ -197,6 +261,31 @@ extension MyAppointmentsViewController:UITableViewDelegate,UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentTableViewCell", for: indexPath) as! AppointmentTableViewCell
         cell.delegate = self
         cell.updateBackgroundColorUI(indexPath: indexPath)
+        cell.container.layer.cornerRadius = 10
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.container.backgroundColor = UIColor(hex: "#34383B")
+            cell.appointmentName.textColor = UIColor.white
+            cell.time.textColor = UIColor(named: "vip")
+            cell.date.textColor = UIColor(named: "vip")
+            cell.doctorName.textColor = UIColor(named: "vip")
+            cell.precheckinButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+            cell.checkinButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        }
+        else
+        {
+            cell.container.backgroundColor = UIColor(hex: "#F8F8F9")
+            cell.appointmentName.textColor = UIColor(hex: "#352364")
+            cell.time.textColor = UIColor(hex: "#72767C")
+            cell.date.textColor = UIColor(hex: "#72767C")
+            cell.doctorName.textColor = UIColor(hex: "#72767C")
+            cell.precheckinButton.setTitleColor(UIColor(hex: "#2F74E2"), for: .normal)
+            cell.checkinButton.setTitleColor(UIColor(hex: "#2F74E2"), for: .normal)
+        }
+        
+        
+        
+        
         if isActiveAppointment
         {
 //            cell.updateAppointmentDataToUI(data: (viewModel.activeAppointments?.appointmentDetails?[indexPath.row])!, indexpath: indexPath)

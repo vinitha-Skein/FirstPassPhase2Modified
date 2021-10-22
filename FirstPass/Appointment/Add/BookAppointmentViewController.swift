@@ -8,7 +8,27 @@
 
 import UIKit
 
-class BookAppointmentViewController: UIViewController {
+class BookAppointmentViewController: UIViewController
+{
+    
+    
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var availabletimeTitleLabel: UILabel!
+    
+    @IBOutlet var availabledateTitleLabel: UILabel!
+    @IBOutlet var doctorTitleLabel: UILabel!
+    @IBOutlet var serviceTitleLabel: UILabel!
+    
+    @IBOutlet var departmentTitleLabel: UILabel!
+    @IBOutlet var locationTitleLabel: UILabel!
+    @IBOutlet var selectfamilymemberTitleLabel: UILabel!
+    
+    @IBOutlet var appointmentforLabel: UILabel!
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var bgView: UIView!
+    
     @IBOutlet var mainContainer: UIView!
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var myselfButton: UIButton!
@@ -58,7 +78,8 @@ class BookAppointmentViewController: UIViewController {
     var doctors = [DoctorData]()
     var familyMemberData = [FamilyMembersList]()
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
@@ -128,8 +149,57 @@ class BookAppointmentViewController: UIViewController {
         //        let ser1 = ServiceData(branchId: 0, serviceId: 0, serviceNameAr: 0, serviceNameEn: "")
         
     }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        vipview()
+    }
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getUserDetails()
+    }
+    
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        appointmentforLabel.textColor = UIColor(named: "vip")
+        locationTitleLabel.textColor = UIColor(named: "vip")
+        departmentTitleLabel.textColor = UIColor(named: "vip")
+        serviceTitleLabel.textColor = UIColor(named: "vip")
+        doctorTitleLabel.textColor = UIColor(named: "vip")
+        availabletimeTitleLabel.textColor = UIColor(named: "vip")
+        availabledateTitleLabel.textColor = UIColor(named: "vip")
+        bookButton.backgroundColor = UIColor(named: "vip")
+        bookButton.setTitleColor(UIColor(named: "#503E00"), for: .normal)
+        
+        locationTextfield.backgroundColor = UIColor(hex: "#34383B")
+        locationTextfield.attributedPlaceholder = NSAttributedString(string: "Select Location", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        departmentTextfield.backgroundColor = UIColor(hex: "#34383B")
+        departmentTextfield.attributedPlaceholder = NSAttributedString(string: "Select Department", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        serviceTextfield.backgroundColor = UIColor(hex: "#34383B")
+        serviceTextfield.attributedPlaceholder = NSAttributedString(string: "Select Location", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        doctorLabTextfield.backgroundColor = UIColor(hex: "#34383B")
+        doctorLabTextfield.attributedPlaceholder = NSAttributedString(string: "Select Doctor", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        dateTextfield.backgroundColor = UIColor(hex: "#34383B")
+        dateTextfield.attributedPlaceholder = NSAttributedString(string: "Select Date", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        timeTextfield.backgroundColor = UIColor(hex: "#34383B")
+        timeTextfield.attributedPlaceholder = NSAttributedString(string: "Select Time", attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: "#72767C")])
+        titleLabel.textColor = UIColor.white
+        headerView.backgroundColor = UIColor.black
+        bookButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        
+        memberView.isHidden = true
+        myselfButton.backgroundColor = UIColor(named: "vip")
+        familyMemberButton.backgroundColor = UIColor.clear
+        myselfButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        familyMemberButton.setTitleColor(UIColor(hex: "#F2F2F2"), for: .normal)
+        familyMemberButton.layer.borderWidth = 0.5
+        familyMemberButton.layer.borderColor = UIColor(hex: "#F2F2F2").cgColor
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        
+        
+        
+        
+        
     }
     
     @IBAction func backAction(_ sender: Any) {
@@ -141,21 +211,52 @@ class BookAppointmentViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
-    @IBAction func mySelfAction(_ sender: Any) {
-        memberView.isHidden = true
-        myselfButton.backgroundColor = UIColor(hexString: "#352364")
-        familyMemberButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-        familyMemberButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-        myselfButton.setTitleColor(.white, for: .normal)
-        familyMemberButton.setTitleColor(buttontextColor, for: .normal)
+    @IBAction func mySelfAction(_ sender: Any)
+    {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            memberView.isHidden = true
+            myselfButton.backgroundColor = UIColor(named: "vip")
+            familyMemberButton.backgroundColor = UIColor.clear
+            myselfButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            familyMemberButton.setTitleColor(UIColor(hex: "#F2F2F2"), for: .normal)
+            familyMemberButton.layer.borderWidth = 0.5
+            familyMemberButton.layer.borderColor = UIColor(hex: "#F2F2F2").cgColor
+        }
+        else
+        {
+            memberView.isHidden = true
+            myselfButton.backgroundColor = UIColor(hexString: "#352364")
+            familyMemberButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+            myselfButton.setTitleColor(.white, for: .normal)
+            familyMemberButton.setTitleColor(buttontextColor, for: .normal)
+            
+        }
         
     }
-    @IBAction func famlyMemberAction(_ sender: Any) {
-        memberView.isHidden = false
-        myselfButton.backgroundColor = UIColor(hexString: "#E1E3E6")
-        familyMemberButton.backgroundColor = UIColor(hexString: "#352364")
-        familyMemberButton.setTitleColor(.white, for: .normal)
-        myselfButton.setTitleColor(buttontextColor, for: .normal)
+    @IBAction func famlyMemberAction(_ sender: Any)
+    {
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            memberView.isHidden = false
+            myselfButton.backgroundColor = UIColor.clear
+            familyMemberButton.backgroundColor = UIColor(named: "vip")
+            familyMemberButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            myselfButton.setTitleColor(UIColor(hex: "#F2F2F2"), for: .normal)
+            myselfButton.layer.borderWidth = 0.5
+            myselfButton.layer.borderColor = UIColor(hex: "#F2F2F2").cgColor
+        }
+        else
+        {
+            memberView.isHidden = false
+            myselfButton.backgroundColor = UIColor(hexString: "#E1E3E6")
+            familyMemberButton.backgroundColor = UIColor(hexString: "#352364")
+            familyMemberButton.setTitleColor(.white, for: .normal)
+            myselfButton.setTitleColor(buttontextColor, for: .normal)
+        }
+        
+        
     }
     @IBAction func clearAction(_ sender: Any) {
         locationTextfield.text = ""
@@ -531,13 +632,26 @@ class BookAppointmentViewController: UIViewController {
         //clearButton.backgroundColor = .clear
         
        // memberTextfield.addRightView(imageName: "rightView")
-        locationTextfield.addRightView(imageName: "dropdown")
-        departmentTextfield.addRightView(imageName: "dropdown")
-        serviceTextfield.addRightView(imageName: "dropdown")
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            locationTextfield.addRightView(imageName: "vipdropdown")
+            departmentTextfield.addRightView(imageName: "vipdropdown")
+            serviceTextfield.addRightView(imageName: "vipdropdown")
+            doctorLabTextfield.addRightView(imageName: "vipdropdown")
+            dateTextfield.addRightView(imageName: "calendar")
+            timeTextfield.addRightView(imageName: "TimeSquare")
+        }
+        else
+        {
+            locationTextfield.addRightView(imageName: "dropdown")
+            departmentTextfield.addRightView(imageName: "dropdown")
+            serviceTextfield.addRightView(imageName: "dropdown")
+            doctorLabTextfield.addRightView(imageName: "dropdown")
+            dateTextfield.addRightView(imageName: "calendar")
+            timeTextfield.addRightView(imageName: "TimeSquare")
+        }
         
-        doctorLabTextfield.addRightView(imageName: "dropdown")
-        dateTextfield.addRightView(imageName: "calendar")
-        timeTextfield.addRightView(imageName: "TimeSquare")
+        
         //memberTextfield.setPlaceholder(placeholderText: "Select member")
         locationTextfield.setPlaceholder(placeholderText: "Select location")
         departmentTextfield.setPlaceholder(placeholderText: "Select department")

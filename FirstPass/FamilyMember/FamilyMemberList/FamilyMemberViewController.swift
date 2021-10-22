@@ -15,8 +15,6 @@ class FamilyMemberViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
     
-    
-    
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
@@ -24,17 +22,18 @@ class FamilyMemberViewController: UIViewController {
     let viewModel = FamilyMemberViewModel()
     var familyMemberData = [FamilyMembersList]()
     var userId = Int()
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         tableview.register(UINib(nibName: "FamilyMemberTableViewCell", bundle: .main), forCellReuseIdentifier: "FamilyMemberTableViewCell")
         tableview.dataSource = self
         tableview.delegate = self
         setupUI()
         viewModel.getUserDetails()
-        UserDefaults.standard.setValue(true, forKey: "vip")
     }
     override func viewWillAppear(_ animated: Bool) {
         fetchFamilyMembers()
+        
 //        let myself = FamilyMembersList(name: "Mrs. Kiara Parker", dob: "Mar 03,1972", memberId: 0, pId: 0, releation: "Mother", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "456878563", profile_pic: "person")
 //        let member1 = FamilyMembersList(name: "Ms. Julie Parker", dob: "Aug 29,1996", memberId: 0, pId: 0, releation: "Sister", title: "Mrs", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "998878563", profile_pic: "person1")
 //        let member2 = FamilyMembersList(name: "Mr. John Parker", dob: "Jun 29, 1993", memberId: 0, pId: 0, releation: "Brother", title: "Mr", nationalId: "", id_proof: "Emirates ID", paymentmethod: "", insurancename: "", insuranceno: "", insurancevalidity: "", insurancecardimage: "", mrnNo: "678878563", profile_pic: "person2")

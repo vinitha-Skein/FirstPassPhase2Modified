@@ -147,7 +147,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="7cS-W3-BgI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="QVr-kd-6aC"/>
                     <constraint firstAttribute="bottom" secondItem="7cS-W3-BgI" secondAttribute="bottom" constant="12" id="mY5-AN-C1o"/>
@@ -156,16 +156,20 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="appointmentName" destination="opn-gM-ntd" id="NeS-ch-kzC"/>
+                <outlet property="calenderImage" destination="gbp-Io-eEG" id="Psb-5K-jJs"/>
                 <outlet property="checkinButton" destination="k9N-CO-LXL" id="mzy-6G-1lQ"/>
                 <outlet property="checkinHorizontalLayout" destination="fpj-BU-35H" id="iwo-qQ-sIe"/>
                 <outlet property="container" destination="7cS-W3-BgI" id="sCQ-Z6-b1y"/>
                 <outlet property="date" destination="p7q-1h-NU3" id="fuW-nE-LGp"/>
+                <outlet property="doctorIcon" destination="t02-mW-e0K" id="edK-yP-hTV"/>
                 <outlet property="doctorName" destination="8hs-Jv-bwS" id="jzh-fy-lzr"/>
                 <outlet property="indoorButton" destination="lpm-V5-HeB" id="2vg-Hg-mgW"/>
                 <outlet property="precheckinButton" destination="Yvj-ZF-03h" id="4Al-Bc-taP"/>
                 <outlet property="time" destination="zWR-dc-Iej" id="dBU-lw-VOh"/>
+                <outlet property="timeImage" destination="vkU-VM-Vwa" id="qiC-SJ-jkQ"/>
                 <outlet property="waiTimeLabel" destination="pW6-Uh-h1D" id="BnY-0Z-rbx"/>
                 <outlet property="waitLabel" destination="yGb-KB-bEG" id="Mey-Vq-t3a"/>
             </connections>

@@ -9,6 +9,10 @@
 import UIKit
 
 class AppointmentTableViewCell: UITableViewCell {
+    
+    @IBOutlet var doctorIcon: UIImageView!
+    @IBOutlet var timeImage: UIImageView!
+    @IBOutlet var calenderImage: UIImageView!
     @IBOutlet var indoorButton: UIButton!
     @IBOutlet var waiTimeLabel: UILabel!
     @IBOutlet var waitLabel: UILabel!
