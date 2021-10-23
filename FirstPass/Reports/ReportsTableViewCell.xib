@@ -69,7 +69,7 @@
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="GMy-Wy-8Gg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1ib-zz-a1z"/>
                     <constraint firstItem="6Ut-qY-wZ1" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="3zj-OK-spK"/>
@@ -85,9 +85,14 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="container" destination="H2p-sc-9uM" id="0im-bc-Uos"/>
+                <outlet property="dateLabel" destination="2jN-9d-vkd" id="Mxn-xr-VJl"/>
+                <outlet property="downloadButton" destination="GMy-Wy-8Gg" id="Arl-oz-lf2"/>
                 <outlet property="name" destination="BY6-hP-GQ3" id="NJx-GB-ROZ"/>
-                <outlet property="viewButton" destination="3f1-vq-IJl" id="OVU-vx-jIz"/>
+                <outlet property="shareButton" destination="6Ut-qY-wZ1" id="59J-nb-YoN"/>
+                <outlet property="viewButton" destination="3f1-vq-IJl" id="sy5-U3-stT"/>
             </connections>
             <point key="canvasLocation" x="200.00000000000003" y="122.54464285714285"/>
         </tableViewCell>

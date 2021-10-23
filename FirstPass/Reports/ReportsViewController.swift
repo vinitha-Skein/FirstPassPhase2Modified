@@ -13,8 +13,15 @@ struct ReportData {
 
 import UIKit
 import QuickLook
-class ReportsViewController: UIViewController,ReportDelegate {
+class ReportsViewController: UIViewController,ReportDelegate
+{
  
+    @IBOutlet var filterButton: UIButton!
+    @IBOutlet var reportCountLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var bgView: UIView!
     
    // @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var tableview: UITableView!
@@ -42,8 +49,22 @@ class ReportsViewController: UIViewController,ReportDelegate {
 //            backButton.isHidden = true
 //        }
         
-        // Do any additional setup after loading the view.
+        UserDefaults.standard.setValue(true, forKey: "vip")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        vipview()
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        reportCountLabel.textColor = UIColor(named: "vip")
+        
+    }
+    
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -176,16 +197,38 @@ extension ReportsViewController:UITableViewDelegate,UITableViewDataSource{
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if tableView == tableview{
+        if tableView == tableview
+        {
             guard let view = tableView.dequeueReusableHeaderFooterView(
                 withIdentifier: "ReportHeader")
                 as? ReportHeader
-                else {
-                    return nil
+            else
+            {
+                return nil
+            }
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                view.container.layer.cornerRadius = 10
+                view.container.backgroundColor = UIColor(named: "vip")
+                view.actionLabel.textColor = UIColor(named: "#503E00")
+                view.dateLabel.textColor = UIColor(named: "#503E00")
+                view.processLabel.textColor = UIColor(named: "#503E00")
+            }
+            else
+            {
+                view.container.layer.cornerRadius = 10
+                view.container.backgroundColor = UIColor(hex: "#F8F8F9")
+                view.actionLabel.textColor = UIColor.black
+                view.dateLabel.textColor = UIColor.black
+                view.processLabel.textColor = UIColor.black
             }
             
+           
+            
             return view
-        }else{
+        }
+        else
+        {
             return nil
         }
         
@@ -199,12 +242,27 @@ extension ReportsViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableview{
+        if tableView == tableview
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ReportsTableViewCell", for: indexPath) as! ReportsTableViewCell
+            
             cell.delegate = self
-            cell.name.text = reportData[indexPath.row].name
+
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.name.text = reportData[indexPath.row].name
+                cell.name.textColor = .white
+                cell.dateLabel.textColor = .white
+            }
+            else
+            {
+                cell.name.text = reportData[indexPath.row].name
+
+            }
             return cell
-        }else{
+        }
+        else
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FilterTableViewCell", for: indexPath) as! FilterTableViewCell
             cell.type.text = filterList[indexPath.row]
             return cell

@@ -9,7 +9,16 @@
 import UIKit
 
 class EditPersonalInformationViewController: UIViewController {
-
+    
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var emailTitleLabel: UILabel!
+    @IBOutlet var mobileTitleLabel: UILabel!
+    @IBOutlet var nameTitleLabel: UILabel!
+    
+    @IBOutlet var bgView: UIView!
+    
     @IBOutlet var nameTextFeild: UITextField!
     @IBOutlet var emailTextFeild: UITextField!
     @IBOutlet var mobileNumberTextFeild: UITextField!
@@ -38,6 +47,27 @@ class EditPersonalInformationViewController: UIViewController {
         container.layer.shadowOpacity = 0.2
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+      
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        nameView.backgroundColor = UIColor(hex: "#34383B")
+        numberView.backgroundColor = UIColor(hex: "#34383B")
+        emailView.backgroundColor = UIColor(hex: "#34383B")
+        changesButton.backgroundColor = UIColor(named: "vip")
+        changesButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+    }
+    
     
     @IBAction func back_clicked(_ sender: Any)
     {

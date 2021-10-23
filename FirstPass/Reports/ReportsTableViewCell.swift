@@ -9,6 +9,13 @@
 import UIKit
 
 class ReportsTableViewCell: UITableViewCell {
+    
+    
+    
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var shareButton: UIButton!
+    @IBOutlet var downloadButton: UIButton!
+    @IBOutlet var container: UIView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var viewButton: UIButton!
     var delegate:ReportDelegate?

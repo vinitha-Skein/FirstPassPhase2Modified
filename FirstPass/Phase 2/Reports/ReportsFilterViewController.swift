@@ -9,6 +9,16 @@
 import UIKit
 
 class ReportsFilterViewController: UIViewController {
+    
+    
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var closeButton: UIButton!
+    
+    
+    
+    @IBOutlet var applyButton: UIButton!
+    @IBOutlet var clearallButton: UIButton!
     @IBOutlet weak var Container: UIView!
     @IBOutlet weak var popupContainer: UIView!
     @IBOutlet weak var collectionview: UICollectionView!
@@ -44,6 +54,26 @@ class ReportsFilterViewController: UIViewController {
 //        popupContainer.layer.shadowOpacity = 0.2
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+           vipview()
+        }
+    }
+    func vipview()
+    {
+        popupContainer.backgroundColor = UIColor(named: "vip")
+        titleLabel.textColor = UIColor(hex: "#503E00")
+        clearallButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        applyButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+       
+        byTypeButton.backgroundColor = UIColor(hex: "#503E00")
+        byTypeButton.setTitleColor(UIColor.white, for: .normal)
+        byMonthButton.layer.backgroundColor = UIColor.clear.cgColor
+        byMonthButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        byMonthButton.layer.borderWidth = 1
+        byMonthButton.layer.borderColor = UIColor(hex: "#503E00").cgColor
+    }
     @IBAction func backClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -62,15 +92,33 @@ class ReportsFilterViewController: UIViewController {
         if let layout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .vertical
         }
-        byType = true
-        collectionViewHeight.constant = 150
-        collectionview.reloadData()
-        byTypeButton.layer.backgroundColor = buttonBG.cgColor
-        byTypeButton.setTitleColor(UIColor.white, for: .normal)
-        byMonthButton.layer.backgroundColor = buttonBGNotSelected.cgColor
-        byMonthButton.setTitleColor(buttontextColor, for: .normal)
-        byMonthButton.layer.borderWidth = 1
-        byMonthButton.layer.borderColor = buttontextColor.cgColor
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            byType = true
+            collectionViewHeight.constant = 150
+            collectionview.reloadData()
+            byTypeButton.backgroundColor = UIColor(hex: "#503E00")
+            byTypeButton.setTitleColor(UIColor.white, for: .normal)
+            byMonthButton.layer.backgroundColor = UIColor.clear.cgColor
+            byMonthButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            byMonthButton.layer.borderWidth = 1
+            byMonthButton.layer.borderColor = UIColor(hex: "#503E00").cgColor
+        }
+        else
+        {
+            byType = true
+            collectionViewHeight.constant = 150
+            collectionview.reloadData()
+            byTypeButton.layer.backgroundColor = buttonBG.cgColor
+            byTypeButton.setTitleColor(UIColor.white, for: .normal)
+            byMonthButton.layer.backgroundColor = buttonBGNotSelected.cgColor
+            byMonthButton.setTitleColor(buttontextColor, for: .normal)
+            byMonthButton.layer.borderWidth = 1
+            byMonthButton.layer.borderColor = buttontextColor.cgColor
+        }
+        
+        
+        
 
     }
     @IBAction func byMonthClicked(_ sender: Any)
@@ -79,15 +127,36 @@ class ReportsFilterViewController: UIViewController {
         {
         layout.scrollDirection = .horizontal
         }
-        byType = false
-        collectionViewHeight.constant = 200
-        collectionview.reloadData()
-        byMonthButton.layer.backgroundColor = buttonBG.cgColor
-        byMonthButton.setTitleColor(UIColor.white, for: .normal)
-        byTypeButton.layer.backgroundColor = buttonBGNotSelected.cgColor
-        byTypeButton.setTitleColor(buttontextColor, for: .normal)
-        byTypeButton.layer.borderWidth = 1
-        byTypeButton.layer.borderColor = buttontextColor.cgColor
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            byType = false
+            collectionViewHeight.constant = 200
+            collectionview.reloadData()
+            
+            byMonthButton.backgroundColor = UIColor(hex: "#503E00")
+            byMonthButton.setTitleColor(UIColor.white, for: .normal)
+            byTypeButton.backgroundColor = UIColor.clear
+            byTypeButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+            byTypeButton.layer.borderWidth = 1
+            byTypeButton.layer.borderColor = UIColor(hex: "#503E00").cgColor
+        }
+        
+        else
+        {
+            byType = false
+            collectionViewHeight.constant = 200
+            collectionview.reloadData()
+            
+            byMonthButton.layer.backgroundColor = buttonBG.cgColor
+            byMonthButton.setTitleColor(UIColor.white, for: .normal)
+            byTypeButton.layer.backgroundColor = buttonBGNotSelected.cgColor
+            byTypeButton.setTitleColor(buttontextColor, for: .normal)
+            byTypeButton.layer.borderWidth = 1
+            byTypeButton.layer.borderColor = buttontextColor.cgColor
+        }
+        
+        
     }
     
     /*
@@ -118,10 +187,21 @@ extension ReportsFilterViewController: UICollectionViewDelegate,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "FiltersCollectionViewCell", for: indexPath) as! FiltersCollectionViewCell
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.catgoryLabel.textColor = UIColor(hex: "#503E00")
+            cell.checkButton.setImage(UIImage(named: "vipunselected"), for: .normal)
+        }
+        else
+        {
+            cell.catgoryLabel.textColor = UIColor.black
+            cell.checkButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
+        }
+        
         if (byType)
         {
             cell.catgoryLabel.text = Types[indexPath.row]
-
         }
         else
         {
@@ -129,21 +209,48 @@ extension ReportsFilterViewController: UICollectionViewDelegate,UICollectionView
         }
         cell.checkButtonPressed =
         {
-            if(self.checkBoxSelected == true)
+            if UserDefaults.standard.bool(forKey: "vip")
             {
-                cell.checkButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
-                self.checkBoxSelected = false
+                if(self.checkBoxSelected == true)
+                {
+                    cell.checkButton.setImage(UIImage(named: "vipselected"), for: .normal)
+                    self.checkBoxSelected = false
+                }
+                else
+                {
+                    cell.checkButton.setImage(UIImage(named: "vipunselected"), for: .normal)
+                    self.checkBoxSelected = true
+                    self.clearallClicked = false
+                }
             }
             else
             {
-                cell.checkButton.setImage(UIImage(named: "checkboxSelected"), for: .normal)
-                self.checkBoxSelected = true
-                self.clearallClicked = false
+                if(self.checkBoxSelected == true)
+                {
+                    cell.checkButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
+                    self.checkBoxSelected = false
+                }
+                else
+                {
+                    cell.checkButton.setImage(UIImage(named: "checkboxSelected"), for: .normal)
+                    self.checkBoxSelected = true
+                    self.clearallClicked = false
+                }
             }
+            
+            
         }
         if (clearallClicked)
         {
-            cell.checkButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.checkButton.setImage(UIImage(named: "vipunselected"), for: .normal)
+
+            }
+            else
+            {
+               cell.checkButton.setImage(UIImage(named: "checkboxDeselected"), for: .normal)
+            }
         }
         return cell
     }

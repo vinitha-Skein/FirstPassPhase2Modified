@@ -9,6 +9,16 @@
 import UIKit
 
 class SetPasswordViewController: UIViewController {
+    
+    @IBOutlet var reenterpasswordTitleLabel: UILabel!
+    @IBOutlet var passwordTitleLabel: UILabel!
+    @IBOutlet var headingLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var bgView: UIView!
+    
+    
 
     @IBOutlet weak var passwordTextfeild: UITextField!
     @IBOutlet weak var confirmPasswordTextfeild: UITextField!
@@ -36,7 +46,26 @@ class SetPasswordViewController: UIViewController {
         confirmpasswordView.layer.cornerRadius = 5
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex:"#222629" )
+        titleLabel.textColor = UIColor.white
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        passwordView.backgroundColor = UIColor(hex: "#34383B")
+        confirmpasswordView.backgroundColor = UIColor(hex: "#34383B")
+        passwordTitleLabel.textColor = UIColor(named: "vip")
+        reenterpasswordTitleLabel.textColor = UIColor(named: "vip")
+        submitButton.backgroundColor = UIColor(named: "vip")
+        submitButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        headingLabel.textColor = UIColor(named: "vip")
+    }
     @IBAction func password_ButtonClicked(_ sender: Any)
     {
         if(passwordiconclick == true)

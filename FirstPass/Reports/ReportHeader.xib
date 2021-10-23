@@ -46,7 +46,7 @@
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="d1n-Dz-rzC"/>
-            <color key="backgroundColor" red="0.88327312469999997" green="0.89063835140000003" blue="0.90062731500000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="d1n-Dz-rzC" firstAttribute="trailing" secondItem="zbv-BP-PJN" secondAttribute="trailing" constant="90" id="7lQ-ip-WRY"/>
                 <constraint firstItem="qjz-XC-G3w" firstAttribute="top" secondItem="uTX-Qx-Lh6" secondAttribute="top" id="Ecb-HG-yc3"/>
@@ -60,6 +60,12 @@
                 <constraint firstAttribute="bottom" secondItem="qjz-XC-G3w" secondAttribute="bottom" id="shI-qI-JqU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="actionLabel" destination="zbv-BP-PJN" id="94V-47-FqN"/>
+                <outlet property="container" destination="qjz-XC-G3w" id="iWe-2o-AMk"/>
+                <outlet property="dateLabel" destination="3Ms-mB-Xss" id="aR9-Ug-ryU"/>
+                <outlet property="processLabel" destination="dTe-eO-P7z" id="FYc-iE-MHz"/>
+            </connections>
             <point key="canvasLocation" x="-784.78260869565224" y="38.839285714285715"/>
         </view>
     </objects>

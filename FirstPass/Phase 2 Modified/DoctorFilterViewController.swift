@@ -12,11 +12,19 @@ class DoctorFilterViewController: UIViewController
 {
     
     
+    @IBOutlet var departmenttitleLabel: UILabel!
+    @IBOutlet var locationTitleLabel: UILabel!
+    @IBOutlet var applyButton: UIButton!
+    @IBOutlet var clearallButton: UIButton!
+    @IBOutlet var closeButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
     
     @IBOutlet weak var popupContainer: UIView!
     @IBOutlet weak var Container: UIView!
     @IBOutlet weak var locationFeild: UITextField!
     @IBOutlet weak var departmentFeild: UITextField!
+    
+    
     var location = [LocationData]()
     var department = [BranchData]()
     var selectedField:PopUpFor?
@@ -46,8 +54,18 @@ class DoctorFilterViewController: UIViewController
         department = [dep1,dep2,dep3]
         // Do any additional setup after loading the view.
     }
-    
-
+    override func viewDidAppear(_ animated: Bool)
+    {
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        popupContainer.backgroundColor = UIColor(named: "vip")
+    }
     
     @IBAction func clearAll_Clicked(_ sender: Any)
     {

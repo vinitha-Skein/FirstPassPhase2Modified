@@ -10,6 +10,9 @@ import UIKit
 
 class ReportHeader: UITableViewHeaderFooterView {
 
+    @IBOutlet var actionLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var processLabel: UILabel!
     @IBOutlet weak var container: UIView!
     /*
     // Only override draw() if you perform custom drawing.

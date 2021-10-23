@@ -10,6 +10,14 @@ import UIKit
 
 class OTPPopUpViewController: UIViewController
 {
+    
+    
+    @IBOutlet var otpLabel: UILabel!
+    @IBOutlet var headingLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var otp1: UITextField!
     @IBOutlet weak var otp3: UITextField!
@@ -37,6 +45,36 @@ class OTPPopUpViewController: UIViewController
         let vc = storyboard.instantiateViewController(withIdentifier: "SetPasswordViewController") as! SetPasswordViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        otpLabel.textColor = UIColor.white
+        headingLabel.textColor = UIColor(named: "vip")
+        titleLabel.textColor = .white
+        otpView1.backgroundColor = UIColor(hex: "#34383B")
+        otpView2.backgroundColor = UIColor(hex: "#34383B")
+        otpView3.backgroundColor = UIColor(hex: "#34383B")
+        otpView4.backgroundColor = UIColor(hex: "#34383B")
+        otpView5.backgroundColor = UIColor(hex: "#34383B")
+        verifyButton.backgroundColor = UIColor(named: "vip")
+        verifyButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        
+        
+        otp1.textColor = .white
+        otp6.textColor = .white
+        otp3.textColor = .white
+        otp4.textColor = .white
+        otp5.textColor = .white
+
+        
     }
     @IBAction func back_Clicked(_ sender: Any)
     {

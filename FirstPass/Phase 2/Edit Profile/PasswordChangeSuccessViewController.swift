@@ -10,8 +10,16 @@ import UIKit
 
 class PasswordChangeSuccessViewController: UIViewController {
 
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var successLabel: UILabel!
+    @IBOutlet var successImage: UIImageView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var done_Button: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         container.layer.cornerRadius = 28
@@ -26,7 +34,23 @@ class PasswordChangeSuccessViewController: UIViewController {
         done_Button.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = .black
+        container.backgroundColor = UIColor(hex: "#222629")
+        done_Button.backgroundColor = UIColor(named: "vip")
+        done_Button.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        successLabel.textColor = UIColor(named: "vip")
+        descriptionLabel.textColor = UIColor.white
+        successImage.image = UIImage(named: "vipsuccess")
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+    }
     @IBAction func doneClicked(_ sender: Any)
     {
         let storyboard = UIStoryboard(name: "phase2", bundle: nil)
