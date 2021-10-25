@@ -10,6 +10,29 @@ import UIKit
 
 class PaymentOptionsViewController: UIViewController {
 
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var morebankButton: UIButton!
+    @IBOutlet var netbankingTitleLabel: UILabel!
+    @IBOutlet var addUpiButton: UIButton!
+    @IBOutlet var addnewUpiLabel: UILabel!
+    @IBOutlet var phonepeupiLabel: UILabel!
+    @IBOutlet var googlepayLabel: UILabel!
+    @IBOutlet var upiTitleLabel: UILabel!
+    @IBOutlet var walletTitleLabel: UILabel!
+    @IBOutlet var phonepeLinkButton: UIButton!
+    @IBOutlet var freechargeLinkButton: UIButton!
+    @IBOutlet var paytmLinkButton: UIButton!
+    @IBOutlet var phonepeLabel: UILabel!
+    @IBOutlet var freechargeLabel: UILabel!
+    @IBOutlet var PaytmLabel: UILabel!
+    @IBOutlet var cardTitleLabel: UILabel!
+    @IBOutlet var addCardButton: UIButton!
+    @IBOutlet var addnewCardDescriptionLabel: UILabel!
+    @IBOutlet var addNewCardLabel: UILabel!
+    
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var stackView: UIStackView!
     @IBOutlet var container: UIView!
@@ -44,6 +67,36 @@ class PaymentOptionsViewController: UIViewController {
         container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         container.layer.shadowOpacity = 0.2
     }
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+        
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = UIColor.white
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        cardTitleLabel.textColor = UIColor(named: "vip")
+        addNewCardLabel.textColor = UIColor(named: "vip")
+        addnewCardDescriptionLabel.textColor = UIColor(named: "vip")
+        walletTitleLabel.textColor = UIColor(named: "vip")
+        PaytmLabel.textColor = UIColor(named: "vip")
+        freechargeLabel.textColor = UIColor(named: "vip")
+        phonepeLabel.textColor = UIColor(named: "vip")
+        paytmLinkButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        freechargeLinkButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        phonepeLinkButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        upiTitleLabel.textColor = UIColor(named: "vip")
+        googlepayLabel.textColor = UIColor(named: "vip")
+        phonepeupiLabel.textColor = UIColor(named: "vip")
+        netbankingTitleLabel.textColor = UIColor(named: "vip")
+        morebankButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+    }
     
     @IBAction func back_clicked(_ sender: Any)
     {
@@ -69,6 +122,7 @@ extension PaymentOptionsViewController: UICollectionViewDelegate,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NetBankingCollectionViewCell", for: indexPath) as! NetBankingCollectionViewCell
+       
         cell.logoImage.image = UIImage(named: logos[indexPath.row])
         return cell
     }
@@ -83,6 +137,16 @@ extension PaymentOptionsViewController: UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CardsTableViewCell") as! CardsTableViewCell
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.cardnumberLabel.textColor = UIColor(named: "vip")
+        }
+        else
+        {
+            cell.cardnumberLabel.textColor = UIColor.black
+
+        }
+        
         return cell
     }
     

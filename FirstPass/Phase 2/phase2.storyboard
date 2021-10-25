@@ -396,6 +396,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="XZy-IM-eMi" firstAttribute="leading" secondItem="kf7-EI-afD" secondAttribute="leading" id="24q-Zz-Rzc"/>
                                                             <constraint firstAttribute="trailing" secondItem="XZy-IM-eMi" secondAttribute="trailing" id="HWJ-FF-Wb8"/>
@@ -409,6 +410,7 @@
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="kf7-EI-afD" firstAttribute="top" secondItem="Vwj-LQ-iZB" secondAttribute="top" constant="5" id="YZy-09-nI6"/>
                                                     <constraint firstAttribute="bottom" secondItem="kf7-EI-afD" secondAttribute="bottom" constant="20" id="bnr-q7-gNY"/>
@@ -450,15 +452,36 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="PaytmLabel" destination="Oe7-Wx-odh" id="zN0-5Y-TrB"/>
+                        <outlet property="addCardButton" destination="rtQ-w1-ZuS" id="Um1-3G-EBi"/>
+                        <outlet property="addNewCardLabel" destination="vom-ti-Awa" id="mJm-V0-yuE"/>
+                        <outlet property="addUpiButton" destination="yfV-5R-7Ab" id="OGv-fk-j1Y"/>
+                        <outlet property="addnewCardDescriptionLabel" destination="Krw-zw-Rn1" id="U4x-ZS-3vS"/>
+                        <outlet property="addnewUpiLabel" destination="udw-KU-KOj" id="LgO-h4-P4A"/>
+                        <outlet property="backButton" destination="mMP-9T-juu" id="Os2-pS-eYq"/>
+                        <outlet property="bgView" destination="KsM-c8-9Ug" id="lrB-nK-kT8"/>
+                        <outlet property="cardTitleLabel" destination="OSa-wc-OZc" id="tEF-Kx-VC2"/>
                         <outlet property="cardsTableView" destination="Cja-P4-Lbj" id="nZh-O4-G6A"/>
                         <outlet property="container" destination="dFV-y8-4Rg" id="nGc-HS-iRq"/>
+                        <outlet property="freechargeLabel" destination="UcH-xN-CUh" id="tne-zl-FhB"/>
+                        <outlet property="freechargeLinkButton" destination="s83-nU-ceB" id="T6d-GC-M5l"/>
+                        <outlet property="googlepayLabel" destination="vWt-QG-pWg" id="WYx-eK-6ak"/>
+                        <outlet property="morebankButton" destination="Wmn-SX-91G" id="pgU-kV-2fZ"/>
                         <outlet property="netBankingCollectionView" destination="UYf-NC-kA6" id="96E-Wk-Eoc"/>
+                        <outlet property="netbankingTitleLabel" destination="iQI-3I-bEn" id="tvu-fK-InL"/>
+                        <outlet property="paytmLinkButton" destination="QVz-YY-sxR" id="yTC-8h-4hS"/>
+                        <outlet property="phonepeLabel" destination="GJN-4C-QIg" id="e4d-yl-DcS"/>
+                        <outlet property="phonepeLinkButton" destination="sBt-ih-oXR" id="ot5-0H-2tI"/>
+                        <outlet property="phonepeupiLabel" destination="jQu-Mt-iLe" id="smJ-ri-raU"/>
                         <outlet property="scrollView" destination="Vwj-LQ-iZB" id="T8f-8J-pFR"/>
                         <outlet property="stackView" destination="kf7-EI-afD" id="s4E-BX-z7R"/>
+                        <outlet property="titleLabel" destination="rgk-a8-BcM" id="BWY-yq-Vi9"/>
+                        <outlet property="upiTitleLabel" destination="f7G-cb-dyw" id="WzE-Yc-Clw"/>
                         <outlet property="view1" destination="IRg-cQ-F8h" id="gNp-Y1-h6t"/>
                         <outlet property="view2" destination="rKr-SE-dNf" id="xWG-F2-blb"/>
                         <outlet property="view3" destination="lRN-2a-uG9" id="UZS-gc-JZ8"/>
                         <outlet property="view4" destination="XZy-IM-eMi" id="aZg-ZZ-umJ"/>
+                        <outlet property="walletTitleLabel" destination="eMN-cU-avf" id="NHz-Y6-8Kq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxx-TR-M6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2459,6 +2482,7 @@ Cg
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="36W-86-EQR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jzQ-lm-Sm6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -2515,11 +2539,13 @@ Cg
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1N-mG-vxc">
                                                                     <rect key="frame" x="0.0" y="57" width="349" height="1"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="1" id="KiX-kh-Md9"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="E1N-mG-vxc" secondAttribute="bottom" id="5r1-zs-g9K"/>
                                                                 <constraint firstItem="wUP-E1-Qia" firstAttribute="leading" secondItem="jXK-Gu-OSX" secondAttribute="trailing" constant="20" id="6D0-kx-dG0"/>
@@ -2533,7 +2559,7 @@ Cg
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="DcR-qy-G1G" firstAttribute="top" secondItem="7c8-eH-JhC" secondAttribute="topMargin" id="SWK-aI-CBO"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="DcR-qy-G1G" secondAttribute="trailing" constant="20" id="fjO-HD-C6W"/>
@@ -2541,6 +2567,7 @@ Cg
                                                         <constraint firstAttribute="bottomMargin" secondItem="DcR-qy-G1G" secondAttribute="bottom" id="vCd-cO-eDF"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="cellContainer" destination="7c8-eH-JhC" id="EJ9-wJ-Fvs"/>
                                                     <outlet property="chatLabel" destination="jXK-Gu-OSX" id="WPv-6n-fFx"/>
@@ -2606,7 +2633,7 @@ Cg
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qRr-8c-gqO"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="jzQ-lm-Sm6" secondAttribute="bottom" id="Chx-vJ-S6I"/>
                             <constraint firstItem="36W-86-EQR" firstAttribute="top" secondItem="K46-5P-QT8" secondAttribute="top" id="PFb-ta-V9b"/>
@@ -2619,10 +2646,12 @@ Cg
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="xrg-FT-Pcr" id="Yg4-K3-gXO"/>
                         <outlet property="buttonView" destination="Z0Q-aV-jlG" id="QeU-8W-vTo"/>
                         <outlet property="chatTableView" destination="oXU-N4-67F" id="fOd-DD-WPw"/>
                         <outlet property="container" destination="jzQ-lm-Sm6" id="kfg-wP-onE"/>
                         <outlet property="messageTextfeild" destination="e0L-GF-5ih" id="5K9-G7-vTu"/>
+                        <outlet property="titleLabel" destination="jd0-AV-bAh" id="mHH-NZ-l4Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eho-zf-rpI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

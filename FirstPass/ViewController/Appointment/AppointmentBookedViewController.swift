@@ -9,6 +9,22 @@
 import UIKit
 
 class AppointmentBookedViewController: UIViewController,FeedbackDelegate {
+    
+    @IBOutlet var bookingSuccessLabel: UILabel!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var headerView: UIView!
+    @IBOutlet var patientImage: UIImageView!
+    @IBOutlet var patientnameTitleLabel: UILabel!
+    @IBOutlet var physicianImage: UIImageView!
+    @IBOutlet var physicianTitleLabel: UILabel!
+    @IBOutlet var timeImage: UIImageView!
+    @IBOutlet var appointmenttimeTitleLabel: UILabel!
+    @IBOutlet var calenderImage: UIImageView!
+
+    @IBOutlet var successImage: UIImageView!
+    
+    @IBOutlet var appointmentdateTitleLabel: UILabel!
+    @IBOutlet var stackview: UIStackView!
     @IBOutlet var stackBottomView: UIView!
     @IBOutlet var stackTopView: UIView!
     @IBOutlet var mainContainer: UIView!
@@ -32,7 +48,34 @@ class AppointmentBookedViewController: UIViewController,FeedbackDelegate {
         date.text = appointmentData?.date
         time.text = appointmentData?.appointmentTime
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            //vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        headerView.backgroundColor = .black
+        container.backgroundColor = UIColor(hex: "#222629")
+        stackview.backgroundColor = UIColor(named: "vip")
+        backButton.backgroundColor = UIColor(named: "vip")
+        backButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        feedbackButton.backgroundColor = .clear
+        feedbackButton.setTitleColor(.white, for: .normal)
+        feedbackButton.layer.borderColor = UIColor(named: "vip")?.cgColor
+        appointmenttimeTitleLabel.textColor = UIColor(named: "vip")
+        appointmentdateTitleLabel.textColor = UIColor(named: "vip")
+        time.textColor = UIColor(named: "vip")
+        date.textColor = UIColor(named: "vip")
+        physicianTitleLabel.textColor = UIColor(named: "vip")
+        doctorName.textColor = UIColor(named: "vip")
+        patientName.textColor = UIColor(named: "vip")
+        patientnameTitleLabel.textColor = UIColor(named: "vip")
+        successImage.image = UIImage(named: "vipsuccess")
+        bookingSuccessLabel.textColor = UIColor(named: "vip")
+    }
     @IBAction func backAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "phase2", bundle: .main)
         let popup = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController

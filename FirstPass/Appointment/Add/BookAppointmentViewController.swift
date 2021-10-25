@@ -333,7 +333,7 @@ class BookAppointmentViewController: UIViewController
        
         self.present(vc, animated: true)
 
-        bookAppointment(params: params)
+       // bookAppointment(params: params)
     }
     
     func bookAppointment(params:[String:Any])

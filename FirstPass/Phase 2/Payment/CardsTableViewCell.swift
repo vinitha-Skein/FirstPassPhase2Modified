@@ -11,6 +11,7 @@ import UIKit
 class CardsTableViewCell: UITableViewCell
 {
 
+    @IBOutlet var cardnumberLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

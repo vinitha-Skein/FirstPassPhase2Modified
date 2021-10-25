@@ -10,6 +10,9 @@ import UIKit
 
 class ChatwithusViewController: UIViewController
 {
+    
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var container: UIView!
     @IBOutlet var messageTextfeild: UITextField!
     @IBOutlet var buttonView: UIView!
@@ -32,6 +35,19 @@ class ChatwithusViewController: UIViewController
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        container.backgroundColor = UIColor.black
+        titleLabel.textColor = UIColor.white
+        buttonView.backgroundColor = UIColor(named: "vip")
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+    }
     @IBAction func back_clicked(_ sender: Any)
     {
         dismiss(animated: true, completion: nil)
@@ -90,61 +106,115 @@ extension ChatwithusViewController: UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatwithusTableViewCell") as! ChatwithusTableViewCell
+        
+        
+        
         cell.chatLabel.text = chatSend[indexPath.row]
         cell.chatViewLeading.isActive = true
         cell.chatViewLeading.isActive = false
         cell.chatView.layer.cornerRadius = 8
-        cell.cellContainer.backgroundColor = BG
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.cellContainer.backgroundColor = .clear
+        }
+        else
+        {
+            cell.cellContainer.backgroundColor = BG
+        }
+       
+
         cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner]
         cell.chatView.backgroundColor = UIColor.white
         if  (indexPath.row == 1)
         {
             cell.chatViewTrailing.isActive = false
             cell.chatViewLeading.isActive = true
-            cell.chatView.backgroundColor = recieverBG
             cell.chatView.layer.cornerRadius = 8
             cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.chatView.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                cell.chatView.backgroundColor = recieverBG
+            }
         }
         else if (indexPath.row == 2)
         {
             cell.chatView.layer.cornerRadius = 8
             cell.chatViewTrailing.isActive = false
             cell.chatViewLeading.isActive = true
-            cell.chatView.backgroundColor = recieverBG
+           
             cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
-
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.chatView.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                cell.chatView.backgroundColor = recieverBG
+            }
         }
         else if (indexPath.row == 5)
         {
             cell.chatView.layer.cornerRadius = 8
             cell.chatViewTrailing.isActive = false
             cell.chatViewLeading.isActive = true
-            cell.chatView.backgroundColor = recieverBG
             cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.chatView.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                cell.chatView.backgroundColor = recieverBG
+            }
         }
         else if (indexPath.row == 6)
         {
             cell.chatView.layer.cornerRadius = 8
             cell.chatViewTrailing.isActive = false
             cell.chatViewLeading.isActive = true
-            cell.chatView.backgroundColor = recieverBG
             cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.chatView.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                cell.chatView.backgroundColor = recieverBG
+            }
         }
         else if (indexPath.row == 8)
         {
             cell.chatView.layer.cornerRadius = 8
             cell.chatViewTrailing.isActive = false
             cell.chatViewLeading.isActive = true
-            cell.chatView.backgroundColor = recieverBG
             cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.chatView.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                cell.chatView.backgroundColor = recieverBG
+            }
         }
         else if (indexPath.row == 10)
         {
             cell.chatView.layer.cornerRadius = 8
             cell.chatViewTrailing.isActive = false
             cell.chatViewLeading.isActive = true
-            cell.chatView.backgroundColor = recieverBG
             cell.chatView.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMaxXMaxYCorner]
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                cell.chatView.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                cell.chatView.backgroundColor = recieverBG
+            }
         }
 
             

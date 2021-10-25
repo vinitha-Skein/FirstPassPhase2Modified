@@ -5,6 +5,9 @@ import Mapbox
 
 class IndoorMapViewController: UIViewController,CLLocationManagerDelegate {
 
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var activityindicator: UIActivityIndicatorView!
     @IBOutlet weak var activityIndicatorView: UIView!
     @IBOutlet weak var container: UIView!
@@ -45,8 +48,18 @@ class IndoorMapViewController: UIViewController,CLLocationManagerDelegate {
 //        NSLayoutConstraint.init(item: MWZmapview!, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1.0, constant: 50.0).isActive = true
 //        NSLayoutConstraint.init(item: MWZmapview!, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1.0, constant: 20.0).isActive = true
         activityIndicatorView.isHidden = true
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
     }
-
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor.black
+        titleLabel.textColor = UIColor.white
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+    }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
         guard let location = locations.first

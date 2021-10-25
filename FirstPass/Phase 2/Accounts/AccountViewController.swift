@@ -202,13 +202,13 @@ extension AccountViewController:UICollectionViewDelegate,UICollectionViewDataSou
         }
         if (indexPath.row == 10)
         {
-//            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
-//            let vc = storyboard.instantiateViewController(withIdentifier: "ChatwithusViewController") as! ChatwithusViewController
-//            UserDefaults.standard.set(false, forKey: "isLoggedIn")
-//            vc.modalPresentationStyle = .fullScreen
-//
-//            present(vc, animated: true, completion: nil)
-            openWhatsapp()
+            let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ChatwithusViewController") as! ChatwithusViewController
+            UserDefaults.standard.set(false, forKey: "isLoggedIn")
+            vc.modalPresentationStyle = .fullScreen
+
+            present(vc, animated: true, completion: nil)
+            //openWhatsapp()
         }
         if (indexPath.row == 11)
         {
