@@ -10,6 +10,18 @@ import UIKit
 import Toast_Swift
 
 class PasswordViewController: UIViewController {
+    
+    
+    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var alreadyhaveanaccountLabel: UILabel!
+    @IBOutlet var reenterpasswordTitleLabel: UILabel!
+    @IBOutlet var passwordTitleLabel: UILabel!
+    @IBOutlet var headingLabel: UILabel!
+    
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var bgView: UIView!
+    
+    
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var signinButton: UIButton!
@@ -28,6 +40,27 @@ class PasswordViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        container.backgroundColor = UIColor(hex:"#222629" )
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        passwordView.backgroundColor = UIColor(hex: "#34383B")
+        confirmPasswordView.backgroundColor = UIColor(hex: "#34383B")
+        passwordTitleLabel.textColor = UIColor(named: "vip")
+        reenterpasswordTitleLabel.textColor = UIColor(named: "vip")
+        signinButton.backgroundColor = UIColor(named: "vip")
+        signinButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
+        headingLabel.textColor = UIColor(named: "vip")
     }
     @IBAction func signinAction(_ sender: Any)
     {

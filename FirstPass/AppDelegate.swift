@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         Thread.sleep(forTimeInterval: 2)
         IQKeyboardManager.shared.enable = true
-        let mainStoryboard:UIStoryboard = UIStoryboard(name: "phase2", bundle: nil)
+        let mainStoryboard:UIStoryboard = UIStoryboard(name: "Modified", bundle: nil)
         UserDefaults.standard.setValue(false, forKey: "vip")
         if UserDefaults.standard.bool(forKey: "OnboardFinished")
         {
@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             {
                 print("Inn")
                
-                let homePage = mainStoryboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                let homePage = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
                 self.window?.rootViewController = homePage
             }
             else

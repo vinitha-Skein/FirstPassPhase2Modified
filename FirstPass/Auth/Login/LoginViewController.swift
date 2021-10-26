@@ -9,6 +9,17 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    @IBOutlet var dontHaveAccountLabel: UILabel!
+    @IBOutlet var forgotPasswordButton: UIButton!
+    @IBOutlet var passwordTitleLabel: UILabel!
+    @IBOutlet var emailTitleLabel: UILabel!
+    @IBOutlet var fillDetailsLabel: UILabel!
+    @IBOutlet var bgView: UIView!
+    
+    @IBOutlet var signInTitleLabel: UILabel!
+    
+    
     @IBOutlet weak var fieldContainer: UIView!
     @IBOutlet weak var mobileTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
@@ -18,6 +29,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var usernameView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordiconButton: UIButton!
+    
+    
     var passwordiconclick = true
     var validation = Validation()
     let viewModel = LoginViewModel()
@@ -26,6 +39,31 @@ class LoginViewController: UIViewController {
         setupUI()
         mobileTextfield.text = "john@gmail.com"
         passwordTextfield.text = "123456"
+        UserDefaults.standard.setValue(true, forKey: "vip")
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        fieldContainer.backgroundColor = UIColor(hex: "#222629")
+        signInTitleLabel.textColor = UIColor(named: "vip")
+        fillDetailsLabel.textColor = UIColor.white
+        emailTitleLabel.textColor = UIColor(named: "vip")
+        passwordTitleLabel.textColor = UIColor(named: "vip")
+        forgotPasswordButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        signinButton.backgroundColor = UIColor(named: "vip")
+        signinButton.setTitleColor(UIColor(hex: "#222629"), for: .normal)
+        dontHaveAccountLabel.textColor = UIColor(hex: "#72767C")
+        signupButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        passwordView.backgroundColor = UIColor(hex: "#34383B")
+        usernameView.backgroundColor = UIColor(hex: "#34383B")
+        mobileTextfield.textColor = .white
+        passwordTextfield.textColor = .white
     }
     @IBAction func passwordButton(_ sender: Any)
     {

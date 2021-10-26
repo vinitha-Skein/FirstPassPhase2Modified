@@ -32,7 +32,6 @@
 		1BD710A026612CC800D2C607 /* CheckinPreviewInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7109C26612CC800D2C607 /* CheckinPreviewInterfaceController.swift */; };
 		1BD710A126612CC800D2C607 /* launchScreenInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7109D26612CC800D2C607 /* launchScreenInterfaceController.swift */; };
 		1BD710A626612E7700D2C607 /* JourneyRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD710A526612E7700D2C607 /* JourneyRowController.swift */; };
-		1BF222E4266F32A300759E13 /* phase2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BF222E3266F32A300759E13 /* phase2.storyboard */; };
 		1BF2232E266FB69B00759E13 /* AppointmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2232D266FB69B00759E13 /* AppointmentCollectionViewCell.swift */; };
 		2205312B26FB76E1009A9D36 /* InPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205312A26FB76E1009A9D36 /* InPatientViewController.swift */; };
 		2252D3B127042CA100B60406 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3AF27042CA000B60406 /* CartTableViewCell.swift */; };
@@ -94,6 +93,7 @@
 		A771A638271044BB004B34EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A771A637271044BB004B34EF /* GoogleService-Info.plist */; };
 		A786518C26342062008C99FC /* SelectAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786518B26342062008C99FC /* SelectAppointmentViewController.swift */; };
 		A786518F2634493E008C99FC /* BookingConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A786518E2634493E008C99FC /* BookingConfirmationViewController.swift */; };
+		A79AC09C2726D030000EB1DE /* phase2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A79AC09B2726D030000EB1DE /* phase2.storyboard */; };
 		A7A49ECF265B7FD600AB1A57 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A49ECD265B7FD600AB1A57 /* Interface.storyboard */; };
 		A7A49ED1265B7FE000AB1A57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7A49ED0265B7FE000AB1A57 /* Assets.xcassets */; };
 		A7A49ED8265B7FE000AB1A57 /* Firstpass-watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A7A49ED7265B7FE000AB1A57 /* Firstpass-watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -300,7 +300,6 @@
 		1BD7109C26612CC800D2C607 /* CheckinPreviewInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinPreviewInterfaceController.swift; sourceTree = "<group>"; };
 		1BD7109D26612CC800D2C607 /* launchScreenInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = launchScreenInterfaceController.swift; sourceTree = "<group>"; };
 		1BD710A526612E7700D2C607 /* JourneyRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyRowController.swift; sourceTree = "<group>"; };
-		1BF222E3266F32A300759E13 /* phase2.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = phase2.storyboard; sourceTree = "<group>"; };
 		1BF2232D266FB69B00759E13 /* AppointmentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		2205312A26FB76E1009A9D36 /* InPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientViewController.swift; sourceTree = "<group>"; };
 		2252D3AF27042CA000B60406 /* CartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
@@ -365,6 +364,7 @@
 		A771A637271044BB004B34EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A786518B26342062008C99FC /* SelectAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAppointmentViewController.swift; sourceTree = "<group>"; };
 		A786518E2634493E008C99FC /* BookingConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingConfirmationViewController.swift; sourceTree = "<group>"; };
+		A79AC09B2726D030000EB1DE /* phase2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = phase2.storyboard; sourceTree = "<group>"; };
 		A7A49ECB265B7FD600AB1A57 /* Firstpass-watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Firstpass-watchOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7A49ECE265B7FD600AB1A57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		A7A49ED0265B7FE000AB1A57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -580,8 +580,8 @@
 				A7209B8C2670F6670084E2AB /* Edit Profile */,
 				A764019F266F727E0050E41A /* Accounts */,
 				C094C3862513304F00F039E4 /* OnBoard */,
-				1BF222E3266F32A300759E13 /* phase2.storyboard */,
 				229F463B2715D2F300152741 /* AboutHospitalViewController.swift */,
+				A79AC09B2726D030000EB1DE /* phase2.storyboard */,
 			);
 			path = "Phase 2";
 			sourceTree = "<group>";
@@ -1302,7 +1302,6 @@
 				A771A638271044BB004B34EF /* GoogleService-Info.plist in Resources */,
 				1B5AC29D266E5444002E7C12 /* SF-Pro-Display-Semibold.otf in Resources */,
 				A7D3594D2681B629003AC0DE /* CardsTableViewCell.xib in Resources */,
-				1BF222E4266F32A300759E13 /* phase2.storyboard in Resources */,
 				C0911B00254FC6480052E52C /* FeedbackTextTableViewCell.xib in Resources */,
 				C0088BD6251AE74A00777786 /* FamilyCollectionViewCell.xib in Resources */,
 				C0088BE2251B604B00777786 /* FeedbackCollectionViewCell.xib in Resources */,
@@ -1322,6 +1321,7 @@
 				A7093974267C5E3A0061EDFA /* AppointmentdetailsNewTableViewCell.xib in Resources */,
 				C0088BDE251B5F1A00777786 /* FeedbackTableViewCell.xib in Resources */,
 				C0B2081D2519F1FF00F048F2 /* groupCopy2.png in Resources */,
+				A79AC09C2726D030000EB1DE /* phase2.storyboard in Resources */,
 				C0672AAE251507170060FB08 /* AppointmentDetailsTableViewCell.xib in Resources */,
 				A76401E4266F94AD0050E41A /* AlertTableCell.xib in Resources */,
 				A803391E259EE8F400FE5FB5 /* TokenTableViewCell.xib in Resources */,

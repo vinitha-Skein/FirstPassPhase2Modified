@@ -87,6 +87,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="g9N-a9-wwq" firstAttribute="top" secondItem="BVA-Bz-G6x" secondAttribute="top" constant="25" id="6cs-n5-kdD"/>
                                                                     <constraint firstItem="8Mf-ub-hQV" firstAttribute="top" secondItem="g9N-a9-wwq" secondAttribute="bottom" constant="16" id="Fom-SB-lui"/>
@@ -119,6 +120,7 @@
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="gSG-cX-kVO" secondAttribute="bottom" id="6tN-Uf-zw1"/>
                                                                     <constraint firstItem="gSG-cX-kVO" firstAttribute="leading" secondItem="aHc-HH-cgm" secondAttribute="leading" constant="24" id="Gn6-sQ-KXC"/>
@@ -151,6 +153,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="Kdf-tH-Fch" firstAttribute="top" secondItem="T4C-YS-key" secondAttribute="top" constant="14" id="9F0-t4-R2T"/>
                                                                     <constraint firstItem="wSu-bj-jpV" firstAttribute="leading" secondItem="T4C-YS-key" secondAttribute="leading" constant="24" id="9P1-9u-hDP"/>
@@ -183,6 +186,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="trailing" secondItem="7xx-AK-g0p" secondAttribute="trailing" constant="24" id="5Np-tO-Xhb"/>
                                                                     <constraint firstItem="7xx-AK-g0p" firstAttribute="leading" secondItem="OS3-KB-eEI" secondAttribute="leading" constant="24" id="5sZ-IU-kSZ"/>
@@ -215,6 +219,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="ksG-pD-xAX" secondAttribute="bottom" id="AZY-MJ-5Us"/>
                                                                     <constraint firstItem="25W-K1-rbe" firstAttribute="leading" secondItem="C19-mq-8ZO" secondAttribute="leading" constant="24" id="CcR-zk-IQK"/>
@@ -247,6 +252,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="bottom" secondItem="R2f-QO-HFI" secondAttribute="bottom" id="7Fv-ID-8Ht"/>
                                                                     <constraint firstItem="61K-Uw-0R6" firstAttribute="leading" secondItem="yo3-E6-W42" secondAttribute="leading" constant="24" id="8co-t2-eO5"/>
@@ -297,6 +303,7 @@
                                                                         <state key="normal" title="T&amp;C"/>
                                                                     </button>
                                                                 </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstItem="dGq-s8-wqc" firstAttribute="leading" secondItem="ret-2W-5e4" secondAttribute="leading" constant="30" id="HQx-Se-psm"/>
                                                                     <constraint firstAttribute="bottom" secondItem="PCT-KK-xNX" secondAttribute="bottom" constant="28" id="IOV-BP-IdD"/>
@@ -311,7 +318,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="T4C-YS-key" firstAttribute="height" secondItem="aHc-HH-cgm" secondAttribute="height" id="avV-S8-W2C"/>
                                                             <constraint firstItem="OS3-KB-eEI" firstAttribute="height" secondItem="T4C-YS-key" secondAttribute="height" id="b3V-kX-JMo"/>
@@ -319,7 +326,7 @@
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="0bs-jB-iAz" firstAttribute="bottom" secondItem="zbm-g1-0pX" secondAttribute="bottom" id="7xL-Wq-FqX"/>
                                                     <constraint firstItem="0bs-jB-iAz" firstAttribute="leading" secondItem="zbm-g1-0pX" secondAttribute="leading" id="8Kn-In-NFS"/>
@@ -338,7 +345,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="K9Z-K5-MWQ" firstAttribute="leading" secondItem="Mu4-QJ-IVY" secondAttribute="leading" constant="24" id="8uG-K1-tnc"/>
                                     <constraint firstAttribute="bottom" secondItem="Ki5-I5-DB3" secondAttribute="bottom" constant="20" id="9jd-io-ebf"/>
@@ -354,7 +361,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PL8-6i-vTe"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstItem="PL8-6i-vTe" firstAttribute="trailing" secondItem="Mu4-QJ-IVY" secondAttribute="trailing" id="R3g-1g-Lbc"/>
                             <constraint firstItem="Mu4-QJ-IVY" firstAttribute="leading" secondItem="PL8-6i-vTe" secondAttribute="leading" id="Urh-HN-tH7"/>
@@ -363,15 +370,27 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="agreeLabel" destination="cpX-ok-1AF" id="4gH-s8-khg"/>
+                        <outlet property="alreadyhaveAccountLabel" destination="Ki5-I5-DB3" id="C2R-4A-wYa"/>
+                        <outlet property="bgView" destination="5Mp-lR-KgA" id="wuk-um-MIG"/>
                         <outlet property="checkBox" destination="dGq-s8-wqc" id="CrY-Cx-0ng"/>
                         <outlet property="container" destination="h7W-EA-HKB" id="805-Bi-wR7"/>
                         <outlet property="email" destination="7xx-AK-g0p" id="7r7-tg-Jtv"/>
+                        <outlet property="emailTitleLabel" destination="u7p-uB-bs8" id="CgU-Sc-Gg6"/>
                         <outlet property="emiratesID" destination="ksG-pD-xAX" id="ypd-9T-klj"/>
+                        <outlet property="emiritesTitleLabel" destination="25W-K1-rbe" id="oth-ng-kQt"/>
+                        <outlet property="fillDetailsLabel" destination="8Mf-ub-hQV" id="wpi-BG-O6O"/>
                         <outlet property="firstName" destination="gSG-cX-kVO" id="Szb-pV-gcu"/>
+                        <outlet property="fullnameTitleLabel" destination="E1d-s9-gOh" id="awy-co-oDQ"/>
                         <outlet property="generateButton" destination="PCT-KK-xNX" id="j11-uB-gtH"/>
+                        <outlet property="loginButton" destination="942-Cd-G0V" id="CcS-lG-8Zs"/>
                         <outlet property="mobile" destination="wSu-bj-jpV" id="S8q-xh-Yku"/>
+                        <outlet property="mobileNumberLabel" destination="Kdf-tH-Fch" id="VFB-7p-nnp"/>
                         <outlet property="mrnIDTextFeild" destination="R2f-QO-HFI" id="J4n-aH-9qu"/>
+                        <outlet property="mrnIdTitleLabel" destination="61K-Uw-0R6" id="CRO-mv-h7L"/>
                         <outlet property="scrollView" destination="zbm-g1-0pX" id="gUI-PN-X1Q"/>
+                        <outlet property="signupTitleLabel" destination="g9N-a9-wwq" id="U7b-rg-Bri"/>
+                        <outlet property="tandcButton" destination="ByG-y5-qm6" id="Cl3-8Y-i4q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVH-HD-Z8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -527,6 +546,7 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="hhu-Jj-lcH" firstAttribute="width" secondItem="CCQ-1b-gqP" secondAttribute="width" id="HV3-7q-mvs"/>
                                                     <constraint firstAttribute="height" constant="46" id="TeR-B6-mdH"/>
@@ -606,7 +626,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="FWV-cf-ckJ" firstAttribute="leading" secondItem="l0g-Bm-d2A" secondAttribute="leading" constant="20" id="LiS-9o-mxU"/>
                                     <constraint firstItem="FWV-cf-ckJ" firstAttribute="centerY" secondItem="l0g-Bm-d2A" secondAttribute="centerY" id="MLj-GG-3c4"/>
@@ -623,7 +643,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SXe-0n-0UX"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstItem="SXe-0n-0UX" firstAttribute="trailing" secondItem="l0g-Bm-d2A" secondAttribute="trailing" id="2Gh-Jr-MSQ"/>
                             <constraint firstItem="SXe-0n-0UX" firstAttribute="bottom" secondItem="l0g-Bm-d2A" secondAttribute="bottom" id="ThC-3W-GUN"/>
@@ -632,7 +652,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alreadyhaveanaccountLabel" destination="2jF-i0-Ikb" id="jeH-1b-Azf"/>
+                        <outlet property="backButton" destination="3WF-fF-lbF" id="akn-4B-mM5"/>
+                        <outlet property="bgView" destination="yts-Gz-saR" id="Yn3-Yx-FP1"/>
+                        <outlet property="changeNumberButton" destination="iOT-u0-tmx" id="uIc-S8-bcC"/>
                         <outlet property="container" destination="FWV-cf-ckJ" id="1cd-sB-bJ0"/>
+                        <outlet property="enterOTPLabel" destination="jaE-tq-rLV" id="VXP-U0-3TQ"/>
+                        <outlet property="enterotpHeadingLabel" destination="ZLV-xP-ezC" id="SR1-ns-12T"/>
+                        <outlet property="loginButton" destination="SF4-vi-RN3" id="Nmm-YO-UO1"/>
                         <outlet property="mobileNumberLabel" destination="IMd-hJ-vlD" id="syC-RF-kEF"/>
                         <outlet property="otp1" destination="M2h-Uq-bnZ" id="4LV-0W-d1k"/>
                         <outlet property="otp2" destination="Jz2-PB-5rW" id="e56-wj-3sL"/>
@@ -640,6 +667,12 @@
                         <outlet property="otp4" destination="Mh4-54-GiP" id="UQV-I5-FhV"/>
                         <outlet property="otp5" destination="qR8-6k-1IG" id="4UZ-O8-HPb"/>
                         <outlet property="otp6" destination="rf2-Tn-Bgx" id="SA4-F1-rVB"/>
+                        <outlet property="otpview1" destination="NEB-GF-eJL" id="XkQ-G8-gvl"/>
+                        <outlet property="otpview2" destination="CCQ-1b-gqP" id="wHY-v6-dYp"/>
+                        <outlet property="otpview3" destination="hhu-Jj-lcH" id="26D-1h-bDv"/>
+                        <outlet property="otpview4" destination="CUo-Jg-VST" id="F6E-2r-fXg"/>
+                        <outlet property="otpview5" destination="obx-DA-YeG" id="Kei-95-ixR"/>
+                        <outlet property="otpview6" destination="cuv-bJ-mX8" id="nZK-4o-5YD"/>
                         <outlet property="verifyButton" destination="3Qh-G1-PNH" id="6IL-Aa-T70"/>
                     </connections>
                 </viewController>
@@ -866,13 +899,20 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="alreadyhaveanaccountLabel" destination="5VL-wS-6Dn" id="JWf-fj-J5K"/>
+                        <outlet property="backButton" destination="J3t-DM-tvX" id="Nl1-Pq-QWb"/>
+                        <outlet property="bgView" destination="tQD-vB-zOi" id="lqQ-cr-p1P"/>
                         <outlet property="confirmPassword" destination="UIz-ef-cr5" id="t62-Ff-qIK"/>
                         <outlet property="confirmPasswordView" destination="Jeo-1k-SrH" id="Kax-3R-IH9"/>
                         <outlet property="confirmPasswordiconButton" destination="XzI-mO-2ba" id="Xsm-tz-kk9"/>
                         <outlet property="container" destination="5v8-kZ-ubV" id="DD1-CQ-eQx"/>
+                        <outlet property="headingLabel" destination="NI2-r5-5Jp" id="xqe-YF-UkP"/>
+                        <outlet property="loginButton" destination="MvC-kB-dB7" id="wTE-H4-IYp"/>
                         <outlet property="password" destination="33s-xD-lau" id="MVU-lF-5Te"/>
+                        <outlet property="passwordTitleLabel" destination="2NI-mE-6KZ" id="Fcj-ni-MnJ"/>
                         <outlet property="passwordView" destination="aLD-nh-6XI" id="pf6-iF-05N"/>
                         <outlet property="passwordiconButton" destination="9Ev-od-XOO" id="0WT-tM-thP"/>
+                        <outlet property="reenterpasswordTitleLabel" destination="fT3-7B-RrU" id="VZa-S6-owg"/>
                         <outlet property="signinButton" destination="JxD-be-5Xk" id="ZS5-qj-HYT"/>
                     </connections>
                 </viewController>
@@ -1012,7 +1052,7 @@
                                                                 </connections>
                                                             </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="n1N-7A-Myi" firstAttribute="leading" secondItem="we0-ZU-swH" secondAttribute="leading" constant="24" id="2r2-we-v5t"/>
                                                             <constraint firstItem="cYC-uL-BQY" firstAttribute="leading" secondItem="we0-ZU-swH" secondAttribute="leading" constant="24" id="79V-HL-3mV"/>
@@ -1051,6 +1091,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="we0-ZU-swH" firstAttribute="top" secondItem="55j-Fo-hPg" secondAttribute="top" id="OFN-v2-Dru"/>
                                                     <constraint firstAttribute="bottom" secondItem="we0-ZU-swH" secondAttribute="bottom" id="ZD0-5k-DCc"/>
@@ -1085,7 +1126,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="QyJ-B7-DBw" firstAttribute="top" secondItem="1Tz-f2-G3v" secondAttribute="top" constant="24" id="3fR-bD-2xo"/>
                                     <constraint firstItem="ha1-km-KNp" firstAttribute="top" secondItem="QyJ-B7-DBw" secondAttribute="bottom" constant="20" id="4rz-0W-ulO"/>
@@ -1101,7 +1142,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0WF-O6-GBj"/>
-                        <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstItem="1Tz-f2-G3v" firstAttribute="leading" secondItem="0WF-O6-GBj" secondAttribute="leading" id="22K-2o-kYQ"/>
                             <constraint firstItem="1Tz-f2-G3v" firstAttribute="top" secondItem="0WF-O6-GBj" secondAttribute="top" id="i24-uo-Qfe"/>
@@ -1110,12 +1151,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bgView" destination="Jsu-b7-fbO" id="w8Y-0V-pwF"/>
                         <outlet property="containerScrollview" destination="55j-Fo-hPg" id="dF8-6o-FSP"/>
+                        <outlet property="dontHaveAccountLabel" destination="yIK-5s-yMn" id="nmY-Ya-lUb"/>
+                        <outlet property="emailTitleLabel" destination="Y9U-TK-bTG" id="EUE-TF-V2O"/>
                         <outlet property="fieldContainer" destination="ha1-km-KNp" id="Mhr-Ub-Kaj"/>
+                        <outlet property="fillDetailsLabel" destination="RZQ-qQ-Vzy" id="hav-Ku-3A8"/>
+                        <outlet property="forgotPasswordButton" destination="Gaj-wh-jPV" id="Nza-v1-kCc"/>
                         <outlet property="mobileTextfield" destination="Qbq-h5-zdy" id="78o-IG-e7O"/>
                         <outlet property="passwordTextfield" destination="Bfp-RM-s5A" id="PXj-Fl-ngU"/>
+                        <outlet property="passwordTitleLabel" destination="cYC-uL-BQY" id="FS9-0I-GUJ"/>
                         <outlet property="passwordView" destination="PNK-tK-ET3" id="oNW-aa-hfG"/>
                         <outlet property="passwordiconButton" destination="tUb-zh-5fm" id="M5c-QB-L8W"/>
+                        <outlet property="signInTitleLabel" destination="wKe-cs-bD8" id="eTG-sP-CDe"/>
                         <outlet property="signinButton" destination="n1N-7A-Myi" id="eyQ-bC-0QN"/>
                         <outlet property="signupButton" destination="MRa-As-bHR" id="g1y-bx-zL7"/>
                         <outlet property="usernameView" destination="oJP-us-xYF" id="PmN-Tb-wHF"/>
@@ -1675,7 +1723,7 @@
                                                                                 <rect key="frame" x="90" y="0.0" width="110" height="45"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radioDeselected" translatesAutoresizingMaskIntoConstraints="NO" id="odb-EW-fW6">
-                                                                                        <rect key="frame" x="0.0" y="11.5" width="37.5" height="22.5"/>
+                                                                                        <rect key="frame" x="0.0" y="11.5" width="24" height="22.5"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="4" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-N6-nbX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
@@ -1685,7 +1733,7 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-7R-2bW">
-                                                                                        <rect key="frame" x="57.5" y="0.0" width="52.5" height="45"/>
+                                                                                        <rect key="frame" x="44" y="0.0" width="66" height="45"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <color key="textColor" white="0.29635528430000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -7989,7 +8037,7 @@ EFBheW1lbnQgTWV0aG9kA
         <image name="specialoffer1" width="280" height="244"/>
         <image name="tab2" width="22" height="22"/>
         <image name="tab3" width="20" height="20"/>
-        <image name="time" width="24" height="24"/>
+        <image name="time" width="12" height="12"/>
         <image name="tokenBg-1" width="146" height="143.5"/>
         <image name="tokennew" width="183" height="172"/>
         <image name="view" width="24" height="24"/>

@@ -12,7 +12,20 @@ import FirebaseAuth
 class OTPViewController: UIViewController,UITextFieldDelegate
 {
    
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var alreadyhaveanaccountLabel: UILabel!
+    @IBOutlet var otpview6: UIView!
+    @IBOutlet var otpview5: UIView!
+    @IBOutlet var otpview4: UIView!
+    @IBOutlet var otpview3: UIView!
+    @IBOutlet var otpview1: UIView!
+    @IBOutlet var otpview2: UIView!
     
+    @IBOutlet var changeNumberButton: UIButton!
+    @IBOutlet var enterotpHeadingLabel: UILabel!
+    @IBOutlet var enterOTPLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
     
     
     @IBOutlet weak var mobileNumberLabel: UILabel!
@@ -41,6 +54,41 @@ class OTPViewController: UIViewController,UITextFieldDelegate
         
         FirebaseCall()// Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = .black
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        enterOTPLabel.textColor = UIColor(named: "vip")
+        changeNumberButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        verifyButton.backgroundColor = UIColor(named: "vip")
+        verifyButton.setTitleColor(UIColor(hex: "#222629"), for: .normal)
+        enterotpHeadingLabel.textColor = UIColor(hex: "#363B44")
+        mobileNumberLabel.textColor = UIColor(hex: "#363B44")
+        alreadyhaveanaccountLabel.textColor = UIColor(hex: "#72767C")
+        loginButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        container.backgroundColor = UIColor(hex: "#222629")
+        otpview1.backgroundColor = UIColor(hex: "#34383B")
+        otpview2.backgroundColor = UIColor(hex: "#34383B")
+        otpview3.backgroundColor = UIColor(hex: "#34383B")
+        otpview4.backgroundColor = UIColor(hex: "#34383B")
+        otpview5.backgroundColor = UIColor(hex: "#34383B")
+        otpview6.backgroundColor = UIColor(hex: "#34383B")
+        otp1.textColor = UIColor.white
+        otp2.textColor = UIColor.white
+        otp3.textColor = UIColor.white
+        otp4.textColor = UIColor.white
+        otp5.textColor = UIColor.white
+        otp6.textColor = UIColor.white
+
+
+    }
+    
     @IBAction func back_clicked(_ sender: Any)
     {
         dismiss(animated: true, completion: nil)

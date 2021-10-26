@@ -10,8 +10,27 @@ import UIKit
 import FlagPhoneNumber
 
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController
+{
     
+    
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var loginButton: UIButton!
+    
+    @IBOutlet var alreadyhaveAccountLabel: UILabel!
+    @IBOutlet var tandcButton: UIButton!
+    @IBOutlet var agreeLabel: UILabel!
+    
+    @IBOutlet var mrnIdTitleLabel: UILabel!
+    
+    @IBOutlet var emiritesTitleLabel: UILabel!
+    
+    @IBOutlet var emailTitleLabel: UILabel!
+    @IBOutlet var mobileNumberLabel: UILabel!
+    
+    @IBOutlet var fullnameTitleLabel: UILabel!
+    @IBOutlet var fillDetailsLabel: UILabel!
+    @IBOutlet var signupTitleLabel: UILabel!
     @IBOutlet var mobile: FPNTextField!
     @IBOutlet weak var mrnIDTextFeild: UITextField!
     @IBOutlet var scrollView: UIScrollView!
@@ -21,6 +40,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emiratesID: UITextField!
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var checkBox: UIButton!
+    
     var checkBoxState = Bool()
     var validation = Validation()
     var viewModel = RegisterUserViewModel()
@@ -32,6 +52,36 @@ class RegistrationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        signupTitleLabel.textColor = UIColor(named: "vip")
+        fillDetailsLabel.textColor = UIColor.white
+        fullnameTitleLabel.textColor = UIColor(named: "vip")
+        mobileNumberLabel.textColor = UIColor(named: "vip")
+        emailTitleLabel.textColor = UIColor(named: "vip")
+        emiritesTitleLabel.textColor = UIColor(named: "vip")
+        mrnIdTitleLabel.textColor = UIColor(named: "vip")
+        generateButton.backgroundColor = UIColor(named: "vip")
+        generateButton.setTitleColor(UIColor(hex: "#222629"), for: .normal)
+        alreadyhaveAccountLabel.textColor = UIColor.white
+        loginButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        container.backgroundColor = UIColor(hex: "#222629")
+        firstName.backgroundColor = UIColor(hex: "#34383B")
+        mobile.backgroundColor = UIColor(hex: "#34383B")
+        email.backgroundColor = UIColor(hex: "#34383B")
+        emiratesID.backgroundColor = UIColor(hex: "#34383B")
+        mrnIDTextFeild.backgroundColor = UIColor(hex: "#34383B")
+        agreeLabel.textColor = UIColor(hex: "#9A9DA1")
+        tandcButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+
+    }
     @IBAction func agreeTerms(_ sender: Any)
     {
         checkBoxState = !checkBoxState
