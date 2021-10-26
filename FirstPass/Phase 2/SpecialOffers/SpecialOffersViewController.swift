@@ -11,6 +11,10 @@ import UIKit
 class SpecialOffersViewController: UIViewController
 {
 
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var packagesLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var bgView: UIView!
     @IBOutlet var collectionview: UICollectionView!
     let offerHeadings = ["CHRONIC OBSTRUCTIVE PULMONARY DISEASE (COPD) SCREENING","PRE-DIABETES & DIABETES SCREENING PACKAGES","It is a long established fact that a reader will be distracted "]
     let offerdescriptions = ["Our Doctors are highly trained and specialise in Chronic Obstructive Pulmonary Disease (COPD) treatment and management.","Diabetes is a lifelong condition which if not managed, causes serious health problems","It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."]
@@ -24,7 +28,19 @@ class SpecialOffersViewController: UIViewController
         collectionview.delegate = self
         // Do any additional setup after loading the view.
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        titleLabel.textColor = .white
+        packagesLabel.textColor = .white
+    }
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -38,6 +54,12 @@ extension SpecialOffersViewController: UICollectionViewDelegate,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "SpecialOffersCollectionViewCell", for: indexPath) as! SpecialOffersCollectionViewCell
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.Container.backgroundColor = UIColor(hex: "#222629")
+        }
+        
         cell.headingLabel.text = offerHeadings[indexPath.row]
         cell.descriptionLabel.text = offerdescriptions[indexPath.row]
         cell.offerImage.image = UIImage(named: offerImages[indexPath.row])

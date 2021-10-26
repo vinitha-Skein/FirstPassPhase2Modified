@@ -37,7 +37,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" name="Payment view BG"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="VMe-8q-g6M" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6Rn-VE-56j"/>
                     <constraint firstItem="8le-3T-WAa" firstAttribute="leading" secondItem="VMe-8q-g6M" secondAttribute="trailing" constant="16" id="Buu-Lw-VMI"/>
@@ -46,6 +46,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="cardnumberLabel" destination="8le-3T-WAa" id="q5P-rx-LMW"/>
             </connections>
@@ -56,9 +57,6 @@
         <image name="visa-logo-png-2015" width="1280" height="417"/>
         <namedColor name="Normal heading">
             <color red="0.21199999749660492" green="0.23100000619888306" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Payment view BG">
-            <color red="0.97299998998641968" green="0.97299998998641968" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

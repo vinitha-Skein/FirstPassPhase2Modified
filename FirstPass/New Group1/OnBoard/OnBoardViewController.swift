@@ -10,7 +10,14 @@ import UIKit
 import UICircularProgressRing
 
 class OnBoardViewController: UIViewController {
-
+    
+    @IBOutlet var bgShadeView2: MyUIView!
+    @IBOutlet var bgShadeView1: MyUIView!
+    @IBOutlet var circularView: MyUIView!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var skipButton: UIButton!
+    
+    @IBOutlet var holderView: MyUIView!
     @IBOutlet weak var indicator1: UIView!
     @IBOutlet weak var indicator2: UIView!
     @IBOutlet weak var indicator3: UIView!
@@ -33,24 +40,74 @@ class OnBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        UserDefaults.standard.setValue(true, forKey: "vip")
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        holderView.backgroundColor = UIColor(hex: "#222629")
+        bgView.backgroundColor = .black
+        titleText.textColor = UIColor(named: "vip")
+        titleDescription.textColor = .white
+        skipButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        circularView.backgroundColor = UIColor(named: "vip")
+        bgShadeView1.backgroundColor = UIColor(hex: "#D7BF71")
+        bgShadeView2.backgroundColor = UIColor(hex: "#F4DE8B")
+        indicator1.backgroundColor = UIColor(named: "vip")
+        circularProgress.innerRingColor = UIColor(named: "vip")!
+    }
+    
     @IBAction func nextAction(_ sender: Any) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            circularProgress.innerRingColor = UIColor(named: "vip")!
+        }
         index += 1
         switch index {
         case 1:
-            indicator1.backgroundColor = selectedColor
-            indicator2.backgroundColor = selectedColor
-            indicator3.backgroundColor = unSelectedColor
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                indicator1.backgroundColor = UIColor(named: "vip")
+                indicator2.backgroundColor = UIColor(named: "vip")
+                indicator3.backgroundColor = unSelectedColor
+            }
+            else
+            {
+                indicator1.backgroundColor = selectedColor
+                indicator2.backgroundColor = selectedColor
+                indicator3.backgroundColor = unSelectedColor
+            }
+            
+            
             backgroundImage.image = backgrounds[index]
             titleText.text = titleList[index]
             titleDescription.text = titleDesc[index]
             circularProgress.value = 60
             
+            
         case 2:
             
-            indicator1.backgroundColor = selectedColor
-            indicator2.backgroundColor = selectedColor
-            indicator3.backgroundColor = selectedColor
+            if UserDefaults.standard.bool(forKey: "vip")
+            {
+                indicator1.backgroundColor = UIColor(named: "vip")
+                indicator2.backgroundColor = UIColor(named: "vip")
+                indicator3.backgroundColor = UIColor(named: "vip")
+            }
+            else
+            {
+                indicator1.backgroundColor = selectedColor
+                indicator2.backgroundColor = selectedColor
+                indicator3.backgroundColor = selectedColor
+                
+            }
+           
+            
             backgroundImage.image = backgrounds[index]
             titleText.text = titleList[index]
             titleDescription.text = titleDesc[index]

@@ -777,7 +777,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="2NI-mE-6KZ" firstAttribute="top" secondItem="P26-hZ-YCq" secondAttribute="top" constant="14" id="4or-51-v4E"/>
                                                             <constraint firstItem="aLD-nh-6XI" firstAttribute="top" secondItem="2NI-mE-6KZ" secondAttribute="bottom" constant="10" id="N30-3O-nsx"/>
@@ -827,7 +827,7 @@
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="Jeo-1k-SrH" firstAttribute="leading" secondItem="ljD-ar-SbR" secondAttribute="leading" id="9bK-eM-Iej"/>
                                                             <constraint firstItem="fT3-7B-RrU" firstAttribute="leading" secondItem="ljD-ar-SbR" secondAttribute="leading" id="Mcw-wx-hcK"/>
@@ -837,6 +837,7 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -873,7 +874,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" name="background"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="MvC-kB-dB7" firstAttribute="centerY" secondItem="5VL-wS-6Dn" secondAttribute="centerY" id="3Ko-dZ-OeW"/>
                                     <constraint firstItem="uCz-B7-cPR" firstAttribute="leading" secondItem="enc-hq-SGt" secondAttribute="leading" constant="24" id="G5l-ox-qwD"/>
@@ -890,7 +891,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KCS-u7-8bw"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="enc-hq-SGt" secondAttribute="bottom" id="7Vu-5a-PnM"/>
                             <constraint firstAttribute="trailing" secondItem="enc-hq-SGt" secondAttribute="trailing" id="Hke-jm-3bC"/>
@@ -1723,7 +1724,7 @@
                                                                                 <rect key="frame" x="90" y="0.0" width="110" height="45"/>
                                                                                 <subviews>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="radioDeselected" translatesAutoresizingMaskIntoConstraints="NO" id="odb-EW-fW6">
-                                                                                        <rect key="frame" x="0.0" y="11.5" width="24" height="22.5"/>
+                                                                                        <rect key="frame" x="0.0" y="11.5" width="37.5" height="22.5"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="4" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGg-N6-nbX">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="55" height="30"/>
@@ -1733,7 +1734,7 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Female" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-7R-2bW">
-                                                                                        <rect key="frame" x="44" y="0.0" width="66" height="45"/>
+                                                                                        <rect key="frame" x="57.5" y="0.0" width="52.5" height="45"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                                         <color key="textColor" white="0.29635528430000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -3107,11 +3108,17 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="6Pe-ea-lRc" id="ted-GB-yzh"/>
+                        <outlet property="bgShadeView1" destination="aVQ-am-leZ" id="A7B-iv-fEN"/>
+                        <outlet property="bgShadeView2" destination="gwj-iX-Mdp" id="jco-5e-r6x"/>
+                        <outlet property="bgView" destination="iLa-xz-OpE" id="2kN-cW-qMn"/>
                         <outlet property="circularProgress" destination="kSH-p6-EPp" id="fsO-8S-lj1"/>
+                        <outlet property="circularView" destination="XtI-Xw-1kl" id="71a-Rk-EVn"/>
+                        <outlet property="holderView" destination="W61-wu-5V0" id="adn-nb-K1k"/>
                         <outlet property="indicator1" destination="Zx8-8t-k2d" id="0jD-J4-i50"/>
                         <outlet property="indicator2" destination="Csf-e8-uCW" id="0BN-zT-he3"/>
                         <outlet property="indicator3" destination="iZ0-s9-gzw" id="zap-io-ffS"/>
                         <outlet property="nextButton" destination="vzJ-hK-ViU" id="s80-5h-w42"/>
+                        <outlet property="skipButton" destination="Nai-3a-vY1" id="b13-p2-YSo"/>
                         <outlet property="titleDescription" destination="cFk-Eg-1Qq" id="i04-pK-Kgk"/>
                         <outlet property="titleText" destination="qPN-2d-P1Y" id="oLx-lw-0ft"/>
                     </connections>
@@ -7929,7 +7936,7 @@ EFBheW1lbnQgTWV0aG9kA
                                         </cells>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" name="Background General"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Iw5-WZ-rLO" firstAttribute="leading" secondItem="U2O-hI-OaA" secondAttribute="leading" constant="20" id="HL2-ea-GKb"/>
                                     <constraint firstItem="YP6-da-PP3" firstAttribute="leading" secondItem="U2O-hI-OaA" secondAttribute="leading" constant="20" id="N6y-k4-xMs"/>
@@ -7945,7 +7952,7 @@ EFBheW1lbnQgTWV0aG9kA
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="96D-4r-cg3"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="Background General"/>
                         <constraints>
                             <constraint firstItem="U2O-hI-OaA" firstAttribute="leading" secondItem="96D-4r-cg3" secondAttribute="leading" id="Rwh-C3-hMO"/>
                             <constraint firstItem="U2O-hI-OaA" firstAttribute="top" secondItem="eJ7-O7-WBE" secondAttribute="top" id="cKA-Gc-IgH"/>
@@ -7954,7 +7961,11 @@ EFBheW1lbnQgTWV0aG9kA
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Iw5-WZ-rLO" id="eO3-SS-taA"/>
+                        <outlet property="bgView" destination="eJ7-O7-WBE" id="oLi-Qw-K89"/>
                         <outlet property="collectionview" destination="RUD-z1-3aX" id="Rp2-Fj-msq"/>
+                        <outlet property="packagesLabel" destination="YP6-da-PP3" id="xRQ-sl-HWd"/>
+                        <outlet property="titleLabel" destination="uwk-C4-vjc" id="9dc-SJ-lHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CBy-Ff-XX5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

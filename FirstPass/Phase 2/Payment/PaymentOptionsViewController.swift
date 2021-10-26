@@ -96,6 +96,13 @@ class PaymentOptionsViewController: UIViewController {
         phonepeupiLabel.textColor = UIColor(named: "vip")
         netbankingTitleLabel.textColor = UIColor(named: "vip")
         morebankButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        addnewUpiLabel.textColor = UIColor(named: "vip")
+        view1.backgroundColor = .clear
+        view2.backgroundColor = .clear
+        view3.backgroundColor = .clear
+        view4.backgroundColor = .clear
+        cardsTableView.backgroundColor = .clear
+        netBankingCollectionView.backgroundColor = .clear
     }
     
     @IBAction func back_clicked(_ sender: Any)

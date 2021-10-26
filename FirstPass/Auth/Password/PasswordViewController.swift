@@ -61,6 +61,8 @@ class PasswordViewController: UIViewController {
         signinButton.backgroundColor = UIColor(named: "vip")
         signinButton.setTitleColor(UIColor(hex: "#503E00"), for: .normal)
         headingLabel.textColor = UIColor(named: "vip")
+        alreadyhaveanaccountLabel.textColor = UIColor(hex: "#72767C")
+        loginButton.setTitleColor(UIColor(named: "vip"), for: .normal)
     }
     @IBAction func signinAction(_ sender: Any)
     {
