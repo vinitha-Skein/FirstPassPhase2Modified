@@ -88,7 +88,10 @@ class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDel
         familyMemberData = [myself,member1,member2]
     }
     override func viewDidAppear(_ animated: Bool) {
-        //Vipview()
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            Vipview()
+        }
     }
     func Vipview()
     {

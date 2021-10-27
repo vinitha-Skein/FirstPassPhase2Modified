@@ -64,7 +64,11 @@ class DoctorFilterViewController: UIViewController
     }
     func vipview()
     {
-        popupContainer.backgroundColor = UIColor(named: "vip")
+        popupContainer.backgroundColor = UIColor(hex: "#222629")
+        titleLabel.textColor = .white
+        locationFeild.backgroundColor = UIColor(hex: "#34383B")
+        departmentFeild.backgroundColor = UIColor(hex: "#34383B")
+        applyButton.setTitleColor(UIColor(named: "vip"), for: .normal)
     }
     
     @IBAction func clearAll_Clicked(_ sender: Any)

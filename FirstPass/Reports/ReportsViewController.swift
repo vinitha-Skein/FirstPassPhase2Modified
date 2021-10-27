@@ -49,7 +49,6 @@ class ReportsViewController: UIViewController,ReportDelegate
 //            backButton.isHidden = true
 //        }
         
-        UserDefaults.standard.setValue(true, forKey: "vip")
     }
     
     override func viewDidAppear(_ animated: Bool) {

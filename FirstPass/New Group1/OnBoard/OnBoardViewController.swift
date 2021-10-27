@@ -40,7 +40,6 @@ class OnBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        UserDefaults.standard.setValue(true, forKey: "vip")
     }
     
     override func viewDidAppear(_ animated: Bool) {

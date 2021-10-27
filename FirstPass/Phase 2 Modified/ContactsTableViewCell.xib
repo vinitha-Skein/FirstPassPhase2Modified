@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,13 +29,13 @@
                         <rect key="frame" x="0.0" y="8" width="354" height="123"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rf6-vn-6GG">
-                                <rect key="frame" x="20" y="10" width="65" height="19"/>
+                                <rect key="frame" x="20" y="10" width="60" height="19"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
-                                <color key="textColor" name="BG"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulg-Eg-6ed">
-                                <rect key="frame" x="20" y="39" width="182.5" height="14"/>
+                                <rect key="frame" x="20" y="39" width="168" height="14"/>
                                 <string key="text" base64-UTF8="YES">
 UG8gEEJveCAxNzkyOSBKZWJlbCBBbGkgZnJlZSBab25lLA
 </string>
@@ -44,7 +43,7 @@ UG8gEEJveCAxNzkyOSBKZWJlbCBBbGkgZnJlZSBab25lLA
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dubai, U.A.E." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eh7-cU-6uu">
-                                <rect key="frame" x="20" y="58" width="72" height="14"/>
+                                <rect key="frame" x="20" y="58" width="64.5" height="14"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -95,7 +94,7 @@ UG8gEEJveCAxNzkyOSBKZWJlbCBBbGkgZnJlZSBab25lLA
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="RIp-sd-OBt" firstAttribute="top" secondItem="zoJ-D2-Lhp" secondAttribute="top" constant="8" id="0yu-Mg-z0k"/>
                     <constraint firstAttribute="trailing" secondItem="RIp-sd-OBt" secondAttribute="trailing" id="DYm-p1-eai"/>
@@ -104,6 +103,7 @@ UG8gEEJveCAxNzkyOSBKZWJlbCBBbGkgZnJlZSBab25lLA
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="91G-Ao-rzy"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="AddressLabel" destination="ulg-Eg-6ed" id="iWt-3k-4Kh"/>
                 <outlet property="branchLabel" destination="Rf6-vn-6GG" id="Kq1-Mi-znQ"/>
@@ -119,8 +119,5 @@ UG8gEEJveCAxNzkyOSBKZWJlbCBBbGkgZnJlZSBab25lLA
         <image name="Vector" width="14" height="10"/>
         <image name="clarity_map-outline-alerted" width="27" height="27"/>
         <image name="fluent_call-16-regular" width="20" height="17"/>
-        <namedColor name="BG">
-            <color red="0.20800000429153442" green="0.13699999451637268" blue="0.3919999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

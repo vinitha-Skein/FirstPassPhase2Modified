@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,9 +29,8 @@
                         <rect key="frame" x="0.0" y="8" width="354" height="123"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Johnsmith" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Bu-5t-2q0">
-                                <rect key="frame" x="82" y="16" width="101.5" height="19"/>
+                                <rect key="frame" x="82" y="16" width="97" height="19"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="16"/>
-                                <color key="textColor" name="Normal heading"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" translatesAutoresizingMaskIntoConstraints="NO" id="7HC-lM-dWR" customClass="CustomImageView" customModule="firstpass" customModuleProvider="target">
@@ -43,7 +41,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardiologist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dcg-hi-uu4">
-                                <rect key="frame" x="82" y="40" width="64.5" height="14"/>
+                                <rect key="frame" x="82" y="40" width="60.5" height="14"/>
                                 <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -70,7 +68,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aGL-yv-Ch9" firstAttribute="leading" secondItem="gwy-HC-A2e" secondAttribute="trailing" constant="5" id="4UK-CY-uL9"/>
                             <constraint firstItem="7Bu-5t-2q0" firstAttribute="top" secondItem="v75-4L-QXG" secondAttribute="top" constant="16" id="DPo-PX-Ju7"/>
@@ -87,7 +85,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="v75-4L-QXG" firstAttribute="leading" secondItem="aof-6M-xbY" secondAttribute="leading" id="WGI-Nq-EfG"/>
                     <constraint firstAttribute="bottom" secondItem="v75-4L-QXG" secondAttribute="bottom" constant="8" id="lz5-dP-t9l"/>
@@ -96,6 +94,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="hox-0B-iuS"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="container" destination="v75-4L-QXG" id="1tx-cB-Q0E"/>
                 <outlet property="departmentLabel" destination="Dcg-hi-uu4" id="ABS-sF-XzO"/>
@@ -110,8 +109,5 @@
         <image name="bi_chat-left-text" width="18" height="17"/>
         <image name="carbon_phone-voice" width="16" height="16"/>
         <image name="person" width="225" height="225"/>
-        <namedColor name="Normal heading">
-            <color red="0.21199999749660492" green="0.23100000619888306" blue="0.2669999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>

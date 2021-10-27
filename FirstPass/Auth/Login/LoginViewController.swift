@@ -39,7 +39,6 @@ class LoginViewController: UIViewController {
         setupUI()
         mobileTextfield.text = "john@gmail.com"
         passwordTextfield.text = "123456"
-        UserDefaults.standard.setValue(true, forKey: "vip")
     }
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "vip")

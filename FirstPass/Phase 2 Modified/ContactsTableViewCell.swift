@@ -15,7 +15,7 @@ class ContactsTableViewCell: UITableViewCell {
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var AddressLabel: UILabel!
-    @IBOutlet weak var branchLabel: UILabel!
+    @IBOutlet var branchLabel: UILabel!
     
     
     var MapButtonPressed : (() -> ()) = {}

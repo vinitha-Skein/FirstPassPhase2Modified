@@ -9,6 +9,13 @@
 import UIKit
 
 class DoctorLookupViewController: UIViewController {
+    
+    @IBOutlet var filterButton: UIButton!
+    @IBOutlet var bgView: UIView!
+    @IBOutlet var bacButton: UIButton!
+    
+    @IBOutlet var doctorLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var container: UIView!
@@ -34,7 +41,19 @@ class DoctorLookupViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        doctorLabel.textColor = .white
+        titleLabel.textColor = .white
+        container.backgroundColor = UIColor(named: "#222629")
+    }
     @IBAction func back_Clicked(_ sender: Any)
     {
         dismiss(animated: true, completion: nil)
@@ -57,11 +76,23 @@ extension DoctorLookupViewController: UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "DoctorsLookupTableViewCell") as! DoctorsLookupTableViewCell
-        cell.nameLabel.text = names[indexPath.row]
-        cell.departmentLabel.text = department[indexPath.row]
-        cell.doctorImage.image = UIImage(named: doctorImages[indexPath.row])
-        cell.doctorImage.layer.cornerRadius = 18
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            cell.container.backgroundColor = UIColor(hex: "#34383B")
+            cell.nameLabel.textColor = UIColor(named: "vip")
+            cell.departmentLabel.textColor = .white
+
+        }
+        else
+        {
+            cell.container.backgroundColor = UIColor(hex: "#F8F8F9")
+            cell.nameLabel.textColor = .black
+            cell.departmentLabel.textColor = .black
+        }
         cell.container.layer.cornerRadius = 10
+       
+        
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
