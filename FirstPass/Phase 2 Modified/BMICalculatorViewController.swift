@@ -10,6 +10,16 @@ import UIKit
 
 class BMICalculatorViewController: UIViewController {
 
+    
+    @IBOutlet var weightLabel: UILabel!
+    @IBOutlet var heightLabel: UILabel!
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var calculateButton: Mybutton!
+    @IBOutlet var cancelButton: Mybutton!
+    @IBOutlet var bgView: UIView!
+    
+    
     @IBOutlet weak var weighttext: UITextField!
     @IBOutlet weak var height2text: UITextField!
     @IBOutlet weak var Container: UIView!
@@ -35,6 +45,35 @@ class BMICalculatorViewController: UIViewController {
         SetupUI()
 
         // Do any additional setup after loading the view.
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    
+    func vipview()
+    {
+        bgView.backgroundColor = UIColor.black
+        titleLabel.textColor = .white
+        calculateButton.backgroundColor = UIColor(named: "vip")
+        calculateButton.setTitleColor(UIColor.white, for: .normal)
+        cancelButton.backgroundColor = .clear
+        cancelButton.setTitleColor(UIColor(named: "vip"), for: .normal)
+        cancelButton.borderColor = UIColor(named: "vip")!
+        Container.backgroundColor = UIColor(hex: "#222629")
+        heightLabel.textColor = UIColor(named: "vip")
+        weightLabel.textColor = UIColor(named: "vip")
+        heightviewLabel.textColor = .white
+        heightview2Label.textColor = .white
+        weightViewLabel.textColor = .white
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        
+        metricButton.backgroundColor = .clear
+       imperialButton.backgroundColor = UIColor(named: "vip")
+        imperialButton.setTitleColor(.white, for: .normal)
+        metricButton.setTitleColor(unselectedText, for: .normal)
     }
     @IBAction func calculate_Clicked(_ sender: Any)
     {
@@ -66,12 +105,22 @@ class BMICalculatorViewController: UIViewController {
     
     @IBAction func imperial_Clicked(_ sender: Any)
     {
-        imperialButton.createBorderForButton(cornerRadius: 4, borderWidth: 1, borderColor: .lightGray)
-         metricButton.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
-         metricButton.backgroundColor = .clear
-         imperialButton.backgroundColor = buttonBG
-         imperialButton.setTitleColor(.white, for: .normal)
-         metricButton.setTitleColor(unselectedText, for: .normal)
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            
+             metricButton.backgroundColor = .clear
+            imperialButton.backgroundColor = UIColor(named: "vip")
+             imperialButton.setTitleColor(.white, for: .normal)
+             metricButton.setTitleColor(unselectedText, for: .normal)
+        }
+        else
+        {
+            
+             metricButton.backgroundColor = .clear
+             imperialButton.backgroundColor = buttonBG
+             imperialButton.setTitleColor(.white, for: .normal)
+             metricButton.setTitleColor(unselectedText, for: .normal)
+        }
         
         Heightview1Width = MyConstraint.changeMultiplier(Heightview1Width, multiplier: 0.45)
         HeightView2.isHidden = false
@@ -85,12 +134,26 @@ class BMICalculatorViewController: UIViewController {
     }
     @IBAction func metric_Clicked(_ sender: Any)
     {
+        
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            imperialButton.backgroundColor = .clear
+            metricButton.backgroundColor = UIColor(named: "vip")
+            metricButton.setTitleColor(.white, for: .normal)
+            imperialButton.setTitleColor(unselectedText, for: .normal)
+        }
+        else
+        {
+            imperialButton.backgroundColor = .clear
+            metricButton.backgroundColor = buttonBG
+            metricButton.setTitleColor(.white, for: .normal)
+            imperialButton.setTitleColor(unselectedText, for: .normal)
+
+        }
+        
+        
        metricButton.createBorderForButton(cornerRadius: 4, borderWidth: 1, borderColor: .clear)
         imperialButton.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .lightGray)
-        imperialButton.backgroundColor = .clear
-        metricButton.backgroundColor = buttonBG
-        metricButton.setTitleColor(.white, for: .normal)
-        imperialButton.setTitleColor(unselectedText, for: .normal)
         
         Heightview1Width = MyConstraint.changeMultiplier(Heightview1Width, multiplier: 1)
         HeightView2.isHidden = true

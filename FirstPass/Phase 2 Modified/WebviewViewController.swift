@@ -9,8 +9,11 @@ import UIKit
 import WebKit
 
 class WebviewViewController: UIViewController {
+    
+    @IBOutlet var backButton: UIButton!
+    @IBOutlet var headingLabel: UILabel!
+    @IBOutlet var bgView: UIView!
     @IBOutlet weak var webview: WKWebView!
-    @IBOutlet weak var headingLabel: UILabel!
     
     var HealthTips = false
     var Aboutus = false
@@ -56,9 +59,20 @@ class WebviewViewController: UIViewController {
             webview.load(request)
         }
         
-        
-        
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if UserDefaults.standard.bool(forKey: "vip")
+        {
+            vipview()
+        }
+    }
+    func vipview()
+    {
+        bgView.backgroundColor = .black
+        backButton.setImage(UIImage(named: "vipback"), for: .normal)
+        headingLabel.textColor = .white
     }
     
     @IBAction func back_Clicked(_ sender: Any)
