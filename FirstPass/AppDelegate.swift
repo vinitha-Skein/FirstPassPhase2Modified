@@ -84,7 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         var ref: DatabaseReference!
         ref = Database.database().reference()
         ref.child("NotificationText").setValue(["Notification": "\(notification.request.content.body)"])
-        if notification.request.content.body.contains("is called for") {
+        if notification.request.content.body.contains("is called for")
+        {
             let fullNotificationString = notification.request.content.body
             let fullNameArr = fullNotificationString.components(separatedBy: "your token number ")
             debugPrint(fullNameArr[0])
@@ -93,7 +94,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let counterNumberArray = fullNotificationString.components(separatedBy: ":")
             debugPrint(counterNumberArray[1])
             showTokenPopup(token: tokenSeperation[0], Counter: counterNumberArray[1])
-        } else if notification.request.content.body.contains("is ended for") {
+            
+        }
+        else if notification.request.content.body.contains("is ended for")
+        {
             let fullNotificationString = notification.request.content.body
             let fullNameArr = fullNotificationString.components(separatedBy: "is ended for ")
             debugPrint(fullNameArr[0])
@@ -120,15 +124,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
     }
     
+//    func  showTokenPopup(token:String,Counter:String)
+//    {
+//        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
+//        vc.modalPresentationStyle = .fullScreen
+//        vc.token = token
+//        vc.counter = Counter
+//        //self.window?.rootViewController?.present(vc, animated: true, completion: nil)
+//
+//    }
+    
+    
     func  showTokenPopup(token:String,Counter:String)
-    {
-        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
-        vc.modalPresentationStyle = .fullScreen
-        vc.token = token
-        vc.counter = Counter
-        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
-    }
+        {
+            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "TokenPopup") as! TokenPopup
+            vc.modalPresentationStyle = .fullScreen
+            vc.token = token
+            vc.counter = Counter
+            DispatchQueue.main.async { [self] in
+                getTopMostViewController()?.present(vc, animated: true, completion: nil)
+            }
+        }
+        func getTopMostViewController() -> UIViewController? {
+            var topMostViewController = UIApplication.shared.keyWindow?.rootViewController
+
+            while let presentedViewController = topMostViewController?.presentedViewController {
+                topMostViewController = presentedViewController
+            }
+
+            return topMostViewController
+        }
 }
 
 
