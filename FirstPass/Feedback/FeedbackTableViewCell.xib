@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="107" id="KGk-i7-Jjw" customClass="FeedbackTableViewCell" customModule="firstpass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="582" height="107"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="582" height="107"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6N8-wt-Nnr">
+                        <rect key="frame" x="20" y="40" width="542" height="58"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="5" id="3lm-wT-llQ">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view hidden="YES" alpha="0.10000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tzk-El-FzE">
+                        <rect key="frame" x="32" y="106" width="518" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="30A-N8-7CJ"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="How was Welcome/Help desk service ?" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PPz-JT-RnS">
+                        <rect key="frame" x="32" y="15" width="518" height="47"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="14"/>
+                        <color key="textColor" red="0.29019607843137252" green="0.30980392156862746" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="Tzk-El-FzE" firstAttribute="top" secondItem="6N8-wt-Nnr" secondAttribute="bottom" constant="8" symbolic="YES" id="9MY-7O-GiO"/>
+                    <constraint firstItem="PPz-JT-RnS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="CUR-Wy-Gah"/>
+                    <constraint firstAttribute="trailing" secondItem="6N8-wt-Nnr" secondAttribute="trailing" constant="20" symbolic="YES" id="Cik-GK-PPM"/>
+                    <constraint firstAttribute="trailing" secondItem="Tzk-El-FzE" secondAttribute="trailing" constant="32" id="HGf-v0-Q1e"/>
+                    <constraint firstItem="PPz-JT-RnS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="NK9-KB-n1s"/>
+                    <constraint firstItem="6N8-wt-Nnr" firstAttribute="top" secondItem="PPz-JT-RnS" secondAttribute="bottom" constant="8" symbolic="YES" id="QXZ-7K-cAK"/>
+                    <constraint firstAttribute="bottom" secondItem="Tzk-El-FzE" secondAttribute="bottom" id="ZJF-e3-Kro"/>
+                    <constraint firstItem="Tzk-El-FzE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="a9u-Ck-QFa"/>
+                    <constraint firstAttribute="trailing" secondItem="PPz-JT-RnS" secondAttribute="trailing" constant="32" id="bWq-rp-fE2"/>
+                    <constraint firstItem="6N8-wt-Nnr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" symbolic="YES" id="pQo-St-JDe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="Container" destination="H2p-sc-9uM" id="elv-MW-3St"/>
+                <outlet property="collectionview" destination="6N8-wt-Nnr" id="PqN-1g-Oic"/>
+                <outlet property="feedback" destination="PPz-JT-RnS" id="iBp-h8-fVx"/>
+            </connections>
+            <point key="canvasLocation" x="-57.971014492753625" y="146.98660714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

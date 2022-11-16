@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FamilyCollectionViewCell" id="gTV-IL-0wX" customClass="FamilyCollectionViewCell" customModule="firstpass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Twh-m5-gOG">
+                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeUserImage" translatesAutoresizingMaskIntoConstraints="NO" id="BDT-5M-HGi">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Mhs-6t-YJN"/>
+                                    <constraint firstAttribute="width" constant="40" id="Nix-Qe-06E"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BDT-5M-HGi" firstAttribute="centerX" secondItem="Twh-m5-gOG" secondAttribute="centerX" id="5GI-Zi-e6O"/>
+                            <constraint firstItem="BDT-5M-HGi" firstAttribute="centerY" secondItem="Twh-m5-gOG" secondAttribute="centerY" id="XBo-wa-YbS"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Twh-m5-gOG" secondAttribute="bottom" id="CPj-j3-Lel"/>
+                <constraint firstItem="Twh-m5-gOG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="NB7-D7-z7Z"/>
+                <constraint firstAttribute="trailing" secondItem="Twh-m5-gOG" secondAttribute="trailing" id="cvT-Yh-PJz"/>
+                <constraint firstItem="Twh-m5-gOG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yMU-A1-SEJ"/>
+            </constraints>
+            <connections>
+                <outlet property="height" destination="Mhs-6t-YJN" id="wcQ-VB-atg"/>
+                <outlet property="memberImage" destination="BDT-5M-HGi" id="Zbt-fo-fzS"/>
+                <outlet property="width" destination="Nix-Qe-06E" id="0mC-Ec-K02"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="126.5625"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="HomeUserImage" width="38" height="38"/>
+    </resources>
+</document>

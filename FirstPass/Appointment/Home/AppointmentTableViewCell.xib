@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Pro-Display-Medium.otf">
+            <string>SFProDisplay-Medium</string>
+        </array>
+        <array key="SF-Pro-Display-Regular.otf">
+            <string>SFProDisplay-Regular</string>
+        </array>
+        <array key="SF-Pro-Display-Semibold.otf">
+            <string>SFProDisplay-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="216" id="KGk-i7-Jjw" customClass="AppointmentTableViewCell" customModule="firstpass" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="601" height="233"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="601" height="233"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7cS-W3-BgI">
+                        <rect key="frame" x="20" y="12" width="561" height="209"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orthopedic Replacement" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opn-gM-ntd">
+                                <rect key="frame" x="16" y="16.5" width="179.5" height="19"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="16"/>
+                                <color key="textColor" name="BG"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluecalendar" translatesAutoresizingMaskIntoConstraints="NO" id="gbp-Io-eEG">
+                                <rect key="frame" x="16" y="51.5" width="20" height="20"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetimeSquare" translatesAutoresizingMaskIntoConstraints="NO" id="vkU-VM-Vwa">
+                                <rect key="frame" x="118" y="51.5" width="20" height="20"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 22/10/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="p7q-1h-NU3">
+                                <rect key="frame" x="148" y="54.5" width="65" height="14"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                <color key="textColor" name="loginsubhead"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9N-CO-LXL">
+                                <rect key="frame" x="337" y="164" width="57" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Check-in">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkInAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8tp-CR-kX7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yvj-ZF-03h">
+                                <rect key="frame" x="137" y="160" width="100" height="37"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="7Pr-v6-Hx6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Medium" family="SF Pro Display" pointSize="14"/>
+                                <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Pre-Arrival">
+                                    <color key="titleColor" systemColor="linkColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="precheckInAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="itl-Ma-XXM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpm-V5-HeB">
+                                <rect key="frame" x="513" y="16" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Bpk-IY-udv"/>
+                                    <constraint firstAttribute="width" constant="32" id="xof-EC-Whf"/>
+                                </constraints>
+                                <state key="normal" image="indoorBlue"/>
+                                <connections>
+                                    <action selector="indoorMapAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Lys-QV-qFa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11.30 AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWR-dc-Iej">
+                                <rect key="frame" x="46" y="54.5" width="52" height="14"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                <color key="textColor" name="loginsubhead"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctorgrey" translatesAutoresizingMaskIntoConstraints="NO" id="t02-mW-e0K">
+                                <rect key="frame" x="16" y="81.5" width="16" height="16"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Ayesha Raza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hs-Jv-bwS">
+                                <rect key="frame" x="42" y="82.5" width="87.5" height="14"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                <color key="textColor" name="loginsubhead"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="05 mins" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW6-Uh-h1D">
+                                <rect key="frame" x="268" y="82.5" width="42.5" height="14"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                <color key="textColor" name="Button-color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wait time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGb-KB-bEG">
+                                <rect key="frame" x="209.5" y="82.5" width="53.5" height="14"/>
+                                <fontDescription key="fontDescription" name="SFProDisplay-Regular" family="SF Pro Display" pointSize="12"/>
+                                <color key="textColor" name="loginsubhead"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pW6-Uh-h1D" firstAttribute="leading" secondItem="yGb-KB-bEG" secondAttribute="trailing" constant="5" id="15x-Ek-oFM"/>
+                            <constraint firstItem="vkU-VM-Vwa" firstAttribute="centerY" secondItem="zWR-dc-Iej" secondAttribute="centerY" id="1AZ-px-sMa"/>
+                            <constraint firstAttribute="trailing" secondItem="lpm-V5-HeB" secondAttribute="trailing" constant="16" id="1v5-oc-mm9"/>
+                            <constraint firstItem="lpm-V5-HeB" firstAttribute="top" secondItem="7cS-W3-BgI" secondAttribute="top" constant="16" id="2PN-Ms-qNB"/>
+                            <constraint firstItem="gbp-Io-eEG" firstAttribute="leading" secondItem="7cS-W3-BgI" secondAttribute="leading" constant="16" id="ACb-0f-jeI"/>
+                            <constraint firstItem="t02-mW-e0K" firstAttribute="leading" secondItem="gbp-Io-eEG" secondAttribute="leading" id="DN4-3P-dwk"/>
+                            <constraint firstItem="k9N-CO-LXL" firstAttribute="leading" secondItem="Yvj-ZF-03h" secondAttribute="trailing" constant="100" id="GyC-wS-g9T"/>
+                            <constraint firstItem="p7q-1h-NU3" firstAttribute="centerY" secondItem="vkU-VM-Vwa" secondAttribute="centerY" id="I3M-zQ-4pz"/>
+                            <constraint firstAttribute="bottom" secondItem="Yvj-ZF-03h" secondAttribute="bottom" constant="12" id="KCv-q4-Hgg"/>
+                            <constraint firstAttribute="bottom" secondItem="k9N-CO-LXL" secondAttribute="bottom" constant="16" id="Mwg-yN-JoO"/>
+                            <constraint firstItem="zWR-dc-Iej" firstAttribute="leading" secondItem="gbp-Io-eEG" secondAttribute="trailing" constant="10" id="Rbi-sS-6Oq"/>
+                            <constraint firstItem="p7q-1h-NU3" firstAttribute="leading" secondItem="vkU-VM-Vwa" secondAttribute="trailing" constant="10" id="YNI-rH-cRi"/>
+                            <constraint firstItem="zWR-dc-Iej" firstAttribute="centerY" secondItem="gbp-Io-eEG" secondAttribute="centerY" id="bIK-Ij-DDT"/>
+                            <constraint firstItem="8hs-Jv-bwS" firstAttribute="leading" secondItem="t02-mW-e0K" secondAttribute="trailing" constant="10" id="f7J-Im-O1D"/>
+                            <constraint firstItem="gbp-Io-eEG" firstAttribute="top" secondItem="opn-gM-ntd" secondAttribute="bottom" constant="16" id="fGF-8i-pge"/>
+                            <constraint firstItem="k9N-CO-LXL" firstAttribute="centerX" secondItem="7cS-W3-BgI" secondAttribute="centerX" constant="85" id="fpj-BU-35H"/>
+                            <constraint firstItem="t02-mW-e0K" firstAttribute="top" secondItem="gbp-Io-eEG" secondAttribute="bottom" constant="10" id="g9F-zj-zvD"/>
+                            <constraint firstItem="k9N-CO-LXL" firstAttribute="centerY" secondItem="Yvj-ZF-03h" secondAttribute="centerY" id="ij0-99-J2n"/>
+                            <constraint firstItem="yGb-KB-bEG" firstAttribute="centerY" secondItem="pW6-Uh-h1D" secondAttribute="centerY" id="l9D-rc-Hxo"/>
+                            <constraint firstItem="pW6-Uh-h1D" firstAttribute="centerY" secondItem="8hs-Jv-bwS" secondAttribute="centerY" id="oXf-Uy-cvA"/>
+                            <constraint firstItem="8hs-Jv-bwS" firstAttribute="centerY" secondItem="t02-mW-e0K" secondAttribute="centerY" id="ojr-Ah-JuG"/>
+                            <constraint firstItem="opn-gM-ntd" firstAttribute="leading" secondItem="7cS-W3-BgI" secondAttribute="leading" constant="16" id="wnC-Vm-9M8"/>
+                            <constraint firstItem="yGb-KB-bEG" firstAttribute="trailing" secondItem="p7q-1h-NU3" secondAttribute="trailing" constant="50" id="xOb-du-ecb"/>
+                            <constraint firstItem="opn-gM-ntd" firstAttribute="top" secondItem="7cS-W3-BgI" secondAttribute="top" constant="16.5" id="yWu-r4-fXz"/>
+                            <constraint firstItem="vkU-VM-Vwa" firstAttribute="leading" secondItem="zWR-dc-Iej" secondAttribute="trailing" constant="20" id="zFY-Hy-udd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="7cS-W3-BgI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="QVr-kd-6aC"/>
+                    <constraint firstAttribute="bottom" secondItem="7cS-W3-BgI" secondAttribute="bottom" constant="12" id="mY5-AN-C1o"/>
+                    <constraint firstItem="7cS-W3-BgI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="q38-Yz-DxB"/>
+                    <constraint firstAttribute="trailing" secondItem="7cS-W3-BgI" secondAttribute="trailing" constant="20" id="zFt-yJ-HQw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="appointmentName" destination="opn-gM-ntd" id="NeS-ch-kzC"/>
+                <outlet property="calenderImage" destination="gbp-Io-eEG" id="Psb-5K-jJs"/>
+                <outlet property="checkinButton" destination="k9N-CO-LXL" id="mzy-6G-1lQ"/>
+                <outlet property="checkinHorizontalLayout" destination="fpj-BU-35H" id="iwo-qQ-sIe"/>
+                <outlet property="container" destination="7cS-W3-BgI" id="sCQ-Z6-b1y"/>
+                <outlet property="date" destination="p7q-1h-NU3" id="fuW-nE-LGp"/>
+                <outlet property="doctorIcon" destination="t02-mW-e0K" id="edK-yP-hTV"/>
+                <outlet property="doctorName" destination="8hs-Jv-bwS" id="jzh-fy-lzr"/>
+                <outlet property="indoorButton" destination="lpm-V5-HeB" id="2vg-Hg-mgW"/>
+                <outlet property="precheckinButton" destination="Yvj-ZF-03h" id="4Al-Bc-taP"/>
+                <outlet property="time" destination="zWR-dc-Iej" id="dBU-lw-VOh"/>
+                <outlet property="timeImage" destination="vkU-VM-Vwa" id="qiC-SJ-jkQ"/>
+                <outlet property="waiTimeLabel" destination="pW6-Uh-h1D" id="BnY-0Z-rbx"/>
+                <outlet property="waitLabel" destination="yGb-KB-bEG" id="Mey-Vq-t3a"/>
+            </connections>
+            <point key="canvasLocation" x="144.20289855072465" y="134.26339285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bluecalendar" width="20" height="20"/>
+        <image name="bluetimeSquare" width="20" height="20"/>
+        <image name="doctorgrey" width="16" height="16"/>
+        <image name="indoorBlue" width="24" height="24"/>
+        <namedColor name="BG">
+            <color red="0.20800000429153442" green="0.13699999451637268" blue="0.3919999897480011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Button-color">
+            <color red="0.91399997472763062" green="0.52499997615814209" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="loginsubhead">
+            <color red="0.44699999690055847" green="0.46299999952316284" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
