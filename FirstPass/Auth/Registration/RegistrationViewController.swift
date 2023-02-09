@@ -96,12 +96,7 @@ class RegistrationViewController: UIViewController
     }
     
     @IBAction func ExistingPatientPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
-        let vc = storyboard.instantiateViewController(withIdentifier: "SignupExistingRegistrationViewController") as! SignupExistingRegistrationViewController
-        vc.modalPresentationStyle = .fullScreen
-        
-        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-        self.present(vc, animated: true)
+       
     }
     
     func registerUser()

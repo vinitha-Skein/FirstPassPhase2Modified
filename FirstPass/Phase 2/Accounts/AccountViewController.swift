@@ -20,14 +20,21 @@ class AccountViewController: UIViewController {
     var logoImages = ["accountpic","appointments","book","payments","reports","map","Contact","abouthospital","locationsearch","bms","chat","doctorlookup","specialofferoffer","logout"]
     var vipImages = ["Group 6910","Group 6911","Group 6912","Group 6913","Group 6914","Group 6915","contact","about-hospital","location-search","bmi-calculater","Group 6916","doctor-lookup","special-offers","Group 6917"]
     
+    @IBOutlet weak var fpLogo: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionview.delegate = self
         collectionview.dataSource = self
         bottomMenuView.delegate = self
-        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        fpLogo.addGestureRecognizer(tap)
+        fpLogo.isUserInteractionEnabled = true
         
         // Do any additional setup after loading the view.
+    }
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true)
+//       NotificationPressed()
     }
     override func viewDidAppear(_ animated: Bool)
     {

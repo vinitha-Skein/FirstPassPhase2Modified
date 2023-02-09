@@ -34,7 +34,7 @@ class SignupExistingRegistrationViewController: UIViewController, DatePickerDele
 
     @IBAction func nextButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "ExistingPatientInformationViewController") as! ExistingPatientInformationViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "ExsitingInfoLoadingViewController") as! ExsitingInfoLoadingViewController
         vc.modalPresentationStyle = .fullScreen
         vc.emiratesID = emiratedIdTextfield.text!
         vc.dob = dateofBirthTextield.text!

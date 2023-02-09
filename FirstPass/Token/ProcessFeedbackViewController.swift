@@ -131,7 +131,10 @@ class ProcessFeedbackViewController: UIViewController {
 //            "question":"Please rate ease of registration procees",
 //            "answer":"5"
 //        ] as [String : Any]
-       print ("Feedback Rating: \(feedbackList[0].feedbackRating)")
+        
+        self.dismiss(animated: true, completion: nil)
+    
+   /*    print ("Feedback Rating: \(feedbackList[0].feedbackRating)")
         
         var users = [["question":feedbackList[0].feedbackQuestion,"answer":feedbackList[0].feedbackRating],["question":feedbackList[1].feedbackQuestion,"answer":feedbackList[1].feedbackRating]]
         
@@ -156,6 +159,8 @@ class ProcessFeedbackViewController: UIViewController {
             }
             
         }
+*/ //Need to unblock
+
 
     }
     

@@ -57,8 +57,8 @@ class PasswordChangeSuccessViewController: UIViewController {
     @IBAction func doneClicked(_ sender: Any)
     {
         if isfrom != "Signup"{
-        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
         } else {

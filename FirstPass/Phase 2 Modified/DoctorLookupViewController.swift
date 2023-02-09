@@ -129,12 +129,19 @@ extension DoctorLookupViewController: UITableViewDelegate,UITableViewDataSource
         return 130
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        doctorName.text = "Doctor Name : \(names[indexPath.row])\n\n Specialist : \(department[indexPath.row])"
-        selectedDepartment = department[indexPath.row]
-        seletedDoctor = names[indexPath.row]
-        let linkUrl = doctorLinks[indexPath.row]
-        doctorDetailsTextview.hyperLink(originalText: "To Find out more details Click here", hyperLink: "Click here" , urlString: linkUrl)
-        PopUpView.isHidden = false
+//        doctorName.text = "Doctor Name : \(names[indexPath.row])\n\n Specialist : \(department[indexPath.row])"
+//        selectedDepartment = department[indexPath.row]
+//        seletedDoctor = names[indexPath.row]
+//        let linkUrl = doctorLinks[indexPath.row]
+//        doctorDetailsTextview.hyperLink(originalText: "To Find out more details Click here", hyperLink: "Click here" , urlString: linkUrl)
+//        PopUpView.isHidden = false
+        
+        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DoctorDetailsViewController") as! DoctorDetailsViewController
+        vc.index = indexPath.row
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+        
     }
 }
 

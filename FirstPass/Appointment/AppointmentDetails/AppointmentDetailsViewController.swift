@@ -47,13 +47,14 @@ class AppointmentDetailsViewController: UIViewController {
     let viewModel = AppointmentDetailsViewModel()
     var appointmentData:ActiveAppointmentData?
     var filterCollectionView = true
-    var Appointments = ["Registration","Vitals","Consultation","Pharmacy"]
-    var journey = ["Registration","Vitals","Consultation","Pharmacy"]
-    var NextStop = ["Vitals","Consultation","Pharmacy"]
-    var estimatedTime = ["05 mins","03 mins","10 mins","07 mins"]
-    var waitTime = ["03 mins","10 mins","05 mins","07 mins"]
-    var servingCounter = ["C5","C6","C7","P1"]
-    
+    var Appointments = ["Registration","Vitals","Consultation"]
+    var journey = ["Registration","Vitals","Consultation","General Lab","Billing","Pharmacy"]
+    var NextStop = ["Vitals","Consultation","General Lab","Billing","Pharmacy"]
+    var estimatedTime = ["05 mins","03 mins","10 mins","07 mins","10 mins","07 mins"]
+    var waitTime = ["03 mins","10 mins","10 mins","07 mins","05 mins","07 mins"]
+    var servingCounter = ["C5","C6","C7","B1","G1","P1"]
+    var iconImages = ["Registration","Vitals","Consultation","General Lab","General Lab","Billing","pharmacyAppointment"]
+    var iconSelcted = ["iconlyCurvedPaper","iconlyCurvedPaper","iconlyCurvedPaper","iconlyCurvedPaper","iconlyCurvedPaper","iconlyCurvedPaper","pharmacyAppointment"]
     @IBOutlet weak var appointmentCollectionView: UICollectionView!
     var trans_id = ""
     var journeyDetails : JourneyDetails?
@@ -61,26 +62,32 @@ class AppointmentDetailsViewController: UIViewController {
     
     var centerFlowLayout: SJCenterFlowLayout?
     
+    @IBOutlet weak var billingView: UIView!
+    
+    
+    @IBOutlet weak var pharmacyView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         viewModel.getUserDetails()
         tableView.register(UINib(nibName: "AppointmentdetailsNewTableViewCell", bundle: .main), forCellReuseIdentifier: "AppointmentdetailsNewTableViewCell")
-        appointmentCollectionView.delegate = self
-        appointmentCollectionView.delegate = self
+//        appointmentCollectionView.delegate = self
+//        appointmentCollectionView.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isHidden = true
-        appointmentCollectionView.isHidden = false
+        currentJourneyIndex = 0
+//        appointmentCollectionView.isHidden = false
 
         appointmentCollectionView.dataSource = self
         appointmentCollectionView.delegate = self
-        let centerFlowLayout = SJCenterFlowLayout()
-        centerFlowLayout.itemSize = CGSize(width: appointmentCollectionView.frame.size.width-70, height:  appointmentCollectionView.frame.size.height)
-        centerFlowLayout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
-        centerFlowLayout.scrollDirection =  .horizontal
-        centerFlowLayout.spacingMode = .fixed(spacing: 10)
-        appointmentCollectionView.collectionViewLayout = centerFlowLayout
+//        let centerFlowLayout = SJCenterFlowLayout()
+//        centerFlowLayout.itemSize = CGSize(width: appointmentCollectionView.frame.size.width-70, height:  appointmentCollectionView.frame.size.height)
+//        centerFlowLayout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
+//        centerFlowLayout.scrollDirection =  .horizontal
+//        centerFlowLayout.spacingMode = .fixed(spacing: 10)
+//        appointmentCollectionView.collectionViewLayout = centerFlowLayout
         
         
         if UserDefaults.standard.bool(forKey: "vip")
@@ -103,8 +110,8 @@ class AppointmentDetailsViewController: UIViewController {
             qrcodeImage.layer.cornerRadius = 10
         }
         if self.appointmentData != nil {
-            departmentLabel.text = self.appointmentData?.department
-            doctorLabel.text = self.appointmentData?.doctor_name
+//            departmentLabel.text = self.appointmentData?.department
+//            doctorLabel.text = self.appointmentData?.doctor_name
             tokenLabel.text = self.appointmentData?.token_no
             let dateString = self.appointmentData?.appointment_time!
             let formatter = DateFormatter()
@@ -122,16 +129,23 @@ class AppointmentDetailsViewController: UIViewController {
             
             
         }
+        
+        filterCollectionView = false
+        appointmentCollectionView.isHidden = true
+        tableView.isHidden = false
+        tableViewHeight.constant = CGFloat(135*Appointments.count)
+        
+        
     }
     override func viewDidLayoutSubviews() {
 
-        appointmentCollectionView.scrollToItem(at:IndexPath(item: self.currentJourneyIndex, section: 0), at: .right, animated: false)
+//        appointmentCollectionView.scrollToItem(at:IndexPath(item: self.currentJourneyIndex, section: 0), at: .right, animated: false)
     }
     override func viewDidAppear(_ animated: Bool) {
         if self.appointmentData?.department == "Laboratory" {
              Appointments = ["Registration","Laboratory"]
         }
-
+        currentJourneyIndex = 0
         updateJourneyStatus()
         
     }
@@ -152,35 +166,60 @@ class AppointmentDetailsViewController: UIViewController {
                 self.currentJourneyIndex = 1
             } else if self.journeyDetails?.currentJourneyUpdate == "Consultation"
             {
+//                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Billing","Pharmacy"]
+//                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","15 mins","12 mins"]
+//                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","06 mins","05 mins"]
+//                servingCounter = ["C5","C6","C7","L1","L2","B1","P1"]
                 self.currentJourneyIndex = 2
-            } else if self.journeyDetails?.currentJourneyUpdate == "ECG" {
+            } else if  self.journeyDetails?.currentJourneyUpdate == "General Lab"{
                 self.currentJourneyIndex = 3
-                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
-                 NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
-                 estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
-                 waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
-                 servingCounter = ["C5","C6","C7","L1","L2","P1"]
+            } else if self.journeyDetails?.currentJourneyUpdate == "Billing"{
+                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Billing","Pharmacy"]
+                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","15 mins","12 mins"]
+                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","06 mins","05 mins"]
+                servingCounter = ["C5","C6","C7","L1","L2","B1","P1"]
+                self.currentJourneyIndex = 5
+            }
+            else if self.journeyDetails?.currentJourneyUpdate == "ECG" {
+                self.currentJourneyIndex = 3
+                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray"]
+                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","15 mins","12 mins"]
+                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","06 mins","05 mins"]
+                servingCounter = ["C5","C6","C7","L1","L2","B1","P1"]
+                tableViewHeight.constant = CGFloat(135*Appointments.count)
+//                 NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
+//                 estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
+//                 waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
+//                 servingCounter = ["C5","C6","C7","L1","L2","P1"]
                 
             } else if self.journeyDetails?.currentJourneyUpdate == "X-ray" {
                 self.currentJourneyIndex = 4
-                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
-                NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
-                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
-                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
-                servingCounter = ["C5","C6","C7","L1","L2","P1"]
-            } else if self.journeyDetails?.currentJourneyUpdate == "Pharmacy" {
-                 if self.appointmentData?.department == "Cardiology"{
-                    Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray"]
+                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","15 mins","12 mins"]
+                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","06 mins","05 mins"]
+                servingCounter = ["C5","C6","C7","L1","L2","B1","P1"]
+                tableViewHeight.constant = CGFloat(135*Appointments.count)
+//                Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","Pharmacy"]
+//                NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
+//                estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
+//                waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
+//                servingCounter = ["C5","C6","C7","L1","L2","P1"]
+            } else if self.journeyDetails?.currentJourneyUpdate == "General Lab" {
+                 if self.appointmentData?.department == "cardiology"{
+                    Appointments = ["Registration","Vitals","Consultation","ECG","X-ray","General lab","","Pharmacy"]
                     NextStop = ["Vitals","Consultation","ECG","X-ray","Pharmacy"]
                     estimatedTime = ["05 mins","03 mins","10 mins","05 mins","07 mins","12 mins"]
                     waitTime = ["03 mins","10 mins","05 mins","07 mins","12 mins","05 mins"]
                     servingCounter = ["C5","C6","C7","L1","L2","P1"]
                 }
                 self.currentJourneyIndex = Appointments.count-1
+            }  else if self.journeyDetails?.currentJourneyUpdate == "Pharmacy"{
+                self.currentJourneyIndex = Appointments.count-1
             } else if self.journeyDetails?.currentJourneyUpdate == "Laboratory"{
                 self.currentJourneyIndex = Appointments.count-1
             }
 //            self.currentJourneyIndex = Appointments.count-1
+            tableViewHeight.constant = CGFloat(135*Appointments.count)
             self.viewDidLayoutSubviews()
             self.appointmentCollectionView.reloadData()
             self.tableView.reloadData()
@@ -188,55 +227,55 @@ class AppointmentDetailsViewController: UIViewController {
     }
     @IBAction func filterClicked(_ sender: Any)
     {
-        if UserDefaults.standard.bool(forKey: "vip")
-        {
-        if (filterCollectionView)
-        {
-            filterCollectionView = false
-            appointmentCollectionView.isHidden = true
-            tableView.isHidden = false
-            tableViewHeight.constant = 700
-            filterButton.setImage(UIImage(named: "grid"), for: .normal)
-            titleLabel.textColor = UIColor.white
-            doctorLabel.textColor = UIColor.white
-            dateLabel.textColor = UIColor.white
-            timeLabel.textColor = UIColor.white
-            patientNameLabel.textColor = UIColor.white
-            patientNameTitleLabel.textColor = UIColor.white
-            tokenLabel.textColor = UIColor(named: "vip")
-            departmentLabel.textColor = UIColor.white
-          
-        }
-        else
-        {
-            filterCollectionView = true
-            appointmentCollectionView.isHidden = false
-            tableViewHeight.constant = 250
-            tableView.isHidden = true
-            filterButton.setImage(UIImage(named: "filters"), for: .normal)
-            doctorLabel.textColor = UIColor(named: "vip")
-            dateLabel.textColor = UIColor(named: "vip")
-            timeLabel.textColor = UIColor(named: "vip")
-            patientNameLabel.textColor = UIColor(named: "vip")
-            patientNameTitleLabel.textColor = UIColor(named: "vip")
-            departmentLabel.textColor = UIColor(named: "vip")
-        }
-        }else {
-            if (filterCollectionView)
-            {
-                filterCollectionView = false
-                appointmentCollectionView.isHidden = true
-                tableView.isHidden = false
-                tableViewHeight.constant = 700
-            }
-            else
-            {
-                filterCollectionView = true
-                appointmentCollectionView.isHidden = false
-                tableViewHeight.constant = 250
-                tableView.isHidden = true
-            }
-            }
+//        if UserDefaults.standard.bool(forKey: "vip")
+//        {
+//        if (filterCollectionView)
+//        {
+//            filterCollectionView = false
+//            appointmentCollectionView.isHidden = true
+//            tableView.isHidden = false
+//            tableViewHeight.constant = 700
+//            filterButton.setImage(UIImage(named: "grid"), for: .normal)
+//            titleLabel.textColor = UIColor.white
+//            doctorLabel.textColor = UIColor.white
+//            dateLabel.textColor = UIColor.white
+//            timeLabel.textColor = UIColor.white
+//            patientNameLabel.textColor = UIColor.white
+//            patientNameTitleLabel.textColor = UIColor.white
+//            tokenLabel.textColor = UIColor(named: "vip")
+//            departmentLabel.textColor = UIColor.white
+//
+//        }
+//        else
+//        {
+//            filterCollectionView = true
+//            appointmentCollectionView.isHidden = false
+//            tableViewHeight.constant = 250
+//            tableView.isHidden = true
+//            filterButton.setImage(UIImage(named: "filters"), for: .normal)
+//            doctorLabel.textColor = UIColor(named: "vip")
+//            dateLabel.textColor = UIColor(named: "vip")
+//            timeLabel.textColor = UIColor(named: "vip")
+//            patientNameLabel.textColor = UIColor(named: "vip")
+//            patientNameTitleLabel.textColor = UIColor(named: "vip")
+//            departmentLabel.textColor = UIColor(named: "vip")
+//        }
+//        }else {
+//            if (filterCollectionView)
+//            {
+//                filterCollectionView = false
+//                appointmentCollectionView.isHidden = true
+//                tableView.isHidden = false
+//                tableViewHeight.constant = 700
+//            }
+//            else
+//            {
+//                filterCollectionView = true
+//                appointmentCollectionView.isHidden = false
+//                tableViewHeight.constant = 250
+//                tableView.isHidden = true
+//            }
+//            }
         
     }
     @IBAction func backAction(_ sender: Any)
@@ -278,10 +317,52 @@ class AppointmentDetailsViewController: UIViewController {
         }
     }
     
+    @IBAction func paynowPressed(_ sender: Any) {
+        billingView.isHidden = true
+         let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+         let vc = storyboard.instantiateViewController(withIdentifier: "NewBillingPaymentViewController") as! NewBillingPaymentViewController
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc, animated: true, completion: nil)
+        updateJourney(Status:"Pharmacy", Appointment: "CHECKIN")
+        updateJourneyStatus()
+    }
+    
+    @IBAction func gotoBillingCounterPressed(_ sender: Any) {
+        billingView.isHidden = true
+        updateJourney(Status:"Pharmacy", Appointment: "CHECKIN")
+        updateJourneyStatus()
+    }
+    
+    @IBAction func courierButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+        vc.appointmentData = self.appointmentData
+        vc.journeyDetails = self.journeyDetails
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func nextdayPickupPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "JourneyCompletedViewController") as! JourneyCompletedViewController
+        vc.journeyDetails = self.journeyDetails
+        vc.appointmentData = self.appointmentData
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func collectNowPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+        vc.journeyDetails = self.journeyDetails
+        vc.appointmentData = self.appointmentData
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
     
     
     
-   
     }
 extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSource
 {
@@ -372,6 +453,7 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 cell.estimatedLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 cell.counterTitleLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 cell.counterNumberLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.iconImage.image = UIImage(named: iconSelcted[indexPath.row])
             } else if currentJourneyIndex < indexPath.row {
                 if currentJourneyIndex+1 == indexPath.row {
                     cell.statusButton.isHidden = false
@@ -388,6 +470,7 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 cell.estimatedLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.counterTitleLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
                 cell.counterNumberLabel.textColor = #colorLiteral(red: 0.2901960784, green: 0.3098039216, blue: 0.3411764706, alpha: 1)
+                cell.iconImage.image = UIImage(named: iconImages[indexPath.row])
             } else {
                 cell.Container.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.9490196078, blue: 0.9490196078, alpha: 1)
                 cell.categoryLabel.textColor = #colorLiteral(red: 0.2078431373, green: 0.137254902, blue: 0.3921568627, alpha: 1)
@@ -399,6 +482,7 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 cell.statusButton.setTitle("Completed", for: .normal)
                 cell.statusButton.setTitleColor(UIColor.white, for: .normal)
                 cell.statusButton.isHidden = false
+                cell.iconImage.image = UIImage(named: iconImages[indexPath.row])
             }
         
         
@@ -425,6 +509,109 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if UserDefaults.standard.bool(forKey: "Dummy appoinments"){
+            if (appointmentData?.department == "Laboratory") {
+                if self.currentJourneyIndex == 0 {
+                    updateJourney(Status:"Laboratory", Appointment: "FLOTING")
+                    updateJourneyStatus()
+                } else{
+                    if self.currentJourneyIndex == Appointments.count-1 {
+                     let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+                     let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+                     vc.modalPresentationStyle = .fullScreen
+                     self.present(vc, animated: true, completion: nil)
+                     }
+                }
+            } else {
+                        
+        if self.currentJourneyIndex == 0 {
+                updateJourney(Status:"Vitals", Appointment: "CHECKIN")
+                updateJourneyStatus()
+        }
+      else if self.currentJourneyIndex == 1 {
+            self.updateJourney(Status: "Consultation", Appointment: "CHECKIN")
+            updateJourneyStatus()
+            let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+            vc.index = 0
+            vc.appointmentData = self.appointmentData
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+      }  else if self.currentJourneyIndex == 2 {
+          self.updateJourney(Status: "ECG", Appointment: "CHECKIN")
+          updateJourneyStatus()
+          let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+          let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+          vc.index = 1
+          vc.appointmentData = self.appointmentData
+          vc.modalPresentationStyle = .fullScreen
+          present(vc, animated: true, completion: nil)
+      } else if self.currentJourneyIndex == 3 {
+          self.updateJourney(Status: "X-ray", Appointment: "CHECKIN")
+          updateJourneyStatus()
+          
+      } else if self.currentJourneyIndex == 4 {
+          self.updateJourney(Status: "Billing", Appointment: "CHECKIN")
+          updateJourneyStatus()
+//          self.billingView.isHidden = false
+      } else if self.currentJourneyIndex == 5 {
+//          self.updateJourney(Status: "Pharmacy", Appointment: "CHECKIN")
+          self.billingView.isHidden = false
+      }else if self.currentJourneyIndex == Appointments.count-1 {
+          self.pharmacyView.isHidden = false
+          
+      }
+                
+                
+                else if self.currentJourneyIndex != Appointments.count-1 {
+        if self.appointmentData?.department == "cardiology" {
+             if self.currentJourneyIndex == 2 {
+                self.updateJourney(Status: "ECG", Appointment: "FLOTING")
+                updateJourneyStatus()
+                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+                vc.index = 1
+                vc.appointmentData = self.appointmentData
+                vc.modalPresentationStyle = .fullScreen
+                present(vc, animated: true, completion: nil)
+             } else if self.currentJourneyIndex == 3 {
+                self.updateJourney(Status: "X-ray", Appointment: "FLOTING")
+                updateJourneyStatus()
+             } else {
+            self.updateJourney(Status: "Pharmacy", Appointment: "FLOTING")
+            updateJourneyStatus()
+            }
+           
+        } else {
+            if self.currentJourneyIndex == 2 {
+            self.updateJourney(Status: "Genral Lab", Appointment: "FLOTING")
+            updateJourneyStatus()
+//                let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+//                let vc = storyboard.instantiateViewController(withIdentifier: "ProcessFeedbackViewController") as! ProcessFeedbackViewController
+//                vc.index = 1
+//                vc.appointmentData = self.appointmentData
+//                vc.modalPresentationStyle = .fullScreen
+//                present(vc, animated: true, completion: nil)
+            }
+            
+        }
+      }
+      else {
+        if self.currentJourneyIndex == Appointments.count-1 {
+         let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+         let vc = storyboard.instantiateViewController(withIdentifier: "CoffeeOfferViewController") as! CoffeeOfferViewController
+         vc.modalPresentationStyle = .fullScreen
+         self.present(vc, animated: true, completion: nil)
+         }
+      }
+            }
+               
+        
+        } else {
+            
+        }
     }
     
 }
@@ -593,7 +780,7 @@ extension AppointmentDetailsViewController:UICollectionViewDelegate,UICollection
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
       } else if self.currentJourneyIndex != Appointments.count-1 {
-        if self.appointmentData?.department == "Cardiology" {
+        if self.appointmentData?.department == "cardiology" {
              if self.currentJourneyIndex == 2 {
                 self.updateJourney(Status: "ECG", Appointment: "FLOTING")
                 updateJourneyStatus()

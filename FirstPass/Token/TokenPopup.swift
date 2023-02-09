@@ -120,23 +120,25 @@ class TokenPopup: UIViewController {
                 self.dismiss(animated: true, completion: nil)
             } else
             if journeyDetails?.currentJourneyUpdate == "Pharmacy" || journeyDetails?.currentJourneyUpdate == "Laboratory" {
-                updateJourney(Status: "Finish Token")
-                let alert = UIAlertController(title: "Firstpass", message: "Thank you for visiting our Facility today. It has been our pleasure to serve you. We wish you a speedy recovery.\nWarm regards,\nHealth care team", preferredStyle: UIAlertController.Style.alert)
-
-                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: { action in
-
-                        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
-                        let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
-                        vc.modalPresentationStyle = .fullScreen
-                        self.present(vc, animated: true, completion: nil)
-
-                }))
-                self.present(alert, animated: true, completion: nil)
+//                updateJourney(Status: "Finish Token")
+//                let alert = UIAlertController(title: "Firstpass", message: "Thank you for visiting our Facility today. It has been our pleasure to serve you. We wish you a speedy recovery.\nWarm regards,\nHealth care team", preferredStyle: UIAlertController.Style.alert)
+//
+//                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: { action in
+//
+//                        let storyboard = UIStoryboard(name: "phase2", bundle: nil)
+//                        let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+//                        vc.modalPresentationStyle = .fullScreen
+//                        self.present(vc, animated: true, completion: nil)
+//
+//                }))
+//                self.present(alert, animated: true, completion: nil)
 //                self.view.makeToast("Thanks for the visit!")
 //                self.dismiss(animated: true, completion: nil)
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
 //
 //                }
+                
+                self.dismiss(animated: true)
                
             } else {
                 dismiss(animated: true, completion: nil)

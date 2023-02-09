@@ -26,9 +26,8 @@ class ExistingPatientInformationViewController: UIViewController {
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PasswordChangeSuccessViewController") as! PasswordChangeSuccessViewController
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignupExisitingSuccessViewController") as! SignupExisitingSuccessViewController
         vc.modalPresentationStyle = .fullScreen
-        vc.isfrom = "Signup"
         present(vc, animated: true, completion: nil)
     }
     /*

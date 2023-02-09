@@ -34,6 +34,8 @@
 		1BD710A626612E7700D2C607 /* JourneyRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD710A526612E7700D2C607 /* JourneyRowController.swift */; };
 		1BF2232E266FB69B00759E13 /* AppointmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF2232D266FB69B00759E13 /* AppointmentCollectionViewCell.swift */; };
 		2205312B26FB76E1009A9D36 /* InPatientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2205312A26FB76E1009A9D36 /* InPatientViewController.swift */; };
+		2233F203292D202500D67A78 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233F202292D202500D67A78 /* DashboardViewController.swift */; };
+		2233F205292D26D900D67A78 /* dashboardimagesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2233F204292D26D900D67A78 /* dashboardimagesCVC.swift */; };
 		223AA9E829000E87008C48CA /* StepProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AA9E429000E87008C48CA /* StepProgressIndicatorView.swift */; };
 		223AA9E929000E87008C48CA /* AnnularLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AA9E529000E87008C48CA /* AnnularLayer.swift */; };
 		223AA9EA29000E87008C48CA /* LineLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223AA9E629000E87008C48CA /* LineLayer.swift */; };
@@ -42,8 +44,20 @@
 		2252D3B227042CA100B60406 /* CartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2252D3B027042CA000B60406 /* CartTableViewCell.xib */; };
 		2252D3B727042CB000B60406 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3B627042CAF00B60406 /* CartViewController.swift */; };
 		2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */; };
+		2254FE9829349B80001966A2 /* Report.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2254FE9729349B7F001966A2 /* Report.pdf */; };
+		225FEE62292DB45000FEF868 /* NewBillingPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FEE61292DB45000FEF868 /* NewBillingPaymentViewController.swift */; };
+		225FEE64292DBC3600FEF868 /* Lab_Report.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 225FEE63292DBC3600FEF868 /* Lab_Report.pdf */; };
+		225FEE66292DE3DB00FEF868 /* JourneyCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FEE65292DE3DB00FEF868 /* JourneyCompletedViewController.swift */; };
+		225FEE68292E437100FEF868 /* VitalsDoctorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FEE67292E437100FEF868 /* VitalsDoctorViewController.swift */; };
+		225FEE6A292E43B400FEF868 /* VitalsGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FEE69292E43B400FEF868 /* VitalsGraphViewController.swift */; };
+		225FEE6C292E4A7400FEF868 /* VitalsDoctorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FEE6B292E4A7400FEF868 /* VitalsDoctorTableViewCell.swift */; };
+		225FEE6E292F3DBA00FEF868 /* DoctorDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225FEE6D292F3DBA00FEF868 /* DoctorDetailsViewController.swift */; };
 		229F463C2715D2F300152741 /* AboutHospitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F463B2715D2F300152741 /* AboutHospitalViewController.swift */; };
 		229F46412715D4EE00152741 /* SpecialOffersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229F46402715D4EE00152741 /* SpecialOffersViewController.swift */; };
+		22AC8B7D292CA9FB003EDBC4 /* ExsitingInfoLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AC8B7C292CA9FB003EDBC4 /* ExsitingInfoLoadingViewController.swift */; };
+		22AC8B7F292CAA74003EDBC4 /* SignupExisitingSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AC8B7E292CAA74003EDBC4 /* SignupExisitingSuccessViewController.swift */; };
+		22AC8B81292CAC99003EDBC4 /* ImageView+GifLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AC8B80292CAC99003EDBC4 /* ImageView+GifLoading.swift */; };
+		22AC8B83292CB247003EDBC4 /* loading_Page.gif in Resources */ = {isa = PBXBuildFile; fileRef = 22AC8B82292CB244003EDBC4 /* loading_Page.gif */; };
 		22D024092705C14D0006BE2D /* CardsCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */; };
 		22D024132706AA1F0006BE2D /* SJCenterFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */; };
 		22D9377326FDD43A00CA95D6 /* InPatientServicesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D9377226FDD43A00CA95D6 /* InPatientServicesCVC.swift */; };
@@ -308,6 +322,8 @@
 		1BD710A526612E7700D2C607 /* JourneyRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneyRowController.swift; sourceTree = "<group>"; };
 		1BF2232D266FB69B00759E13 /* AppointmentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentCollectionViewCell.swift; sourceTree = "<group>"; };
 		2205312A26FB76E1009A9D36 /* InPatientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientViewController.swift; sourceTree = "<group>"; };
+		2233F202292D202500D67A78 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		2233F204292D26D900D67A78 /* dashboardimagesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dashboardimagesCVC.swift; sourceTree = "<group>"; };
 		223AA9E429000E87008C48CA /* StepProgressIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepProgressIndicatorView.swift; sourceTree = "<group>"; };
 		223AA9E529000E87008C48CA /* AnnularLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnularLayer.swift; sourceTree = "<group>"; };
 		223AA9E629000E87008C48CA /* LineLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineLayer.swift; sourceTree = "<group>"; };
@@ -316,8 +332,20 @@
 		2252D3B027042CA000B60406 /* CartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartTableViewCell.xib; sourceTree = "<group>"; };
 		2252D3B627042CAF00B60406 /* CartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2252D3BB2704835E00B60406 /* DischargeMedicalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DischargeMedicalTableViewCell.swift; sourceTree = "<group>"; };
+		2254FE9729349B7F001966A2 /* Report.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Report.pdf; sourceTree = "<group>"; };
+		225FEE61292DB45000FEF868 /* NewBillingPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBillingPaymentViewController.swift; sourceTree = "<group>"; };
+		225FEE63292DBC3600FEF868 /* Lab_Report.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Lab_Report.pdf; sourceTree = "<group>"; };
+		225FEE65292DE3DB00FEF868 /* JourneyCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyCompletedViewController.swift; sourceTree = "<group>"; };
+		225FEE67292E437100FEF868 /* VitalsDoctorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsDoctorViewController.swift; sourceTree = "<group>"; };
+		225FEE69292E43B400FEF868 /* VitalsGraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsGraphViewController.swift; sourceTree = "<group>"; };
+		225FEE6B292E4A7400FEF868 /* VitalsDoctorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalsDoctorTableViewCell.swift; sourceTree = "<group>"; };
+		225FEE6D292F3DBA00FEF868 /* DoctorDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorDetailsViewController.swift; sourceTree = "<group>"; };
 		229F463B2715D2F300152741 /* AboutHospitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutHospitalViewController.swift; sourceTree = "<group>"; };
 		229F46402715D4EE00152741 /* SpecialOffersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialOffersViewController.swift; sourceTree = "<group>"; };
+		22AC8B7C292CA9FB003EDBC4 /* ExsitingInfoLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExsitingInfoLoadingViewController.swift; sourceTree = "<group>"; };
+		22AC8B7E292CAA74003EDBC4 /* SignupExisitingSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupExisitingSuccessViewController.swift; sourceTree = "<group>"; };
+		22AC8B80292CAC99003EDBC4 /* ImageView+GifLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+GifLoading.swift"; sourceTree = "<group>"; };
+		22AC8B82292CB244003EDBC4 /* loading_Page.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_Page.gif; sourceTree = "<group>"; };
 		22D024082705C14D0006BE2D /* CardsCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsCollectionViewLayout.swift; sourceTree = "<group>"; };
 		22D024122706AA1E0006BE2D /* SJCenterFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SJCenterFlowLayout.swift; sourceTree = "<group>"; };
 		22D024E427085EE50006BE2D /* Firstpass-watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Firstpass-watchOS Extension.entitlements"; sourceTree = "<group>"; };
@@ -573,6 +601,7 @@
 				1B5AC28B266E4AAD002E7C12 /* MyImageView+Extension.swift */,
 				1B5AC28A266E4AAD002E7C12 /* UIColor+Extension.swift */,
 				1B95AD1226691CA800FE94C0 /* UIView+Extension.swift */,
+				22AC8B80292CAC99003EDBC4 /* ImageView+GifLoading.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -662,6 +691,10 @@
 				A7D8FBEA2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.swift */,
 				A7D8FBEB2684A8CB0038E6FD /* AppointmentHistoryTableViewCell.xib */,
 				A7D8FBF12684A9320038E6FD /* AppointmentHistoryViewController.swift */,
+				225FEE65292DE3DB00FEF868 /* JourneyCompletedViewController.swift */,
+				225FEE67292E437100FEF868 /* VitalsDoctorViewController.swift */,
+				225FEE69292E43B400FEF868 /* VitalsGraphViewController.swift */,
+				225FEE6B292E4A7400FEF868 /* VitalsDoctorTableViewCell.swift */,
 			);
 			path = "Appointment Details";
 			sourceTree = "<group>";
@@ -780,6 +813,7 @@
 				A7D3593D2681B599003AC0DE /* NetBankingCollectionViewCell.swift */,
 				A7D3594A2681B629003AC0DE /* CardsTableViewCell.swift */,
 				A7D3594B2681B629003AC0DE /* CardsTableViewCell.xib */,
+				225FEE61292DB45000FEF868 /* NewBillingPaymentViewController.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -809,6 +843,7 @@
 				A722B39B26FF06ED003667DC /* FoodandBeveragesViewController.swift */,
 				2252D3AF27042CA000B60406 /* CartTableViewCell.swift */,
 				2252D3B027042CA000B60406 /* CartTableViewCell.xib */,
+				225FEE6D292F3DBA00FEF868 /* DoctorDetailsViewController.swift */,
 			);
 			path = "Phase 2 Modified";
 			sourceTree = "<group>";
@@ -933,10 +968,13 @@
 				C0B208142519F1FF00F048F2 /* groupCopy2_2020-09-22 */,
 				C059808A2506211800C92021 /* Main.storyboard */,
 				1B5AC2AE266E62EE002E7C12 /* Modified.storyboard */,
+				225FEE63292DBC3600FEF868 /* Lab_Report.pdf */,
+				2254FE9729349B7F001966A2 /* Report.pdf */,
 				C059808D2506211900C92021 /* Assets.xcassets */,
 				C059808F2506211900C92021 /* LaunchScreen.storyboard */,
 				C05980922506211900C92021 /* Info.plist */,
 				A704C78D2674CEA80056C2A3 /* Colors.xcassets */,
+				22AC8B82292CB244003EDBC4 /* loading_Page.gif */,
 				1B5AC288266E4A8C002E7C12 /* Extension */,
 			);
 			path = FirstPass;
@@ -986,6 +1024,8 @@
 				A71AB88126709BA400D8F151 /* RegistrationViewModel.swift */,
 				22F5F9D92907C3950076018B /* SignupExistingRegistrationViewController.swift */,
 				22F5F9DB2907CC9E0076018B /* ExistingPatientInformationViewController.swift */,
+				22AC8B7C292CA9FB003EDBC4 /* ExsitingInfoLoadingViewController.swift */,
+				22AC8B7E292CAA74003EDBC4 /* SignupExisitingSuccessViewController.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -1042,6 +1082,8 @@
 				1BF2232D266FB69B00759E13 /* AppointmentCollectionViewCell.swift */,
 				C0672AA7251507010060FB08 /* AppointmentTableViewCell.swift */,
 				C0672AA8251507010060FB08 /* AppointmentTableViewCell.xib */,
+				2233F202292D202500D67A78 /* DashboardViewController.swift */,
+				2233F204292D26D900D67A78 /* dashboardimagesCVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1336,12 +1378,15 @@
 				C068AAFC2571FB8E00253D81 /* InsuranceTableViewCell.xib in Resources */,
 				1B5AC2B0266E62EF002E7C12 /* Modified.storyboard in Resources */,
 				C05980912506211900C92021 /* LaunchScreen.storyboard in Resources */,
+				225FEE64292DBC3600FEF868 /* Lab_Report.pdf in Resources */,
+				2254FE9829349B80001966A2 /* Report.pdf in Resources */,
 				C059808E2506211900C92021 /* Assets.xcassets in Resources */,
 				C0B208192519F1FF00F048F2 /* group2@2x.png in Resources */,
 				A7BCF9D326FDB5890087EA9C /* NurseTableViewCell.xib in Resources */,
 				A7C5676226FC9BB4005366DC /* ContactsTableViewCell.xib in Resources */,
 				C0B2081B2519F1FF00F048F2 /* groupCopy2@3x.png in Resources */,
 				A7E981DD26F9ED5700F8551B /* DoctorsLookupTableViewCell.xib in Resources */,
+				22AC8B83292CB247003EDBC4 /* loading_Page.gif in Resources */,
 				C059808C2506211800C92021 /* Main.storyboard in Resources */,
 				C0672AAA251507010060FB08 /* AppointmentTableViewCell.xib in Resources */,
 				A7093974267C5E3A0061EDFA /* AppointmentdetailsNewTableViewCell.xib in Resources */,
@@ -1442,6 +1487,7 @@
 			files = (
 				C0FA0543255284A40011EF48 /* AddMemberViewModel.swift in Sources */,
 				C02B2309255AE509004ABBB3 /* FilterCategoryTableViewCell.swift in Sources */,
+				225FEE66292DE3DB00FEF868 /* JourneyCompletedViewController.swift in Sources */,
 				223AA9EA29000E87008C48CA /* LineLayer.swift in Sources */,
 				C091239625559D3100CFBC89 /* AddAppointmentViewModel.swift in Sources */,
 				2205312B26FB76E1009A9D36 /* InPatientViewController.swift in Sources */,
@@ -1451,6 +1497,7 @@
 				A717D6AA267B19F7005E7A3A /* FiltersCollectionViewCell.swift in Sources */,
 				A76401E3266F94AD0050E41A /* AlertTableCell.swift in Sources */,
 				A75D2C6E2716E3F2005A6134 /* SpecialOffersCollectionViewCell.swift in Sources */,
+				2233F203292D202500D67A78 /* DashboardViewController.swift in Sources */,
 				A7D8FBF22684A9320038E6FD /* AppointmentHistoryViewController.swift in Sources */,
 				22D9377B26FE229200CA95D6 /* UpcommingActivitiesViewController.swift in Sources */,
 				C091239925559DC300CFBC89 /* MyAppointmentsModel.swift in Sources */,
@@ -1461,6 +1508,7 @@
 				A71AB89B26709C0A00D8F151 /* PasswordModel.swift in Sources */,
 				C0035757251891C200F76902 /* ReportHeader.swift in Sources */,
 				A7E981DC26F9ED5700F8551B /* DoctorsLookupTableViewCell.swift in Sources */,
+				22AC8B81292CAC99003EDBC4 /* ImageView+GifLoading.swift in Sources */,
 				A72CF3B32701922D009F86C8 /* FoodandBeveragesHeader.swift in Sources */,
 				A71AB88E26709BDF00D8F151 /* OTPModel.swift in Sources */,
 				C0088BDD251B5F1A00777786 /* FeedbackTableViewCell.swift in Sources */,
@@ -1477,6 +1525,7 @@
 				A722B39C26FF06ED003667DC /* FoodandBeveragesViewController.swift in Sources */,
 				C0088BDA251B5EFB00777786 /* FeedbackViewController.swift in Sources */,
 				C01ACBA52554065100CE7F59 /* ProfileModel.swift in Sources */,
+				22AC8B7D292CA9FB003EDBC4 /* ExsitingInfoLoadingViewController.swift in Sources */,
 				229F46412715D4EE00152741 /* SpecialOffersViewController.swift in Sources */,
 				A71AB88426709BA400D8F151 /* RegistrationViewModel.swift in Sources */,
 				C0F496FF2570C8570066C865 /* AppointmentDetailsModel.swift in Sources */,
@@ -1492,11 +1541,13 @@
 				C0088BE1251B604B00777786 /* FeedbackCollectionViewCell.swift in Sources */,
 				C01D45F3255C3EDE006A24D8 /* ImagePicker.swift in Sources */,
 				A71AB87826709A9300D8F151 /* Constants.swift in Sources */,
+				225FEE68292E437100FEF868 /* VitalsDoctorViewController.swift in Sources */,
 				2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */,
 				C094C3882513306B00F039E4 /* OnBoardViewController.swift in Sources */,
 				C012B2FA255A9C4F005B7E20 /* ReportModel.swift in Sources */,
 				C026C99825792EFC00249C91 /* FeedbackNotificationViewController.swift in Sources */,
 				A7D359392681B55A003AC0DE /* PaymentOptionsViewController.swift in Sources */,
+				225FEE62292DB45000FEF868 /* NewBillingPaymentViewController.swift in Sources */,
 				C0FC47842515C0990093DC5E /* MyAppointmentsViewController.swift in Sources */,
 				A76401D2266F923F0050E41A /* ScannerViewController.swift in Sources */,
 				C023EA852552DB6000D6256C /* Realm.swift in Sources */,
@@ -1510,9 +1561,11 @@
 				C091238F255597FE00CFBC89 /* HomeViewModel.swift in Sources */,
 				C0F497012570C9340066C865 /* AppointmentDetailsViewModel.swift in Sources */,
 				C0FC47862515E9A60093DC5E /* AppointmentDetailsViewController.swift in Sources */,
+				225FEE6E292F3DBA00FEF868 /* DoctorDetailsViewController.swift in Sources */,
 				A71AB88F26709BDF00D8F151 /* OTPViewController.swift in Sources */,
 				A71AB89026709BDF00D8F151 /* OtpViewModel.swift in Sources */,
 				A71AB89A26709C0A00D8F151 /* PasswordViewModel.swift in Sources */,
+				225FEE6C292E4A7400FEF868 /* VitalsDoctorTableViewCell.swift in Sources */,
 				A71AB86F26709A3300D8F151 /* APIRouter.swift in Sources */,
 				22FBCBB42702FC5200591DA0 /* CoffeeOfferViewController.swift in Sources */,
 				A7E981D626F9E78A00F8551B /* DoctorLookupViewController.swift in Sources */,
@@ -1567,6 +1620,7 @@
 				C0672AAD251507170060FB08 /* AppointmentDetailsTableViewCell.swift in Sources */,
 				A76401A1266F729C0050E41A /* AccountViewController.swift in Sources */,
 				C0560F2325715E420083CE50 /* InsuranceModel.swift in Sources */,
+				2233F205292D26D900D67A78 /* dashboardimagesCVC.swift in Sources */,
 				C01F2ED02537007000632278 /* TabViewController.swift in Sources */,
 				A721E33A267217190098E6A8 /* SetPasswordViewController.swift in Sources */,
 				C068AAFB2571FB8E00253D81 /* InsuranceTableViewCell.swift in Sources */,
@@ -1593,11 +1647,13 @@
 				C0088BD5251AE74A00777786 /* FamilyCollectionViewCell.swift in Sources */,
 				1B5AC28D266E4AAD002E7C12 /* Date+Extension.swift in Sources */,
 				C0B254BC254D5BDE002080D8 /* PaymentViewController.swift in Sources */,
+				225FEE6A292E43B400FEF868 /* VitalsGraphViewController.swift in Sources */,
 				C02B2306255ADC8D004ABBB3 /* FilterViewController.swift in Sources */,
 				C0B254BA254D5A63002080D8 /* ChatViewController.swift in Sources */,
 				C091239425559CF600CFBC89 /* AddAppointmentModel.swift in Sources */,
 				C028CA22255BBAA500EA7E20 /* SelectPopupViewController.swift in Sources */,
 				C0560F1C25714FBD0083CE50 /* CustomImageView.swift in Sources */,
+				22AC8B7F292CAA74003EDBC4 /* SignupExisitingSuccessViewController.swift in Sources */,
 				C0FA0548255284E20011EF48 /* FamilyMemberViewModel.swift in Sources */,
 				C003575225188B3C00F76902 /* ReportsTableViewCell.swift in Sources */,
 			);

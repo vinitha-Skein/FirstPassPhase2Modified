@@ -84,6 +84,11 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     fileprivate var pipViewCoordinator: PiPViewCoordinator?
     fileprivate var jitsiMeetView: JitsiMeetView?
     var codefromScan = ""
+    var isfrom = ""
+    
+    @IBOutlet weak var ConfirmCheckinView: UIView!
+    
+    var checkInPopTag = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,10 +111,13 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         {
             vipView()
         }
+        ConfirmCheckinView.isHidden = true
+        
       
 //        firebaseObserver()
 //        firebaseDatabaseForNotification()
     }
+    
     @objc func methodOfReceivedNotification(notification: Notification) {
         print(notification.userInfo)
         if notification.userInfo?["department"] as! String == "vitals" {
@@ -171,17 +179,22 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
 //        self.view.addSubview(logoIamge)
 
         // function which is triggered when handleTap is called
+        
+        if isfrom == "Dashboard"{
+            ConfirmCheckinView.isHidden = false
+        }
       
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
-       NotificationPressed()
+        self.dismiss(animated: true)
+//       NotificationPressed()
     }
     
     
     @IBAction func btnLogoNotificationPressed(_ sender: Any) {
-        
-        NotificationPressed()
+        self.dismiss(animated: true)
+//        NotificationPressed()
     }
     
     func vipView()
@@ -484,6 +497,33 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         
     }
     
+    
+    @IBAction func confirmButtonPressed(_ sender: Any) {
+        if (appointments.count != 0){
+        self.checkInAppointmentAction(index: checkInPopTag)
+        } else {
+            self.rolledIndex = checkInPopTag
+            dummyAppointments[checkInPopTag].appt_status = "CHECKIN"
+            dummyAppointments[checkInPopTag].token_no = "CROO\(checkInPopTag+1)"
+            let journey = JourneyDetails(tokenNo: "CROO\(checkInPopTag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
+            let key = "JOURNEY" + dummyAppointments[checkInPopTag].trans_id!
+            do {
+                let data = try PropertyListEncoder().encode(journey)
+                UserDefaults.standard.set(data, forKey: key)
+            } catch let error {
+                debugPrint(error)
+            }
+            
+            self.appointmentsCollectionView.reloadData()
+        }
+        NotificationPressed()
+        ConfirmCheckinView.isHidden = true
+    }
+    
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        ConfirmCheckinView.isHidden = true
+    }
+    
 }
 
 
@@ -769,23 +809,26 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         }
         else
         {
-            if (appointments.count != 0){
-            self.checkInAppointmentAction(index: sender.tag)
-            } else {
-                self.rolledIndex = sender.tag
-                dummyAppointments[sender.tag].appt_status = "CHECKIN"
-                dummyAppointments[sender.tag].token_no = "CROO\(sender.tag+1)"
-                let journey = JourneyDetails(tokenNo: "CROO\(sender.tag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
-                let key = "JOURNEY" + dummyAppointments[sender.tag].trans_id!
-                do {
-                    let data = try PropertyListEncoder().encode(journey)
-                    UserDefaults.standard.set(data, forKey: key)
-                } catch let error {
-                    debugPrint(error)
-                }
-                
-                self.appointmentsCollectionView.reloadData()
-            }
+            ConfirmCheckinView.isHidden = false
+            checkInPopTag = sender.tag
+            
+//            if (appointments.count != 0){
+//            self.checkInAppointmentAction(index: sender.tag)
+//            } else {
+//                self.rolledIndex = sender.tag
+//                dummyAppointments[sender.tag].appt_status = "CHECKIN"
+//                dummyAppointments[sender.tag].token_no = "CROO\(sender.tag+1)"
+//                let journey = JourneyDetails(tokenNo: "CROO\(sender.tag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
+//                let key = "JOURNEY" + dummyAppointments[sender.tag].trans_id!
+//                do {
+//                    let data = try PropertyListEncoder().encode(journey)
+//                    UserDefaults.standard.set(data, forKey: key)
+//                } catch let error {
+//                    debugPrint(error)
+//                }
+//
+//                self.appointmentsCollectionView.reloadData()
+//            }
 //            self.appointmentBooked = sender.tag
 //            appointmentsCollectionView.reloadData()
         }

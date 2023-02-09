@@ -30,10 +30,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordiconButton: UIButton!
     
+    @IBOutlet weak var signupOptionView: UIView!
     
     var passwordiconclick = true
     var validation = Validation()
     let viewModel = LoginViewModel()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -87,11 +90,7 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(true, forKey: "vip")
     }
     @IBAction func signupAction(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
-        let vc = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
-        vc.modalPresentationStyle = .fullScreen
-        view.window!.layer.add(rightToLeftTransition(), forKey: kCATransition)
-        present(vc, animated: true)
+        signupOptionView.isHidden = false
     }
     @IBAction func forgotPasswordAction(_ sender: Any) {
 //        let storyboard = UIStoryboard(name: "Main", bundle: .main)
@@ -99,6 +98,23 @@ class LoginViewController: UIViewController {
 //        vc.modalPresentationStyle = .fullScreen
 //        view.window!.layer.add(rightToLeftTransition(), forKey: kCATransition)
 //        present(vc, animated: true)
+    }
+    
+    
+    @IBAction func existingPatientButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SignupExistingRegistrationViewController") as! SignupExistingRegistrationViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+        self.present(vc, animated: true)
+    }
+    
+    @IBAction func NewPatientPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+        vc.modalPresentationStyle = .fullScreen
+        view.window!.layer.add(rightToLeftTransition(), forKey: kCATransition)
+        present(vc, animated: true)
     }
     
     func loginUser(){
@@ -129,8 +145,8 @@ class LoginViewController: UIViewController {
         viewModel.loginUser(params: params as Dictionary<String, Any>)
         viewModel.loginSuccess = {
             UserDefaults.standard.set(true, forKey: "isLoggedIn")
-            let storyboard = UIStoryboard(name: "phase2", bundle: .main)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+            let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+            let vc = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
             vc.modalPresentationStyle = .fullScreen
             self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
             self.present(vc, animated: true)
