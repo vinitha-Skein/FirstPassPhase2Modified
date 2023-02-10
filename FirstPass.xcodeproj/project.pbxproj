@@ -1968,6 +1968,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass;
 				PRODUCT_NAME = firstpass;
 				PROVISIONING_PROFILE_SPECIFIER = "";

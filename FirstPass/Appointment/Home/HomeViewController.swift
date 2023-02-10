@@ -1217,7 +1217,7 @@ extension HomeViewController:BottomViewDelegate
         jitsiMeetView.delegate = self
         self.jitsiMeetView = jitsiMeetView
         let options = JitsiMeetConferenceOptions.fromBuilder { (builder) in
-            builder.welcomePageEnabled = false
+//            builder.welcomePageEnabled = false
             builder.room = "Nurse0002"
         }
         jitsiMeetView.join(options)
