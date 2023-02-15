@@ -39,6 +39,7 @@ class PasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fillValues();
         // Do any additional setup after loading the view.
     }
     
@@ -47,6 +48,12 @@ class PasswordViewController: UIViewController {
         {
             vipview()
         }
+    }
+    
+    func fillValues()
+    {
+        password.text = "qwerty";
+        confirmPassword.text = "qwerty";
     }
     
     func vipview()
@@ -151,10 +158,10 @@ class PasswordViewController: UIViewController {
                         "device_type":"iOS"]
         
         print(params)
-                self.activityIndicator(self.view, startAnimate: true)
-                viewModel.registerUser(params: params)
-                viewModel.registerSuccess =
-                {
+//                self.activityIndicator(self.view, startAnimate: true)
+//                viewModel.registerUser(params: params)
+//                viewModel.registerSuccess =
+//                {
                         self.view.makeToast("User Created Successfully. Plaese Login!")
 
                         Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { (_) in
@@ -169,7 +176,7 @@ class PasswordViewController: UIViewController {
                     
                     
                     
-                }
+              //  }
                 
         
 //        self.activityIndicator(self.view, startAnimate: true)

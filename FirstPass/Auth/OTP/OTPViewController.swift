@@ -51,14 +51,23 @@ class OTPViewController: UIViewController,UITextFieldDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        FirebaseCall()// Do any additional setup after loading the view.
+        fillValues();
+       // FirebaseCall()// Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "vip")
         {
             vipview()
         }
+    }
+    func fillValues()
+    {
+        otp1.text = "1"
+        otp2.text = "1"
+        otp3.text = "1"
+        otp4.text = "1"
+        otp5.text = "1"
+        otp6.text = "1"
     }
     func vipview()
     {
@@ -167,17 +176,17 @@ class OTPViewController: UIViewController,UITextFieldDelegate
     func verify(otpEntered: String)
     {
         
-        let verificationCode = otpEntered
-        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
-
-        Auth.auth().signIn(with: credential) { (authResult, error) in
-          if let error = error {
-            let authError = error as NSError
-            print(authError.description)
-            self.activityIndicator(self.view, startAnimate: false)
-            self.showAlert("Invalid OTP")
-            return
-          }
+//        let verificationCode = otpEntered
+//        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID, verificationCode: verificationCode)
+//
+//        Auth.auth().signIn(with: credential) { (authResult, error) in
+//          if let error = error {
+//            let authError = error as NSError
+//            print(authError.description)
+//            self.activityIndicator(self.view, startAnimate: false)
+//            self.showAlert("Invalid OTP")
+//            return
+//          }
             self.activityIndicator(self.view, startAnimate: false)
             let storyboard = UIStoryboard(name: "Modified", bundle: .main)
                     let vc = storyboard.instantiateViewController(withIdentifier: "PasswordViewController") as! PasswordViewController
@@ -186,8 +195,8 @@ class OTPViewController: UIViewController,UITextFieldDelegate
                     self.present(vc, animated: true)
           
             // User has signed in successfully and currentUser object is valid
-          let currentUserInstance = Auth.auth().currentUser
-        }
+         // let currentUserInstance = Auth.auth().currentUser
+       // }
         
         
         

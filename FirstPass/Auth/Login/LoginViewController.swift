@@ -134,25 +134,33 @@ class LoginViewController: UIViewController {
             return
         }
         
+        // Removed Api
+       // UserDefaults.standard.set(true, forKey: "isLoggedIn")
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ConsentViewController") as! ConsentViewController
+        vc.modalPresentationStyle = .fullScreen
+        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+        self.present(vc, animated: true)
+        
 
-        let deviceID =  UserDefaults.standard.string(forKey: "FCM_REGITERED_TOKEN")
-        self.activityIndicator(self.view, startAnimate: true)
-        let params = [
-            "username": email,
-            "password": password,
-            "device_id":deviceID,
-            "device_type":"iOS"]
-        viewModel.loginUser(params: params as Dictionary<String, Any>)
-        viewModel.loginSuccess = {
-            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-            let storyboard = UIStoryboard(name: "Modified", bundle: .main)
-            let vc = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
-            vc.modalPresentationStyle = .fullScreen
-            self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
-            self.present(vc, animated: true)
-            UserDefaults.standard.set("Bearer \(self.viewModel.loginUserData!)", forKey: "Authorization")
-            print(UserDefaults.standard.string(forKey: "Authorization"))
-        }
+//        let deviceID =  UserDefaults.standard.string(forKey: "FCM_REGITERED_TOKEN")
+//        self.activityIndicator(self.view, startAnimate: true)
+//        let params = [
+//            "username": email,
+//            "password": password,
+//            "device_id":deviceID,
+//            "device_type":"iOS"]
+//        viewModel.loginUser(params: params as Dictionary<String, Any>)
+//        viewModel.loginSuccess = {
+//            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+//            let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "DashboardViewController") as! DashboardViewController
+//            vc.modalPresentationStyle = .fullScreen
+//            self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+//            self.present(vc, animated: true)
+//            UserDefaults.standard.set("Bearer \(self.viewModel.loginUserData!)", forKey: "Authorization")
+//            print(UserDefaults.standard.string(forKey: "Authorization"))
+  //      }
 
         viewModel.loadingStatus = {
             if self.viewModel.isLoading{

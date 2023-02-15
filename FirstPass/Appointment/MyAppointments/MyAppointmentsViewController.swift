@@ -42,7 +42,7 @@ class MyAppointmentsViewController: UIViewController {
         tableview.delegate = self
         isActiveAppointment = true
         // Do any additional setup after loading the view.
-        fetchAllAppointments()
+       // fetchAllAppointments()
         
         
         //For demo purpose
@@ -56,7 +56,7 @@ class MyAppointmentsViewController: UIViewController {
         let appoint3 = ActiveAppointmentData(doctor_name: "Harish", appt_status: "Not completed", trans_id: "123", appointment_time: "2021-01-06 16:00:00", patient_name: "Hari", service: "Pharmacy", department: "ENT", token_no: "5", token_status: "Not called", room: "3rd Floor")
         dummyAppointments = [appoint1,appoint2,appoint3]
         var data = dummyAppointments
-
+        appointments = dummyAppointments;
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -108,6 +108,8 @@ class MyAppointmentsViewController: UIViewController {
             isActiveAppointment = true
             historyButton.createBorderForButton(cornerRadius: 4, borderWidth: 0, borderColor: .clear)
           //  fetchActiveAppointments()
+            setActiveData();
+            print("assigning data act");
             self.tableview.reloadData()
         }
         
@@ -137,9 +139,29 @@ class MyAppointmentsViewController: UIViewController {
             historyButton.setTitleColor(.white, for: .normal)
             activeAppointments.setTitleColor(unselectedText, for: .normal)
             isActiveAppointment = false
+            
+            setHistoryData()
+            print("assigning data hst");
         //    fetchAllAppointments()
             self.tableview.reloadData()
         }
+    }
+    
+    func setHistoryData()
+    {
+        let appoint1 = ActiveAppointmentData(doctor_name: "John", appt_status: "Not completed", trans_id: "123", appointment_time: "2021-01-06 16:00:00", patient_name: "Hari", service: "Cardiology", department: "Cardiology", token_no: "5", token_status: "Not called", room: "2rd Floor")
+        dummyAppointments = [appoint1]
+        var data = dummyAppointments
+        historyAppointments = dummyAppointments;
+    }
+    func setActiveData()
+    {
+        let appoint1 = ActiveAppointmentData(doctor_name: "John", appt_status: "Not completed", trans_id: "123", appointment_time: "2021-01-06 16:00:00", patient_name: "Hari", service: "Cardiology", department: "Cardiology", token_no: "5", token_status: "Not called", room: "2rd Floor")
+        let appoint2 = ActiveAppointmentData(doctor_name: "Ram", appt_status: "Not completed", trans_id: "123", appointment_time: "2021-01-06 16:00:00", patient_name: "Hari", service: "Radiology", department: "Oncology", token_no: "5", token_status: "Not called", room: "2rd Floor")
+        let appoint3 = ActiveAppointmentData(doctor_name: "Harish", appt_status: "Not completed", trans_id: "123", appointment_time: "2021-01-06 16:00:00", patient_name: "Hari", service: "Pharmacy", department: "ENT", token_no: "5", token_status: "Not called", room: "3rd Floor")
+        dummyAppointments = [appoint1,appoint2,appoint3]
+        var data = dummyAppointments
+        appointments = dummyAppointments;
     }
     @IBAction func bookAppointmentAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: .main)

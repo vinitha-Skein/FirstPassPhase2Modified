@@ -8,11 +8,14 @@
 
 import UIKit
 
-class AppointmentCollectionViewCell: UICollectionViewCell {
+class AppointmentCollectionViewCell: UICollectionViewCell
+{
     
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var checkinButton: Mybutton!
+    @IBOutlet weak var tittleButton: UIButton!
+
     
     @IBOutlet weak var prearrivalButton: Mybutton!
     

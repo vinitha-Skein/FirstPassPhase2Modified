@@ -530,7 +530,8 @@ extension AppointmentDetailsViewController:UITableViewDelegate,UITableViewDataSo
                 updateJourney(Status:"Vitals", Appointment: "CHECKIN")
                 updateJourneyStatus()
         }
-      else if self.currentJourneyIndex == 1 {
+      else if self.currentJourneyIndex == 1
+    {
             self.updateJourney(Status: "Consultation", Appointment: "CHECKIN")
             updateJourneyStatus()
             let storyboard = UIStoryboard(name: "Modified", bundle: nil)

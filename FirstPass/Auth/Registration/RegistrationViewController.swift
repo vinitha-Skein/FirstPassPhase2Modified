@@ -33,7 +33,7 @@ class RegistrationViewController: UIViewController
     @IBOutlet var signupTitleLabel: UILabel!
     @IBOutlet var mobile: FPNTextField!
     @IBOutlet weak var mrnIDTextFeild: UITextField!
-    @IBOutlet var scrollView: UIScrollView!
+   // @IBOutlet var scrollView: UIScrollView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var email: UITextField!
@@ -48,8 +48,16 @@ class RegistrationViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        fillValues()
         mobile.delegate = self
         // Do any additional setup after loading the view.
+    }
+    func fillValues() {
+        firstName.text = "Harish"
+        email.text = "harish@gmail.com"
+        emiratesID.text = "98356767"
+        mrnIDTextFeild.text = "23445543"
+        mobile.text = "9836764787"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -199,7 +207,7 @@ class RegistrationViewController: UIViewController
         container.layer.shadowColor = UIColor.black.cgColor
         container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         container.layer.shadowOpacity = 0.2
-        scrollView.layer.cornerRadius = 30
+      //  scrollView.layer.cornerRadius = 30
 //        container.layer.masksToBounds = false
 //        container.layer.shadowColor = UIColor.black.cgColor
 //        container.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)

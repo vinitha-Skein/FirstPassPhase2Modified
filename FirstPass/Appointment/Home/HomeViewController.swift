@@ -92,7 +92,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ConfirmCheckinView.isHidden = true
 //        layout.itemSize = CGSize(width: appointmentsCollectionView.frame.size.width-70, height:  appointmentsCollectionView.frame.size.height-40)
 //        layout.animationMode = SJCenterFlowLayoutAnimation.scale(sideItemScale: 0.6, sideItemAlpha: 0.6, sideItemShift: 0.0)
 //        layout.scrollDirection =  .horizontal
@@ -167,7 +167,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         }
         self.userId = self.viewModel.userId ?? 0
         
-                self.fetchAppointments()
+             //   self.fetchAppointments()
         //        self.fetchFamilyMembers()
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
@@ -181,7 +181,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         // function which is triggered when handleTap is called
         
         if isfrom == "Dashboard"{
-            ConfirmCheckinView.isHidden = false
+            //ConfirmCheckinView.isHidden = false
         }
       
     }
@@ -211,7 +211,8 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         logoImage.image = UIImage(named: "firstpass-logo")
         }
     
-    func NotificationPressed() {
+    func NotificationPressed()
+    {
         print("buttonIsPressed function called \(UIButton.description())")
         let content = UNMutableNotificationContent()
         content.title = "First Pass"
@@ -499,6 +500,7 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     
     
     @IBAction func confirmButtonPressed(_ sender: Any) {
+        print("checcckk \(checkInPopTag)");
         if (appointments.count != 0){
         self.checkInAppointmentAction(index: checkInPopTag)
         } else {
@@ -520,8 +522,14 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
         ConfirmCheckinView.isHidden = true
     }
     
+    
+    
     @IBAction func cancelButtonPressed(_ sender: Any) {
         ConfirmCheckinView.isHidden = true
+    }
+    func masterAction()
+    {
+        
     }
     
 }
@@ -573,6 +581,8 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AppointmentCollectionViewCell", for: indexPath) as! AppointmentCollectionViewCell
+        
+        cell.tittleButton.addTarget(self, action: #selector(TitleButtonPressed(sender:)), for: .touchUpInside)
         let currentAppointment: ActiveAppointmentData
         if UserDefaults.standard.bool(forKey: "vip"){
             cell.appointmentsView.backgroundColor = UIColor(named: "vip")
@@ -779,6 +789,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         cell.viewDetailsButton.tag = indexPath.row
         cell.indoorMapButton.tag = indexPath.row
         cell.indoorMapDetails.tag = indexPath.row
+        cell.tittleButton.tag = indexPath.row
         
         cell.checkinButton.addTarget(self, action: #selector(CheckinButtonPressed(sender:)), for: .touchUpInside)
         cell.prearrivalButton.addTarget(self, action: #selector(prearrivalButtonPressed(sender:)), for: .touchUpInside)
@@ -786,6 +797,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         cell.indoorMapDetails.addTarget(self, action: #selector(indoorMapButtonPressed(sender:)), for: .touchUpInside)
         cell.viewDetailsInPatientButton.addTarget(self, action: #selector(ViewDetailsInPatientPressed(sender:)), for: .touchUpInside)
         cell.viewDetailsButton.addTarget(self, action: #selector(ViewDetailsPressed(sender:)), for: .touchUpInside)
+        cell.tittleButton.addTarget(self, action: #selector(TitleButtonPressed(sender:)), for: .touchUpInside)
         return cell
     }
     
@@ -803,14 +815,35 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     
     @objc func CheckinButtonPressed(sender : UIButton)
     {
-        if sender.accessibilityHint! == "Check-in" && checkinSelected != sender.tag {
+        
+        print("sender \(sender.tag)")
+        if sender.accessibilityHint! == "Check-in" && checkinSelected != sender.tag
+        {
             self.checkinSelected = sender.tag
             appointmentsCollectionView.reloadData()
         }
         else
         {
-            ConfirmCheckinView.isHidden = false
             checkInPopTag = sender.tag
+            if (appointments.count != 0){
+            self.checkInAppointmentAction(index: checkInPopTag)
+            } else {
+                self.rolledIndex = checkInPopTag
+                dummyAppointments[checkInPopTag].appt_status = "CHECKIN"
+                dummyAppointments[checkInPopTag].token_no = "CROO\(checkInPopTag+1)"
+                let journey = JourneyDetails(tokenNo: "CROO\(checkInPopTag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
+                let key = "JOURNEY" + dummyAppointments[checkInPopTag].trans_id!
+                do {
+                    let data = try PropertyListEncoder().encode(journey)
+                    UserDefaults.standard.set(data, forKey: key)
+                } catch let error {
+                    debugPrint(error)
+                }
+                self.appointmentsCollectionView.reloadData()
+            }
+           NotificationPressed()
+           // ConfirmCheckinView.isHidden = true
+           // ConfirmCheckinView.isHidden = false
             
 //            if (appointments.count != 0){
 //            self.checkInAppointmentAction(index: sender.tag)
@@ -888,6 +921,16 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
         vc.modalPresentationStyle = .fullScreen
         self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
         self.present(vc, animated: true)
+    }
+    @objc func TitleButtonPressed(sender : UIButton)    {
+        print("checkkk");
+        checkInPopTag = sender.tag
+        ConfirmCheckinView.isHidden = false
+//        let storyboard = UIStoryboard(name: "phase2", bundle: .main)
+//        let vc = storyboard.instantiateViewController(withIdentifier: "InPatientViewController") as!
+//        vc.modalPresentationStyle = .fullScreen
+//        self.view.window!.layer.add(self.rightToLeftTransition(), forKey: kCATransition)
+//        self.present(vc, animated: true)
     }
     @objc func ViewDetailsPressed(sender : UIButton)    {
         let storyboard = UIStoryboard(name: "phase2", bundle: .main)

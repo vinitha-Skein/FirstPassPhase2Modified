@@ -17,6 +17,7 @@ import JitsiMeetSDK
 class DashboardViewController: UIViewController {
 
     @IBOutlet weak var bottomMenuView: Tabbar!
+
     @IBOutlet weak var collectionviewImages: UICollectionView!
     let menus = ["dashboard1","dashboard2","dashboard3"]
     
@@ -40,6 +41,47 @@ class DashboardViewController: UIViewController {
         
     }
     
+    @IBAction func namePressed(_ sender: Any) {
+    NotificationPressed()
+    }
+    func fromdate() -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM d, yyyy"
+     //   let date3 = dateFormatter.date(from:isoDate)!
+        let yesterday = Calendar.current.date(byAdding: .day, value: +1, to: Date())
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "dd-MM-yyyy"
+        let prevDate = dateFormatter1.string(from: yesterday!)
+        return prevDate
+    }
+    
+    func NotificationPressed()
+    {
+        print("buttonIsPressed function called \(fromdate())");
+        let content = UNMutableNotificationContent()
+        content.title = "First Pass"
+        content.body = "You have a scheduled appointment with Dr Omar for Cardiology on \(fromdate()) in VM care hospital. Please reconfirm your appointment through the mobile app"
+        content.categoryIdentifier = "notify-test"
+//        let taskData = try? JSONEncoder().encode(task)
+//        if let taskData = taskData {
+          content.userInfo = ["Task": "Date"]
+//        }
+
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest.init(identifier: "notify-test", content: content, trigger: trigger)
+
+        let center = UNUserNotificationCenter.current()
+        center.add(request)
+    }
+    
+    @IBAction func FindADoctorPressed(_ sender: Any)
+    {
+        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "DoctorLookupViewController") as! DoctorLookupViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
     
     @IBAction func BookAppointmentPressed(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Modified", bundle: nil)
@@ -229,4 +271,10 @@ extension DashboardViewController: JitsiMeetViewDelegate {
             self.pipViewCoordinator?.enterPictureInPicture()
         }
     }
+}
+extension Date {
+    var nextDay: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
+    }
+    
 }

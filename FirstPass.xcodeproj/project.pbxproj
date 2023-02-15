@@ -66,6 +66,8 @@
 		22F5F9DA2907C3950076018B /* SignupExistingRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F5F9D92907C3950076018B /* SignupExistingRegistrationViewController.swift */; };
 		22F5F9DC2907CC9E0076018B /* ExistingPatientInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22F5F9DB2907CC9E0076018B /* ExistingPatientInformationViewController.swift */; };
 		22FBCBB42702FC5200591DA0 /* CoffeeOfferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FBCBB32702FC5200591DA0 /* CoffeeOfferViewController.swift */; };
+		84345045299C9C1100110C87 /* consent.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 84345044299C9C1100110C87 /* consent.pdf */; };
+		84A981BF299B86B000455007 /* ConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A981BE299B86B000455007 /* ConsentViewController.swift */; };
 		A704C78E2674CEA80056C2A3 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A704C78D2674CEA80056C2A3 /* Colors.xcassets */; };
 		A70691C026706BB9000C4129 /* PreChekinPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A70691BF26706BB9000C4129 /* PreChekinPopup.swift */; };
 		A7093973267C5E3A0061EDFA /* AppointmentdetailsNewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7093971267C5E3A0061EDFA /* AppointmentdetailsNewTableViewCell.swift */; };
@@ -357,6 +359,8 @@
 		22F5F9DB2907CC9E0076018B /* ExistingPatientInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingPatientInformationViewController.swift; sourceTree = "<group>"; };
 		22FBCBB32702FC5200591DA0 /* CoffeeOfferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeOfferViewController.swift; sourceTree = "<group>"; };
 		83C05EB8E54AB32B13684667 /* Pods-FirstPass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirstPass.debug.xcconfig"; path = "Target Support Files/Pods-FirstPass/Pods-FirstPass.debug.xcconfig"; sourceTree = "<group>"; };
+		84345044299C9C1100110C87 /* consent.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = consent.pdf; sourceTree = "<group>"; };
+		84A981BE299B86B000455007 /* ConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentViewController.swift; sourceTree = "<group>"; };
 		A704C78D2674CEA80056C2A3 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A70691BF26706BB9000C4129 /* PreChekinPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreChekinPopup.swift; sourceTree = "<group>"; };
 		A7093971267C5E3A0061EDFA /* AppointmentdetailsNewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentdetailsNewTableViewCell.swift; sourceTree = "<group>"; };
@@ -968,6 +972,7 @@
 				C0B208142519F1FF00F048F2 /* groupCopy2_2020-09-22 */,
 				C059808A2506211800C92021 /* Main.storyboard */,
 				1B5AC2AE266E62EE002E7C12 /* Modified.storyboard */,
+				84345044299C9C1100110C87 /* consent.pdf */,
 				225FEE63292DBC3600FEF868 /* Lab_Report.pdf */,
 				2254FE9729349B7F001966A2 /* Report.pdf */,
 				C059808D2506211900C92021 /* Assets.xcassets */,
@@ -1188,6 +1193,7 @@
 				C0911B0C25505FA80052E52C /* Login */,
 				C0911B11255064600052E52C /* OTP */,
 				C0911B122550646C0052E52C /* Password */,
+				84A981BE299B86B000455007 /* ConsentViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1378,6 +1384,7 @@
 				C068AAFC2571FB8E00253D81 /* InsuranceTableViewCell.xib in Resources */,
 				1B5AC2B0266E62EF002E7C12 /* Modified.storyboard in Resources */,
 				C05980912506211900C92021 /* LaunchScreen.storyboard in Resources */,
+				84345045299C9C1100110C87 /* consent.pdf in Resources */,
 				225FEE64292DBC3600FEF868 /* Lab_Report.pdf in Resources */,
 				2254FE9829349B80001966A2 /* Report.pdf in Resources */,
 				C059808E2506211900C92021 /* Assets.xcassets in Resources */,
@@ -1540,6 +1547,7 @@
 				A7462F8B2633EB7000ACD8E5 /* NewTableViewCell.swift in Sources */,
 				C0088BE1251B604B00777786 /* FeedbackCollectionViewCell.swift in Sources */,
 				C01D45F3255C3EDE006A24D8 /* ImagePicker.swift in Sources */,
+				84A981BF299B86B000455007 /* ConsentViewController.swift in Sources */,
 				A71AB87826709A9300D8F151 /* Constants.swift in Sources */,
 				225FEE68292E437100FEF868 /* VitalsDoctorViewController.swift in Sources */,
 				2252D3BC2704835E00B60406 /* DischargeMedicalTableViewCell.swift in Sources */,
@@ -1720,7 +1728,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = SDX3Y5X346;
+				DEVELOPMENT_TEAM = P4F6899KQ2;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit;
@@ -1744,7 +1752,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = SDX3Y5X346;
+				DEVELOPMENT_TEAM = P4F6899KQ2;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit;
@@ -1767,7 +1775,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = SDX3Y5X346;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Firstpass-watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1794,7 +1802,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = SDX3Y5X346;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Firstpass-watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1935,7 +1943,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = SDX3Y5X346;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1960,7 +1968,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = SDX3Y5X346;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
