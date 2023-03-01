@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,10 +20,10 @@
         <array key="SF-Pro-Display-Medium.otf">
             <string>SFProDisplay-Medium</string>
         </array>
-        <array key="SF-Pro-Display-Regular.otf">
+        <array key="SFProDisplay-Regular.ttf">
             <string>SFProDisplay-Regular</string>
         </array>
-        <array key="SF-Pro-Display-Semibold.otf">
+        <array key="SFProDisplay-Semibold.ttf">
             <string>SFProDisplay-Semibold</string>
         </array>
     </customFonts>
@@ -1566,7 +1566,7 @@
                                 <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14V-Co-2IE">
-                                        <rect key="frame" x="0.0" y="80" width="414" height="734"/>
+                                        <rect key="frame" x="0.0" y="60" width="414" height="754"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="confirmApticon" translatesAutoresizingMaskIntoConstraints="NO" id="FoM-gl-FTc">
                                                 <rect key="frame" x="142" y="32" width="130" height="120"/>
@@ -1575,7 +1575,7 @@
                                                     <constraint firstAttribute="width" constant="130" id="lyS-NL-Sw6"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qF-wH-Hth">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qF-wH-Hth">
                                                 <rect key="frame" x="50" y="172" width="314" height="41"/>
                                                 <string key="text">24 hours remaining to this appointment.
 Do you confirm this appointment </string>
@@ -1584,7 +1584,7 @@ Do you confirm this appointment </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FBT-h9-FXF">
-                                                <rect key="frame" x="8" y="233" width="398" height="100"/>
+                                                <rect key="frame" x="8" y="233" width="398" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSs-ax-7zS">
                                                         <rect key="frame" x="20" y="20" width="165.5" height="20.5"/>
@@ -1611,14 +1611,14 @@ Do you confirm this appointment </string>
                                                     <constraint firstItem="xio-bY-EaO" firstAttribute="leading" secondItem="FBT-h9-FXF" secondAttribute="leading" constant="20" symbolic="YES" id="Fgd-mv-Frz"/>
                                                     <constraint firstItem="vZD-3t-Xbv" firstAttribute="leading" secondItem="xio-bY-EaO" secondAttribute="trailing" constant="16" id="GHz-Lb-EKt"/>
                                                     <constraint firstItem="vZD-3t-Xbv" firstAttribute="centerY" secondItem="xio-bY-EaO" secondAttribute="centerY" id="N81-4p-yMh"/>
-                                                    <constraint firstAttribute="height" constant="100" id="VkN-f1-Zgi"/>
+                                                    <constraint firstAttribute="height" constant="70" id="VkN-f1-Zgi"/>
                                                     <constraint firstItem="VSs-ax-7zS" firstAttribute="leading" secondItem="FBT-h9-FXF" secondAttribute="leading" constant="20" id="bnJ-ME-wo9"/>
                                                     <constraint firstItem="xio-bY-EaO" firstAttribute="top" secondItem="VSs-ax-7zS" secondAttribute="bottom" constant="16" id="m8d-tx-yiD"/>
                                                     <constraint firstItem="VSs-ax-7zS" firstAttribute="top" secondItem="FBT-h9-FXF" secondAttribute="top" constant="20" id="wwN-XF-3IK"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJV-rN-cJD">
-                                                <rect key="frame" x="0.0" y="333" width="414" height="102"/>
+                                                <rect key="frame" x="0.0" y="303" width="414" height="102"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor1" translatesAutoresizingMaskIntoConstraints="NO" id="Eoy-rJ-g50">
                                                         <rect key="frame" x="16" y="32" width="50" height="50"/>
@@ -1668,31 +1668,31 @@ Do you confirm this appointment </string>
                                                 </constraints>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="mTX-0n-2yS">
-                                                <rect key="frame" x="20" y="455" width="374" height="1"/>
+                                                <rect key="frame" x="20" y="425" width="374" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="70a-ry-JSP"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdY-sZ-FrC">
-                                                <rect key="frame" x="16" y="476" width="81.5" height="16"/>
+                                                <rect key="frame" x="16" y="446" width="81.5" height="82.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.23137254900000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Pharker / Father" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQT-Pj-l0N">
-                                                <rect key="frame" x="16" y="508" width="169.5" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="John Pharker / Father" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dQT-Pj-l0N">
+                                                <rect key="frame" x="16" y="544.5" width="169.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                 <color key="textColor" red="0.21176470589999999" green="0.23137254900000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="4EO-gO-LQu">
-                                                <rect key="frame" x="20" y="560.5" width="374" height="1"/>
+                                                <rect key="frame" x="20" y="597" width="374" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="ky1-sS-KYP"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SB-QP-VOl" customClass="Mybutton" customModule="firstpass" customModuleProvider="target">
-                                                <rect key="frame" x="44" y="581.5" width="326" height="50"/>
+                                                <rect key="frame" x="44" y="618" width="326" height="50"/>
                                                 <color key="backgroundColor" name="Button-color"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="qQV-XX-JFo"/>
@@ -1712,7 +1712,7 @@ Do you confirm this appointment </string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaG-n8-gG1" customClass="Mybutton" customModule="firstpass" customModuleProvider="target">
-                                                <rect key="frame" x="44" y="651.5" width="326" height="50"/>
+                                                <rect key="frame" x="44" y="688" width="326" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="cnz-qK-USW"/>
@@ -1756,6 +1756,7 @@ Do you confirm this appointment </string>
                                             <constraint firstAttribute="trailing" secondItem="4EO-gO-LQu" secondAttribute="trailing" constant="20" symbolic="YES" id="T0X-mZ-dDv"/>
                                             <constraint firstItem="JaG-n8-gG1" firstAttribute="leading" secondItem="14V-Co-2IE" secondAttribute="leading" constant="44" id="V5i-aS-vme"/>
                                             <constraint firstItem="4EO-gO-LQu" firstAttribute="top" secondItem="dQT-Pj-l0N" secondAttribute="bottom" constant="32" id="ati-Ky-13N"/>
+                                            <constraint firstAttribute="bottom" secondItem="JaG-n8-gG1" secondAttribute="bottom" constant="16" id="boI-Er-irK"/>
                                             <constraint firstItem="YJV-rN-cJD" firstAttribute="top" secondItem="FBT-h9-FXF" secondAttribute="bottom" id="cAG-4i-fro"/>
                                             <constraint firstItem="FoM-gl-FTc" firstAttribute="top" secondItem="14V-Co-2IE" secondAttribute="top" constant="32" id="ekr-hT-mWe"/>
                                             <constraint firstItem="FoM-gl-FTc" firstAttribute="centerX" secondItem="14V-Co-2IE" secondAttribute="centerX" id="hGt-dQ-71i"/>
@@ -1772,7 +1773,7 @@ Do you confirm this appointment </string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.52897219626319325" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="14V-Co-2IE" firstAttribute="top" secondItem="G4z-6j-qSb" secondAttribute="top" constant="80" id="E5V-AK-x0i"/>
+                                    <constraint firstItem="14V-Co-2IE" firstAttribute="top" secondItem="G4z-6j-qSb" secondAttribute="top" constant="60" id="E5V-AK-x0i"/>
                                     <constraint firstItem="14V-Co-2IE" firstAttribute="leading" secondItem="G4z-6j-qSb" secondAttribute="leading" id="RXi-jG-yjk"/>
                                     <constraint firstAttribute="bottom" secondItem="14V-Co-2IE" secondAttribute="bottom" id="utS-jB-cDr"/>
                                     <constraint firstAttribute="trailing" secondItem="14V-Co-2IE" secondAttribute="trailing" id="v8i-h0-CiU"/>
@@ -5298,7 +5299,7 @@ Would you like to</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offer_coffee_cup" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-u5-cwF">
-                                        <rect key="frame" x="56" y="87.5" width="262" height="179.5"/>
+                                        <rect key="frame" x="56" y="87.5" width="262" height="179"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -6264,9 +6265,6 @@ Would you like to</string>
         <designable name="Tj5-CO-jQ7">
             <size key="intrinsicContentSize" width="64" height="36"/>
         </designable>
-        <designable name="Wy0-if-12K">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="dDh-aq-Hmo">
             <size key="intrinsicContentSize" width="77" height="32"/>
         </designable>
@@ -6284,9 +6282,6 @@ Would you like to</string>
         </designable>
         <designable name="mYH-If-ImD">
             <size key="intrinsicContentSize" width="34" height="30"/>
-        </designable>
-        <designable name="nzv-wq-LB4">
-            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="t8q-NR-cu4">
             <size key="intrinsicContentSize" width="32" height="30"/>
@@ -6330,7 +6325,7 @@ Would you like to</string>
         <image name="doctors" width="24" height="24"/>
         <image name="google-pay-gpay-logo" width="10000" height="4146"/>
         <image name="iconly-light-arrow-left-square" width="24" height="24"/>
-        <image name="iconlyCurvedPaper" width="24" height="24"/>
+        <image name="iconlyCurvedPaper" width="16" height="16"/>
         <image name="iconlyCurvedSend" width="24" height="24"/>
         <image name="indoor" width="24" height="24"/>
         <image name="journey icon" width="282" height="52"/>
@@ -6351,7 +6346,7 @@ Would you like to</string>
         <image name="searchpngfreecharge-icon-png-image-free-download" width="1496" height="1496"/>
         <image name="specialOffer2" width="393" height="400"/>
         <image name="specialOffers1" width="401" height="379"/>
-        <image name="time" width="24" height="24"/>
+        <image name="time" width="12" height="12"/>
         <image name="timericon" width="16" height="16"/>
         <image name="vitalsPlot1" width="1068" height="879"/>
         <image name="vitalsplot2" width="942" height="774"/>

@@ -1727,8 +1727,8 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = P4F6899KQ2;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = SDX3Y5X346;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit;
@@ -1751,8 +1751,8 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = P4F6899KQ2;
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = SDX3Y5X346;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit;
@@ -1774,8 +1774,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Firstpass-watchOS Extension/Firstpass-watchOS Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = SDX3Y5X346;
 				INFOPLIST_FILE = "Firstpass-watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1801,8 +1801,8 @@
 				CODE_SIGN_ENTITLEMENTS = "Firstpass-watchOS Extension/Firstpass-watchOS Extension.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = SDX3Y5X346;
 				INFOPLIST_FILE = "Firstpass-watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1942,8 +1942,8 @@
 				CODE_SIGN_ENTITLEMENTS = FirstPass/firstpass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = SDX3Y5X346;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -1967,8 +1967,8 @@
 				CODE_SIGN_ENTITLEMENTS = FirstPass/firstpass.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 9;
+				DEVELOPMENT_TEAM = SDX3Y5X346;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = FirstPass/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

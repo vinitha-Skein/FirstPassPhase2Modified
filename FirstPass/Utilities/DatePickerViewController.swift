@@ -22,6 +22,11 @@ class DatePickerViewController: UIViewController {
             datePicker.datePickerMode = .time
         }else{
             datePicker.datePickerMode = .date
+            if #available(iOS 13.4, *) {
+                datePicker.preferredDatePickerStyle = .compact
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     @IBAction func cancelAction(_ sender: Any) {

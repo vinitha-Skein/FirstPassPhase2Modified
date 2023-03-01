@@ -58,6 +58,19 @@ class AlertNotificationViewController: UIViewController {
         dismiss(animated: true, completion: nil)
         
     }
+    
+    func fromdate() -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE, MMMM d, yyyy"
+     //   let date3 = dateFormatter.date(from:isoDate)!
+        let yesterday = Calendar.current.date(byAdding: .day, value: +1, to: Date())
+        let dateFormatter1 = DateFormatter()
+        dateFormatter1.dateFormat = "dd-MM-yyyy"
+        let prevDate = dateFormatter1.string(from: yesterday!)
+        return prevDate
+    }
+    
 
 }
 
@@ -95,8 +108,8 @@ extension AlertNotificationViewController:UITableViewDelegate,UITableViewDataSou
         
         if indexPath.row == 0
         {
-        cell.notificationMessage.text = "Dear Natasha, your personal concierge is Waiting for you near the reception."
-            cell.notificationTime.text = "Just now"
+        cell.notificationMessage.text = "You have a scheduled appointment with Dr Omar for Cardiology on \(fromdate()) in VM care hospital. Please reconfirm your appointment through the mobile app"
+            cell.notificationTime.text = Date().string(format: "MMM DD yyyy")
         }else if indexPath.row == 1 {
         cell.notificationMessage.text = "Dear Natasha, your personal concierge is Waiting for you near the reception."
             cell.notificationTime.text = "Just now"
@@ -162,3 +175,13 @@ extension AlertNotificationViewController:UITableViewDelegate,UITableViewDataSou
     
     
 }
+
+
+extension Date {
+    func string(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
+

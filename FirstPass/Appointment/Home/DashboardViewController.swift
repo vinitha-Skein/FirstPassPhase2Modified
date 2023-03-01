@@ -14,7 +14,7 @@ import FirebaseDatabase
 import JitsiMeetSDK
 
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController,ScanFinishedDelegate {
 
     @IBOutlet weak var bottomMenuView: Tabbar!
 
@@ -39,6 +39,23 @@ class DashboardViewController: UIViewController {
     
     @IBAction func searchDoctorPressed(_ sender: Any) {
         
+    }
+    
+    @IBAction func showNotificationPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "AlertNotificationViewController") as! AlertNotificationViewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    @IBAction func scanPressed(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Modified", bundle: .main)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ScannerViewController") as! ScannerViewController
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        //        view.window!.layer.add(rightToLeftTransition(), forKey: kCATransition)
+        present(vc, animated: true)
     }
     
     @IBAction func namePressed(_ sender: Any) {
@@ -177,6 +194,76 @@ class DashboardViewController: UIViewController {
     @IBAction func feedbackPressed(_ sender: Any) {
         
     }
+    
+   
+    func scanFinished(code:String) {
+        dismiss(animated: true, completion: nil)
+        //        let storyboard = UIStoryboard(name: "Main", bundle: .main)
+        //        let vc = storyboard.instantiateViewController(withIdentifier: "NewTokenViewController") as! NewTokenViewController
+        //        vc.modalPresentationStyle = .fullScreen
+        //        present(vc, animated: true)
+        //        checkInAppointmentAction()
+        createBlurView()
+//        createCheckIn(appointmentName: code)
+    }
+
+    func createBlurView(){
+//        blurView.translatesAutoresizingMaskIntoConstraints = false
+//        blurView.backgroundColor = UIColor(red: 28.0/255.0, green: 29.0/255.0, blue: 48.0/255, alpha: 0.8)
+        //        blurView.alpha = 0.8
+//        view.addSubview(blurView)
+//        blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        blurView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        blurView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.8).isActive = true
+//        blurView.isUserInteractionEnabled = true
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(closePopUp))
+//        blurView.addGestureRecognizer(gesture)
+    }
+    
+    
+//    @objc func checkInAppointmentAction(index:Int){
+//            self.activityIndicator(self.view, startAnimate: true)
+//        let params = [
+//            "transid": self.appointments[index].trans_id]
+//        viewModel.createCheckin(params: params as Dictionary<String, Any>)
+//            viewModel.fetchSuccess = { [self] in
+//                self.rolledIndex = index
+//                self.fetchAppointments()
+//                let journey = JourneyDetails(tokenNo: self.appointments[index].token_no, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration")
+//                let key = "JOURNEY" + self.appointments[index].trans_id!
+//                 do {
+//                     let data = try PropertyListEncoder().encode(journey)
+//                     UserDefaults.standard.set(data, forKey: key)
+//                 } catch let error {
+//                     debugPrint(error)
+//                 }
+//
+//
+////                DispatchQueue.main.async {
+////                    self.appointmentsCollectionView.reloadData()
+////                }
+//            }
+//
+//            viewModel.loadingStatus = {
+//                if self.viewModel.isLoading{
+//                    self.activityIndicator(self.view, startAnimate: true)
+////                    self.appointmentActivityIndicator.isHidden = false
+//                }else{
+//                    self.activityIndicator(self.view, startAnimate: false)
+//                    UIApplication.shared.endIgnoringInteractionEvents()
+////                    self.appointmentActivityIndicator.isHidden = true
+//                }
+//            }
+//
+//            viewModel.errorMessageAlert = {
+//                if self.viewModel.errorMessage == ""{
+//
+//                }else{
+//                    self.showAlert(self.viewModel.errorMessage ?? "Error")
+//                }
+//            }
+//        }
     
     /*
     // MARK: - Navigation

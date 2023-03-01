@@ -29,6 +29,7 @@ class SignupExistingRegistrationViewController: UIViewController, DatePickerDele
     }
     override func viewDidAppear(_ animated: Bool) {
         dateofBirthTextield.addRightView(imageName: "calendar")
+        emiratedIdTextfield.delegate = self
         dateofBirthTextield.delegate = self
     }
 
@@ -49,13 +50,16 @@ class SignupExistingRegistrationViewController: UIViewController, DatePickerDele
 
 extension SignupExistingRegistrationViewController:UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        if textField==dateofBirthTextield{
-//            return false
-//        }
+        if textField==dateofBirthTextield{
+            emiratedIdTextfield.resignFirstResponder()
+        }
         return true
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         if textField == dateofBirthTextield{
+            emiratedIdTextfield.resignFirstResponder()
             self.view.endEditing(true)
         let storyboard = UIStoryboard(name: "Main", bundle: .main)
         let popup = storyboard.instantiateViewController(withIdentifier: "DatePickerViewController") as! DatePickerViewController
@@ -65,4 +69,5 @@ extension SignupExistingRegistrationViewController:UITextFieldDelegate{
         present(popup, animated: true, completion: nil)
         }
     }
+    
 }
