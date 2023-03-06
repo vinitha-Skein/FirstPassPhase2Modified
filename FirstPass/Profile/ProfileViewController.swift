@@ -8,7 +8,8 @@
 
 import UIKit
 import RealmSwift
-class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDelegate {
+class ProfileViewController: UIViewController,UITextFieldDelegate,ImagePickerDelegate
+{
     
     @IBOutlet var viewAllButton: UIButton!
     @IBOutlet var mrnIDHeadLabel: UILabel!

@@ -48,6 +48,10 @@ class LoginViewController: UIViewController {
             vipview()
         }
     }
+    @IBAction func ClosePopup(_ sender: Any)
+    {
+        signupOptionView.isHidden = true;
+    }
     func vipview()
     {
         bgView.backgroundColor = UIColor.black

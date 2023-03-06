@@ -2342,17 +2342,14 @@ Dr. Hena Kalam is an Obstetrician and Gynecologist and Gyn Laparoscopic Surgeon 
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uQd-fL-Ido" customClass="Mybutton" customModule="firstpass" customModuleProvider="target">
                                                         <rect key="frame" x="137.5" y="558" width="276.5" height="125"/>
                                                         <subviews>
-                                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hef-8m-311">
-                                                                <rect key="frame" x="0.0" y="-2" width="277" height="128"/>
-                                                                <color key="backgroundColor" red="0.24313725490196078" green="0.43137254901960786" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            </view>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heartwithbg" translatesAutoresizingMaskIntoConstraints="NO" id="E9T-sU-CZc">
-                                                                <rect key="frame" x="0.0" y="0.0" width="120" height="125"/>
-                                                                <color key="backgroundColor" red="0.24313725490196078" green="0.43137254901960786" blue="0.81176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="120" id="QL0-Ef-Eoa"/>
-                                                                </constraints>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_heart" translatesAutoresizingMaskIntoConstraints="NO" id="E9T-sU-CZc">
+                                                                <rect key="frame" x="0.0" y="0.0" width="276.5" height="125"/>
+                                                                <color key="backgroundColor" red="0.24313725490196078" green="0.068154678863732998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </imageView>
+                                                            <view userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hef-8m-311">
+                                                                <rect key="frame" x="0.0" y="-2" width="277" height="128"/>
+                                                                <color key="backgroundColor" red="0.16862745098039217" green="0.44705882352941173" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vitals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzY-Qo-4GO">
                                                                 <rect key="frame" x="20" y="8" width="38" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -2514,8 +2511,9 @@ Dr. Hena Kalam is an Obstetrician and Gynecologist and Gyn Laparoscopic Surgeon 
                                                             <constraint firstItem="NzY-Qo-4GO" firstAttribute="leading" secondItem="uQd-fL-Ido" secondAttribute="leading" constant="20" id="aR2-8S-hcD"/>
                                                             <constraint firstItem="hef-8m-311" firstAttribute="centerY" secondItem="uQd-fL-Ido" secondAttribute="centerY" id="bEj-3P-zl7"/>
                                                             <constraint firstItem="NzY-Qo-4GO" firstAttribute="top" secondItem="uQd-fL-Ido" secondAttribute="top" constant="8" id="iFW-A0-hYJ"/>
-                                                            <constraint firstItem="elY-jI-mOt" firstAttribute="leading" secondItem="E9T-sU-CZc" secondAttribute="trailing" constant="8" id="o5d-Im-mVq"/>
+                                                            <constraint firstItem="elY-jI-mOt" firstAttribute="width" secondItem="uQd-fL-Ido" secondAttribute="width" multiplier="0.537071" id="j9i-Me-VqH"/>
                                                             <constraint firstItem="0pF-CJ-DpN" firstAttribute="trailing" secondItem="WFe-6B-66j" secondAttribute="trailing" id="rJD-Mq-lvB"/>
+                                                            <constraint firstAttribute="trailing" secondItem="E9T-sU-CZc" secondAttribute="trailing" id="srY-4M-QFh"/>
                                                             <constraint firstItem="elY-jI-mOt" firstAttribute="top" secondItem="uQd-fL-Ido" secondAttribute="top" id="tJV-3l-acc"/>
                                                             <constraint firstAttribute="bottom" secondItem="elY-jI-mOt" secondAttribute="bottom" id="v5s-yb-xgY"/>
                                                             <constraint firstItem="0pF-CJ-DpN" firstAttribute="top" secondItem="WFe-6B-66j" secondAttribute="bottom" constant="8" id="yBC-Yl-8YT"/>
@@ -3091,7 +3089,7 @@ Feedback</string>
                                                     <action selector="signupAction:" destination="7BR-aw-hKn" eventType="touchUpInside" id="Tuw-gd-kVX"/>
                                                 </connections>
                                             </button>
-                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-Ch-lgD">
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mS5-Ch-lgD" customClass="Mybutton" customModule="firstpass" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="760"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58u-UU-tqs" customClass="MyUIView" customModule="firstpass" customModuleProvider="target">
@@ -3161,6 +3159,9 @@ Feedback</string>
                                                     <constraint firstAttribute="trailing" secondItem="58u-UU-tqs" secondAttribute="trailing" constant="8" id="ITO-wF-UC6"/>
                                                     <constraint firstAttribute="bottom" secondItem="58u-UU-tqs" secondAttribute="bottom" constant="20" id="f9z-G4-EI5"/>
                                                 </constraints>
+                                                <connections>
+                                                    <action selector="ClosePopup:" destination="7BR-aw-hKn" eventType="touchUpInside" id="QXT-8x-1r6"/>
+                                                </connections>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -10880,12 +10881,6 @@ Cg
         </scene>
     </scenes>
     <designables>
-        <designable name="0pF-CJ-DpN">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="3ge-2d-F1z">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="7Uy-kw-uPd">
             <size key="intrinsicContentSize" width="58" height="32"/>
         </designable>
@@ -10895,38 +10890,11 @@ Cg
         <designable name="DIh-UF-tap">
             <size key="intrinsicContentSize" width="94" height="32"/>
         </designable>
-        <designable name="F6h-sn-B0e">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="Foj-E2-44i">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="QBd-3u-5FD">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="T6w-mK-olY">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="TzZ-fX-cy2">
             <size key="intrinsicContentSize" width="146" height="143.5"/>
         </designable>
-        <designable name="UQa-S0-aFp">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="WNR-pU-iJI">
             <size key="intrinsicContentSize" width="40" height="30"/>
-        </designable>
-        <designable name="Wlo-CW-wSw">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="XUi-RY-hbt">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="ZvQ-bA-q99">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="aTa-qX-aWn">
-            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="ac7-3V-ASI">
             <size key="intrinsicContentSize" width="30" height="32"/>
@@ -10937,12 +10905,6 @@ Cg
         <designable name="bxs-8G-qXz">
             <size key="intrinsicContentSize" width="44" height="30"/>
         </designable>
-        <designable name="d7h-il-tZt">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
-        <designable name="eTe-bF-aTs">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="fdJ-RI-fgj">
             <size key="intrinsicContentSize" width="605" height="323"/>
         </designable>
@@ -10952,23 +10914,14 @@ Cg
         <designable name="k8i-eM-8lp">
             <size key="intrinsicContentSize" width="66" height="31"/>
         </designable>
-        <designable name="lM0-1Z-8sS">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="mqq-xu-f66">
             <size key="intrinsicContentSize" width="80" height="31"/>
         </designable>
         <designable name="nOQ-d8-kty">
             <size key="intrinsicContentSize" width="51" height="30"/>
         </designable>
-        <designable name="o3m-Je-wiD">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="ozw-Aj-uyk">
             <size key="intrinsicContentSize" width="114" height="30"/>
-        </designable>
-        <designable name="uQd-fL-Ido">
-            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="x9Z-cw-I4a">
             <size key="intrinsicContentSize" width="121" height="32"/>
@@ -10987,6 +10940,7 @@ Cg
         <image name="account" width="24.5" height="24"/>
         <image name="account_select" width="24.5" height="24"/>
         <image name="background1" width="279" height="388"/>
+        <image name="bg_heart" width="276" height="125"/>
         <image name="bluecalendar" width="20" height="20"/>
         <image name="bluetimeSquare" width="20" height="20"/>
         <image name="book appointment" width="40" height="40"/>
@@ -11008,7 +10962,6 @@ Cg
         <image name="feedbackdashboard" width="375" height="250"/>
         <image name="filters" width="24" height="24"/>
         <image name="heart" width="16.5" height="15"/>
-        <image name="heartwithbg" width="149" height="107"/>
         <image name="iconly-light-arrow-left-square" width="24" height="24"/>
         <image name="iconlyCurvedCamera" width="16" height="16"/>
         <image name="iconlyCurvedCloseSquare" width="24" height="24"/>
@@ -11033,7 +10986,7 @@ Cg
         <image name="tab2" width="22" height="22"/>
         <image name="tab3" width="20" height="20"/>
         <image name="teleReport" width="40" height="40"/>
-        <image name="time" width="24" height="24"/>
+        <image name="time" width="12" height="12"/>
         <image name="tokenBg-1" width="146" height="143.5"/>
         <image name="tokennew" width="183" height="172"/>
         <image name="view" width="24" height="24"/>
