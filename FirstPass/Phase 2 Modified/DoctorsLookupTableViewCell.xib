@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -47,22 +47,34 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGL-yv-Ch9">
-                                <rect key="frame" x="316" y="81" width="18" height="22"/>
-                                <state key="normal" image="bi_chat-left-text"/>
+                                <rect key="frame" x="304" y="73" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AhV-Z3-H1a"/>
+                                    <constraint firstAttribute="width" constant="50" id="QXK-5J-MYq"/>
+                                </constraints>
+                                <state key="normal" image="ShareDoctor"/>
                                 <connections>
                                     <action selector="message_Clicked:" destination="tlo-Bg-9Oc" eventType="touchUpInside" id="sTO-kt-utk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bx8-6e-3PG">
-                                <rect key="frame" x="272" y="81" width="18" height="22"/>
-                                <state key="normal" image="bi_camera-video"/>
+                                <rect key="frame" x="234" y="73" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="OQw-bm-Enw"/>
+                                    <constraint firstAttribute="width" constant="50" id="fwE-4z-YGp"/>
+                                </constraints>
+                                <state key="normal" image="VideoCallDoctor"/>
                                 <connections>
                                     <action selector="videoCall_Clicked:" destination="tlo-Bg-9Oc" eventType="touchUpInside" id="JZy-MY-ZdO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwy-HC-A2e">
-                                <rect key="frame" x="295" y="81" width="16" height="22"/>
-                                <state key="normal" image="carbon_phone-voice"/>
+                                <rect key="frame" x="269" y="73" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tgv-9o-ShE"/>
+                                    <constraint firstAttribute="width" constant="50" id="xER-a1-9Lg"/>
+                                </constraints>
+                                <state key="normal" image="callDoctor"/>
                                 <connections>
                                     <action selector="call_Clicked:" destination="tlo-Bg-9Oc" eventType="touchUpInside" id="xJQ-cp-BhS"/>
                                 </connections>
@@ -70,18 +82,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="aGL-yv-Ch9" firstAttribute="leading" secondItem="gwy-HC-A2e" secondAttribute="trailing" constant="5" id="4UK-CY-uL9"/>
+                            <constraint firstItem="aGL-yv-Ch9" firstAttribute="leading" secondItem="gwy-HC-A2e" secondAttribute="trailing" constant="-15" id="4UK-CY-uL9"/>
                             <constraint firstItem="7Bu-5t-2q0" firstAttribute="top" secondItem="v75-4L-QXG" secondAttribute="top" constant="16" id="DPo-PX-Ju7"/>
                             <constraint firstItem="7Bu-5t-2q0" firstAttribute="leading" secondItem="7HC-lM-dWR" secondAttribute="trailing" constant="16" id="K6p-8T-28r"/>
-                            <constraint firstAttribute="bottom" secondItem="aGL-yv-Ch9" secondAttribute="bottom" constant="20" id="NYP-nk-4Yf"/>
-                            <constraint firstAttribute="trailing" secondItem="aGL-yv-Ch9" secondAttribute="trailing" constant="20" id="Qcq-4C-UqP"/>
+                            <constraint firstAttribute="bottom" secondItem="aGL-yv-Ch9" secondAttribute="bottom" id="NYP-nk-4Yf"/>
+                            <constraint firstAttribute="trailing" secondItem="aGL-yv-Ch9" secondAttribute="trailing" id="Qcq-4C-UqP"/>
                             <constraint firstItem="7HC-lM-dWR" firstAttribute="top" secondItem="v75-4L-QXG" secondAttribute="top" constant="16" id="RGV-QV-1hI"/>
                             <constraint firstItem="7HC-lM-dWR" firstAttribute="leading" secondItem="v75-4L-QXG" secondAttribute="leading" constant="16" id="YAi-li-vCp"/>
                             <constraint firstItem="Dcg-hi-uu4" firstAttribute="leading" secondItem="7Bu-5t-2q0" secondAttribute="leading" id="hBU-1M-Scq"/>
                             <constraint firstItem="gwy-HC-A2e" firstAttribute="centerY" secondItem="aGL-yv-Ch9" secondAttribute="centerY" id="hpD-VA-yeB"/>
                             <constraint firstItem="Dcg-hi-uu4" firstAttribute="top" secondItem="7Bu-5t-2q0" secondAttribute="bottom" constant="5" id="hvM-XI-dEU"/>
                             <constraint firstItem="Bx8-6e-3PG" firstAttribute="centerY" secondItem="aGL-yv-Ch9" secondAttribute="centerY" id="lmG-CS-Vmc"/>
-                            <constraint firstItem="gwy-HC-A2e" firstAttribute="leading" secondItem="Bx8-6e-3PG" secondAttribute="trailing" constant="5" id="sdO-4o-2zE"/>
+                            <constraint firstItem="gwy-HC-A2e" firstAttribute="leading" secondItem="Bx8-6e-3PG" secondAttribute="trailing" constant="-15" id="sdO-4o-2zE"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -105,9 +117,9 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bi_camera-video" width="18" height="17"/>
-        <image name="bi_chat-left-text" width="18" height="17"/>
-        <image name="carbon_phone-voice" width="16" height="16"/>
+        <image name="ShareDoctor" width="43" height="43"/>
+        <image name="VideoCallDoctor" width="43" height="43"/>
+        <image name="callDoctor" width="43" height="43"/>
         <image name="person" width="225" height="225"/>
     </resources>
 </document>

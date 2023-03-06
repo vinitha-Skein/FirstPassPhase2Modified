@@ -25,7 +25,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var signinButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
-    @IBOutlet weak var containerScrollview: UIScrollView!
     @IBOutlet weak var usernameView: UIView!
     @IBOutlet weak var passwordView: UIView!
     @IBOutlet weak var passwordiconButton: UIButton!
@@ -221,7 +220,6 @@ extension LoginViewController{
            mobileTextfield.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
            passwordTextfield.createBorderForTextfield(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
            signinButton.createBorderForButton(cornerRadius: 8, borderWidth: 0, borderColor: .clear)
-            containerScrollview.layer.cornerRadius = 20
         fieldContainer.layer.cornerRadius = 20
         fieldContainer.layer.borderColor = UIColor.gray.cgColor
         fieldContainer.layer.borderWidth = 0.4

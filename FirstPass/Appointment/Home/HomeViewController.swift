@@ -499,26 +499,27 @@ class HomeViewController: UIViewController,ScanFinishedDelegate {
     }
     
     
-    @IBAction func confirmButtonPressed(_ sender: Any) {
-        print("checcckk \(checkInPopTag)");
-        if (appointments.count != 0){
-        self.checkInAppointmentAction(index: checkInPopTag)
-        } else {
-            self.rolledIndex = checkInPopTag
-            dummyAppointments[checkInPopTag].appt_status = "CHECKIN"
-            dummyAppointments[checkInPopTag].token_no = "CROO\(checkInPopTag+1)"
-            let journey = JourneyDetails(tokenNo: "CROO\(checkInPopTag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
-            let key = "JOURNEY" + dummyAppointments[checkInPopTag].trans_id!
-            do {
-                let data = try PropertyListEncoder().encode(journey)
-                UserDefaults.standard.set(data, forKey: key)
-            } catch let error {
-                debugPrint(error)
-            }
-            
-            self.appointmentsCollectionView.reloadData()
-        }
-        NotificationPressed()
+    @IBAction func confirmButtonPressed(_ sender: Any)
+    {
+//        print("checcckk \(checkInPopTag)");
+//        if (appointments.count != 0){
+//        self.checkInAppointmentAction(index: checkInPopTag)
+//        } else {
+//            self.rolledIndex = checkInPopTag
+//            dummyAppointments[checkInPopTag].appt_status = "CHECKIN"
+//            dummyAppointments[checkInPopTag].token_no = "CROO\(checkInPopTag+1)"
+//            let journey = JourneyDetails(tokenNo: "CROO\(checkInPopTag+1)", currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: "Registration", appointmentStatus: "CHECKIN")
+//            let key = "JOURNEY" + dummyAppointments[checkInPopTag].trans_id!
+//            do {
+//                let data = try PropertyListEncoder().encode(journey)
+//                UserDefaults.standard.set(data, forKey: key)
+//            } catch let error {
+//                debugPrint(error)
+//            }
+//
+//            self.appointmentsCollectionView.reloadData()
+//        }
+//        NotificationPressed()
         ConfirmCheckinView.isHidden = true
     }
     

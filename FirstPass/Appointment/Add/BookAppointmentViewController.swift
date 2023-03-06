@@ -48,7 +48,6 @@ class BookAppointmentViewController: UIViewController
     @IBOutlet weak var serviceView: UIView!
     @IBOutlet weak var doctorView: UIView!
     @IBOutlet weak var timeView: UIView!
-    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var deptView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     var selectedField:PopUpFor?
@@ -616,7 +615,6 @@ var isfrom = ""
     
     func setupUI(){
         container.createBorderForView(cornerRadius: 30, borderWidth: 0, borderColor: .clear)
-        scrollView.layer.cornerRadius = 30
         mainContainer.layer.cornerRadius = 30
         container.clipsToBounds = true
         container.layer.borderWidth = 0.4

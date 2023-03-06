@@ -24,7 +24,8 @@ class SignupExistingRegistrationViewController: UIViewController, DatePickerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        emiratedIdTextfield.text = "784-1979-5677662-2"
+        dateofBirthTextield.text = "1995-07-08"
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {

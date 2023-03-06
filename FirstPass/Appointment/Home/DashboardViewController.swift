@@ -155,7 +155,9 @@ class DashboardViewController: UIViewController,ScanFinishedDelegate {
 
     }
     
-    @IBAction func vitalsPressed(_ sender: Any) {
+    @IBAction func vitalsPressed(_ sender: Any)
+    {
+        print("cjheckkkk");
         let storyboard = UIStoryboard(name: "phase2", bundle: .main)
         let vc = storyboard.instantiateViewController(withIdentifier: "VitalsGraphViewController") as! VitalsGraphViewController
         vc.modalPresentationStyle = .fullScreen

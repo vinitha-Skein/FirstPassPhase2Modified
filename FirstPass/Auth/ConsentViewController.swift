@@ -10,7 +10,7 @@ import UIKit
 import PDFKit
 
 class ConsentViewController: UIViewController {
-    @IBOutlet weak var PdfMasterView: UIView!
+   // @IBOutlet weak var PdfMasterView: UIView!
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var agreeButton: UIButton!
 
@@ -18,24 +18,24 @@ class ConsentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let pdfView = PDFView()
-
-        pdfView.translatesAutoresizingMaskIntoConstraints = false
-        PdfMasterView.addSubview(pdfView)
-
-        pdfView.leadingAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        pdfView.trailingAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        pdfView.topAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.topAnchor).isActive = true
-        pdfView.bottomAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-        guard let path = Bundle.main.url(forResource: "consent", withExtension: "pdf") else { return }
-
-        if let document = PDFDocument(url: path) {
-            pdfView.displayMode = .singlePageContinuous
-                            pdfView.autoScales = true
-                            pdfView.displayDirection = .vertical
-            pdfView.document = document
-        }
+//        let pdfView = PDFView()
+//
+//        pdfView.translatesAutoresizingMaskIntoConstraints = false
+//        PdfMasterView.addSubview(pdfView)
+//
+//        pdfView.leadingAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.leadingAnchor).isActive = true
+//        pdfView.trailingAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.trailingAnchor).isActive = true
+//        pdfView.topAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.topAnchor).isActive = true
+//        pdfView.bottomAnchor.constraint(equalTo: PdfMasterView.safeAreaLayoutGuide.bottomAnchor).isActive = true
+//
+//        guard let path = Bundle.main.url(forResource: "consent", withExtension: "pdf") else { return }
+//
+//        if let document = PDFDocument(url: path) {
+//            pdfView.displayMode = .singlePageContinuous
+//                            pdfView.autoScales = true
+//                            pdfView.displayDirection = .vertical
+//            pdfView.document = document
+//        }
         rejectButton.layer.cornerRadius = 5
         agreeButton.layer.cornerRadius = 5
 
@@ -45,6 +45,10 @@ class ConsentViewController: UIViewController {
     @IBAction func rejectClicked(_ sender: Any)
     {
         presentingViewController?.dismiss(animated: true)
+    }
+    @IBAction func backClicked(_ sender: Any)
+    {
+        self.dismiss(animated: true);
     }
     
     @IBAction func agreeClicked(_ sender: Any)
