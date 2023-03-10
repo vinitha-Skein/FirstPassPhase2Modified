@@ -53,11 +53,12 @@ class RegistrationViewController: UIViewController
         // Do any additional setup after loading the view.
     }
     func fillValues() {
-        firstName.text = "Harish"
-        email.text = "harish@gmail.com"
+        firstName.text = "John Peter"
+        email.text = "johnpeter@gmail.com"
         emiratesID.text = "98356767"
         mrnIDTextFeild.text = "23445543"
-        mobile.text = "9836764787"
+        mobile.text = "6764787"
+        mobile.setFlag(key: .AE)
     }
     
     override func viewDidAppear(_ animated: Bool) {

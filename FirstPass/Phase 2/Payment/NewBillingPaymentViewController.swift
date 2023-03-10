@@ -8,7 +8,8 @@
 
 import UIKit
 
-class NewBillingPaymentViewController: UIViewController {
+class NewBillingPaymentViewController: UIViewController
+{
 
     @IBOutlet weak var confirmationView: UIView!
     
@@ -33,7 +34,7 @@ class NewBillingPaymentViewController: UIViewController {
     }
     
     @IBAction func paymentCancelPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+       // self.dismiss(animated: true)
         confirmationView.isHidden = true
     }
     

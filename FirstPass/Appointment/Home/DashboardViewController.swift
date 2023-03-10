@@ -282,6 +282,14 @@ extension DashboardViewController:UICollectionViewDelegate,UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menus.count
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        let storyboard = UIStoryboard(name: "Modified", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "SpecialOffersViewController") as! SpecialOffersViewController
+        vc.modalPresentationStyle = .fullScreen
+
+        present(vc, animated: true, completion: nil)
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dashboardimagesCVC",for: indexPath) as? dashboardimagesCVC {
             cell.imageViewDashboard.image = UIImage(named: "\(menus[indexPath.row])")

@@ -9,7 +9,8 @@
 import UIKit
 import AVFoundation
 
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate  {
+class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate
+{
     @IBOutlet weak var box: UIImageView!
     @IBOutlet weak var container: UIView!
     @IBOutlet weak var bottomHiderView: UIView!
@@ -20,10 +21,10 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     var delegate:ScanFinishedDelegate?
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         setupUI()
-        
         
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
@@ -91,6 +92,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 //          vc.modalPresentationStyle = .fullScreen
 //        self.present(vc, animated: true, completion: nil)
     }
+    
     func failed() {
         let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
@@ -130,7 +132,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         print(code)
         
         appointmentID.text = code
-        delegate?.scanFinished(code: code)
+       // delegate?.scanFinished(code: code)
     }
     
     override var prefersStatusBarHidden: Bool {

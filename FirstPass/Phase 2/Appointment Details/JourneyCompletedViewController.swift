@@ -19,6 +19,12 @@ class JourneyCompletedViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func backClicked(_ sender: Any)
+    {
+        self.dismiss(animated: true);
+    }
+    
     @IBAction func doneButtonPressed(_ sender: Any) {
         updateJourney(Status: "Finish Token")
         let storyboard = UIStoryboard(name: "Modified", bundle: nil)
@@ -37,7 +43,8 @@ class JourneyCompletedViewController: UIViewController {
     }
     */
 
-    func  updateJourney(Status:String){
+    func  updateJourney(Status:String)
+    {
         let journey = JourneyDetails(tokenNo: journeyDetails?.tokenNo, currentStatus: "1", CompletedStatus: [], currentJourneyUpdate: Status,appointmentStatus: "FLOTING")
         let key = "JOURNEY" + (appointmentData?.trans_id)!
         do {

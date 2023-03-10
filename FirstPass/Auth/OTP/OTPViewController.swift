@@ -62,12 +62,12 @@ class OTPViewController: UIViewController,UITextFieldDelegate
     }
     func fillValues()
     {
-        otp1.text = "1"
-        otp2.text = "1"
-        otp3.text = "1"
-        otp4.text = "1"
-        otp5.text = "1"
-        otp6.text = "1"
+        otp1.text = "3"
+        otp2.text = "2"
+        otp3.text = "6"
+        otp4.text = "8"
+        otp5.text = "5"
+        otp6.text = "9"
     }
     func vipview()
     {
