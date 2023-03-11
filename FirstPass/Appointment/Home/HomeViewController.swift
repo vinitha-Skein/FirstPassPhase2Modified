@@ -842,7 +842,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
                 }
                 self.appointmentsCollectionView.reloadData()
             }
-           NotificationPressed()
+         //  NotificationPressed()
            // ConfirmCheckinView.isHidden = true
            // ConfirmCheckinView.isHidden = false
             
