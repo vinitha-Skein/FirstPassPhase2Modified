@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -4333,8 +4333,8 @@ Would you like to</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Lf-3x-yqP">
-                                                        <rect key="frame" x="248" y="7" width="150" height="30"/>
-                                                        <state key="normal" title="Upcomming Activities"/>
+                                                        <rect key="frame" x="261" y="7" width="137" height="30"/>
+                                                        <state key="normal" title="Upcoming Activities"/>
                                                         <connections>
                                                             <action selector="upcommingActivitiesPressed:" destination="cXh-3z-Fcs" eventType="touchUpInside" id="rFd-KX-wo7"/>
                                                         </connections>
@@ -4605,8 +4605,8 @@ Would you like to</string>
                                             <action selector="backButtonPressed:" destination="itZ-JB-NVs" eventType="touchUpInside" id="8FP-hV-FOg"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcomming Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWz-A8-HbM">
-                                        <rect key="frame" x="62" y="16" width="166.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upcoming Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWz-A8-HbM">
+                                        <rect key="frame" x="62" y="16" width="152" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -6313,9 +6313,6 @@ Would you like to</string>
         <designable name="VzH-Rl-Ha9">
             <size key="intrinsicContentSize" width="93" height="34.5"/>
         </designable>
-        <designable name="Wy0-if-12K">
-            <size key="intrinsicContentSize" width="30" height="34"/>
-        </designable>
         <designable name="dDh-aq-Hmo">
             <size key="intrinsicContentSize" width="77" height="32"/>
         </designable>
@@ -6333,9 +6330,6 @@ Would you like to</string>
         </designable>
         <designable name="mYH-If-ImD">
             <size key="intrinsicContentSize" width="34" height="30"/>
-        </designable>
-        <designable name="nzv-wq-LB4">
-            <size key="intrinsicContentSize" width="30" height="34"/>
         </designable>
         <designable name="t8q-NR-cu4">
             <size key="intrinsicContentSize" width="32" height="30"/>
