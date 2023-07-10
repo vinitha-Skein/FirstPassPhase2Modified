@@ -13,21 +13,21 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.vectramind.firstpass</string>
+	<string>com.vectramind.firstpassapp</string>
 	<key>PROJECT_ID</key>
 	<string>first-pass-f3842</string>
 	<key>STORAGE_BUCKET</key>
 	<string>first-pass-f3842.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:414548170854:ios:b5c3019b39c59b4e9d75a7</string>
 	<key>DATABASE_URL</key>

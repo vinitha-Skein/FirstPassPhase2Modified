@@ -1731,7 +1731,7 @@
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassapp.watchkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1755,7 +1755,7 @@
 				DEVELOPMENT_TEAM = SDX3Y5X346;
 				IBSC_MODULE = Firstpass_watchOS_Extension;
 				INFOPLIST_FILE = "Firstpass-watchOS/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassapp.watchkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1782,7 +1782,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassapp.watchkit.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1809,7 +1809,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass.watchkit.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassapp.watchkit.extension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
@@ -1951,7 +1951,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassapp;
 				PRODUCT_NAME = firstpass;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -1977,7 +1977,7 @@
 					"@executable_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpass;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vectramind.firstpassapp;
 				PRODUCT_NAME = firstpass;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
